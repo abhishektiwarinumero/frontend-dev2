@@ -16,17 +16,17 @@
 			</v-row>
 		</v-container>
 		<services-circle />
-		<features :features="features" />
+		<features />
 		<customer-voice />
 		<how-to-buy />
-		<WhyUs :priorities="priorities" />
-		<Blogs :firstArticle="firstArticle" :articlesCount="articlesCount" />
+		<WhyUs />
+		<!-- <Blogs :firstArticle="firstArticle" :articlesCount="articlesCount" /> -->
 	</v-layout>
 </template>
 
 <script>
 import WhyUs from "~/components/WhyUs.vue";
-import Blogs from "~/components/Blogs.vue";
+// import Blogs from "~/components/Blogs.vue";
 import Features from "~/components/Features.vue";
 import HowToBuy from "~/components/HowToBuy.vue";
 import CustomerVoice from "~/components/CustomerVoice.vue";
@@ -36,24 +36,15 @@ export default {
 	async asyncData({ $axios, $sentry }) {
 		try {
 			const [
-				services,
-				features,
-				priorities,
-				firstArticle,
-				articlesCount
+				// firstArticle,
+				// articlesCount
 			] = await Promise.all([
-				$axios.$get("/services"),
-				$axios.$get("/features"),
-				$axios.$get("/priorities"),
-				$axios.$get("/blog/first"),
-				$axios.$get("/blog/count")
+				// $axios.$get("/blog/first"),
+				// $axios.$get("/blog/count")
 			]);
 			return {
-				services,
-				features,
-				priorities,
-				firstArticle,
-				articlesCount
+				// firstArticle,
+				// articlesCount
 			};
 		} catch (error) {
 			$sentry.captureException(error);
@@ -61,14 +52,10 @@ export default {
 	},
 	components: {
 		ServicesCircle,
-		Features,
 		CustomerVoice,
 		HowToBuy,
-		WhyUs,
-		Blogs
-	},
-	created() {
-		this.$store.commit("services/populate", this.services);
+		WhyUs
+		// Blogs
 	}
 };
 </script>

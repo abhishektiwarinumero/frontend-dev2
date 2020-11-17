@@ -30,7 +30,7 @@
 								hover
 							>
 								<v-row>
-									<img :src="'/'+service.image" :alt="service.name" />
+									<img :src="`/${service.image}`" :alt="service.name" />
 									<v-card-text>
 										<p class="font-weight-bold caption text-center">{{ service.name }}</p>
 									</v-card-text>
@@ -63,14 +63,6 @@ export default {
 			set() {
 				return this.service.id + 2;
 			}
-		}
-	},
-	mounted() {
-		// If there are no services in the store, ex: user entered page directly
-		if (_.isEmpty(this.services)) {
-			this.$axios.$get("/services").then(data => {
-				this.$store.commit("services/populate", data);
-			});
 		}
 	}
 };

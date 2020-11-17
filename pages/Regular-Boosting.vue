@@ -36,31 +36,23 @@ export default {
 	data() {
 		return {
 			slug: "",
-			service: {}
+			service: {
+				id: 1,
+				kind_id: 1,
+				name: "Regular Boosting",
+				image: "img/circles/12.png",
+				description:
+					"Regular Boosting allows our customers to buy the desired number of ranked wins. All you have to do is choose how many ranked wins you would like to have on.",
+				subtitle:
+					"Regular Boosting makes it possible to buy a guaranteed number of wins of your choice. We created regular boosting to be fast and easy, providing an efficient but high-quality service.",
+				status: "Popular",
+				slug: "regular-boosting",
+				bg_img: "/img/services/regular-boosting-top-bg.png",
+				deleted_at: null,
+				created_at: "2020-11-17 19:32:07",
+				updated_at: "2020-11-17 19:32:07"
+			}
 		};
-	},
-	methods: {
-		slideChange(e) {
-			this.slug = "/" + e;
-			this.getService();
-		},
-		getService() {
-			this.$axios
-				.get(`/services${this.slug}`) // this.slug already contains leading /
-				.then(response => {
-					this.service = response.data;
-				})
-				.catch(error => {
-					this.$store.commit("notification/open", {
-						text: this.$i18n.t("Something went wrong"),
-						mode: "error"
-					});
-				});
-		}
-	},
-	mounted() {
-		this.slug = this.$route.path;
-		this.getService();
 	}
 };
 </script>
