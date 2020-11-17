@@ -2,7 +2,7 @@
 	"name": "king-boosting",
 	"version": "1.0.0",
 	"description": "ELO Boosting Site",
-	"author": "CaddyDz",
+	"author": "Sitando",
 	"private": true,
 	"scripts": {
 		"dev": "nuxt",
