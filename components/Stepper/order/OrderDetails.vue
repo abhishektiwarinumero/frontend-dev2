@@ -81,10 +81,10 @@ export default {
 					this.boostersLoading = false;
 				})
 				.catch(err => {
-					$notify(
-						this.$i18n.t("Failed to get list of boosters"),
-						"error"
-					);
+					this.$store.commit("notification/open", {
+						text: "Failed to get list of boosters",
+						mode: "error"
+					});
 				});
 		},
 		nextStep() {
@@ -96,7 +96,7 @@ export default {
 		}
 	},
 	mounted() {
-		this.getBoostersList();
+		// this.getBoostersList();
 	}
 };
 </script>

@@ -339,8 +339,8 @@ export default {
 		}
 	},
 	mounted() {
-		this.getTiers();
-		this.$axios.$get("/servers").then(servers => (this.servers = servers));
+		// this.getTiers();
+		// this.$axios.$get("/servers").then(servers => (this.servers = servers));
 	}
 };
 </script>

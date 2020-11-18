@@ -92,29 +92,11 @@ export default {
 	],
 	auth: {
 		strategies: {
-			local: {
-				endpoints: {
-					login: {
-						url: "/api/login",
-						method: "post",
-						propertyName: "token"
-					},
-					logout: {
-						url: "/api/logout",
-						method: "post"
-					},
-					user: {
-						url: "/api/user",
-						method: "get",
-						propertyName: "user"
-					}
-				}
-				// tokenRequired: true,
-				// tokenType: 'bearer',
-				// globalToken: true,
-				// autoFetchUser: true
+			laravelSanctum: {
+				provider: 'laravel/sanctum',
+				url: 'https://staging-api.kingboosting.com'
 			}
-		}
+		},
 		// Options
 	},
 	i18n: {

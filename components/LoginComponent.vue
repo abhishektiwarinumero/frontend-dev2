@@ -34,6 +34,9 @@ export default {
 			auth: false,
 			dialog: false
 		};
+	},
+	mounted() {
+		this.auth = this.$store.getters.isLoggedIn;
 	}
 };
 </script>

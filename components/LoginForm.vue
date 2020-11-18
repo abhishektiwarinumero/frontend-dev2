@@ -1,5 +1,5 @@
 <template>
-	<v-form v-model="valid" ref="form" @submit="userLogin">
+	<v-form v-model="valid" ref="form" @submit.prevent="userLogin">
 		<v-layout column>
 			<v-flex>
 				<v-text-field
@@ -28,7 +28,6 @@
 						color="#673AB7"
 						small
 						:disabled="!valid"
-						@click="login"
 						type="submit"
 					>{{ $t('Continue') }}</v-btn>
 					<v-btn text small @click="cancel">{{ $t('Cancel') }}</v-btn>
@@ -63,34 +62,20 @@ export default {
 	methods: {
 		async userLogin() {
 			try {
-				let response = await this.$auth.loginWith("local", {
+				const { data } = await this.$auth.loginWith("laravelSanctum", {
 					data: this.login
 				});
-				console.log(response);
-			} catch (err) {
-				console.log(err);
-			}
-			this.$axios
-				.$post("/login", {
-					email: this.email,
-					password: this.password
-				})
-				.then(response => {
-					this.$store.commit("auth/login", {
-						token: response.success.access_token
-					});
-					this.$store.commit("notification/open", {
-						text: "Logged In",
-						mode: "success"
-					});
-					this.close();
-				})
-				.catch(errors => {
-					this.$store.commit("notification/open", {
-						text: errors.response.data.email,
-						mode: "error"
-					});
+				this.$store.commit("notification/open", {
+					text: "Logged In",
+					mode: "success"
 				});
+				this.close();
+			} catch (errors) {
+				this.$store.commit("notification/open", {
+					text: errors,
+					mode: "error"
+				});
+			}
 		},
 		requestPasswordReset() {
 			if (!this.email) {
@@ -132,12 +117,10 @@ export default {
 			this.$emit("close");
 		},
 		cancel() {
-			this.$emit("cancel");
+			this.$emit("close");
 		}
 	},
-	mounted() {
-		this.auth = this.$store.getters.isLoggedIn;
-	}
+
 };
 </script>
 

@@ -96,11 +96,7 @@ export default {
 		}
 	},
 	mounted() {
-		// if already logged in, jump to next step
-		if (this.$store.state.authentication.isLoggedIn) {
-			this.currentStep = 2;
-		}
-		this.getBoostersList();
+		// this.getBoostersList();
 	}
 };
 </script>
