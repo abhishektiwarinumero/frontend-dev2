@@ -4,14 +4,25 @@
 			<div class="title-id">
 				<h2>2</h2>
 			</div>
-			<h2 class="title-txt">{{ $t('Select Your Number Of Wins') }}</h2>
+			<h2 class="title-txt">Select Your Number Of Wins</h2>
 		</div>
 		<v-card raised class="mb-4">
 			<v-container class="container">
-				<v-slider v-model="winsCounter" thumb-label="always" min="1" :max="max"></v-slider>
-				<v-radio-group class="radio-group" v-model="mode" dark mandatory row>
-					<v-radio :label="$t('Solo/Duo')" value="Solo/Duo"></v-radio>
-					<v-radio :label="$t('Flex 5v5')" value="Flex"></v-radio>
+				<v-slider
+					v-model="winsCounter"
+					thumb-label="always"
+					min="1"
+					:max="max"
+				></v-slider>
+				<v-radio-group
+					class="radio-group"
+					v-model="mode"
+					dark
+					mandatory
+					row
+				>
+					<v-radio label="Solo/Duo" value="Solo/Duo"></v-radio>
+					<v-radio label="Flex 5v5" value="Flex"></v-radio>
 				</v-radio-group>
 			</v-container>
 		</v-card>
@@ -23,7 +34,7 @@ export default {
 	data() {
 		return {
 			winsCounter: 4,
-			mode: "Solo/Duo"
+			mode: "Solo/Duo",
 		};
 	},
 	computed: {
@@ -32,7 +43,7 @@ export default {
 		},
 		tier() {
 			return this.$store.state.league.tier;
-		}
+		},
 	},
 	watch: {
 		winsCounter(value) {
@@ -42,8 +53,8 @@ export default {
 		},
 		mode(value) {
 			this.$store.commit("league/changeGameMode", value);
-		}
-	}
+		},
+	},
 };
 </script>
 
@@ -84,13 +95,3 @@ export default {
 	justify-content: center;
 }
 </style>
-
-<i18n>
-{
-	"en": {
-		"Flex 5v5": "Flex 5v5",
-		"Solo/Duo": "Solo/Duo",
-		"Select Your Number Of Wins": "Select Your Number Of Wins"
-	}
-}
-</i18n>
