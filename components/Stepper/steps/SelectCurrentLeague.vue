@@ -279,13 +279,24 @@ export default {
 				}
 			],
 			tier: { wins: [] }, // Currently selected tier, wins is an empty array because it's used in template
-			selectedTierID: 3, // Silver
+			selectedTierID: 0, // Better have it in mounted, so it triggers the change logic
 			divisions: [],
-			selectedDivisionID: 12, // Silver I
+			selectedDivisionID: 0,
 			division: {}, // Currently selected division
 			hasDivisions: true,
 			selectedServerID: 2,
-			servers: []
+			servers: [
+				{ id:1, region: "North America" },
+				{ id: 2, region: "EU-West" },
+				{ id: 3, region: "EU-Nordic & East" },
+				{ id: 4, region: "Turkey" },
+				{ id: 5, region: "Russia" },
+				{ id: 6, region: "Brazil" },
+				{ id: 7, region: "Latin America North" },
+				{ id: 8, region: "Latin America South" },
+				{ id: 9, region: "Oceania" },
+				{ id: 10, region: "PBE" }
+			]
 		};
 	},
 	watch: {
@@ -293,8 +304,9 @@ export default {
 			this.tier = _.find(this.tiers, ["id", tierId]);
 			this.$store.commit("league/changeTier", this.tier);
 			// Get max num of wins and commit it to store
-			let max = _.maxBy(this.tier.wins, "wins").wins;
-			this.$store.commit("wins/changeMaxNumberOfWins", max);
+			//let max = _.maxBy(this.tier.wins, "wins").wins;
+			console.log(this.tiers.wins);
+			//this.$store.commit("wins/changeMaxNumberOfWins", max);
 			if (!_.isEmpty(this.tier.divisions)) {
 				// Divisions not empty, therefor less than master
 				this.hasDivisions = true;
@@ -339,6 +351,8 @@ export default {
 		}
 	},
 	mounted() {
+		this.selectedTierID = 3; // Silver
+		this.selectedDivisionID = 12; // Silver IV
 		// this.getTiers();
 		// this.$axios.$get("/servers").then(servers => (this.servers = servers));
 	}

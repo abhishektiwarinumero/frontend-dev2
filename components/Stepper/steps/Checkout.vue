@@ -68,7 +68,9 @@ export default {
 	},
 	computed: {
 		eta() {
-			return this.$store.getters["league/eta"];
+			const wins = this.$store.state.league.wins;
+			const days = parseInt(wins / 2);
+			return `${days} - ${days + 1} Days`;
 		}
 	},
 	watch: {
@@ -89,6 +91,9 @@ export default {
 				);
 			}
 		}
+	},
+	mounted() {
+		this.$store.commit('league/clearOptions');
 	}
 };
 </script>

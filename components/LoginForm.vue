@@ -70,11 +70,13 @@ export default {
 					mode: "success"
 				});
 				this.close();
+				console.log(data);
 			} catch (errors) {
 				this.$store.commit("notification/open", {
 					text: errors,
 					mode: "error"
 				});
+				console.log(errors);
 			}
 		},
 		requestPasswordReset() {

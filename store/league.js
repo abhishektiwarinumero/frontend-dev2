@@ -40,7 +40,11 @@ export const mutations = {
   },
   removeOption(state, payload) {
     state.options = _.remove(state.options, (option) => option != payload);
-  },
+	},
+	clearOptions(state) {
+		state.options = [];
+		state.percent = 0;
+	},
   changeDiscountCode(state, payload) {
     state.discountCode = payload;
   },
@@ -68,12 +72,9 @@ export const mutations = {
 }
 
 export const getters = {
-  eta(state) {
-    return _.find(state.tier.wins, [
-      "wins",
-      state.wins
-    ]).eta;
-  },
+	eta(state) {
+		return parseInt(state.wins / 2,10); // assuming two wins a day
+	},
   price(state) {
     let price = state.basePrice * state.wins;
     price += (price * state.percent) / 100;

@@ -58,7 +58,10 @@ export default {
 	data() {
 		return {
 			valid: false,
-			boosters: [],
+			boosters: [
+				"Booster 1",
+				"Booster 2"
+			],
 			boostersLoading: true,
 			booster: "",
 			comment: "",

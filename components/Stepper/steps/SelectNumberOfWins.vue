@@ -37,8 +37,8 @@ export default {
 	watch: {
 		winsCounter(value) {
 			this.$store.commit("league/changeNumberOfWins", value);
-			let eta = _.find(this.tier.wins, ["wins", value]).eta;
-			this.$store.commit("checkout/changeETA", eta);
+			// const eta = this.$store.getters.eta;
+			// this.$store.commit("checkout/changeETA", eta);
 		},
 		mode(value) {
 			this.$store.commit("league/changeGameMode", value);
