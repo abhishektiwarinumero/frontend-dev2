@@ -10,8 +10,15 @@
 			<v-container class="container">
 				<v-row>
 					<v-col class="left-col">
-						<div class="align-center-to-left" v-for="checkbox in checkboxes" :key="checkbox.id">
-							<v-checkbox v-model="checkbox.checked" @change="checkOption(checkbox)"></v-checkbox>
+						<div
+							class="align-center-to-left"
+							v-for="checkbox in checkboxes"
+							:key="checkbox.id"
+						>
+							<v-checkbox
+								v-model="checkbox.checked"
+								@change="checkOption(checkbox)"
+							></v-checkbox>
 							<v-icon color="#673ab7">{{ checkbox.icon }}</v-icon>
 							<p>{{ checkbox.title }}</p>
 						</div>
@@ -47,54 +54,54 @@ export default {
 					checked: false,
 					icon: "mdi-account-supervisor",
 					title: "Specific champions at +20% cost",
-					percentage: 20
+					percentage: 20,
 				},
 				{
 					id: 1,
 					checked: false,
 					icon: "mdi-flash",
 					title: "Priority order (2x speed) at +25% cost",
-					percentage: 25
+					percentage: 25,
 				},
 				{
 					id: 2,
 					checked: false,
 					icon: "mdi-camcorder",
 					title: "With Streaming +15% cost",
-					percentage: 15
-				}
-			]
+					percentage: 15,
+				},
+			],
 		};
 	},
 	computed: {
 		eta() {
-			const wins = this.$store.state.league.wins;
-			const days = parseInt(wins / 2);
+			let wins = this.$store.state.wins.wins;
+			let days = parseInt(wins / 2);
 			return `${days} - ${days + 1} Days`;
-		}
+		},
 	},
 	watch: {
 		discountCode(value) {
-			this.$store.commit("league/changeDiscountCode", value);
-		}
+			this.$store.commit("checkout/changeDiscountCode", value);
+		},
 	},
 	methods: {
 		checkOption(checkbox) {
 			if (checkbox.checked) {
-				this.$store.commit("league/addOption", checkbox.title);
-				this.$store.commit("league/addPercent", checkbox.percentage);
+				this.$store.commit("checkout/addOption", checkbox.title);
+				this.$store.commit("checkout/addPercent", checkbox.percentage);
 			} else {
-				this.$store.commit("league/removeOption", checkbox.title);
+				this.$store.commit("checkout/removeOption", checkbox.title);
 				this.$store.commit(
-					"league/substractPercent",
+					"checkout/substractPercent",
 					checkbox.percentage
 				);
 			}
-		}
+		},
 	},
 	mounted() {
-		this.$store.commit('league/clearOptions');
-	}
+		this.$store.commit("checkout/clearOptions");
+	},
 };
 </script>
 

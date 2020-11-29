@@ -47,12 +47,10 @@ export default {
 	},
 	watch: {
 		winsCounter(value) {
-			this.$store.commit("league/changeNumberOfWins", value);
-			// const eta = this.$store.getters.eta;
-			// this.$store.commit("checkout/changeETA", eta);
+			this.$store.commit("wins/changeNumberOfWins", value);
 		},
 		mode(value) {
-			this.$store.commit("league/changeGameMode", value);
+			this.$store.commit("wins/changeGameMode", value);
 		},
 	},
 };

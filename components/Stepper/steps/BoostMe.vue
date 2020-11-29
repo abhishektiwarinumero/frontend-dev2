@@ -7,42 +7,43 @@
 			</div>
 			<v-dialog v-model="dialog" width="940">
 				<template v-slot:activator="{ on }">
-					<v-btn class="ma-2" outlined @click="dialog = true" v-on="on">
+					<v-btn
+						class="ma-2"
+						outlined
+						@click="dialog = true"
+						v-on="on"
+					>
 						<v-icon left>mdi-shopping-outline</v-icon>Boost Me
 					</v-btn>
 				</template>
-				<!-- Entire stepper -->
 				<order-dialog @closeDialog="dialog = false" />
 			</v-dialog>
-			<!-- end of Test -->
 		</v-container>
 	</v-card>
 </template>
 
 <script>
 export default {
-	data() {
-		return {
-			dialog: false,
-			// Default exchange rate, to be changed by API call
-			exchangeRate: 1.1003
-		};
-	},
+	data: () => ({
+		dialog: false,
+		// Default exchange rate, to be changed by API call
+		exchangeRate: 1.1003,
+	}),
 	computed: {
 		price() {
-			return this.$store.getters["league/price"].toFixed(2);
+			return this.$store.getters["price/price"].toFixed(2);
 		},
 		priceUSD() {
 			return (this.price * this.exchangeRate).toFixed(2);
-		}
+		},
 	},
 	mounted() {
 		this.$axios
 			.get("https://api.exchangeratesapi.io/latest?symbols=USD")
-			.then(response => {
+			.then((response) => {
 				this.exchangeRate = response.data.rates.USD;
 			});
-	}
+	},
 };
 </script>
 
