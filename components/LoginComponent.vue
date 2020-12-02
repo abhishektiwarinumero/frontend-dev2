@@ -4,12 +4,15 @@
 			class="ma-2"
 			outlined
 			color="white"
-			:href="`${process.env.HOST_URL}/dashboard`"
-			v-if="auth"
-		>{{ $t('Members Area') }}</v-btn>
+			href="https://kingboosting.dev/dashboard"
+			v-if="this.$auth.loggedIn"
+			>Members Area</v-btn
+		>
 		<v-dialog max-width="800px" v-model="dialog" v-else>
 			<template v-slot:activator="{ on }">
-				<v-btn class="ma-2" outlined color="white" v-on="on">{{ $t('Members Area') }}</v-btn>
+				<v-btn class="ma-2" outlined color="white" v-on="on">
+					Members Area
+				</v-btn>
 			</template>
 			<v-card class="px-5" color="#303030">
 				<v-container>
@@ -31,13 +34,9 @@
 export default {
 	data() {
 		return {
-			auth: false,
-			dialog: false
+			dialog: false,
 		};
 	},
-	mounted() {
-		this.auth = this.$store.getters.isLoggedIn;
-	}
 };
 </script>
 
@@ -46,41 +45,3 @@ export default {
 	content: none;
 }
 </style>
-
-<i18n>
-{
-	"en": {
-			"Members Area": "Members Area"
-	},
-	"fr": {
-			"Members Area": "Zone Des Membres"
-	},
-	"it": {
-		"Members Area": "Zona Dei Membri"
-	},
-	"de": {
-		"Members Area": "Members Area"
-	},
-	"at": {
-		"Members Area": "Members Area"
-	},
-	"swiss": {
-		"Members Area": "Members Area"
-	},
-	"es": {
-		"Members Area": "Members Area"
-	},
-	"nl": {
-		"Members Area": "Members Area"
-	},
-	"se": {
-		"Members Area": "Members Area"
-	},
-	"ne": {
-			"Members Area": "Members Area"
-	},
-	"dk": {
-		"Members Area": "Members Area"
-	}
-}
-</i18n>

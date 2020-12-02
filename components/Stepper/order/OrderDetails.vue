@@ -57,35 +57,30 @@
 
 <script>
 export default {
-	data() {
-		return {
-			valid: false,
-			boosters: [
-				"Booster 1",
-				"Booster 2"
-			],
-			boostersLoading: true,
-			booster: "",
-			comment: "",
-			nickname: "",
-			nicknameRules: [
-				(v) => !!v || "Nickname is required",
-				(v) => v.length >= 3 || "Please insert a valid nickname",
-			],
-			offline: false,
-		};
-	},
+	data: () => ({
+		valid: false,
+		boosters: ["Booster 1", "Booster 2"],
+		boostersLoading: true,
+		booster: "",
+		comment: "",
+		nickname: "",
+		nicknameRules: [
+			(v) => !!v || "Nickname is required",
+			(v) => v.length >= 3 || "Please insert a valid nickname",
+		],
+		offline: false,
+	}),
 	methods: {
 		getBoostersList() {
 			this.$axios
 				.get("/getBoostersNames")
-				.then((res) => {
-					this.boosters = res.data;
+				.then((response) => {
+					this.boosters = response.data;
 					this.boostersLoading = false;
 				})
-				.catch((err) => {
+				.catch((error) => {
 					this.$store.commit("notification/open", {
-						text: "Failed to get list of boosters",
+						text: error.response.data.message,
 						mode: "error",
 					});
 				});

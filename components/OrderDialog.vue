@@ -3,9 +3,13 @@
 		<v-stepper-header>
 			<!-- 3 templates here -->
 			<template>
-				<v-stepper-step key="login" :complete="isLoggedIn" step="1"
-					>Login</v-stepper-step
+				<v-stepper-step
+					key="login"
+					:complete="this.$auth.loggedIn"
+					step="1"
 				>
+					Login
+				</v-stepper-step>
 				<v-divider v-if="1 !== steps.length" key="1"></v-divider>
 			</template>
 			<template>
@@ -13,14 +17,15 @@
 					key="order-details"
 					:complete="currentStep > 2"
 					step="2"
-					>Details</v-stepper-step
 				>
+					Details
+				</v-stepper-step>
 				<v-divider v-if="2 !== steps.length" key="2"></v-divider>
 			</template>
 			<template>
-				<v-stepper-step key="pay" :complete="currentStep > 3" step="3"
-					>Pay</v-stepper-step
-				>
+				<v-stepper-step key="pay" :complete="currentStep > 3" step="3">
+					Pay
+				</v-stepper-step>
 				<v-divider v-if="3 !== steps.length" key="3"></v-divider>
 			</template>
 		</v-stepper-header>
@@ -44,9 +49,6 @@ export default {
 	computed: {
 		priceUSD() {
 			return (this.price * this.exchangeRate).toFixed(2);
-		},
-		isLoggedIn() {
-			return this.$store.getters["auth/isLoggedIn"];
 		},
 	},
 	methods: {
@@ -105,7 +107,9 @@ export default {
 		},
 	},
 	mounted() {
-		// this.getBoostersList();
+		if (this.$auth.loggedIn) {
+			this.currentStep = 2;
+		}
 	},
 };
 </script>

@@ -21,6 +21,10 @@ export const mutations = {
 	substractPercent(state, percent) {
 		state.percent -= percent;
 	},
+	clearOptions(state) {
+		state.options = [];
+		state.percent = 0;
+	},
 }
 
 export const getters = {

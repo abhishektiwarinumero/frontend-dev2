@@ -14,21 +14,21 @@ export default {
 		titleTemplate: "%s | " + "King Boosting",
 		title: "Buy LOL ELO Boost & Premium LOL Boosting" || "",
 		meta: [{
-				charset: "utf-8"
-			},
-			{
-				name: "viewport",
-				content: "width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
-			},
-			{
-				hid: "description",
-				name: "description",
-				content: "Buy high quality ELO Boosting and LoL Boost services. 100% Safety and Privacy. The best ELO &amp; League Boost experience. Available on all servers."
-			},
-			{
-				name: "keywords",
-				content: "elo boost, lol elo boost, lol boost, lol elo boosting, elo boost lol, cheap elo boosting, elo boosting"
-			}
+			charset: "utf-8"
+		},
+		{
+			name: "viewport",
+			content: "width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+		},
+		{
+			hid: "description",
+			name: "description",
+			content: "Buy high quality ELO Boosting and LoL Boost services. 100% Safety and Privacy. The best ELO &amp; League Boost experience. Available on all servers."
+		},
+		{
+			name: "keywords",
+			content: "elo boost, lol elo boost, lol boost, lol elo boosting, elo boost lol, cheap elo boosting, elo boosting"
+		}
 		],
 		link: [{
 			rel: "icon",
@@ -87,13 +87,16 @@ export default {
 		"@nuxtjs/dotenv"
 	],
 	auth: {
+		redirect: false,
 		strategies: {
-			laravelSanctum: {
-				provider: 'laravel/sanctum',
-				url: 'https://staging-api.kingboosting.com'
-			}
-		},
-		// Options
+			local: {
+				endpoints: {
+					login: { url: 'https://kingboosting.dev/login', method: 'post', propertyName: 'token' },
+					logout: { url: 'https://kingboosting.dev/logout', method: 'post' },
+					user: { url: 'https://kingboosting.dev/user', method: 'get', propertyName: 'user' }
+				},
+			},
+		}
 	},
 	i18n: {
 		locales: [
@@ -124,14 +127,6 @@ export default {
 	sentry: {
 		dsn: "https://f8d1200b27ae4ec0a627eefbdf4f5f21@o143524.ingest.sentry.io/5425202", // Enter your project's DSN here
 		config: {} // Additional config
-	},
-	/*
-	 ** Axios module configuration
-	 ** See https://axios.nuxtjs.org/options
-	 */
-	axios: {
-		// proxyHeaders: false,
-		debug: false
 	},
 	/*
 	 ** vuetify module configuration

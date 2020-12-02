@@ -1,11 +1,11 @@
 <template>
-	<v-form v-model="valid" ref="form" @submit.prevent="userLogin">
+	<v-form v-model="valid" @submit.prevent="login">
 		<v-layout column>
 			<v-flex>
 				<v-text-field
 					label="Email address"
 					placeholder="Your email address"
-					v-model="login.email"
+					v-model="credentials.email"
 					:rules="emailRules"
 					:error-messages="emailErrors"
 					required
@@ -14,7 +14,7 @@
 			<v-flex>
 				<v-text-field
 					type="password"
-					v-model="login.password"
+					v-model="credentials.password"
 					label="Password *"
 					placeholder="Your password"
 					:rules="passwordRules"
@@ -33,7 +33,7 @@
 						type="submit"
 						>Continue</v-btn
 					>
-					<v-btn text small @click="cancel">Cancel</v-btn>
+					<v-btn text small @click="close">Cancel</v-btn>
 				</v-row>
 			</v-flex>
 		</v-layout>
@@ -45,7 +45,7 @@ export default {
 	data() {
 		return {
 			valid: true,
-			login: {
+			credentials: {
 				email: "",
 				password: "",
 			},
@@ -62,19 +62,28 @@ export default {
 		};
 	},
 	methods: {
-		async userLogin() {
+		async login() {
 			try {
-				const { data } = await this.$auth.loginWith("laravelSanctum", {
-					data: this.login,
-				});
+				let response = await this.$auth
+					.loginWith("local", {
+						data: this.credentials,
+					})
+					.then((response) => {
+						this.$store.commit("notification/open", {
+							text: "Logged In",
+							mode: "success",
+						});
+						this.close();
+					})
+					.catch((error) => {
+						this.$store.commit("notification/open", {
+							text: error.response.data.message,
+							mode: "error",
+						});
+					});
+			} catch (error) {
 				this.$store.commit("notification/open", {
-					text: "Logged In",
-					mode: "success",
-				});
-				this.close();
-			} catch (errors) {
-				this.$store.commit("notification/open", {
-					text: errors,
+					text: error,
 					mode: "error",
 				});
 			}
@@ -111,9 +120,6 @@ export default {
 			}
 		},
 		close() {
-			this.$emit("close");
-		},
-		cancel() {
 			this.$emit("close");
 		},
 	},
