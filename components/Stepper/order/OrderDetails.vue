@@ -73,7 +73,7 @@ export default {
 	methods: {
 		getBoostersList() {
 			this.$axios
-				.get("/getBoostersNames")
+				.get("https://kingboosting.dev/getBoostersNames")
 				.then((response) => {
 					this.boosters = response.data;
 					this.boostersLoading = false;
@@ -92,6 +92,9 @@ export default {
 			this.$store.commit("league/changeChatMode", this.offline);
 			this.$emit("next");
 		},
+	},
+	mounted() {
+		this.getBoostersList();
 	},
 };
 </script>
