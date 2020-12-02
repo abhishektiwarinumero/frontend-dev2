@@ -1,7 +1,9 @@
 <template>
 	<v-stepper-content key="3-content" step="3">
-		<v-card class="mb-12" color="grey lighten-1" height="200px"></v-card>
-		<v-btn color="primary" @click="sendOrder">Continue</v-btn>
+		<div id="card-element" class="mb-12"></div>
+		<v-btn color="primary" @click="sendOrder" :disabled="!valid"
+			>Continue</v-btn
+		>
 		<v-btn text @click="cancel">Cancel</v-btn>
 	</v-stepper-content>
 </template>
@@ -9,8 +11,14 @@
 <script>
 import tiers from "@/data/tiers";
 export default {
+	data: () => ({
+		valid: false,
+	}),
 	methods: {
 		sendOrder() {
+			if (!valid) {
+				return;
+			}
 			console.log(tiers);
 			// Gather current service, get slug from url (pure JS)
 			let service = document.location.pathname.replace("/", "");
@@ -82,6 +90,64 @@ export default {
 		cancel() {
 			this.$emit("cancel");
 		},
+		async tokenize(card) {
+			const { token, error } = await this.$stripe.createToken(card);
+			return token;
+		},
+	},
+	mounted() {
+		const elements = this.$stripe.elements();
+		const card = elements.create("card", {
+			style: {
+				base: {
+					iconColor: "#c4f0ff",
+					color: "#fff",
+					fontWeight: 500,
+					fontFamily: "Roboto, Open Sans, Segoe UI, sans-serif",
+					fontSize: "16px",
+					fontSmoothing: "antialiased",
+					":-webkit-autofill": {
+						color: "#fce883",
+					},
+					"::placeholder": {
+						color: "#87BBFD",
+					},
+				},
+				invalid: {
+					iconColor: "#FFC7EE",
+					color: "#FFC7EE",
+				},
+			},
+		});
+		// Add an instance of the card Element into the `card-element` <div>
+		card.mount("#card-element");
+		card.on("change", (event) => {
+			if (event.complete) {
+				this.valid = true;
+				this.$stripe.createToken(card).then(function (result) {
+					if (result.error) {
+						this.valid = false;
+						this.$store.commit("notification/open", {
+							text: "Invalid card",
+							mode: "error",
+						});
+					} else if (result.token) {
+						this.valid = true;
+						this.$store.commit("notification/open", {
+							text: "Valid Card",
+							mode: "success",
+						});
+						console.log(result.token);
+					}
+				});
+			} else if (event.error || event.empty) {
+				this.valid = false;
+				this.$store.commit("notification/open", {
+					text: event.error.message,
+					mode: "error",
+				});
+			}
+		});
 	},
 };
 </script>

@@ -22,6 +22,7 @@
 		"laravel-echo": "^1.8.1",
 		"nuxt": "^2.14.5",
 		"nuxt-i18n": "^6.15.0",
+		"nuxt-stripe-module": "^3.0.1",
 		"pusher-js": "^6.0.3",
 		"vuex-persist": "^2.2.0"
 	},

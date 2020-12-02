@@ -45,7 +45,7 @@ export default {
 	/*
 	 ** Global CSS
 	 */
-	css: ["~/css/main.css"],
+	css: ["~/css/main.css", "~/css/stripe.css"],
 	render: {
 		bundleRenderer: {
 			shouldPreload: (file, type) => {
@@ -77,6 +77,9 @@ export default {
 		"@nuxtjs/pwa",
 		"@nuxtjs/auth",
 		"@nuxtjs/sentry",
+		['nuxt-stripe-module', {
+			publishableKey: 'pk_test_zZDpfBqbOHuILAiXopaDj39700EvtNuUG8',
+		}],
 		[
 			"nuxt-i18n",
 			{
