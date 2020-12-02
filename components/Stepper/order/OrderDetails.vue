@@ -59,7 +59,7 @@
 export default {
 	data: () => ({
 		valid: false,
-		boosters: ["Booster 1", "Booster 2"],
+		boosters: [],
 		boostersLoading: true,
 		booster: "",
 		comment: "",
@@ -86,10 +86,10 @@ export default {
 				});
 		},
 		nextStep() {
-			this.$store.commit("league/changeNickname", this.nickname);
-			this.$store.commit("league/changeBooster", this.booster);
-			this.$store.commit("league/changeComment", this.comment);
-			this.$store.commit("league/changeChatMode", this.offline);
+			this.$store.commit("order/changeNickname", this.nickname);
+			this.$store.commit("order/changeBooster", this.booster);
+			this.$store.commit("order/changeComment", this.comment);
+			this.$store.commit("order/changeChatMode", this.offline);
 			this.$emit("next");
 		},
 	},

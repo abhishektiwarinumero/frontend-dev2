@@ -7,22 +7,31 @@
 </template>
 
 <script>
+import tiers from "@/data/tiers";
 export default {
 	methods: {
 		sendOrder() {
+			console.log(tiers);
 			// Gather current service, get slug from url (pure JS)
 			let service = document.location.pathname.replace("/", "");
 			// Gather current tier and division
-			let tier = this.$store.state.league.tier.name;
-			let division = this.$store.state.league.division.name;
+			let tier = _.find(tiers.tiers, [
+				"id",
+				this.$store.state.league.tier,
+			]);
+			let division = _.find(tier.divisions, [
+				"id",
+				this.$store.state.league.division,
+			]).name;
+			tier = tier.name;
 			// Gather selected server
 			let server = this.$store.state.league.server;
 			// Gather number of wins
 			let wins = this.$store.state.wins.wins;
 			// Gather game mode (solo/duo)
-			let mode = this.$store.state.league.mode;
+			let mode = this.$store.state.wins.mode;
 			// Gather extra features
-			let extraFeatures = this.$store.state.league.options;
+			let extraFeatures = this.$store.state.checkout.options;
 			const specific_champions = Boolean(
 				extraFeatures.find((e) => e.startsWith("Specific"))
 			);
@@ -33,20 +42,20 @@ export default {
 				extraFeatures.find((e) => e.startsWith("With"))
 			);
 			// Gather price
-			let price = this.$store.getters.price;
+			let price = this.$store.getters["price/price"];
 			// Gather discount code
-			let discountCode = this.$store.state.league.discountCode;
+			let discountCode = this.$store.state.checkout.discountCode;
 			// Gather in-game-nickname
-			let nickname = this.$store.state.league.nickname;
+			let nickname = this.$store.state.order.nickname;
 			// Gather selected booster
-			let booster = this.$store.state.league.booster;
-			// Gather Comments
-			let comments = this.$store.state.league.comments;
+			let booster = this.$store.state.order.booster;
+			// Gather Comment
+			let comment = this.$store.state.order.comment;
 			// Gather (appear offline in chat)
-			let offline = this.$store.state.league.offline;
+			let offline = this.$store.state.order.chatMode;
 			// Get all data from store and post them to DB
 			this.$axios
-				.$post("/api/orders", {
+				.$post("https://kingboosting.dev/orders", {
 					service,
 					tier,
 					division,
@@ -60,10 +69,15 @@ export default {
 					discountCode,
 					nickname,
 					booster_id: 0,
-					comments,
+					comment,
 					offline,
 				})
-				.then((reponse) => {});
+				.then((response) => {
+					this.$store.commit("notification/open", {
+						text: response.message,
+						mode: "success",
+					});
+				});
 		},
 		cancel() {
 			this.$emit("cancel");
