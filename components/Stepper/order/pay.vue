@@ -1,10 +1,12 @@
 <template>
 	<v-stepper-content key="3-content" step="3">
-		<div id="card-element" class="mb-12"></div>
-		<v-btn color="primary" @click="sendOrder" :disabled="!valid"
-			>Continue</v-btn
-		>
-		<v-btn text @click="cancel">Cancel</v-btn>
+		<form id="payment-form">
+			<div id="card-element" class="mb-12"></div>
+			<v-btn color="primary" @click="sendOrder" :disabled="!valid">
+				Continue
+			</v-btn>
+			<v-btn text @click="cancel">Cancel</v-btn>
+		</form>
 	</v-stepper-content>
 </template>
 
@@ -13,6 +15,8 @@ import tiers from "@/data/tiers";
 export default {
 	data: () => ({
 		valid: false,
+		// Declared in instance but not referenced during render, just outsourcing scope
+		client_secret: "",
 	}),
 	methods: {
 		sendOrder() {
@@ -39,16 +43,7 @@ export default {
 			// Gather game mode (solo/duo)
 			let mode = this.$store.state.wins.mode;
 			// Gather extra features
-			let extraFeatures = this.$store.state.checkout.options;
-			const specific_champions = Boolean(
-				extraFeatures.find((e) => e.startsWith("Specific"))
-			);
-			const priority = Boolean(
-				extraFeatures.find((e) => e.startsWith("Priority"))
-			);
-			const streaming = Boolean(
-				extraFeatures.find((e) => e.startsWith("With"))
-			);
+			let options = this.$store.state.checkout.options;
 			// Gather price
 			let price = this.$store.getters["price/price"];
 			// Gather discount code
@@ -70,9 +65,7 @@ export default {
 					server,
 					wins,
 					queue: mode === "Solo/Duo" ? "solo_duo" : "flex_5v5", // undocumented
-					specific_champions,
-					priority,
-					streaming,
+					options,
 					price, // end of documented
 					discountCode,
 					nickname,
@@ -93,6 +86,38 @@ export default {
 		async tokenize(card) {
 			const { token, error } = await this.$stripe.createToken(card);
 			return token;
+		},
+		confirm(clientSecret, card) {
+			(async () => {
+				const response = await fetch("/secret");
+				const { client_secret: clientSecret } = await response.json();
+				// Call stripe.confirmCardPayment() with the client secret.
+			})();
+			this.$stripe
+				.confirmCardPayment(clientSecret, {
+					payment_method: {
+						card: card,
+						// Billing details are optional
+						// billing_details: {
+						// 	name: "Jenny Rosen",
+						// },
+					},
+				})
+				.then(function (result) {
+					if (result.error) {
+						// Show error to your customer (e.g., insufficient funds)
+						console.log(result.error.message);
+					} else {
+						// The payment has been processed!
+						if (result.paymentIntent.status === "succeeded") {
+							// Show a success message to your customer
+							// There's a risk of the customer closing the window before callback
+							// execution. Set up a webhook or plugin to listen for the
+							// payment_intent.succeeded event that handles any business critical
+							// post-payment actions.
+						}
+					}
+				});
 		},
 	},
 	mounted() {
