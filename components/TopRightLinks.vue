@@ -2,15 +2,14 @@
 	<div>
 		<span>
 			<v-icon color="white">mdi-cellphone-iphone</v-icon>
-			<a href="/pay-with-mobile">{{ $t('Mobile Pay') }}</a>
+			<a href="/pay-with-mobile">Mobile Pay</a>
 		</span>
 		<span>
-			<a href="/contact">{{ $t('Contact') }}</a>
+			<a href="/contact">Contact</a>
 		</span>
 		<span>
-			<a href="/loyalty-program">{{ $t('Loyalty Program') }}</a>
+			<a href="/loyalty-program">Loyalty Program</a>
 		</span>
-		<locale-switcher></locale-switcher>
 	</div>
 </template>
 
@@ -41,63 +40,3 @@ span {
 	border-radius: 1px;
 }
 </style>
-
-<i18n>
-{
-	"en": {
-		"Mobile Pay": "Mobile Pay",
-		"Contact": "Contact",
-		"Loyalty Program": "Loyalty Program"
-    },
-    "fr": {
-        "Mobile Pay": "Paiement Mobile",
-        "Contact": "Contactez Nous",
-        "Loyalty Program": "Programme de fidélité"
-	},
-	"it": {
-		"Mobile Pay": "Pagamento mobile",
-        "Contact": "Contattaci",
-        "Loyalty Program": "Programma fedeltà"
-	},
-	"de": {
-		"Mobile Pay": "Mobile Pay",
-		"Contact": "Contact",
-		"Loyalty Program": "Loyalty Program"
-    },
-	"at": {
-		"Mobile Pay": "Mobile Pay",
-		"Contact": "Contact",
-		"Loyalty Program": "Loyalty Program"
-	},
-	"swiss": {
-		"Mobile Pay": "Mobile Pay",
-		"Contact": "Contact",
-		"Loyalty Program": "Loyalty Program"
-	},
-	"es": {
-		"Mobile Pay": "Mobile Pay",
-		"Contact": "Contact",
-		"Loyalty Program": "Loyalty Program"
-	},
-	"nl": {
-		"Mobile Pay": "Mobile Pay",
-		"Contact": "Contact",
-		"Loyalty Program": "Loyalty Program"
-	},
-	"se": {
-		"Mobile Pay": "Mobile Pay",
-		"Contact": "Contact",
-		"Loyalty Program": "Loyalty Program"
-	},
-	"ne": {
-		"Mobile Pay": "Mobile Pay",
-		"Contact": "Contact",
-		"Loyalty Program": "Loyalty Program"
-	},
-	"dk": {
-		"Mobile Pay": "Mobile Pay",
-		"Contact": "Contact",
-		"Loyalty Program": "Loyalty Program"
-	}
-}
-</i18n>

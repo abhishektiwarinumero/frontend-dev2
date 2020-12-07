@@ -17,13 +17,13 @@ export default {
 		valid: false,
 		// Declared in instance but not referenced during render, just outsourcing scope
 		client_secret: "",
+		stripeToken: "",
 	}),
 	methods: {
 		sendOrder() {
-			if (!valid) {
+			if (!this.valid) {
 				return;
 			}
-			console.log(tiers);
 			// Gather current service, get slug from url (pure JS)
 			let service = document.location.pathname.replace("/", "");
 			// Gather current tier and division
@@ -72,11 +72,18 @@ export default {
 					booster_id: 0,
 					comment,
 					offline,
+					stripeToken: this.stripeToken,
 				})
 				.then((response) => {
 					this.$store.commit("notification/open", {
 						text: response.message,
 						mode: "success",
+					});
+				})
+				.catch((errors) => {
+					this.$store.commit("notification/open", {
+						text: errors.response.data.error,
+						mode: "error",
 					});
 				});
 		},
@@ -92,32 +99,40 @@ export default {
 				const response = await fetch("/secret");
 				const { client_secret: clientSecret } = await response.json();
 				// Call stripe.confirmCardPayment() with the client secret.
-			})();
-			this.$stripe
-				.confirmCardPayment(clientSecret, {
-					payment_method: {
-						card: card,
-						// Billing details are optional
-						// billing_details: {
-						// 	name: "Jenny Rosen",
-						// },
-					},
-				})
-				.then(function (result) {
-					if (result.error) {
-						// Show error to your customer (e.g., insufficient funds)
-						console.log(result.error.message);
-					} else {
-						// The payment has been processed!
-						if (result.paymentIntent.status === "succeeded") {
-							// Show a success message to your customer
-							// There's a risk of the customer closing the window before callback
-							// execution. Set up a webhook or plugin to listen for the
-							// payment_intent.succeeded event that handles any business critical
-							// post-payment actions.
+				this.$stripe
+					.confirmCardPayment(clientSecret, {
+						payment_method: {
+							card: card,
+							// Billing details are optional
+							// billing_details: {
+							// 	name: "Jenny Rosen",
+							// },
+						},
+					})
+					.then((result) => {
+						if (result.error) {
+							// Show error to your customer (e.g., insufficient funds)
+							this.$store.commit("notification/open", {
+								text: result.error.message,
+								mode: "error",
+							});
+						} else {
+							// The payment has been processed!
+							if (result.paymentIntent.status === "succeeded") {
+								// Show a success message to your customer
+								// There's a risk of the customer closing the window before callback
+								// execution. Set up a webhook or plugin to listen for the
+								// payment_intent.succeeded event that handles any business critical
+								// post-payment actions.
+								console.log(result);
+								this.$store.commit("notification/open", {
+									text: result.paymentIntent.status,
+									mode: "success",
+								});
+							}
 						}
-					}
-				});
+					});
+			})();
 		},
 	},
 	mounted() {
@@ -149,7 +164,7 @@ export default {
 		card.on("change", (event) => {
 			if (event.complete) {
 				this.valid = true;
-				this.$stripe.createToken(card).then(function (result) {
+				this.$stripe.createToken(card).then((result) => {
 					if (result.error) {
 						this.valid = false;
 						this.$store.commit("notification/open", {
@@ -162,7 +177,7 @@ export default {
 							text: "Valid Card",
 							mode: "success",
 						});
-						console.log(result.token);
+						this.stripeToken = result.token.id;
 					}
 				});
 			} else if (event.error || event.empty) {

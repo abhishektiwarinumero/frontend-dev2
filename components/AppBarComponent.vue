@@ -5,7 +5,9 @@
 			<img src="/img/header_logo.png" alt="King Boosting" />
 		</nuxt-link>
 		<v-spacer></v-spacer>
-		<nav-links></nav-links>
+		<client-only>
+			<nav-links></nav-links>
+		</client-only>
 		<v-spacer></v-spacer>
 		<LoginComponent></LoginComponent>
 	</v-app-bar>
@@ -16,7 +18,7 @@
 export default {
 	mounted() {
 		// particlesJS.load("particles-js", "/particlesjs-config.json");
-	}
+	},
 };
 </script>
 
@@ -29,7 +31,6 @@ export default {
 }
 #particles-js canvas {
 	display: block;
-	vertical-align: bottom;
 	transform: scale(1);
 	opacity: 1;
 	transition: opacity 0.8s ease, transform 1.4s ease;
