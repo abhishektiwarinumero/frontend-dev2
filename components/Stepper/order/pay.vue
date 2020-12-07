@@ -79,6 +79,8 @@ export default {
 						text: response.message,
 						mode: "success",
 					});
+					// Actually just close the dialog, semantics ¯\_(ツ)_/¯
+					this.cancel();
 				})
 				.catch((errors) => {
 					this.$store.commit("notification/open", {
