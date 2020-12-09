@@ -8,7 +8,7 @@
 					:complete="this.$auth.loggedIn"
 					step="1"
 				>
-					{{ register ? 'Register' : 'Login' }}
+					{{ register ? "Register" : "Login" }}
 				</v-stepper-step>
 				<v-divider v-if="1 !== steps" key="1"></v-divider>
 			</template>
@@ -30,7 +30,7 @@
 			</template>
 		</v-stepper-header>
 		<v-stepper-items>
-			<login @next="nextStep(1)" @cancel="cancel"/>
+			<login @next="nextStep(1)" @cancel="cancel" />
 			<!-- <register v-if="register"/> -->
 			<order-details @next="nextStep(2)" />
 			<pay @cancel="cancel" />
@@ -45,7 +45,7 @@ export default {
 			currentStep: 1,
 			valid: false,
 			steps: 3,
-			register: false
+			register: false,
 		};
 	},
 	computed: {
@@ -112,9 +112,12 @@ export default {
 		if (this.$auth.loggedIn) {
 			this.currentStep = 2;
 		}
-		this.$root.$on('openRegisterForm', () => {
+		this.$root.$on("openRegisterForm", () => {
 			this.register = true;
-		})
+		});
+		this.$root.$on("logout", () => {
+			this.currentStep = 1;
+		});
 	},
 };
 </script>

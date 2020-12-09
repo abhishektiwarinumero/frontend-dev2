@@ -10,8 +10,22 @@
 		<span>
 			<a href="/loyalty-program">Loyalty Program</a>
 		</span>
+		<span v-if="this.$auth.loggedIn">
+			<v-btn @click="logout">Logout</v-btn>
+		</span>
 	</div>
 </template>
+
+<script>
+export default {
+	methods: {
+		async logout() {
+			await this.$auth.logout();
+			this.$root.$emit("logout");
+		},
+	},
+};
+</script>
 
 <style scoped>
 a {
