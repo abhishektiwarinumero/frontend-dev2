@@ -30,8 +30,14 @@
 			</template>
 		</v-stepper-header>
 		<v-stepper-items>
-			<login @next="nextStep(1)" @cancel="cancel" />
-			<!-- <register v-if="register"/> -->
+			<v-stepper-content key="1-content" step="1">
+				<login @next="nextStep(1)" @cancel="cancel" v-if="!register" />
+				<register
+					v-if="register"
+					@next="nextStep(1)"
+					@cancel="cancel"
+				/>
+			</v-stepper-content>
 			<order-details @next="nextStep(2)" />
 			<pay @cancel="cancel" />
 		</v-stepper-items>

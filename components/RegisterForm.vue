@@ -1,5 +1,5 @@
 <template>
-	<v-form v-model="valid" @submit.prevent="login">
+	<v-form v-model="valid" @submit.prevent="register">
 		<v-layout column>
 			<v-flex>
 				<v-text-field
@@ -30,6 +30,18 @@
 					placeholder="Your username"
 				></v-text-field>
 			</v-flex>
+			<v-flex>
+				<v-row dark class="ml-2 mt-2">
+					<v-btn
+						color="#673AB7"
+						small
+						:disabled="!valid"
+						type="submit"
+						>Continue</v-btn
+					>
+					<v-btn text small @click="close">Cancel</v-btn>
+				</v-row>
+			</v-flex>
 		</v-layout>
 	</v-form>
 </template>
@@ -41,7 +53,7 @@ export default {
 			valid: true,
 			credentials: {
 				email: "",
-				email_confirmation: ""
+				email_confirmation: "",
 			},
 			emailErrors: [],
 			emailRules: [
@@ -56,31 +68,8 @@ export default {
 		};
 	},
 	methods: {
-		async login() {
-			try {
-				let response = await this.$auth
-					.loginWith("local", {
-						data: this.credentials,
-					})
-					.then((response) => {
-						this.$store.commit("notification/open", {
-							text: "Logged In",
-							mode: "success",
-						});
-						this.close();
-					})
-					.catch((error) => {
-						this.$store.commit("notification/open", {
-							text: error.response.data.message,
-							mode: "error",
-						});
-					});
-			} catch (error) {
-				this.$store.commit("notification/open", {
-					text: error,
-					mode: "error",
-				});
-			}
+		async register() {
+			// await this.$axios
 		},
 		close() {
 			this.$emit("close");

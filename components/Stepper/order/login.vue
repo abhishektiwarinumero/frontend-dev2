@@ -1,14 +1,12 @@
 <template>
-	<v-stepper-content key="1-content" step="1">
-		<v-row>
-			<v-col>
-				<LoginForm @close="nextStep" @cancel="cancel"></LoginForm>
-			</v-col>
-			<v-col cols="4">
-				<SocialLogin></SocialLogin>
-			</v-col>
-		</v-row>
-	</v-stepper-content>
+	<v-row>
+		<v-col>
+			<LoginForm @close="nextStep" @cancel="cancel"></LoginForm>
+		</v-col>
+		<v-col cols="4">
+			<SocialLogin></SocialLogin>
+		</v-col>
+	</v-row>
 </template>
 
 <script>
@@ -19,7 +17,7 @@ export default {
 		},
 		cancel() {
 			this.$emit("cancel");
-		}
-	}
+		},
+	},
 };
 </script>

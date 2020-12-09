@@ -13,6 +13,11 @@
 			</v-container>
 		</v-main>
 		<v-footer absolute class="font-weight-medium">
+			<v-row>
+				<v-col>
+					<nuxt-link to="/terms-of-use">Terms of use</nuxt-link>
+				</v-col>
+			</v-row>
 			<img src="/img/header_logo.png" alt="King Boosting" />
 			<v-col class="text-center" cols="12">
 				{{ new Date().getFullYear() }} —
