@@ -7,7 +7,11 @@
 </template>
 
 <script>
+import services from "~/assets/js/services";
 export default {
+	data: () => ({
+		services: services,
+	}),
 	methods: {
 		applyStyles() {
 			// Radius is usually half the width of the container
@@ -23,22 +27,19 @@ export default {
 					width / 2 + radius * Math.cos(angle) - field.offsetWidth / 2
 				);
 				var y = Math.round(
-					height / 2 + radius * Math.sin(angle) - field.offsetHeight / 2
+					height / 2 +
+						radius * Math.sin(angle) -
+						field.offsetHeight / 2
 				);
 				field.style.left = x + "px";
 				field.style.top = y + "px";
 				angle += step;
 			}
-		}
-	},
-	computed: {
-		services() {
-			return this.$store.state.services.services;
-		}
+		},
 	},
 	mounted() {
 		this.applyStyles();
-	}
+	},
 };
 </script>
 

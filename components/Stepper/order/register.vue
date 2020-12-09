@@ -2,10 +2,7 @@
 	<v-stepper-content key="1-content" step="1">
 		<v-row>
 			<v-col>
-				<LoginForm @close="nextStep" @cancel="cancel"></LoginForm>
-			</v-col>
-			<v-col cols="4">
-				<SocialLogin></SocialLogin>
+				<RegisterForm @close="nextStep" @cancel="cancel"></RegisterForm>
 			</v-col>
 		</v-row>
 	</v-stepper-content>

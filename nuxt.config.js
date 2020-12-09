@@ -1,15 +1,8 @@
 import webpack from "webpack";
-import colors from "vuetify/es5/util/colors";
+import colors from 'vuetify/es5/util/colors'
 
 export default {
-	vue: {
-		config: {
-			productionTip: false
-		}
-	},
-	/*
-	 ** Headers of the page
-	 */
+	// Global page headers (https://go.nuxtjs.dev/config-head)
 	head: {
 		titleTemplate: "%s | " + "King Boosting",
 		title: "Buy LOL ELO Boost & Premium LOL Boosting" || "",
@@ -36,59 +29,34 @@ export default {
 			href: "/favicon.ico"
 		}]
 	},
-	/*
-	 ** Customize the progress-bar color
-	 */
-	loading: {
-		color: "#673ab7"
-	},
-	/*
-	 ** Global CSS
-	 */
-	css: ["~/css/main.css", "~/css/stripe.css"],
-	render: {
-		bundleRenderer: {
-			shouldPreload: (file, type) => {
-				return ["script", "style", "font"].includes(type);
-			}
-		}
-	},
-	/*
-	 ** Plugins to load before mounting the App
-	 */
+
+	// Global CSS (https://go.nuxtjs.dev/config-css)
+	css: [
+		'~/assets/css/main.css',
+		'~/assets/css/stripe.css',
+	],
+
+	// Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
 	plugins: [
-		"~plugins/globals",
-		"~plugins/axios"
 	],
-	/*
-	 ** Nuxt.js dev-modules
-	 */
+
+	// Auto import components (https://go.nuxtjs.dev/config-components)
+	components: true,
+
+	// Modules for dev and build (recommended) (https://go.nuxtjs.dev/config-modules)
 	buildModules: [
-		// Doc: https://github.com/nuxt-community/eslint-module
-		"@nuxtjs/eslint-module",
-		"@nuxtjs/vuetify"
+		// https://go.nuxtjs.dev/vuetify
+		'@nuxtjs/vuetify',
 	],
-	/*
-	 ** Nuxt.js modules
-	 */
+
+	// Modules (https://go.nuxtjs.dev/config-modules)
 	modules: [
-		// Doc: https://axios.nuxtjs.org/usage
-		"@nuxtjs/axios",
-		"@nuxtjs/pwa",
-		"@nuxtjs/auth",
-		"@nuxtjs/sentry",
-		['nuxt-stripe-module', {
-			publishableKey: 'pk_test_zZDpfBqbOHuILAiXopaDj39700EvtNuUG8',
-		}],
-		[
-			"nuxt-i18n",
-			{
-				/* module options */
-			}
-		],
-		// Doc: https://github.com/nuxt-community/dotenv-module
-		"@nuxtjs/dotenv"
+		// https://go.nuxtjs.dev/axios
+		'@nuxtjs/axios',
+		'@nuxtjs/auth',
+		'nuxt-stripe-module'
 	],
+
 	auth: {
 		redirect: false,
 		strategies: {
@@ -101,64 +69,35 @@ export default {
 			},
 		}
 	},
-	i18n: {
-		locales: [
-			"en",
-			"fr",
-			"de",
-			"at",
-			"swiss",
-			"es",
-			"nl",
-			"it",
-			"se",
-			"no",
-			"dk"
-		],
-		defaultLocale: "en",
-		vueI18n: {
-			fallbackLocale: "en"
-		},
-		vueI18nLoader: true,
-		strategy: "no_prefix"
+
+	// Axios module configuration (https://go.nuxtjs.dev/config-axios)
+	axios: {},
+
+	stripe: {
+		publishableKey: 'pk_test_zZDpfBqbOHuILAiXopaDj39700EvtNuUG8',
 	},
-	pwa: {
-		icon: {
-			/* icon options */
-		}
-	},
-	sentry: {
-		dsn: "https://f8d1200b27ae4ec0a627eefbdf4f5f21@o143524.ingest.sentry.io/5425202", // Enter your project's DSN here
-		config: {} // Additional config
-	},
-	/*
-	 ** vuetify module configuration
-	 ** https://github.com/nuxt-community/vuetify-module
-	 */
+
+	// Vuetify module configuration (https://go.nuxtjs.dev/config-vuetify)
 	vuetify: {
-		customVariables: ["~/assets/variables.scss"],
+		customVariables: ['~/assets/variables.scss'],
 		theme: {
 			dark: true,
 			themes: {
 				dark: {
-					primary: "#673ab7",
-					secondary: "#9c27b0",
-					accent: "#673ab7",
-					error: "#f44336",
-					warning: "#ffeb3b",
-					info: "#3f51b5",
-					success: "#4caf50"
+					primary: colors.blue.darken2,
+					accent: colors.grey.darken3,
+					secondary: colors.amber.darken3,
+					info: colors.teal.lighten1,
+					warning: colors.amber.base,
+					error: colors.deepOrange.accent4,
+					success: colors.green.accent3
 				}
 			}
 		}
 	},
-	/*
-	 ** Build configuration
-	 */
+
+	// Build Configuration (https://go.nuxtjs.dev/config-build)
 	build: {
-		/*
-		 ** You can extend webpack config here
-		 */
 		plugins: [
 			// Expose lodash globally
 			new webpack.ProvidePlugin({
@@ -166,20 +105,5 @@ export default {
 				_: "lodash"
 			})
 		],
-		typescript: {
-			typeCheck: {
-				memoryLimit: 512
-			}
-		}
-	},
-	/*
-	 ** Generate configuration
-	 ** Configure the generation of your universal web application to a static web application.
-	 ** See https://nuxtjs.org/api/configuration-generate
-	 */
-	generate: {
-		// The generation of routes are concurrent, generate.concurrency specifies the amount of routes that run in one thread.
-		// Default: 500
-		concurrency: 10
 	}
-};
+}

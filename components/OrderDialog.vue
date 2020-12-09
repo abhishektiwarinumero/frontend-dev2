@@ -4,13 +4,13 @@
 			<!-- 3 templates here -->
 			<template>
 				<v-stepper-step
-					key="login"
+					:key="register ? 'register' : 'login'"
 					:complete="this.$auth.loggedIn"
 					step="1"
 				>
-					Login
+					{{ register ? 'Register' : 'Login' }}
 				</v-stepper-step>
-				<v-divider v-if="1 !== steps.length" key="1"></v-divider>
+				<v-divider v-if="1 !== steps" key="1"></v-divider>
 			</template>
 			<template>
 				<v-stepper-step
@@ -20,17 +20,18 @@
 				>
 					Details
 				</v-stepper-step>
-				<v-divider v-if="2 !== steps.length" key="2"></v-divider>
+				<v-divider v-if="2 !== steps" key="2"></v-divider>
 			</template>
 			<template>
 				<v-stepper-step key="pay" :complete="currentStep > 3" step="3">
 					Pay
 				</v-stepper-step>
-				<v-divider v-if="3 !== steps.length" key="3"></v-divider>
+				<v-divider v-if="3 !== steps" key="3"></v-divider>
 			</template>
 		</v-stepper-header>
 		<v-stepper-items>
-			<login @next="nextStep($event)" @cancel="cancel" />
+			<login @next="nextStep(1)" @cancel="cancel"/>
+			<!-- <register v-if="register"/> -->
 			<order-details @next="nextStep(2)" />
 			<pay @cancel="cancel" />
 		</v-stepper-items>
@@ -43,7 +44,8 @@ export default {
 		return {
 			currentStep: 1,
 			valid: false,
-			steps: [],
+			steps: 3,
+			register: false
 		};
 	},
 	computed: {
@@ -99,7 +101,7 @@ export default {
 			this.$emit("closeDialog");
 		},
 		nextStep(n) {
-			if (n === this.steps.length) {
+			if (n === this.steps) {
 				this.currentStep = 1;
 			} else {
 				this.currentStep = n + 1;
@@ -110,6 +112,9 @@ export default {
 		if (this.$auth.loggedIn) {
 			this.currentStep = 2;
 		}
+		this.$root.$on('openRegisterForm', () => {
+			this.register = true;
+		})
 	},
 };
 </script>

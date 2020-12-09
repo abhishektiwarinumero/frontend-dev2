@@ -29,6 +29,17 @@
 					<span>LOGIN WITH GOOGLE</span>
 				</v-btn>
 			</v-col>
+			<v-col class="pb-1">
+				<v-btn
+					color="#3b9967"
+					block
+					class="py-1"
+					@click="openRegisterForm"
+				>
+					<v-icon small>mdi-email</v-icon>
+					<span>Register with e-mail</span>
+				</v-btn>
+			</v-col>
 		</v-row>
 	</v-card>
 </template>
@@ -39,6 +50,9 @@ export default {
 		redirect(provider) {
 			window.location = `${process.env.API_URL}/login/${provider}`;
 		},
+		openRegisterForm() {
+			this.$root.$emit('openRegisterForm');
+		}
 	},
 };
 </script>

@@ -1,22 +1,38 @@
 <template>
 	<v-container class="features-section container--fluid">
 		<div class="section-name">
-			<h1>{{ $t('Features') }}</h1>
+			<h1>Features</h1>
 		</div>
 		<v-row class>
 			<v-col md="4" class="relative-box d-flex justify-start align-end">
-				<img height="auto" class="bg-img" src="/img/features/bg.png" alt="Our Features" />
+				<img
+					height="auto"
+					class="bg-img"
+					src="/img/features/bg.png"
+					alt="Our Features"
+				/>
 			</v-col>
 			<v-col class="fix-index" md="8">
 				<v-row>
-					<v-col v-for="(feature, index) in features" :key="index" cols="6">
+					<v-col
+						v-for="(feature, index) in features"
+						:key="index"
+						cols="6"
+					>
 						<h2 class="feature-title">{{ feature.title }}</h2>
 						<v-row>
-							<v-col cols="2" class="d-flex justify-center align-center">
-								<v-icon class="have-linear-gradient icon">{{ icons[index] }}</v-icon>
+							<v-col
+								cols="2"
+								class="d-flex justify-center align-center"
+							>
+								<v-icon class="have-linear-gradient icon">{{
+									icons[index]
+								}}</v-icon>
 							</v-col>
 							<v-col cols="10">
-								<p class="feature-description">{{ feature.description }}</p>
+								<p class="feature-description">
+									{{ feature.description }}
+								</p>
 							</v-col>
 						</v-row>
 					</v-col>
@@ -34,30 +50,30 @@ export default {
 					icon: "/nothing.png",
 					title: "VPN Protection",
 					description:
-						"To offer the safest lol elo boost on the market, KingBoosting provides VPN protection on every order as a standard. The VPN feature helps to manage the IP address of the booster while boosting on the buyer’s account so the lol boosting process can stay undetected by RIOT."
+						"To offer the safest lol elo boost on the market, KingBoosting provides VPN protection on every order as a standard. The VPN feature helps to manage the IP address of the booster while boosting on the buyer’s account so the lol boosting process can stay undetected by RIOT.",
 				},
 				{
 					icon: "/nothing.png",
 					title: "Privacy & Appear Offline",
 					description:
-						"We offer the appear offline feature for players who are looking to have a private boosting experience. This feature can be selected at checkout, and it assures 100% privacy, as the boosted LoL account shows as offline in the friend list while the lol boosting process lasts."
+						"We offer the appear offline feature for players who are looking to have a private boosting experience. This feature can be selected at checkout, and it assures 100% privacy, as the boosted LoL account shows as offline in the friend list while the lol boosting process lasts.",
 				},
 				{
 					icon: "/nothing.png",
 					title: "Finish in time guarantee",
 					description:
-						"KingBoosting is making sure that your lol elo boost is finished in time. Each submitted order is given a specific deadline and the booster’s goal is to meet this deadline in the fastest possible manner. The length of the boosting process depends on the details of the purchase, and the maximum time limit is indicated when selecting a lol boost."
+						"KingBoosting is making sure that your lol elo boost is finished in time. Each submitted order is given a specific deadline and the booster’s goal is to meet this deadline in the fastest possible manner. The length of the boosting process depends on the details of the purchase, and the maximum time limit is indicated when selecting a lol boost.",
 				},
 				{
 					icon: "/nothing.png",
 					title: "Order tracking",
 					description:
-						"KingBoosting has a built-in order tracking system for each purchased lol elo boost in the member’s area. The system offers different methods of order following, including a chart of the live match history of the LoL account that is being boosted, and a spectate button to watch the booster’s performance."
-				}
+						"KingBoosting has a built-in order tracking system for each purchased lol elo boost in the member’s area. The system offers different methods of order following, including a chart of the live match history of the LoL account that is being boosted, and a spectate button to watch the booster’s performance.",
+				},
 			],
-			icons: ["", "mdi-timer", "mdi-monitor", "mdi-shield-outline"]
+			icons: ["", "mdi-timer", "mdi-monitor", "mdi-shield-outline"],
 		};
-	}
+	},
 };
 </script>
 <style scoped>
@@ -123,41 +139,3 @@ export default {
 	font-size: 80px;
 }
 </style>
-
-<i18n>
-{
-  "en": {
-    "Features": "Features"
-  },
-  "fr": {
-	"Features": "Traits"
-  },
-  "it": {
-	"Features": "Caratteristiche"
-  },
-  "de": {
-	"Features": "Features"
-  },
-  "at": {
-	"Features": "Features"
-  },
-  "swiss": {
-	"Features": "Features"
-  },
-  "es": {
-	"Features": "Features"
-  },
-  "nl": {
-	"Features": "Features"
-  },
-  "se": {
-	"Features": "Features"
-  },
-  "ne": {
-	"Features": "Features"
-  },
-  "dk": {
-	"Features": "Features"
-  }
-}
-</i18n>

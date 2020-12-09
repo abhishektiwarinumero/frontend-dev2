@@ -11,13 +11,14 @@
 </template>
 
 <script>
-import tiers from "@/data/tiers";
+import tiers from "~/assets/js/tiers";
 export default {
 	data: () => ({
 		valid: false,
 		// Declared in instance but not referenced during render, just outsourcing scope
 		client_secret: "",
 		stripeToken: "",
+		tiers: tiers,
 	}),
 	methods: {
 		sendOrder() {
@@ -27,7 +28,7 @@ export default {
 			// Gather current service, get slug from url (pure JS)
 			let service = document.location.pathname.replace("/", "");
 			// Gather current tier and division
-			let tier = _.find(tiers.tiers, [
+			let tier = _.find(this.tiers, [
 				"id",
 				this.$store.state.league.tier,
 			]);
@@ -182,10 +183,16 @@ export default {
 						this.stripeToken = result.token.id;
 					}
 				});
-			} else if (event.error || event.empty) {
+			} else if (event.error) {
 				this.valid = false;
 				this.$store.commit("notification/open", {
 					text: event.error.message,
+					mode: "error",
+				});
+			} else if (event.empty) {
+				this.valid = false;
+				this.$store.commit("notification/open", {
+					text: "Please enter your credit card number",
 					mode: "error",
 				});
 			}
