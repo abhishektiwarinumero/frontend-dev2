@@ -80,7 +80,7 @@ export default {
 				})
 				.catch((error) => {
 					this.$store.commit("notification/open", {
-						text: error.response.data.message,
+						text: "Could not connect to server",
 						mode: "error",
 					});
 				});
