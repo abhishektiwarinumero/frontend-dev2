@@ -73,7 +73,7 @@ export default {
 	methods: {
 		getBoostersList() {
 			this.$axios
-				.get("https://kingboosting.dev/getBoostersNames")
+				.get("api/getBoostersNames")
 				.then((response) => {
 					this.boosters = response.data;
 					this.boostersLoading = false;

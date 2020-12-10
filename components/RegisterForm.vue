@@ -23,9 +23,10 @@
 			</v-flex>
 			<v-flex cols="12" md="6">
 				<v-text-field
-					v-model="username"
+					v-model="credentials.username"
 					label="Username"
 					:rules="usernameRules"
+					:error-messages="usernameErrors"
 					required
 					placeholder="Your username"
 				></v-text-field>
@@ -53,14 +54,15 @@ export default {
 			valid: true,
 			credentials: {
 				email: "",
+				username: "",
 				email_confirmation: "",
 			},
 			emailErrors: [],
+			usernameErrors: [],
 			emailRules: [
 				(v) => !!v || "E-mail is required",
 				(v) => /.+@.+/.test(v) || "E-mail must be valid",
 			],
-			username: "",
 			usernameRules: [
 				(v) => !!v || "Username is required",
 				(v) => v.length >= 3 || "Please insert a valid username",
@@ -69,7 +71,24 @@ export default {
 	},
 	methods: {
 		async register() {
-			// await this.$axios
+			await this.$axios
+				.post("api/register", {
+					email: this.credentials.email,
+					email_confirmation: this.credentials.email_confirmation,
+					username: this.credentials.username,
+				})
+				.then((response) => {
+					this.$store.commit("notification/open", {
+						text: "Account created, we emailed you a password",
+						mode: "success",
+					});
+				})
+				.catch((errors) => {
+					this.$store.commit("notification/open", {
+						text: errors.response.data.message,
+						mode: "error",
+					});
+				});
 		},
 		close() {
 			this.$emit("close");

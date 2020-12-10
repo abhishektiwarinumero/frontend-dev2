@@ -60,45 +60,6 @@ export default {
 		},
 	},
 	methods: {
-		getBoostersList() {
-			this.$axios
-				.get("/getBoostersNames")
-				.then((res) => {
-					this.boosters = res.data;
-					this.boostersLoading = false;
-				})
-				.catch((err) => {
-					// TODO:
-				});
-		},
-		sendResetPasswordEmail() {
-			this.$axios
-				.post("/password/email", {
-					email: this.email,
-				})
-				.then((response) => {
-					alert(response.data.status);
-				})
-				.catch((error) => {
-					alert(error.response.data.errors.email[0]);
-				});
-		},
-		login() {
-			this.$axios
-				.post("/login", {
-					email: this.email,
-					password: this.password,
-				})
-				.then((response) => {
-					alert(response.data.status);
-					this.nextStep(1);
-					// Make API call to get boosters
-					this.getBoostersList();
-				})
-				.catch((error) => {
-					alert(error.response.data.errors);
-				});
-		},
 		closeDialog() {
 			this.currentStep = 1;
 			this.$emit("closeDialog");
