@@ -59,19 +59,12 @@ export default {
 
 	auth: {
 		redirect: false,
-		strategies: {
-			local: {
-				endpoints: {
-					login: { url: 'https://kingboosting.dev/login', method: 'post', propertyName: 'token' },
-					logout: { url: 'https://kingboosting.dev/logout', method: 'post' },
-					user: { url: 'https://kingboosting.dev/user', method: 'get', propertyName: 'user' }
-				},
-			},
-		}
 	},
 
 	// Axios module configuration (https://go.nuxtjs.dev/config-axios)
-	axios: {},
+	axios: {
+		baseURL: 'https://kingboosting.dev', // Used as fallback if no runtime config is provided
+	},
 
 	stripe: {
 		publishableKey: 'pk_test_zZDpfBqbOHuILAiXopaDj39700EvtNuUG8',
