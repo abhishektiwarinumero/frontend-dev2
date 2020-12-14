@@ -87,6 +87,7 @@ export default {
 					this.$store.commit("notification/open", {
 						text: errors.response.data.message,
 						mode: "error",
+						errors: errors.response.data.errors,
 					});
 				});
 		},

@@ -2,6 +2,7 @@ export const state = () => ({
 	isOpen: false,
 	text: "",
 	mode: 'info',
+	errors: null,
 })
 
 export const mutations = {
@@ -9,6 +10,7 @@ export const mutations = {
 		state.isOpen = true;
 		state.text = payload.text;
 		state.mode = payload.mode;
+		state.errors = payload.errors
 	},
 	close(state) {
 		state.isOpen = false;
