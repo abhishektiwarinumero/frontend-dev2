@@ -33,9 +33,7 @@
 						type="submit"
 						>Continue</v-btn
 					>
-					<v-btn text small @click="this.$emit('close')"
-						>Cancel</v-btn
-					>
+					<v-btn text small @click="close">Cancel</v-btn>
 				</v-row>
 			</v-flex>
 		</v-layout>
@@ -77,10 +75,11 @@ export default {
 						});
 						this.close();
 					})
-					.catch((error) => {
+					.catch((errors) => {
 						this.$store.commit("notification/open", {
-							text: error.response.data.message,
+							text: errors.response.data.message,
 							mode: "error",
+							errors: errors.response.data.errors,
 						});
 					});
 			} catch (error) {
@@ -120,6 +119,9 @@ export default {
 						});
 					});
 			}
+		},
+		close() {
+			this.$emit("close");
 		},
 	},
 };
