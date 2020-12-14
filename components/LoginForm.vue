@@ -33,7 +33,9 @@
 						type="submit"
 						>Continue</v-btn
 					>
-					<v-btn text small @click="close">Cancel</v-btn>
+					<v-btn text small @click="this.$emit('close')"
+						>Cancel</v-btn
+					>
 				</v-row>
 			</v-flex>
 		</v-layout>
@@ -118,9 +120,6 @@ export default {
 						});
 					});
 			}
-		},
-		close() {
-			this.$emit("close");
 		},
 	},
 };

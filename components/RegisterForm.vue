@@ -40,7 +40,9 @@
 						type="submit"
 						>Continue</v-btn
 					>
-					<v-btn text small @click="close">Cancel</v-btn>
+					<v-btn text small @click="this.$emit('cancel')"
+						>Cancel</v-btn
+					>
 				</v-row>
 			</v-flex>
 		</v-layout>
@@ -82,6 +84,8 @@ export default {
 						text: "Account created, we emailed you a password",
 						mode: "success",
 					});
+					// Should open the login dialog here & disable registration
+					this.$root.$emit("openLoginForm");
 				})
 				.catch((errors) => {
 					this.$store.commit("notification/open", {
@@ -90,9 +94,6 @@ export default {
 						errors: errors.response.data.errors,
 					});
 				});
-		},
-		close() {
-			this.$emit("close");
 		},
 	},
 };

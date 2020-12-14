@@ -3,14 +3,10 @@
 		<v-stepper-header>
 			<!-- 3 templates here -->
 			<template>
-				<v-stepper-step
-					:key="register ? 'register' : 'login'"
-					:complete="this.$auth.loggedIn"
-					step="1"
-				>
+				<v-stepper-step :complete="this.$auth.loggedIn" step="1">
 					{{ register ? "Register" : "Login" }}
 				</v-stepper-step>
-				<v-divider v-if="1 !== steps" key="1"></v-divider>
+				<v-divider></v-divider>
 			</template>
 			<template>
 				<v-stepper-step
@@ -30,7 +26,7 @@
 			</template>
 		</v-stepper-header>
 		<v-stepper-items>
-			<v-stepper-content key="1-content" step="1">
+			<v-stepper-content step="1">
 				<login @next="nextStep(1)" @cancel="cancel" v-if="!register" />
 				<register
 					v-if="register"
@@ -81,6 +77,9 @@ export default {
 		}
 		this.$root.$on("openRegisterForm", () => {
 			this.register = true;
+		});
+		this.$root.$on("openLoginForm", () => {
+			this.register = false;
 		});
 		this.$root.$on("logout", () => {
 			this.currentStep = 1;

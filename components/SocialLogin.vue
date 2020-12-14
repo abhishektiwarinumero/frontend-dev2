@@ -51,8 +51,8 @@ export default {
 			window.location = `${process.env.API_URL}/login/${provider}`;
 		},
 		openRegisterForm() {
-			this.$root.$emit('openRegisterForm');
-		}
+			this.$root.$emit("openRegisterForm");
+		},
 	},
 };
 </script>
