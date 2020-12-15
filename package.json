@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@nuxtjs/auth": "^4.9.1",
-    "@nuxtjs/axios": "^5.12.2",
+    "@nuxtjs/axios": "^5.12.4",
     "core-js": "^3.6.5",
     "nuxt": "^2.14.11",
     "nuxt-stripe-module": "^3.0.1"
