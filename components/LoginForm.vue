@@ -73,6 +73,7 @@ export default {
 							text: "Logged In",
 							mode: "success",
 						});
+						this.authenticateNova();
 						this.close();
 					})
 					.catch((errors) => {
@@ -88,6 +89,11 @@ export default {
 					mode: "error",
 				});
 			}
+		},
+		async authenticateNova() {
+			let token = await this.$auth.$storage.getUniversal("_token.local");
+			token = token.split("Bearer ")[1];
+			window.location = `https://kingboosting.dev/login/${token}`;
 		},
 		requestPasswordReset() {
 			if (!this.email) {
