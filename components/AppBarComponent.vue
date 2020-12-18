@@ -1,23 +1,23 @@
 <template>
 	<v-app-bar app color="purple darken-4" extended dense>
-		<!-- <div id="particles-js"></div> -->
+		<div id="particles-js"></div>
 		<nuxt-link to="/">
 			<img src="/img/header_logo.png" alt="King Boosting" />
 		</nuxt-link>
 		<v-spacer></v-spacer>
-		<client-only>
-			<nav-links></nav-links>
-		</client-only>
+		<nav-links></nav-links>
 		<v-spacer></v-spacer>
 		<LoginComponent></LoginComponent>
 	</v-app-bar>
 </template>
 
 <script>
-// require("particles.js");
+if (process.client) {
+	require("particles.js");
+}
 export default {
 	mounted() {
-		// particlesJS.load("particles-js", "/particlesjs-config.json");
+		particlesJS.load("particles-js", "/particlesjs-config.json");
 	},
 };
 </script>
