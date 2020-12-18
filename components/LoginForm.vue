@@ -93,7 +93,7 @@ export default {
 		async authenticateNova() {
 			let token = await this.$auth.$storage.getUniversal("_token.local");
 			token = token.split("Bearer ")[1];
-			window.location = `https://kingboosting.dev/login/${token}`;
+			window.location = `https://staging-api.kingboosting.com/login/${token}`;
 		},
 		requestPasswordReset() {
 			if (!this.email) {

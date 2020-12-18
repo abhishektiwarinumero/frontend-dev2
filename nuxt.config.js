@@ -63,7 +63,7 @@ export default {
 
 	// Axios module configuration (https://go.nuxtjs.dev/config-axios)
 	axios: {
-		baseURL: 'https://kingboosting.dev', // Used as fallback if no runtime config is provided
+		baseURL: 'https://staging-api.kingboosting.com', // Used as fallback if no runtime config is provided
 	},
 
 	stripe: {
