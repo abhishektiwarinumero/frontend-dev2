@@ -85,8 +85,7 @@ export default {
 					// Also, maybe return the id of the order from the API response
 					// And redirect the users to their newly created order directly
 					setTimeout(() => {
-						window.location =
-							"https://staging-api.kingboosting.com/dashboard";
+						window.location = `https://${process.env.HOST_URL}/dashboard`;
 					}, 4000);
 					// Actually just close the dialog, semantics ¯\_(ツ)_/¯
 					this.cancel();

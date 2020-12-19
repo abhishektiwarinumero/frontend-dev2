@@ -4,7 +4,7 @@
 			class="ma-2"
 			outlined
 			color="white"
-			href="https://staging-api.kingboosting.com/dashboard"
+			:href="`https://${process.env.HOST_URL}/dashboard`"
 			v-if="this.$auth.loggedIn"
 			>Members Area</v-btn
 		>

@@ -17,6 +17,7 @@
     "particles.js": "^2.0.0"
   },
   "devDependencies": {
+    "@nuxtjs/dotenv": "^1.4.1",
     "@nuxtjs/vuetify": "^1.11.2"
   }
 }

@@ -47,6 +47,7 @@ export default {
 	buildModules: [
 		// https://go.nuxtjs.dev/vuetify
 		'@nuxtjs/vuetify',
+		'@nuxtjs/dotenv',
 	],
 
 	// Modules (https://go.nuxtjs.dev/config-modules)
@@ -63,11 +64,11 @@ export default {
 
 	// Axios module configuration (https://go.nuxtjs.dev/config-axios)
 	axios: {
-		baseURL: 'https://staging-api.kingboosting.com', // Used as fallback if no runtime config is provided
+		baseURL: process.env.API_URL, // Used as fallback if no runtime config is provided
 	},
 
 	stripe: {
-		publishableKey: 'pk_test_zZDpfBqbOHuILAiXopaDj39700EvtNuUG8',
+		publishableKey: process.env.STRIPE_KEY,
 	},
 
 	// Vuetify module configuration (https://go.nuxtjs.dev/config-vuetify)
