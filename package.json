@@ -1,23 +1,26 @@
 {
-  "name": "kingboosting",
-  "version": "1.0.0",
-  "private": true,
-  "scripts": {
-    "dev": "nuxt",
-    "build": "nuxt build",
-    "start": "nuxt start",
-    "generate": "nuxt generate"
-  },
-  "dependencies": {
-    "@nuxtjs/auth": "^4.9.1",
-    "@nuxtjs/axios": "^5.12.4",
-    "core-js": "^3.6.5",
-    "nuxt": "^2.14.12",
-    "nuxt-stripe-module": "^3.0.1",
-    "particles.js": "^2.0.0"
-  },
-  "devDependencies": {
-    "@nuxtjs/dotenv": "^1.4.1",
-    "@nuxtjs/vuetify": "^1.11.2"
-  }
+	"name": "kingboosting",
+	"version": "1.0.0",
+	"private": true,
+	"scripts": {
+		"dev": "nuxt",
+		"build": "nuxt build",
+		"start": "nuxt start",
+		"generate": "nuxt generate"
+	},
+	"dependencies": {
+		"@nuxtjs/auth": "^4.9.1",
+		"@nuxtjs/axios": "^5.12.4",
+		"@nuxtjs/dotenv": "^1.4.1",
+		"core-js": "^3.6.5",
+		"fibers": "^4.0.3",
+		"nuxt": "^2.14.12",
+		"nuxt-stripe-module": "^3.0.1",
+		"particles.js": "^2.0.0",
+		"sass": "^1.30.0",
+		"sass-loader": "^8.0.2"
+	},
+	"devDependencies": {
+		"@nuxtjs/vuetify": "^1.11.2"
+	}
 }
