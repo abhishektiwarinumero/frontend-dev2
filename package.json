@@ -1,6 +1,6 @@
 {
 	"name": "kingboosting",
-	"version": "1.0.0",
+	"version": "0.0.1",
 	"private": true,
 	"scripts": {
 		"dev": "nuxt",
@@ -12,15 +12,10 @@
 		"@nuxtjs/auth": "^4.9.1",
 		"@nuxtjs/axios": "^5.12.4",
 		"@nuxtjs/dotenv": "^1.4.1",
+		"@nuxtjs/vuetify": "^1.11.2",
 		"core-js": "^3.6.5",
-		"fibers": "^5.0.0",
 		"nuxt": "^2.14.12",
 		"nuxt-stripe-module": "^3.0.1",
-		"particles.js": "^2.0.0",
-		"sass": "^1.30.0",
-		"sass-loader": "^10.1.0"
-	},
-	"devDependencies": {
-		"@nuxtjs/vuetify": "^1.11.2"
+		"particles.js": "^2.0.0"
 	}
 }
