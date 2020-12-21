@@ -18,7 +18,7 @@
 		"nuxt-stripe-module": "^3.0.1",
 		"particles.js": "^2.0.0",
 		"sass": "^1.30.0",
-		"sass-loader": "^8.0.2"
+		"sass-loader": "^10.1.0"
 	},
 	"devDependencies": {
 		"@nuxtjs/vuetify": "^1.11.2"
