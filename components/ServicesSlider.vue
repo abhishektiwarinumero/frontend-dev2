@@ -87,12 +87,3 @@ export default {
 	},
 };
 </script>
-
-<style lang="scss" scoped>
-$card-border-radius: 50% !default;
-
-.active {
-	background-image: url("/img/service_nav_bg.png");
-	background-position: center bottom;
-}
-</style>
