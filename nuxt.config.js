@@ -8,7 +8,7 @@ export default {
   */
   head: {
     titleTemplate: "%s | King Boosting",
-    title: "Buy LOL ELO Boost & Premium LOL Boosting",
+    title: "Most Affordable Premium LOL Boosting & Valorant ELO Boost",
 	script: [
       {
         src: '//code.tidio.co/bytmjjusa3gkjkwwkmqjbag7x3lzanqk.js'
