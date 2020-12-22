@@ -9,6 +9,11 @@ export default {
   head: {
     titleTemplate: "%s | King Boosting",
     title: "Buy LOL ELO Boost & Premium LOL Boosting",
+	script: [
+      {
+        src: '//code.tidio.co/bytmjjusa3gkjkwwkmqjbag7x3lzanqk.js'
+      }
+    ],
     meta: [{
         charset: "utf-8"
       },
