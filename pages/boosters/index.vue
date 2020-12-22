@@ -3,10 +3,10 @@
 		<v-container class="title">
 			<h1>Our Boosters</h1>
 			<p>
-				In this menu you can arrange and view our ELO booster and coach
-				employees by using different filters. You can also learn about
-				their detailed statistics throughout different ranked tiers and
-				the champions they usually boost with.
+				In this menu you can arrange and view our ELO booster by using
+				different filters. You can also learn about their detailed
+				statistics throughout different ranked tiers and the champions
+				they usually boost with.
 			</p>
 		</v-container>
 		<div>

@@ -39,26 +39,6 @@ export default [{
     }
   },
   {
-    "name": "Buy lol smurf account",
-    "slug": "buy-lol-smurf-account",
-    "image": "img/circles/11.png",
-    "kind_id": 2,
-    "kind": {
-      "id": 2,
-      "name": "LOL SMURF ACCOUNT SHOP"
-    }
-  },
-  {
-    "name": "Account market",
-    "slug": "account-market",
-    "image": "img/circles/1.png",
-    "kind_id": 3,
-    "kind": {
-      "id": 3,
-      "name": "LOL ACCOUNT"
-    }
-  },
-  {
     "name": "TFT Boosting",
     "slug": "tft-boosting",
     "image": "img/circles/4.png",
@@ -128,14 +108,4 @@ export default [{
       "name": "ELO BOOST"
     }
   },
-  {
-    "name": "Coaching",
-    "slug": "coaching",
-    "image": "img/circles/14.png",
-    "kind_id": 1,
-    "kind": {
-      "id": 1,
-      "name": "ELO BOOST"
-    }
-  }
 ];

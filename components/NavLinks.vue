@@ -33,12 +33,6 @@
 				</v-menu>
 			</v-col>
 			<v-col md="2">
-				<a href="#" title="Coaching" class="link">Coaching</a>
-			</v-col>
-			<v-col md="2">
-				<a href="#" title="Lol Accounts" class="link">Lol Accounts</a>
-			</v-col>
-			<v-col md="2">
 				<nuxt-link to="/boosters" title="Boosters">
 					<p class="text-center link nuxt-link">Boosters</p>
 				</nuxt-link>

@@ -49,7 +49,7 @@ export default {
 					icon: "/nothing.png",
 					title: "Best & Highly Customizable ELO boosting experience",
 					description:
-						"We provide the widest range of lol elo boosting related services in the boosting industry. Our service portfolio is designed with the ultimate goal of providing maximum user satisfaction. We believe, that having a high number of services are required in the field of lol elo boosting as each LoL player has different goals in the game. To help in reaching these goals, BoostRoyal does not only offer a high selection of different lol elo boosting methods, such as solo queue, duoe queue or placement matches, but additional customizability features for each of these boost types. We offer add-on options, such as priority delivery, specific champions or coaching.",
+						"We provide the widest range of lol elo boosting related services in the boosting industry. Our service portfolio is designed with the ultimate goal of providing maximum user satisfaction. We believe, that having a high number of services are required in the field of lol elo boosting as each LoL player has different goals in the game. To help in reaching these goals, BoostRoyal does not only offer a high selection of different lol elo boosting methods, such as solo queue, duoe queue or placement matches, but additional customizability features for each of these boost types. We offer add-on options, such as priority delivery or specific champions",
 				},
 			],
 			icons: [

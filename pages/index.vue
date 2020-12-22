@@ -15,7 +15,6 @@
 				<v-btn class="ma-2" outlined color="white"
 					>League Ranked Accounts</v-btn
 				>
-				<v-btn class="ma-2" outlined color="white">Coaching</v-btn>
 			</v-row>
 			<v-row style="background: rgba(0, 0, 0, 0.5)">
 				<video-section></video-section>

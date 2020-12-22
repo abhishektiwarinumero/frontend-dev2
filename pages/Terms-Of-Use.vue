@@ -96,8 +96,8 @@
 					customer, accept full liability in a court of law as
 					determined by the European Trade Laws. You accept that once
 					your purchase has gone through and is marked as \"In
-					Progress\", or a booster or coach has been assigned, you are
-					no longer eligible to receive a refund. If service is not
+					Progress\", or a booster has been assigned, you are no
+					longer eligible to receive a refund. If service is not
 					completed by BoostRoyal you have the right to receive store
 					credit fitting what is missing from your service.
 					Intellectual Property The Service and its original content,
