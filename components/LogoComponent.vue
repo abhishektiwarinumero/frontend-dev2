@@ -5,20 +5,19 @@
 		height="400"
 		viewBox="30 0 70 24"
 		xmlns="http://www.w3.org/2000/svg"
-		style="background: rgba(0, 0, 0, 0.5);"
 	>
 		<style type="text/css">
-  .st0 {
-    fill: #49047a;
-  }
+			.st0 {
+				fill: #49047a;
+			}
 
-  .st1 {
-    fill: #320651;
-  }
+			.st1 {
+				fill: #320651;
+			}
 
-  .st2 {
-    fill: #ffffff;
-  }
+			.st2 {
+				fill: #ffffff;
+			}
 		</style>
 		<g>
 			<g>

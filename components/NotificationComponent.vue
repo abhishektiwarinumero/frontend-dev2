@@ -1,6 +1,6 @@
 <template>
 	<v-snackbar v-model="snackbar" right top :color="mode" :timeout="3000">
-		{{ text }}
+		<p class="black--text">{{ text }}</p>
 		<ul v-if="errors">
 			<li v-for="(error, index) in errors" :key="index">
 				{{ index }}

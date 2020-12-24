@@ -16,10 +16,10 @@
 					</template>
 					<v-row align="center" justify="center">
 						<v-col md="3">
-							<nuxt-link to="/regular-boosting">
-								<img src="/img/tft.png" alt />
+							<nuxt-link to="/lol-boosting">
+								<img src="/img/circles/5.png" alt />
 								<!-- Vuetify Built-in class -->
-								<p class="text-center">Regular Boosting</p>
+								<p class="text-center">LOL Boosting</p>
 							</nuxt-link>
 						</v-col>
 						<v-col md="3">

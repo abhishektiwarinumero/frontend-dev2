@@ -5,14 +5,16 @@
 				<logo-component></logo-component>
 			</v-row>
 			<v-row align="center" justify="center">
-				<p class="font-weight-bold display-2">Slogan Here</p>
+				<p class="font-weight-bold display-2 purple--text">
+					Slogan Here
+				</p>
 			</v-row>
 			<v-row align="center" justify="center">
-				<v-btn class="ma-2" outlined color="white">Elo Boosting</v-btn>
-				<v-btn class="ma-2" outlined color="white"
+				<v-btn class="ma-2" outlined color="purple">Elo Boosting</v-btn>
+				<v-btn class="ma-2" outlined color="purple"
 					>Unranked Smurf</v-btn
 				>
-				<v-btn class="ma-2" outlined color="white"
+				<v-btn class="ma-2" outlined color="purple"
 					>League Ranked Accounts</v-btn
 				>
 			</v-row>
