@@ -12,11 +12,12 @@ export default {
 	 ** Add Roboto font and Material Icons
 	 */
 	head: {
-		titleTemplate: "%s | King Boosting",
 		title: "Most Affordable Premium LOL Boosting & Valorant ELO Boost",
-		script: [{
-			src: '//code.tidio.co/bytmjjusa3gkjkwwkmqjbag7x3lzanqk.js'
-		}],
+		titleTemplate: "%s | King Boosting",
+		htmlAttrs: {
+			lang: 'en',
+			amp: true
+		},
 		meta: [{
 				charset: "utf-8"
 			},
@@ -44,7 +45,13 @@ export default {
 				type: 'text/css',
 				href: 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons'
 			}
-		]
+		],
+		script: [{
+			src: '//code.tidio.co/bytmjjusa3gkjkwwkmqjbag7x3lzanqk.js'
+		}],
+		noscript: [{
+			innerHTML: 'This website requires JavaScript.'
+		}]
 	},
 
 	// Global CSS (https://go.nuxtjs.dev/config-css)
