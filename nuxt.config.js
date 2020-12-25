@@ -117,5 +117,14 @@ export default {
 				_: "lodash"
 			})
 		],
+
+		/*
+		 ** You can extend webpack config here
+		 */
+		extend(config, ctx) {
+			if (ctx.isClient && ctx.isDev) {
+				config.devtool = 'source-map'
+			}
+		}
 	}
 }
