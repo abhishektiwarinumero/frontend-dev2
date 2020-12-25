@@ -27,7 +27,7 @@ export default {
 			{
 				hid: "description",
 				name: "description",
-				content: "Buy high quality ELO Boosting and LoL Boost services. 100% Safety and Privacy. The best ELO &amp; League Boost experience. Available on all servers."
+				content: "Premium LoL & Valorant Boosting, Coaching, and Account Selling, all at an Affordable Price! Safe, fast, effortless delivery to ALL Regions! Don't wait, RANK UP NOW!"
 			},
 			{
 				name: "keywords",
