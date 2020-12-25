@@ -1,7 +1,7 @@
 <template>
-	<div>
-		<SelectCurrentLeague />
-		<SelectNumberOfWins />
-		<Checkout />
-	</div>
+  <div>
+    <SelectCurrentLeague />
+    <SelectNumberOfWins />
+    <Checkout />
+  </div>
 </template>
