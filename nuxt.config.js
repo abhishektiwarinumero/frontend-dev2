@@ -1,6 +1,11 @@
 import webpack from "webpack";
 
 export default {
+	vue: {
+		config: {
+			productionTip: false,
+		}
+	},
 	// Global page headers (https://go.nuxtjs.dev/config-head)
 	/*
 	 ** Head elements
