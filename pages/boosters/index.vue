@@ -84,38 +84,36 @@ export default {
     const boosters = await $axios.$get(`${process.env.API_URL}/boosters`);
     return { boosters };
   },
-  data() {
-    return {
-      countrys: [
-        { name: "Russia", code: "rus" },
-        { name: "English", code: "us" },
-        { name: "Ukrainian", code: "ua" },
-        { name: "German", code: "de" },
-        { name: "Estonian", code: "ee" },
-        { name: "Spani", code: "es" },
-        { name: "Italian", code: "it" },
-      ],
-      cruds: [
-        ["Create", "add"],
-        ["Read", "insert_drive_file"],
-        ["Update", "update"],
-        ["Delete", "delete"],
-      ],
-      servers: [
-        "North America",
-        "EU-West",
-        "EU-Nordic & East",
-        "Turkey",
-        "Russia",
-        "Brazil",
-        "Latin America North",
-        "Latin America South",
-        "Oceania",
-        "Korea",
-        "PBE",
-      ],
-    };
-  },
+  data: () => ({
+    countrys: [
+      { name: "Russia", code: "rus" },
+      { name: "English", code: "us" },
+      { name: "Ukrainian", code: "ua" },
+      { name: "German", code: "de" },
+      { name: "Estonian", code: "ee" },
+      { name: "Spani", code: "es" },
+      { name: "Italian", code: "it" },
+    ],
+    cruds: [
+      ["Create", "add"],
+      ["Read", "insert_drive_file"],
+      ["Update", "update"],
+      ["Delete", "delete"],
+    ],
+    servers: [
+      "North America",
+      "EU-West",
+      "EU-Nordic & East",
+      "Turkey",
+      "Russia",
+      "Brazil",
+      "Latin America North",
+      "Latin America South",
+      "Oceania",
+      "Korea",
+      "PBE",
+    ],
+  }),
   methods: {
     commitFilter(i) {
       // TODO: commit filter

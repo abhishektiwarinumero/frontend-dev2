@@ -64,11 +64,9 @@
 
 <script>
 export default {
-  data() {
-    return {
-      model: null,
-    };
-  },
+  data: () => ({
+    model: null,
+  }),
 };
 </script>
 

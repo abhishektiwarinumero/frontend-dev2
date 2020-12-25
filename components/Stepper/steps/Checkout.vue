@@ -45,34 +45,32 @@
 
 <script>
 export default {
-  data() {
-    return {
-      discountCode: "",
-      checkboxes: [
-        {
-          id: 0,
-          checked: false,
-          icon: "mdi-account-supervisor",
-          title: "Specific champions at +20% cost",
-          percentage: 20,
-        },
-        {
-          id: 1,
-          checked: false,
-          icon: "mdi-flash",
-          title: "Priority order (2x speed) at +25% cost",
-          percentage: 25,
-        },
-        {
-          id: 2,
-          checked: false,
-          icon: "mdi-camcorder",
-          title: "With Streaming +15% cost",
-          percentage: 15,
-        },
-      ],
-    };
-  },
+  data: () => ({
+    discountCode: "",
+    checkboxes: [
+      {
+        id: 0,
+        checked: false,
+        icon: "mdi-account-supervisor",
+        title: "Specific champions at +20% cost",
+        percentage: 20,
+      },
+      {
+        id: 1,
+        checked: false,
+        icon: "mdi-flash",
+        title: "Priority order (2x speed) at +25% cost",
+        percentage: 25,
+      },
+      {
+        id: 2,
+        checked: false,
+        icon: "mdi-camcorder",
+        title: "With Streaming +15% cost",
+        percentage: 15,
+      },
+    ],
+  }),
   computed: {
     eta() {
       let wins = this.$store.state.wins.wins;

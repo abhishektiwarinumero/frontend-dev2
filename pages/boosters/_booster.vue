@@ -6,11 +6,9 @@
 
 <script>
 export default {
-  data() {
-    return {
-      booster: "",
-    };
-  },
+  data: () => ({
+    booster: "",
+  }),
   methods: {
     getBooster(id) {
       this.booster = id;

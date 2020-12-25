@@ -39,12 +39,10 @@
 <script>
 export default {
   props: ["firstArticle", "articlesCount"],
-  data() {
-    return {
-      currentSlide: 1,
-      article: this.$props.firstArticle,
-    };
-  },
+  data: () => ({
+    currentSlide: 1,
+    article: this.$props.firstArticle,
+  }),
   methods: {
     handleChange(e) {
       this.$axios

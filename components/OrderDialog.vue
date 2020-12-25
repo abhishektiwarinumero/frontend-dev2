@@ -38,14 +38,12 @@
 
 <script>
 export default {
-  data() {
-    return {
-      currentStep: 1,
-      valid: false,
-      steps: 3,
-      register: false,
-    };
-  },
+  data: () => ({
+    currentStep: 1,
+    valid: false,
+    steps: 3,
+    register: false,
+  }),
   computed: {
     priceUSD() {
       return (this.price * this.exchangeRate).toFixed(2);

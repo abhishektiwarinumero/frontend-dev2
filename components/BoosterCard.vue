@@ -34,32 +34,30 @@
 
 <script>
 export default {
-  data() {
-    return {
-      chips: [
-        {
-          id: 0,
-          name: "Toplane",
-        },
-        {
-          id: 1,
-          name: "Jungle",
-        },
-        {
-          id: 2,
-          name: "Marksman",
-        },
-        {
-          id: 3,
-          name: "Jungle",
-        },
-        {
-          id: 4,
-          name: "Marksman",
-        },
-      ],
-    };
-  },
+  data: () => ({
+    chips: [
+      {
+        id: 0,
+        name: "Toplane",
+      },
+      {
+        id: 1,
+        name: "Jungle",
+      },
+      {
+        id: 2,
+        name: "Marksman",
+      },
+      {
+        id: 3,
+        name: "Jungle",
+      },
+      {
+        id: 4,
+        name: "Marksman",
+      },
+    ],
+  }),
 };
 </script>
 

@@ -45,26 +45,24 @@
 
 <script>
 export default {
-  data() {
-    return {
-      valid: true,
-      credentials: {
-        email: "",
-        username: "",
-        email_confirmation: "",
-      },
-      emailErrors: [],
-      usernameErrors: [],
-      emailRules: [
-        (v) => !!v || "E-mail is required",
-        (v) => /.+@.+/.test(v) || "E-mail must be valid",
-      ],
-      usernameRules: [
-        (v) => !!v || "Username is required",
-        (v) => v.length >= 3 || "Please insert a valid username",
-      ],
-    };
-  },
+  data: () => ({
+    valid: true,
+    credentials: {
+      email: "",
+      username: "",
+      email_confirmation: "",
+    },
+    emailErrors: [],
+    usernameErrors: [],
+    emailRules: [
+      (v) => !!v || "E-mail is required",
+      (v) => /.+@.+/.test(v) || "E-mail must be valid",
+    ],
+    usernameRules: [
+      (v) => !!v || "Username is required",
+      (v) => v.length >= 3 || "Please insert a valid username",
+    ],
+  }),
   methods: {
     async register() {
       await this.$axios

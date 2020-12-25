@@ -38,24 +38,22 @@
 
 <script>
 export default {
-  data() {
-    return {
-      valid: true,
-      credentials: {
-        email: "",
-        password: "",
-      },
-      emailErrors: [],
-      emailRules: [
-        (v) => !!v || "E-mail is required",
-        (v) => /.+@.+/.test(v) || "E-mail must be valid",
-      ],
-      passwordRules: [
-        (v) => !!v || "Password is required",
-        (v) => v.length >= 8 || "Password must be at least 8 characters",
-      ],
-    };
-  },
+  data: () => ({
+    valid: true,
+    credentials: {
+      email: "",
+      password: "",
+    },
+    emailErrors: [],
+    emailRules: [
+      (v) => !!v || "E-mail is required",
+      (v) => /.+@.+/.test(v) || "E-mail must be valid",
+    ],
+    passwordRules: [
+      (v) => !!v || "Password is required",
+      (v) => v.length >= 8 || "Password must be at least 8 characters",
+    ],
+  }),
   methods: {
     async login() {
       try {

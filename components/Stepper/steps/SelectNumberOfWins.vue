@@ -25,12 +25,10 @@
 
 <script>
 export default {
-  data() {
-    return {
-      winsCounter: 4,
-      mode: "Solo/Duo",
-    };
-  },
+  data: () => ({
+    winsCounter: 4,
+    mode: "Solo/Duo",
+  }),
   computed: {
     max() {
       return this.$store.state.wins.maxNumberOfWins;

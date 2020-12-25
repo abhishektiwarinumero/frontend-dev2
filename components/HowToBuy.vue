@@ -33,36 +33,34 @@
 
 <script>
 export default {
-  data() {
-    return {
-      overlay: false,
-      steps: [
-        {
-          id: 1,
-          step: "Select the details of your purchase.",
-          icon: "mdi-check-circle-outline",
-        },
-        {
-          id: 2,
-          step:
-            "After clicking the 'Buy Boost' button, you can either continue as a guest or as a returning customer.",
-          icon: "mdi-login-variant",
-        },
-        {
-          id: 3,
-          step:
-            "By clicking the 'Purchase' button, you will be redirected to the chosen payment gateway.",
-          icon: "mdi-cash-usd",
-        },
-        {
-          id: 4,
-          step:
-            "In the members area you can track your order, spectate, pause or chat live with your booster!",
-          icon: "mdi-ticket",
-        },
-      ],
-    };
-  },
+  data: () => ({
+    overlay: false,
+    steps: [
+      {
+        id: 1,
+        step: "Select the details of your purchase.",
+        icon: "mdi-check-circle-outline",
+      },
+      {
+        id: 2,
+        step:
+          "After clicking the 'Buy Boost' button, you can either continue as a guest or as a returning customer.",
+        icon: "mdi-login-variant",
+      },
+      {
+        id: 3,
+        step:
+          "By clicking the 'Purchase' button, you will be redirected to the chosen payment gateway.",
+        icon: "mdi-cash-usd",
+      },
+      {
+        id: 4,
+        step:
+          "In the members area you can track your order, spectate, pause or chat live with your booster!",
+        icon: "mdi-ticket",
+      },
+    ],
+  }),
   methods: {
     showHideOverlay() {
       this.overlay = !this.overlay;
