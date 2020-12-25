@@ -4,7 +4,7 @@
       class="ma-2"
       outlined
       color="white"
-      :href="`https://${process.env.HOST_URL}/dashboard`"
+      :href="url"
       v-if="this.$auth.loggedIn"
       >Members Area</v-btn
     >
@@ -36,6 +36,11 @@ export default {
     return {
       dialog: false,
     };
+  },
+  computed: {
+    url() {
+      return `https://${process.env.HOST_URL}/dashboard`;
+    },
   },
 };
 </script>
