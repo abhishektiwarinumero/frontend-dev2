@@ -32,11 +32,9 @@
 
 <script>
 export default {
-  data() {
-    return {
-      dialog: false,
-    };
-  },
+  data: () => ({
+    dialog: false,
+  }),
   computed: {
     url() {
       return `https://${process.env.HOST_URL}/dashboard`;
