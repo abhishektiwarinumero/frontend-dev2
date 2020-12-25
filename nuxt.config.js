@@ -98,6 +98,7 @@ export default {
 	build: {
 		transpile: [/vuetify/],
 		extractCSS: true,
+		cssSourceMap: true,
 		plugins: [
 			// Expose lodash globally
 			new webpack.ProvidePlugin({
