@@ -78,6 +78,17 @@ export default {
 
 	auth: {
 		redirect: false,
+		strategies: {
+			local: {
+				endpoints: {
+					user: {
+						url: 'user',
+						method: 'get',
+						propertyName: false
+					}
+				},
+			},
+		}
 	},
 
 	// Axios module configuration (https://go.nuxtjs.dev/config-axios)
