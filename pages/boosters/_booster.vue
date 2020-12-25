@@ -1,13 +1,23 @@
 <template>
   <div>
-    <p>Hey Im booster {{ booster }}</p>
+    <p>Hey I'm booster {{ booster.name }}</p>
   </div>
 </template>
 
 <script>
 export default {
+  head: () => ({
+    title: this.booster.name,
+    meta: [
+      {
+        hid: "desc",
+        name: "description",
+        content: this.booster.description,
+      },
+    ],
+  }),
   data: () => ({
-    booster: "",
+    booster: {},
   }),
   methods: {
     getBooster(id) {

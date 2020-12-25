@@ -80,6 +80,17 @@
 
 <script>
 export default {
+  head: () => ({
+    title: "ELO Booster team available 24/7",
+    meta: [
+      {
+        hid: "desc",
+        name: "description",
+        content:
+          "List of premium ELO boosters who are working on BoostRoyal. High-quality players for every ranked tier 24/7 available at your service.",
+      },
+    ],
+  }),
   async asyncData({ $axios }) {
     const boosters = await $axios.$get(`${process.env.API_URL}/boosters`);
     return { boosters };
