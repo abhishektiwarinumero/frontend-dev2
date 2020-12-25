@@ -35,7 +35,6 @@
 import Stepper from "~/components/Stepper";
 
 export default {
-  name: "lol-boosting",
   components: {
     Stepper,
   },

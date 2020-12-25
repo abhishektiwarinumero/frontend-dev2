@@ -33,7 +33,6 @@
 import Stepper from "~/components/Stepper";
 
 export default {
-  name: "tft-boosting",
   components: {
     Stepper,
   },

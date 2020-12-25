@@ -34,7 +34,6 @@
 import Stepper from "~/components/Stepper";
 
 export default {
-  name: "wild-rift-boosting",
   components: {
     Stepper,
   },
