@@ -9,7 +9,8 @@
     <app-bar-component></app-bar-component>
     <v-main>
       <v-container fluid>
-        <nuxt />
+        <nuxt v-if="!$slots.default" />
+        <slot />
       </v-container>
     </v-main>
     <v-footer absolute class="font-weight-medium">
