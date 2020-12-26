@@ -25,20 +25,3 @@
     <WhyUs />
   </v-layout>
 </template>
-
-<script>
-import WhyUs from "~/components/WhyUs.vue";
-import Features from "~/components/Features.vue";
-import HowToBuy from "~/components/HowToBuy.vue";
-import CustomerVoice from "~/components/CustomerVoice.vue";
-import ServicesCircle from "~/components/ServicesCircle.vue";
-
-export default {
-  components: {
-    ServicesCircle,
-    CustomerVoice,
-    HowToBuy,
-    WhyUs,
-  },
-};
-</script>
