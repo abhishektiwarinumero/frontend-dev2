@@ -38,7 +38,6 @@ export default {
   },
   data: () => ({
     game: {
-      id: 1,
       name: "TFT BOOSTING",
       slug: "tft-boosting",
       image: "img/circles/4.png",

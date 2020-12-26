@@ -38,7 +38,6 @@ export default {
   },
   data: () => ({
     game: {
-      id: 1,
       name: "Valorant Boosting",
       image: "img/games/valorant.png",
       slug: "valorant-boosting",

@@ -40,7 +40,6 @@ export default {
   },
   data: () => ({
     game: {
-      id: 1,
       name: "LOR BOOSTING",
       slug: "lor-boosting",
       image: "img/circles/5.png",
