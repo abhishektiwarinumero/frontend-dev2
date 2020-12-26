@@ -11,8 +11,8 @@
         <v-col md="8" style="text-align: center">
           <nuxt />
         </v-col>
+        <games-slider :game="game" />
       </v-row>
-      <games-slider :game="game" />
     </div>
     <v-container>
       <v-row>
