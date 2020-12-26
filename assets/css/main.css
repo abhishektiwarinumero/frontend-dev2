@@ -56,3 +56,7 @@ html {
 .hvr-glow:active {
 	box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
 }
+
+.selectedGame {
+	background: url(/img/backgrounds/active-game-bg.png) no-repeat bottom;
+}

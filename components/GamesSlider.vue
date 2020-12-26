@@ -1,24 +1,14 @@
 <template>
   <v-sheet max-width="1600" color="transparent" class="mx-auto">
-    <v-slide-group
-      v-model="model"
-      center-active
-      active-class="current"
-      mandatory
-      show-arrows
-    >
-      <v-slide-item
-        v-for="(game, index) in games"
-        :key="index"
-        v-slot:default="{ active }"
-      >
+    <v-slide-group mandatory show-arrows>
+      <v-slide-item v-for="(game, index) in games" :key="index">
         <v-card
           color="transparent"
-          :class="{ active: active }"
           flat
           :ripple="false"
           nuxt
           :to="game.slug"
+          active-class="selectedGame"
         >
           <v-img :src="game.image" :alt="game.name"></v-img>
           <v-card-title
@@ -45,15 +35,5 @@ export default {
   data: () => ({
     games: games,
   }),
-  computed: {
-    model: {
-      get() {
-        return this.game.id;
-      },
-      set() {
-        return this.game.id;
-      },
-    },
-  },
 };
 </script>
