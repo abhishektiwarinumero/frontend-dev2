@@ -34,7 +34,9 @@ export default {
   },
   mounted() {
     this.$axios
-      .get("https://api.exchangeratesapi.io/latest?symbols=USD")
+      .get(
+        "https://cors-anywhere.herokuapp.com/https://api.exchangeratesapi.io/latest?symbols=USD"
+      )
       .then((response) => {
         this.exchangeRate = response.data.rates.USD;
       });
