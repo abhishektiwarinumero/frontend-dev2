@@ -2,7 +2,7 @@
   <v-layout column>
     <v-container fluid class="welcome">
       <v-row align="center" justify="center">
-        <logo-component></logo-component>
+        <img src="/img/logo/1000x400_transparent_bg_dark.png" alt="Logo" />
       </v-row>
       <v-row align="center" justify="center">
         <p class="font-weight-bold display-2 purple--text">Slogan Here</p>
