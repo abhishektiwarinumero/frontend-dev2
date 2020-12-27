@@ -1,29 +1,21 @@
 <template>
-  <v-container>
-    <v-row>
-      <v-spacer></v-spacer>
-      <v-col md="2">
-        <div>
-          <v-dialog v-model="dialog" width="500">
-            <template v-slot:activator="{ on }">
-              <v-icon color="white darken-2" size="650%" v-on="on" light
-                >mdi-play-circle-outline</v-icon
-              >
-            </template>
-            <iframe
-              width="560"
-              height="315"
-              src="https://www.youtube.com/embed/LO1mTELoj6o?controls=0"
-              frameborder="0"
-              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
-            ></iframe>
-          </v-dialog>
-        </div>
-      </v-col>
-      <v-spacer></v-spacer>
-    </v-row>
-  </v-container>
+  <v-row style="background: rgba(0, 0, 0, 0.5)" justify="center">
+    <v-dialog v-model="dialog" width="500">
+      <template v-slot:activator="{ on }">
+        <v-icon color="white darken-2" size="650%" v-on="on" light
+          >mdi-play-circle-outline</v-icon
+        >
+      </template>
+      <iframe
+        width="560"
+        height="315"
+        src="https://www.youtube.com/embed/LO1mTELoj6o?controls=0"
+        frameborder="0"
+        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      ></iframe>
+    </v-dialog>
+  </v-row>
 </template>
 
 <script>

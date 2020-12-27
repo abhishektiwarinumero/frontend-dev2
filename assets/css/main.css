@@ -1,8 +1,3 @@
-.welcome {
-	background: url(/img/thresh.jpg) top/cover no-repeat #111415 !important;
-	height: 32%;
-}
-
 html {
 	background-color: black;
 	/* has to be scroll, not auto; */
