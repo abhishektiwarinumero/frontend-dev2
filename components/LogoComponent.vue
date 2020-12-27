@@ -1,9 +1,9 @@
 <template>
   <svg
     class="fill-current"
-    width="1000"
-    height="400"
-    viewBox="30 0 70 24"
+    :width="width"
+    :height="height"
+    :viewBox="viewBox"
     xmlns="http://www.w3.org/2000/svg"
   >
     <style type="text/css">
@@ -236,3 +236,22 @@
     </g>
   </svg>
 </template>
+
+<script>
+export default {
+  props: {
+    width: {
+      type: Number,
+      default: 1000,
+    },
+    height: {
+      type: Number,
+      default: 400,
+    },
+    viewBox: {
+      type: String,
+      default: "30 0 70 24",
+    },
+  },
+};
+</script>

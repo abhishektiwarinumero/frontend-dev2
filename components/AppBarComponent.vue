@@ -1,13 +1,17 @@
 <template>
-  <v-app-bar app color="purple darken-4" extended dense>
+  <v-app-bar app flat prominent>
     <div id="particles-js"></div>
     <nuxt-link to="/">
-      <img src="/img/header_logo.png" alt="King Boosting" />
+      <logo-component :width="300" :height="300" viewBox="30 0 60 70">
+      </logo-component>
     </nuxt-link>
-    <v-spacer></v-spacer>
-    <nav-links></nav-links>
-    <v-spacer></v-spacer>
-    <LoginComponent></LoginComponent>
+
+    <v-tabs centered class="ml-n9" color="grey darken-1" optional>
+      <v-tab v-for="link in links" :key="link.title" nuxt :to="link.url">
+        {{ link.title }}
+      </v-tab>
+    </v-tabs>
+    <LoginComponent class="header_logo"></LoginComponent>
   </v-app-bar>
 </template>
 
@@ -16,6 +20,16 @@ if (process.client) {
   require("particles.js");
 }
 export default {
+  data: () => ({
+    links: [
+      { title: "Boosting", url: "lol-boosting" },
+      { title: "Coaching", url: "coaching" },
+      { title: "Lol Accounts", url: "lol-accounts" },
+      { title: "Boosters", url: "boosters" },
+      { title: "Apply", url: "apply" },
+      { title: "More*", url: "" },
+    ],
+  }),
   mounted() {
     particlesJS.load("particles-js", "/particlesjs-config.json");
   },
@@ -23,11 +37,8 @@ export default {
 </script>
 
 <style scoped>
-.v-app-bar,
-.v-application .purple.darken-4 {
-  padding-top: 2%;
-  border: 1px solid black !important;
-  border-radius: 5px;
+.header_logo {
+  padding-top: 30px;
 }
 #particles-js canvas {
   display: block;

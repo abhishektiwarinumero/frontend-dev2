@@ -11,15 +11,7 @@ html {
 }
 
 .services-section {
-	/* margin-top: 20px; */
-	/* margin-bottom: 20px; */
 	background-color: black;
-}
-
-.v-system-bar,
-.v-app-bar {
-	padding-left: 40px;
-	padding-right: 40px;
 }
 
 .languages {
