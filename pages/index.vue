@@ -5,7 +5,7 @@
         <img src="/img/logo/1000x400_transparent_bg_dark.png" alt="Logo" />
       </v-row>
       <v-row align="center" justify="center">
-        <p class="font-weight-bold display-2 purple--text">Slogan Here</p>
+        <p class="font-weight-bold display-2 purple--text">Best ELO Boosting</p>
       </v-row>
       <v-row align="center" justify="center">
         <v-btn class="ma-2" outlined color="purple">Elo Boosting</v-btn>
