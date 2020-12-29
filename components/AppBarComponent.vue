@@ -22,7 +22,7 @@ if (process.client) {
 export default {
   data: () => ({
     links: [
-      { title: "Boosting", url: "lol-boosting" },
+      { title: "Boosting", url: "division-boosting" },
       { title: "Coaching", url: "coaching" },
       { title: "Lol Accounts", url: "lol-accounts" },
       { title: "Boosters", url: "boosters" },

@@ -1,90 +1,102 @@
 export default [
 	{
-		name: "League Boosting",
-		slug: "lol-boosting",
-		image: "/img/services/lol-boosting.png",
+		name: "Division Boosting",
+		slug: "division-boosting",
 		game: "LOL BOOSTING",
 	},
 	{
-		name: "Ranked Wins Boost",
-		slug: "ranked-wins-boost",
-		image: "/img/services/ranked-wins-boost.png",
+		name: "Ranked Win Boosting",
+		slug: "ranked-win-boosting",
 		game: "LOL BOOSTING",
 	},
 	{
 		name: "Duo Queue Boosting",
 		slug: "duoqueue-boosting",
-		image: "/img/services/duoqueue-boosting.png",
 		game: "LOL BOOSTING",
 	},
 	{
-		name: "Placement matches",
-		slug: "placement-matches",
-		image: "/img/services/placement-matches.png",
+		name: "Placement Boosting",
+		slug: "placement-boosting",
+		game: "LOL BOOSTING",
+	},
+	{
+		name: "Promotion Boosting",
+		slug: "promotion-boosting",
 		game: "LOL BOOSTING",
 	},
 	{
 		name: "Champion Mastery",
 		slug: "champion-mastery",
-		image: "/img/services/champion-mastery.png",
 		game: "LOL BOOSTING",
 	},
 	{
 		name: "Clash Boosting",
 		slug: "clash-boosting",
-		image: "/img/services/clash-boosting.png",
 		game: "LOL BOOSTING",
 	},
 	{
 		name: "Normal matches",
 		slug: "normal-matches",
-		image: "/img/services/normal-matches.png",
 		game: "LOL BOOSTING",
 	},
 	{
 		name: "Account leveling",
 		slug: "account-leveling",
-		image: "/img/services/account-leveling.png",
 		game: "LOL BOOSTING",
 	},
 	{
-		"name": "Regular Boosting",
-		"slug": "regular-boosting",
-		"image": "/img/services/12.png",
-		"kind_id": 1,
-		"kind": {
-			"id": 1,
-			"name": "ELO BOOST"
-		}
+		name: "Rank Boosting",
+		slug: "valorant-boosting",
+		game: "VALORANT BOOSTING",
 	},
 	{
-		"name": "LOR Boosting",
-		"slug": "lor-boosting",
-		"image": "/img/services/10.png",
-		"kind_id": 1,
-		"kind": {
-			"id": 1,
-			"name": "ELO BOOST"
-		}
+		name: "Placement Matches",
+		slug: "placement-matches",
+		game: "VALORANT BOOSTING",
 	},
 	{
-		"name": "TFT Boosting",
-		"slug": "tft-boosting",
-		"image": "/img/services/4.png",
-		"kind_id": 1,
-		"kind": {
-			"id": 1,
-			"name": "ELO BOOST"
-		}
+		name: "Competitive Win Boosting",
+		slug: "competitive-win-boosting",
+		game: "VALORANT BOOSTING",
 	},
 	{
-		"name": "Promotion boosting",
-		"slug": "promotion-boosting",
-		"image": "/img/services/10.png",
-		"kind_id": 1,
-		"kind": {
-			"id": 1,
-			"name": "ELO BOOST"
-		}
+		name: "Unrated Matches",
+		slug: "unrated-matches",
+		game: "VALORANT BOOSTING",
+	},
+	{
+		name: "Division Boosting",
+		slug: "tft-ranked-boost",
+		game: "TFT Boosting",
+	},
+	{
+		name: "Win Boosting",
+		slug: "win-boosting",
+		game: "TFT Boosting",
+	},
+	{
+		name: "Placement Matches",
+		slug: "placement-matches",
+		game: "TFT Boosting",
+	},
+	{
+		name: "Rank Boosting",
+		slug: "rank-boosting",
+		game: "Wild Rift Boosting",
+	},
+	{
+		name: "Placement Matches",
+		slug: "placement-matches",
+		game: "Wild Rift Boosting",
+	},
+	{
+		name: "Ranked Win Boosting",
+		slug: "wild-rift-boosting",
+		game: "Wild Rift Boosting",
+	},
+	{
+		name: "Normal Matches",
+		slug: "normal-matches",
+		game: "Wild Rift Boosting",
 	},
 ];

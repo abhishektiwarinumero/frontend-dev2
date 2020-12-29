@@ -1,25 +1,25 @@
 export default [{
 	name: "LOL BOOSTING",
-	slug: "lol-boosting",
+	image: "/img/games/lol-boosting.png",
 },
 {
 	name: "VALORANT BOOSTING",
-	slug: "valorant-boosting",
+	image: "/img/games/valorant-boosting.png",
 },
 {
 	name: "TFT Boosting",
-	slug: "tft-boosting",
+	image: "/img/games/tft-boosting.png",
 },
 {
-	name: "WILD RIFT BOOSTING",
-	slug: "wild-rift-boosting",
+	name: "Wild Rift Boosting",
+	image: "/img/games/wild-rift-boosting.png",
 },
-{
-	name: "RUNETERRA BOOSTING",
-	slug: "lor-boosting",
-},
-{
-	name: "COACHING",
-	slug: "coaching",
-},
+	// {
+	// 	name: "RUNETERRA BOOSTING",
+	// 	image: "/img/games/lor-boosting.png",
+	// },
+	// {
+	// 	name: "COACHING",
+	// 	image: "/img/games/coaching.png",
+	// },
 ];
