@@ -9,7 +9,7 @@
         :to="game.slug"
         active-class="selectedGame"
       >
-        <v-img :src="game.image" :alt="game.name"></v-img>
+        <v-img :src="`/img/games/${game.slug}.png`" :alt="game.name"></v-img>
         <v-card-title
           class="font-weight-bold text-overline text-center"
           style="display: block"

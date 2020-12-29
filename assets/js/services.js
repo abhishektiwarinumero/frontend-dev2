@@ -1,17 +1,56 @@
-export default [{
-		"name": "Regular Boosting",
-		"slug": "regular-boosting",
-		"image": "img/circles/12.png",
-		"kind_id": 1,
-		"kind": {
-			"id": 1,
-			"name": "ELO BOOST"
-		}
+export default [
+	{
+		name: "League Boosting",
+		slug: "lol-boosting",
+		image: "/img/services/lol-boosting.png",
+		game: "LOL BOOSTING",
 	},
 	{
-		"name": "League Boosting",
-		"slug": "league-boosting",
-		"image": "img/circles/5.png",
+		name: "Ranked Wins Boost",
+		slug: "ranked-wins-boost",
+		image: "/img/services/ranked-wins-boost.png",
+		game: "LOL BOOSTING",
+	},
+	{
+		name: "Duo Queue Boosting",
+		slug: "duoqueue-boosting",
+		image: "/img/services/duoqueue-boosting.png",
+		game: "LOL BOOSTING",
+	},
+	{
+		name: "Placement matches",
+		slug: "placement-matches",
+		image: "/img/services/placement-matches.png",
+		game: "LOL BOOSTING",
+	},
+	{
+		name: "Champion Mastery",
+		slug: "champion-mastery",
+		image: "/img/services/champion-mastery.png",
+		game: "LOL BOOSTING",
+	},
+	{
+		name: "Clash Boosting",
+		slug: "clash-boosting",
+		image: "/img/services/clash-boosting.png",
+		game: "LOL BOOSTING",
+	},
+	{
+		name: "Normal matches",
+		slug: "normal-matches",
+		image: "/img/services/normal-matches.png",
+		game: "LOL BOOSTING",
+	},
+	{
+		name: "Account leveling",
+		slug: "account-leveling",
+		image: "/img/services/account-leveling.png",
+		game: "LOL BOOSTING",
+	},
+	{
+		"name": "Regular Boosting",
+		"slug": "regular-boosting",
+		"image": "/img/services/12.png",
 		"kind_id": 1,
 		"kind": {
 			"id": 1,
@@ -21,17 +60,7 @@ export default [{
 	{
 		"name": "LOR Boosting",
 		"slug": "lor-boosting",
-		"image": "img/circles/10.png",
-		"kind_id": 1,
-		"kind": {
-			"id": 1,
-			"name": "ELO BOOST"
-		}
-	},
-	{
-		"name": "Duo Queue Boosting",
-		"slug": "duo-queue-boosting",
-		"image": "img/circles/6.png",
+		"image": "/img/services/10.png",
 		"kind_id": 1,
 		"kind": {
 			"id": 1,
@@ -41,37 +70,7 @@ export default [{
 	{
 		"name": "TFT Boosting",
 		"slug": "tft-boosting",
-		"image": "img/circles/4.png",
-		"kind_id": 1,
-		"kind": {
-			"id": 1,
-			"name": "ELO BOOST"
-		}
-	},
-	{
-		"name": "Champion Mastery",
-		"slug": "champion-mastery",
-		"image": "img/circles/3.png",
-		"kind_id": 1,
-		"kind": {
-			"id": 1,
-			"name": "ELO BOOST"
-		}
-	},
-	{
-		"name": "Placement matches",
-		"slug": "placement-matches",
-		"image": "img/circles/9.png",
-		"kind_id": 1,
-		"kind": {
-			"id": 1,
-			"name": "ELO BOOST"
-		}
-	},
-	{
-		"name": "Clash Boosting",
-		"slug": "clash-boosting",
-		"image": "img/circles/13.png",
+		"image": "/img/services/4.png",
 		"kind_id": 1,
 		"kind": {
 			"id": 1,
@@ -81,27 +80,7 @@ export default [{
 	{
 		"name": "Promotion boosting",
 		"slug": "promotion-boosting",
-		"image": "img/circles/10.png",
-		"kind_id": 1,
-		"kind": {
-			"id": 1,
-			"name": "ELO BOOST"
-		}
-	},
-	{
-		"name": "Account leveling",
-		"slug": "account-leveling",
-		"image": "img/circles/7.png",
-		"kind_id": 1,
-		"kind": {
-			"id": 1,
-			"name": "ELO BOOST"
-		}
-	},
-	{
-		"name": "Normal matches",
-		"slug": "normal-matches",
-		"image": "img/circles/8.png",
+		"image": "/img/services/10.png",
 		"kind_id": 1,
 		"kind": {
 			"id": 1,
