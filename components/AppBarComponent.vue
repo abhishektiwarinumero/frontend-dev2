@@ -1,17 +1,17 @@
 <template>
-  <v-app-bar app flat prominent>
+  <v-app-bar app flat prominent color="#1e1e1e">
     <div id="particles-js"></div>
     <nuxt-link to="/">
-      <logo-component :width="300" :height="300" viewBox="30 0 60 70">
+      <logo-component :width="300" :height="128" viewBox="30 0 60 70">
       </logo-component>
     </nuxt-link>
 
-    <v-tabs centered class="ml-n9" color="grey darken-1" optional>
+    <v-tabs centered class="ml-n9" color="primary" optional slider-size="5">
       <v-tab v-for="link in links" :key="link.title" nuxt :to="link.url">
         {{ link.title }}
       </v-tab>
     </v-tabs>
-    <LoginComponent class="header_logo"></LoginComponent>
+    <LoginComponent></LoginComponent>
   </v-app-bar>
 </template>
 
@@ -22,12 +22,10 @@ if (process.client) {
 export default {
   data: () => ({
     links: [
-      { title: "Boosting", url: "division-boosting" },
+      { title: "Elo Boosting", url: "division-boosting" },
       { title: "Coaching", url: "coaching" },
-      { title: "Lol Accounts", url: "lol-accounts" },
-      { title: "Boosters", url: "boosters" },
-      { title: "Apply", url: "apply" },
-      { title: "More*", url: "" },
+      { title: "Account Market", url: "lol-accounts" },
+      { title: "More", url: "" },
     ],
   }),
   mounted() {

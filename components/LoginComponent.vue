@@ -1,6 +1,8 @@
 <template>
-  <div>
+  <div style="height: inherit; border-bottom: white solid 5px">
     <v-btn
+      block
+      x-large
       class="ma-2"
       outlined
       color="white"
@@ -10,7 +12,16 @@
     >
     <v-dialog max-width="800px" v-model="dialog" v-else>
       <template v-slot:activator="{ on }">
-        <v-btn class="ma-2" outlined color="white" v-on="on">
+        <v-btn
+          depressed
+          tile
+          color="primary"
+          v-on="on"
+          block
+          x-large
+          class="mr-0"
+          style="height: 100%"
+        >
           Members Area
         </v-btn>
       </template>

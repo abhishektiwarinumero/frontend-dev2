@@ -47,3 +47,14 @@ html {
 .selectedGame {
 	background: url(/img/backgrounds/active-game-bg.png) no-repeat bottom;
 }
+
+.v-toolbar__content, .v-toolbar__extension {
+	padding: 0px;
+}
+.v-toolbar__content > .v-tabs, .v-toolbar__extension > .v-tabs {
+	margin-top: 0px;
+}
+
+.v-tabs-slider-wrapper {
+	height: 5px;
+}

@@ -28,7 +28,7 @@
 
 <style scoped>
 .hero {
-  background: url(/img/backgrounds/thresh.jpg);
+  background: url(/img/backgrounds/wallpaper.png);
   background-position: bottom;
   background-size: cover;
   background-repeat: no-repeat;
