@@ -2,8 +2,7 @@
   <v-app-bar app flat prominent color="#1e1e1e">
     <div id="particles-js"></div>
     <nuxt-link to="/">
-      <logo-component :width="300" :height="128" viewBox="30 0 60 70">
-      </logo-component>
+      <img src="/img/logo/nav.png" alt="Logo" width="300" />
     </nuxt-link>
 
     <v-tabs centered class="ml-n9" color="primary" optional slider-size="5">

@@ -3,7 +3,7 @@
     <v-container fluid class="hero">
       <v-row align="center" justify="center" class="mt-16 mb-16 pt-16 pm-16">
         <img
-          src="/img/logo/1000x400_transparent_bg_dark.png"
+          src="/img/logo/logo.png"
           alt="Logo"
           class="mt-16 mb-16 pt-16 pm-16"
         />
