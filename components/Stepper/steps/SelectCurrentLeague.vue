@@ -53,20 +53,43 @@
             </v-row>
             <v-row>
               <v-col v-if="hasDivisions">
-                <v-select
-                  v-model="currentAccountPointsModel"
-                  :items="currentAccountPoints"
-                  dense
-                  solo
-                ></v-select>
+                <v-tooltip top color="primary" max-width="350">
+                  <template v-slot:activator="{ on, attrs }">
+                    <v-select
+                      v-bind="attrs"
+                      v-on="on"
+                      v-model="currentAccountPointsModel"
+                      :items="currentAccountPoints"
+                      dense
+                      solo
+                    ></v-select>
+                  </template>
+                  <span>Your current League Points amount</span>
+                </v-tooltip>
               </v-col>
               <v-col>
-                <v-select
-                  :items="currentWinsPerGame"
-                  dense
-                  solo
-                  v-model="LP"
-                ></v-select>
+                <v-tooltip top color="primary" max-width="350">
+                  <template v-slot:activator="{ on, attrs }">
+                    <v-select
+                      v-bind="attrs"
+                      v-on="on"
+                      :items="currentWinsPerGame"
+                      dense
+                      solo
+                      v-model="LP"
+                    ></v-select>
+                  </template>
+                  <span>
+                    Please select the amount of LP you are expected to receive
+                    per win during the first couple of games of your order. We
+                    offer a wide variety of options to ensure that you don't pay
+                    more than, what is fair, but if you gain less lp in one of
+                    your first games than you declared you'll be asked to pay
+                    for the adjustment of your order later. Changes to your lp
+                    gain during the order -either positive or negative will not
+                    be your responsibility.
+                  </span>
+                </v-tooltip>
               </v-col>
             </v-row>
             <v-select

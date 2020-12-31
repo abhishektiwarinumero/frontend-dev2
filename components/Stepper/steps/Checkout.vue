@@ -15,25 +15,36 @@
               v-for="(checkbox, index) in checkboxes"
               :key="index"
             >
-              <v-switch
-                v-model="checkbox.checked"
-                @change="checkOption(checkbox)"
-              >
-                <template v-slot:label>
-                  <v-icon color="#673ab7" class="mr-1">
-                    {{ checkbox.icon }}
-                  </v-icon>
-                  <v-badge
-                    :color="checkbox.percentage ? 'primary' : 'green'"
-                    :content="
-                      checkbox.percentage ? `+${checkbox.percentage}%` : 'Free'
-                    "
-                    class="text-uppercase"
+              <v-tooltip top color="primary" max-width="350">
+                <template v-slot:activator="{ on, attrs }">
+                  <v-switch
+                    v-model="checkbox.checked"
+                    @change="checkOption(checkbox)"
                   >
-                    {{ checkbox.title }}
-                  </v-badge>
+                    <template v-slot:label>
+                      <div v-bind="attrs" v-on="on">
+                        <v-icon color="#673ab7" class="mr-1">
+                          {{ checkbox.icon }}
+                        </v-icon>
+                        <v-badge
+                          :color="checkbox.percentage ? 'primary' : 'green'"
+                          :content="
+                            checkbox.percentage
+                              ? `+${checkbox.percentage}%`
+                              : 'Free'
+                          "
+                          class="text-uppercase"
+                        >
+                          {{ checkbox.title }}
+                        </v-badge>
+                      </div>
+                    </template>
+                  </v-switch>
                 </template>
-              </v-switch>
+                <span>
+                  {{ checkbox.tip }}
+                </span>
+              </v-tooltip>
             </div>
           </v-col>
           <v-col class="right-col">
@@ -66,24 +77,32 @@ export default {
         icon: "mdi-account-remove",
         title: "Appear offline on chat",
         percentage: 0,
+        tip:
+          "This option will make your account offline in the League Client chat, therefore your friends won't see when the booster is playing on your account",
       },
       {
         checked: false,
         icon: "mdi-account-group",
         title: "Specific champions",
         percentage: 0,
+        tip:
+          "You may determine what role(s) your booster will queue up for while playing on your account. For additional costs, you may also determine what champions he should play.",
       },
       {
         checked: false,
         icon: "mdi-flash",
         title: "Priority order (2x speed) at",
         percentage: 20,
+        tip:
+          "This option ensures that your order will be treated with a higher priority, thus resulting in a faster completion.",
       },
       {
         checked: false,
         icon: "mdi-video",
         title: "With Streaming at",
         percentage: 15,
+        tip:
+          "Your assigned booster will record/live stream all the games, depending on your requirements.",
       },
       {
         checked: false,
@@ -91,6 +110,8 @@ export default {
         title: "+1 Win in desired rank",
         // This needs to be dynamic, based on the desired rank selected
         percentage: 0,
+        tip:
+          "By selecting this option, you'll receive an additional net win once your desired rank was reached.",
       },
     ],
   }),
