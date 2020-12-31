@@ -1,5 +1,11 @@
 <template>
-  <v-bottom-navigation height="90" v-model="url" color="primary">
+  <v-bottom-navigation
+    height="200"
+    v-model="url"
+    color="primary"
+    grow
+    max-width="100%"
+  >
     <v-btn
       :value="service.slug"
       v-for="(service, index) in services"
@@ -10,8 +16,8 @@
       <span>{{ service.name }}</span>
 
       <v-img
-        max-height="60"
-        max-width="60"
+        max-height="150"
+        max-width="150"
         :src="`/img/services/${service.slug}.png`"
       ></v-img>
     </v-btn>

@@ -1,7 +1,6 @@
 <template>
   <default-layout>
     <div
-      class="slider"
       fluid
       :style="{
         background: `url(/img/backgrounds/services/${this.$route.name}-top-bg.png) top/cover`,

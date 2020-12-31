@@ -12,7 +12,7 @@
           v-model="winsCounter"
           thumb-label="always"
           min="1"
-          :max="max"
+          max="10"
         ></v-slider>
         <v-radio-group class="radio-group" v-model="mode" dark mandatory row>
           <v-radio label="Solo/Duo" value="Solo/Duo"></v-radio>
@@ -30,9 +30,6 @@ export default {
     mode: "Solo/Duo",
   }),
   computed: {
-    max() {
-      return this.$store.state.wins.maxNumberOfWins;
-    },
     tier() {
       return this.$store.state.league.tier;
     },
