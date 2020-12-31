@@ -15,9 +15,6 @@
 </template>
 
 <script>
-if (process.client) {
-  require("particles.js");
-}
 export default {
   data: () => ({
     links: [
@@ -27,9 +24,6 @@ export default {
       { title: "More", url: "" },
     ],
   }),
-  mounted() {
-    particlesJS.load("particles-js", "/particlesjs-config.json");
-  },
 };
 </script>
 
