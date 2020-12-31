@@ -1,7 +1,10 @@
 import colors from 'vuetify/es5/util/colors'
 
 export default {
-	customVariables: ['~/assets/variables.scss'],
+	breakpoint: {},
+	icons: {},
+	lang: {},
+	rtl: false,
 	theme: {
 		dark: true,
 		themes: {
