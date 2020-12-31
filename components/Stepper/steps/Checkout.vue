@@ -12,15 +12,28 @@
           <v-col class="left-col">
             <div
               class="align-center-to-left"
-              v-for="checkbox in checkboxes"
-              :key="checkbox.id"
+              v-for="(checkbox, index) in checkboxes"
+              :key="index"
             >
-              <v-checkbox
+              <v-switch
                 v-model="checkbox.checked"
                 @change="checkOption(checkbox)"
-              ></v-checkbox>
-              <v-icon color="#673ab7">{{ checkbox.icon }}</v-icon>
-              <p>{{ checkbox.title }}</p>
+              >
+                <template v-slot:label>
+                  <v-icon color="#673ab7" class="mr-1">
+                    {{ checkbox.icon }}
+                  </v-icon>
+                  <v-badge
+                    :color="checkbox.percentage ? 'primary' : 'green'"
+                    :content="
+                      checkbox.percentage ? `+${checkbox.percentage}%` : 'Free'
+                    "
+                    class="text-uppercase"
+                  >
+                    {{ checkbox.title }}
+                  </v-badge>
+                </template>
+              </v-switch>
             </div>
           </v-col>
           <v-col class="right-col">
@@ -49,25 +62,35 @@ export default {
     discountCode: "",
     checkboxes: [
       {
-        id: 0,
         checked: false,
-        icon: "mdi-account-supervisor",
-        title: "Specific champions at +20% cost",
+        icon: "mdi-account-remove",
+        title: "Appear offline on chat",
+        percentage: 0,
+      },
+      {
+        checked: false,
+        icon: "mdi-account-group",
+        title: "Specific champions",
+        percentage: 0,
+      },
+      {
+        checked: false,
+        icon: "mdi-flash",
+        title: "Priority order (2x speed) at",
         percentage: 20,
       },
       {
-        id: 1,
         checked: false,
-        icon: "mdi-flash",
-        title: "Priority order (2x speed) at +25% cost",
-        percentage: 25,
+        icon: "mdi-video",
+        title: "With Streaming at",
+        percentage: 15,
       },
       {
-        id: 2,
         checked: false,
-        icon: "mdi-camcorder",
-        title: "With Streaming +15% cost",
-        percentage: 15,
+        icon: "mdi-plus",
+        title: "+1 Win in desired rank",
+        // This needs to be dynamic, based on the desired rank selected
+        percentage: 0,
       },
     ],
   }),
