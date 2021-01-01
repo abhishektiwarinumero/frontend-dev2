@@ -59,11 +59,6 @@ export default {
 		}
 	},
 
-	// Axios module configuration (https://go.nuxtjs.dev/config-axios)
-	axios: {
-		baseURL: process.env.API_URL, // Used as fallback if no runtime config is provided
-	},
-
 	stripe: {
 		publishableKey: process.env.STRIPE_KEY,
 	},
