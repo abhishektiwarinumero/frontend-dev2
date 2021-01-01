@@ -18,6 +18,7 @@
 export default {
   data: () => ({
     links: [
+      { title: "Elo Boosting", url: "division-boosting" },
       { title: "Coaching", url: "coaching" },
       { title: "Account Market", url: "lol-accounts" },
       { title: "More", url: "" },
