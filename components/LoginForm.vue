@@ -38,6 +38,13 @@
 
 <script>
 export default {
+  props: {
+    redirect: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
+  },
   data: () => ({
     valid: true,
     credentials: {
@@ -63,10 +70,17 @@ export default {
           })
           .then((response) => {
             this.$notify("Logged In", "success");
-            this.authenticateNova();
+            if (this.redirect) {
+              // Only authenticate nova immediately if redirect prop is true
+              // i.e when the user decided to go to dashboard (from members are in nav bar)
+              let token = $auth.$storage.getUniversal("_token.local");
+              token = token.split("Bearer ")[1];
+              window.location = `https://${process.env.HOST_URL}/login/${token}`;
+            }
             this.close();
           })
           .catch((errors) => {
+            console.log(errors);
             this.$notify(
               errors.response.data.message,
               "error",
@@ -74,13 +88,9 @@ export default {
             );
           });
       } catch (error) {
+        // TODO: send error to sentry
         this.$notify("Could not contact server", "error");
       }
-    },
-    async authenticateNova() {
-      let token = await this.$auth.$storage.getUniversal("_token.local");
-      token = token.split("Bearer ")[1];
-      window.location = `https://${process.env.HOST_URL}/login/${token}`;
     },
     requestPasswordReset() {
       if (!this.email) {

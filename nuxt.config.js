@@ -53,10 +53,18 @@ export default {
 						url: 'user',
 						method: 'get',
 						propertyName: false
+					},
+					login: {
+						url: 'login',
+						method: 'post'
+					},
+					logout: {
+						url: 'logout',
+						method: 'post'
 					}
 				},
 			},
-		}
+		},
 	},
 
 	stripe: {

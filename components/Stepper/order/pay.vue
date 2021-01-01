@@ -56,7 +56,7 @@ export default {
       let offline = this.$store.state.order.chatMode;
       // Get all data from store and post them to DB
       this.$axios
-        .$post("api/orders", {
+        .post("orders", {
           service,
           tier,
           division,

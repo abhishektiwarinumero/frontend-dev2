@@ -31,7 +31,7 @@
         <v-container>
           <v-row>
             <v-col cols="7">
-              <LoginForm @close="dialog = false"></LoginForm>
+              <LoginForm @close="dialog = false" redirect></LoginForm>
             </v-col>
             <v-col cols="5">
               <SocialLogin></SocialLogin>
