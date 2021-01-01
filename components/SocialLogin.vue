@@ -2,12 +2,6 @@
   <v-card color="black">
     <v-row class="pa-3">
       <v-col class="pb-1">
-        <div class="font-weight-medium">
-          <v-icon small>mdi-account-check</v-icon>
-          <span>Social Login</span>
-        </div>
-      </v-col>
-      <v-col class="pb-1">
         <v-btn color="#2C98F0" block class="py-1" @click="redirect('facebook')">
           <v-icon small>mdi-facebook</v-icon>
           <span>LOGIN WITH FACEBOOK</span>

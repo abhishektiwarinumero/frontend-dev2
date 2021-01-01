@@ -63,7 +63,6 @@
         </v-row>
       </v-container>
     </v-card>
-    <BoostMe />
   </div>
 </template>
 
