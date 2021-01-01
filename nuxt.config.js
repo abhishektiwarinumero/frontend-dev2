@@ -16,7 +16,6 @@ export default {
 		titleTemplate: "%s | King Boosting",
 		htmlAttrs: {
 			lang: 'en',
-			amp: true
 		},
 		meta: [{
 			charset: "utf-8"
@@ -40,11 +39,6 @@ export default {
 			type: "image/x-icon",
 			href: "/favicon.ico"
 		},
-		{
-			rel: 'stylesheet',
-			type: 'text/css',
-			href: 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons'
-		}
 		],
 		script: [{
 			src: '//code.tidio.co/bytmjjusa3gkjkwwkmqjbag7x3lzanqk.js'
