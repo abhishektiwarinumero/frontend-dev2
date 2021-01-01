@@ -65,22 +65,17 @@ export default {
     async login() {
       try {
         let response = await this.$auth
-          .loginWith("local", {
+          .loginWith("laravelSanctum", {
             data: this.credentials,
           })
           .then((response) => {
             this.$notify("Logged In", "success");
             if (this.redirect) {
-              // Only authenticate nova immediately if redirect prop is true
-              // i.e when the user decided to go to dashboard (from members are in nav bar)
-              let token = $auth.$storage.getUniversal("_token.local");
-              token = token.split("Bearer ")[1];
-              window.location = `https://${process.env.HOST_URL}/login/${token}`;
+              window.location = process.env.HOST_URL;
             }
             this.close();
           })
           .catch((errors) => {
-            console.log(errors);
             this.$notify(
               errors.response.data.message,
               "error",

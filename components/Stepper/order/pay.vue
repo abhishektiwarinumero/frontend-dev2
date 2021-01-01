@@ -73,13 +73,13 @@ export default {
           stripeToken: this.stripeToken,
         })
         .then((response) => {
-          this.$notify(response.message, "success");
+          this.$notify(response.data.message, "success");
           // Login the user into the web session when they get a sanctum token
           // So they wouldn't stumble upon the Laravel nova login page here
           // Also, maybe return the id of the order from the API response
           // And redirect the users to their newly created order directly
           setTimeout(() => {
-            window.location = `https://${process.env.HOST_URL}/dashboard`;
+            window.location = `${process.env.HOST_URL}/resources/orders/${response.data.order_id}`;
           }, 4000);
           // Actually just close the dialog, semantics ¯\_(ツ)_/¯
           this.cancel();

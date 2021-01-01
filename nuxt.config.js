@@ -40,31 +40,29 @@ export default {
 	modules: [
 		// https://go.nuxtjs.dev/axios
 		'@nuxtjs/axios',
-		'@nuxtjs/auth',
+		'@nuxtjs/auth-next',
 		'nuxt-stripe-module'
 	],
 
+	axios: {
+		proxy: true,
+		credentials: true
+	},
+
+	proxy: {
+		'/laravel': {
+			target: 'https://laravel-auth.nuxtjs.app',
+			pathRewrite: { '^/laravel': '/' }
+		}
+	},
+
 	auth: {
-		redirect: false,
 		strategies: {
-			local: {
-				endpoints: {
-					user: {
-						url: 'user',
-						method: 'get',
-						propertyName: false
-					},
-					login: {
-						url: 'login',
-						method: 'post'
-					},
-					logout: {
-						url: 'logout',
-						method: 'post'
-					}
-				},
+			'laravelSanctum': {
+				provider: 'laravel/sanctum',
+				url: process.env.HOST_URL
 			},
-		},
+		}
 	},
 
 	stripe: {
