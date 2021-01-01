@@ -51,10 +51,7 @@ export default {
           this.article = response.data;
         })
         .catch(() => {
-          this.$store.commit("notification/open", {
-            text: "Something went wrong",
-            mode: "error",
-          });
+          this.$notify("Something went wrong", "error");
         });
     },
   },

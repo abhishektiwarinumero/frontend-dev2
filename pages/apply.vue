@@ -96,18 +96,15 @@ export default {
         this.$axios
           .post("apply", data)
           .then((response) => {
-            this.$store.commit("notification/open", {
-              text: response.data.message,
-              mode: "success",
-            });
+            this.$notify(response.data.message, "success");
             this.reset();
           })
           .catch((errors) => {
-            this.$store.commit("notification/open", {
-              text: errors.response.data.message,
-              mode: "error",
-              errors: errors.response.data.errors,
-            });
+            this.$notify(
+              errors.response.data.message,
+              "error",
+              errors.response.data.errors
+            );
           });
       }
     },

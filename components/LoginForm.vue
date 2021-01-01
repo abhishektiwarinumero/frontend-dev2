@@ -62,25 +62,19 @@ export default {
             data: this.credentials,
           })
           .then((response) => {
-            this.$store.commit("notification/open", {
-              text: "Logged In",
-              mode: "success",
-            });
+            this.$notify("Logged In", "success");
             this.authenticateNova();
             this.close();
           })
           .catch((errors) => {
-            this.$store.commit("notification/open", {
-              text: errors.response.data.message,
-              mode: "error",
-              errors: errors.response.data.errors,
-            });
+            this.$notify(
+              errors.response.data.message,
+              "error",
+              errors.response.data.errors
+            );
           });
       } catch (error) {
-        this.$store.commit("notification/open", {
-          text: error,
-          mode: "error",
-        });
+        this.$notify("Could not contact server", "error");
       }
     },
     async authenticateNova() {
@@ -93,28 +87,23 @@ export default {
         this.emailErrors = [
           "Please fill out email field to reset your password",
         ];
-        this.$store.commit("notification/open", {
-          text: "Please fill out email field to reset your password",
-          mode: "error",
-        });
+        this.$notify(
+          "Please fill out email field to reset your password",
+          "error"
+        );
         return;
       } else {
         // Send the email via axios to request password reset
         this.$axios
           .$post("/password/email", { email: this.email })
           .then((response) => {
-            this.$store.commit("notification/open", {
-              text: "We have sent you an email to reset your password",
-              mode: "success",
-            });
+            this.$notify(
+              "We have sent you an email to reset your password",
+              "success"
+            );
           })
           .catch((errors) => {
-            this.$store.commit("notification/open", {
-              text: {
-                text: "Something went wrong",
-                mode: "error",
-              },
-            });
+            this.$notify("Something went wrong", "error");
           });
       }
     },

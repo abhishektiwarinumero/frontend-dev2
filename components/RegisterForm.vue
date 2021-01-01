@@ -72,19 +72,16 @@ export default {
           username: this.credentials.username,
         })
         .then((response) => {
-          this.$store.commit("notification/open", {
-            text: "Account created, we emailed you a password",
-            mode: "success",
-          });
+          this.$notify("Account created, we emailed you a password", "success");
           // Should open the login dialog here & disable registration
           this.$root.$emit("openLoginForm");
         })
         .catch((errors) => {
-          this.$store.commit("notification/open", {
-            text: errors.response.data.message,
-            mode: "error",
-            errors: errors.response.data.errors,
-          });
+          this.$notify(
+            errors.response.data.message,
+            "error",
+            errors.response.data.errors
+          );
         });
     },
   },

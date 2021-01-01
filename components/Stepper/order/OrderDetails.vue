@@ -77,10 +77,7 @@ export default {
           this.boostersLoading = false;
         })
         .catch((error) => {
-          this.$store.commit("notification/open", {
-            text: "Could not connect to server",
-            mode: "error",
-          });
+          this.$notify("Could not connect to server", "error");
         });
     },
     nextStep() {

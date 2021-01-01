@@ -73,10 +73,7 @@ export default {
           stripeToken: this.stripeToken,
         })
         .then((response) => {
-          this.$store.commit("notification/open", {
-            text: response.message,
-            mode: "success",
-          });
+          this.$notify(response.message, "success");
           // Login the user into the web session when they get a sanctum token
           // So they wouldn't stumble upon the Laravel nova login page here
           // Also, maybe return the id of the order from the API response
@@ -88,10 +85,7 @@ export default {
           this.cancel();
         })
         .catch((errors) => {
-          this.$store.commit("notification/open", {
-            text: errors.response.data.error,
-            mode: "error",
-          });
+          this.$notify(errors.response.data.error, "error");
         });
     },
     cancel() {
@@ -110,19 +104,12 @@ export default {
           .confirmCardPayment(clientSecret, {
             payment_method: {
               card: card,
-              // Billing details are optional
-              // billing_details: {
-              // 	name: "Jenny Rosen",
-              // },
             },
           })
           .then((result) => {
             if (result.error) {
               // Show error to your customer (e.g., insufficient funds)
-              this.$store.commit("notification/open", {
-                text: result.error.message,
-                mode: "error",
-              });
+              this.$notify(result.error.message, "error");
             } else {
               // The payment has been processed!
               if (result.paymentIntent.status === "succeeded") {
@@ -131,11 +118,7 @@ export default {
                 // execution. Set up a webhook or plugin to listen for the
                 // payment_intent.succeeded event that handles any business critical
                 // post-payment actions.
-                console.log(result);
-                this.$store.commit("notification/open", {
-                  text: result.paymentIntent.status,
-                  mode: "success",
-                });
+                this.$notify(result.paymentIntent.status, "success");
               }
             }
           });
@@ -174,31 +157,19 @@ export default {
         this.$stripe.createToken(card).then((result) => {
           if (result.error) {
             this.valid = false;
-            this.$store.commit("notification/open", {
-              text: "Invalid card",
-              mode: "error",
-            });
+            this.$notify("Invalid card", "error");
           } else if (result.token) {
             this.valid = true;
-            this.$store.commit("notification/open", {
-              text: "Valid Card",
-              mode: "success",
-            });
+            this.$notify("Valid Card", "success");
             this.stripeToken = result.token.id;
           }
         });
       } else if (event.error) {
         this.valid = false;
-        this.$store.commit("notification/open", {
-          text: event.error.message,
-          mode: "error",
-        });
+        this.$notify(event.error.message, "error");
       } else if (event.empty) {
         this.valid = false;
-        this.$store.commit("notification/open", {
-          text: "Please enter your credit card number",
-          mode: "error",
-        });
+        this.$notify("Please enter your credit card number", "error");
       }
     });
   },

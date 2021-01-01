@@ -1,6 +1,6 @@
 <template>
-  <v-snackbar v-model="snackbar" right top :color="mode" :timeout="3000">
-    <p class="black--text">{{ text }}</p>
+  <v-snackbar v-model="snackbar" right top :color="mode" shaped>
+    <p class="black--text bold--text text-h6">{{ text }}</p>
     <ul v-if="errors">
       <li v-for="(error, index) in errors" :key="index">
         {{ index }}
@@ -9,7 +9,11 @@
         </ul>
       </li>
     </ul>
-    <v-btn color="black" text @click="snackbar = false">Close</v-btn>
+    <template v-slot:action="{ attrs }">
+      <v-btn color="red" v-bind="attrs" @click="snackbar = false">
+        Close
+      </v-btn>
+    </template>
   </v-snackbar>
 </template>
 
