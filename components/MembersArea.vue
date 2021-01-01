@@ -1,12 +1,14 @@
 <template>
   <div style="height: inherit; border-bottom: white solid 5px">
     <v-btn
+      depressed
+      tile
+      color="primary"
+      :href="url"
       block
       x-large
-      class="ma-2"
-      outlined
-      color="white"
-      :href="url"
+      class="mr-0"
+      style="height: 100%"
       v-if="this.$auth.loggedIn"
       >Members Area</v-btn
     >
