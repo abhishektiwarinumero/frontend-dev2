@@ -65,3 +65,14 @@ html {
 .v-tabs-slider-wrapper {
 	height: 5px;
 }
+
+/* vuetify lg min breakpoint: 1280 - 16     = 1264px */
+/* vuetify lg max breakpoint: 1920 - 16 - 1 = 1903px */
+
+@media (min-width: 1264px) and (max-width: 1903px) {
+    .lg5-custom {
+        width: 20%;
+        max-width: 20%;
+        flex-basis: 20%;
+    }
+}
