@@ -52,7 +52,7 @@ export default {
 
 	publicRuntimeConfig: {
 		axios: {
-			browserBaseURL: process.env.BROWSER_BASE_URL,
+			browserBaseURL: process.env.BASE_URL,
 		}
 	},
 
@@ -87,6 +87,11 @@ export default {
 		treeShake: true,
 		customVariables: ['@/assets/variables.scss'],
 		optionsPath: './vuetify.options.js',
+		defaultAssets: {
+			font: {
+				family: 'Evogria'
+			}
+		}
 	},
 
 	// Build Configuration (https://nuxtjs.org/docs/2.x/configuration-glossary/configuration-build)

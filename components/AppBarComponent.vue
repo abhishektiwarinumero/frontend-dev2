@@ -6,7 +6,13 @@
     </nuxt-link>
 
     <v-tabs centered class="ml-n9" color="primary" optional slider-size="5">
-      <v-tab v-for="link in links" :key="link.title" nuxt :to="link.url">
+      <v-tab
+        v-for="link in links"
+        :key="link.title"
+        nuxt
+        :to="link.url"
+        class="text-h4"
+      >
         {{ link.title }}
       </v-tab>
     </v-tabs>

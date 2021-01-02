@@ -27,7 +27,7 @@
 export default {
   methods: {
     redirect(provider) {
-      window.location = `${process.env.API_URL}/login/${provider}`;
+      window.location = `${process.env.HOST_URL}/login/${provider}`;
     },
     openRegisterForm() {
       this.$root.$emit("openRegisterForm");

@@ -1,11 +1,5 @@
 <template>
-  <v-bottom-navigation
-    height="200"
-    v-model="url"
-    color="primary"
-    grow
-    max-width="100%"
-  >
+  <v-bottom-navigation height="200" v-model="url" color="primary" grow>
     <v-btn
       :value="service.slug"
       v-for="(service, index) in services"

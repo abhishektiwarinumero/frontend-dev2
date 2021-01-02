@@ -1,19 +1,22 @@
 <template>
-  <v-layout column fill-height>
-    <v-container fluid class="hero">
-      <v-row align="center" justify="center" class="mt-16 mb-16 pt-16 pm-16">
-        <img
-          src="/img/logo/logo.png"
-          alt="Logo"
-          class="mt-16 mb-16 pt-16 pm-16"
-        />
+  <v-layout column fill-height class="hero">
+    <v-container fluid>
+      <v-row align="center" justify="center" class="mt-16">
+        <img src="/img/logo/logo.png" alt="Logo" width="55%" class="mt-16" />
       </v-row>
-      <v-row align="center" justify="center" class="mt-16 mb-16 pt-16 pm-16">
-        <v-btn class="ma-2" color="purple">Elo Boosting</v-btn>
-        <v-btn class="ma-2" color="purple">Unranked Smurf</v-btn>
-        <v-btn class="ma-2" color="purple">League Ranked Accounts</v-btn>
+      <v-row align="center" justify="center" class="mt-16 mb-16">
+        <v-btn-toggle rounded v-model="undefined">
+          <v-btn x-large class="text-h4" color="black" style="padding: 40px"
+            >Get Boosted</v-btn
+          >
+          <v-btn x-large class="text-h4" color="black" style="padding: 40px"
+            >Get Coached</v-btn
+          >
+          <v-btn x-large class="text-h4" color="black" style="padding: 40px"
+            >Buy an account</v-btn
+          >
+        </v-btn-toggle>
       </v-row>
-      <video-section class="mt-16 mb-16"></video-section>
     </v-container>
     <services-circle />
     <features />
@@ -25,9 +28,9 @@
 
 <style scoped>
 .hero {
-  background: url(/img/backgrounds/wallpaper.png);
+  background: url(/img/backgrounds/overlay_background.png);
   background-position: top;
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
 }
 </style>

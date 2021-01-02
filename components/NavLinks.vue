@@ -28,16 +28,16 @@
       </v-col>
       <v-col md="2">
         <nuxt-link to="/boosters" title="Boosters">
-          <p class="text-center link nuxt-link">Boosters</p>
+          <p class="text-center link nuxt-link text-h4">Boosters</p>
         </nuxt-link>
       </v-col>
       <v-col md="2">
         <nuxt-link to="/apply" title="Apply">
-          <p class="text-center link nuxt-link">Apply</p>
+          <p class="text-center link nuxt-link text-h4">Apply</p>
         </nuxt-link>
       </v-col>
       <v-col md="2">
-        <a href="#" title="More*" class="link">More*</a>
+        <a href="#" title="More*" class="link text-h4">More*</a>
       </v-col>
     </v-row>
   </v-container>
