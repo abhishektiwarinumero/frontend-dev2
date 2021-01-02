@@ -46,7 +46,7 @@
                 <template v-slot:activator>
                   <v-list-item-title>Language</v-list-item-title>
                 </template>
-                <v-list-item v-for="(country, i) in countrys" :key="i" link>
+                <v-list-item v-for="(country, i) in countries" :key="i" link>
                   <v-list-item-avatar>
                     <v-checkbox
                       color="primary"
@@ -60,7 +60,7 @@
                     ></v-checkbox>
                   </v-list-item-avatar>
                   <v-list-item-title class="lng-title">
-                    <country-flag :country="country.code" size="small" />
+                    <!-- <country-flag :country="country.code" size="small" /> -->
                     <p class="lng-name">
                       {{ country.name }}
                     </p>
@@ -92,11 +92,11 @@ export default {
     ],
   }),
   async asyncData({ $axios }) {
-    const boosters = await $axios.$get(`${process.env.API_URL}/boosters`);
+    const boosters = await $axios.$get("boosters");
     return { boosters };
   },
   data: () => ({
-    countrys: [
+    countries: [
       { name: "Russia", code: "rus" },
       { name: "English", code: "us" },
       { name: "Ukrainian", code: "ua" },

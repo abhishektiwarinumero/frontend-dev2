@@ -66,7 +66,7 @@ export default {
   methods: {
     async register() {
       await this.$axios
-        .post("api/register", {
+        .post("register", {
           email: this.credentials.email,
           email_confirmation: this.credentials.email_confirmation,
           username: this.credentials.username,

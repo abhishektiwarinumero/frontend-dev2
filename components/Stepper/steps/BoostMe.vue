@@ -32,14 +32,16 @@ export default {
       return (this.price * this.exchangeRate).toFixed(2);
     },
   },
+  methods: {
+    async getExchangeRate() {
+      const data = await this.$axios.$get(
+        "https://api.exchangeratesapi.io/latest?symbols=USD"
+      );
+      this.exchangeRate = data.rates.USD;
+    },
+  },
   mounted() {
-    this.$axios
-      .get(
-        "https://cors-anywhere.herokuapp.com/https://api.exchangeratesapi.io/latest?symbols=USD"
-      )
-      .then((response) => {
-        this.exchangeRate = response.data.rates.USD;
-      });
+    this.getExchangeRate();
   },
 };
 </script>

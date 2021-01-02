@@ -100,7 +100,7 @@ export default {
       } else {
         // Send the email via axios to request password reset
         this.$axios
-          .$post("/password/email", { email: this.email })
+          .post("/password/email", { email: this.email })
           .then((response) => {
             this.$notify(
               "We have sent you an email to reset your password",
@@ -108,7 +108,11 @@ export default {
             );
           })
           .catch((errors) => {
-            this.$notify("Something went wrong", "error");
+            this.$notify(
+              "Something went wrong",
+              "error",
+              errors.response.data.errors
+            );
           });
       }
     },

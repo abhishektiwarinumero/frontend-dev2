@@ -7,46 +7,59 @@ export default {
 			productionTip: false,
 		}
 	},
-	// Global page headers (https://go.nuxtjs.dev/config-head)
+	// Global page headers (https://nuxtjs.org/docs/2.x/features/meta-tags-seo)
 	/*
 	 ** Head elements
 	 */
 	head: seo,
 
-	// Global CSS (https://go.nuxtjs.dev/config-css)
+	// Global CSS (https://nuxtjs.org/docs/2.x/configuration-glossary/configuration-css)
 	css: [
 		'~/assets/css/main.css',
 		'~/assets/css/stripe.css',
 	],
 
-	// Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
+	// Plugins to run before rendering page (https://nuxtjs.org/docs/2.x/configuration-glossary/configuration-plugins)
 	plugins: [
 		{ src: '~/plugins/axios' },
 		{ src: '~/plugins/particles', mode: 'client' },
 		{ src: '~/plugins/notify', mode: 'client' },
 	],
 
-	// Auto import components (https://go.nuxtjs.dev/config-components)
+	// Auto import components (https://nuxtjs.org/docs/2.x/configuration-glossary/configuration-components)
 	components: true,
 
-	// Modules for dev and build (recommended) (https://go.nuxtjs.dev/config-modules)
+	// Modules for dev and build (recommended) (https://nuxtjs.org/docs/2.x/directory-structure/modules)
 	buildModules: [
-		// https://go.nuxtjs.dev/vuetify
+		// https://github.com/nuxt-community/vuetify-module
 		'@nuxtjs/vuetify',
 		'@nuxtjs/dotenv',
 	],
 
-	// Modules (https://go.nuxtjs.dev/config-modules)
+	// Modules (https://nuxtjs.org/docs/2.x/directory-structure/modules)
 	modules: [
-		// https://go.nuxtjs.dev/axios
+		// https://axios.nuxtjs.org/
 		'@nuxtjs/axios',
 		'@nuxtjs/auth-next',
 		'nuxt-stripe-module'
 	],
 
 	axios: {
+		baseURL: 'http://localhost:8000', // Used as fallback if no runtime config is provided
 		proxy: true,
 		credentials: true
+	},
+
+	publicRuntimeConfig: {
+		axios: {
+			browserBaseURL: process.env.BROWSER_BASE_URL,
+		}
+	},
+
+	privateRuntimeConfig: {
+		axios: {
+			baseURL: process.env.BASE_URL,
+		}
 	},
 
 	proxy: {
@@ -69,14 +82,14 @@ export default {
 		publishableKey: process.env.STRIPE_KEY,
 	},
 
-	// Vuetify module configuration (https://go.nuxtjs.dev/config-vuetify)
+	// Vuetify module configuration (https://github.com/nuxt-community/vuetify-module#options)
 	vuetify: {
 		treeShake: true,
 		customVariables: ['@/assets/variables.scss'],
 		optionsPath: './vuetify.options.js',
 	},
 
-	// Build Configuration (https://go.nuxtjs.dev/config-build)
+	// Build Configuration (https://nuxtjs.org/docs/2.x/configuration-glossary/configuration-build)
 	build: {
 		transpile: [/vuetify/],
 		extractCSS: true,
