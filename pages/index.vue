@@ -67,15 +67,18 @@
         <p class="text-h2 mt-16">Features</p>
       </v-row>
       <v-row v-for="(feature, index) in features" :key="index">
-        <v-col offset="2">
-          <v-card elevation="24">
+        <v-col class="feature" offset="3">
+          <v-card :class="index % 2 ? 'bg-dark' : 'bg-white'" elevation="24">
             <v-row>
-              <v-col md="2" align-self="center">
-                <v-icon x-large>{{ feature.icon }}</v-icon>
+              <v-col md="2" class="icon-container" align-self="center">
+                <v-icon v-if="!(index % 2)">{{ feature.icon }}</v-icon>
               </v-col>
-              <v-col md="10">
-                <p>{{ feature.title }}</p>
-                <p>{{ feature.description }}</p>
+              <v-col md="8">
+                <p class="feature-title">{{ feature.title }}</p>
+                <p class="feature-desc">{{ feature.description }}</p>
+              </v-col>
+              <v-col md="2" class="icon-container" align-self="center">
+                <v-icon v-if="index % 2">{{ feature.icon }}</v-icon>
               </v-col>
             </v-row>
           </v-card>
@@ -128,5 +131,40 @@ export default {
   background-position: top;
   background-size: cover;
   background-repeat: no-repeat;
+}
+.round-left {
+  border-radius: 5rem 0 0 5rem !important;
+}
+.round-right {
+  border-radius: 0 5rem 5rem 0 !important;
+}
+.mtr-12 {
+  margin-top: 12rem;
+}
+.text-h2 {
+  font-family: Evogria !important;
+  font-size: 3.5em !important;
+}
+.feature {
+  font-family: Evogria !important;
+  padding: 0 !important;
+}
+.bg-white {
+  background: rgba(255, 255, 255, 0.2) !important;
+}
+.bg-dark {
+  background: rgba(0, 0, 0, 0.6) !important;
+}
+.feature-desc {
+  font-size: 0.9em !important;
+  line-height: 1.1em !important;
+}
+.icon-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.v-icon {
+  font-size: 5em !important;
 }
 </style>
