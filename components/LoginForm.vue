@@ -71,7 +71,9 @@ export default {
           .then((response) => {
             this.$notify("Logged In", "success");
             if (this.redirect) {
-              window.location = process.env.HOST_URL;
+              setTimeout(() => {
+                window.location = process.env.HOST_URL;
+              }, 2000);
             }
             this.close();
           })
