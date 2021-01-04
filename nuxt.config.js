@@ -15,8 +15,8 @@ export default {
 
 	// Global CSS (https://nuxtjs.org/docs/2.x/configuration-glossary/configuration-css)
 	css: [
-		'~/assets/css/main.css',
-		'~/assets/css/stripe.css',
+		'~/static/css/main',
+		'~/static/css/stripe',
 	],
 
 	// Plugins to run before rendering page (https://nuxtjs.org/docs/2.x/configuration-glossary/configuration-plugins)
