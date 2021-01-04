@@ -9,20 +9,11 @@
           rounded
           v-model="undefined"
           background-color="transparent"
+          class="hero-btn"
         >
-          <v-btn x-large class="text-h4" color="black" style="padding: 40px"
-            >Get Boosted</v-btn
-          >
-          <v-btn
-            x-large
-            class="text-h4 mr-2 ml-2"
-            color="black"
-            style="padding: 40px"
-            >Get Coached</v-btn
-          >
-          <v-btn x-large class="text-h4" color="black" style="padding: 40px"
-            >Buy an account</v-btn
-          >
+          <v-btn x-large class="text-h4">Get Boosted</v-btn>
+          <v-btn x-large class="text-h4 mr-2 ml-2">Get Coached</v-btn>
+          <v-btn x-large class="text-h4">Buy an account</v-btn>
         </v-btn-toggle>
       </v-row>
       <v-row justify="center" align="center" class="mt-16 mb-16">
@@ -129,6 +120,16 @@ export default {
   background-size: cover;
   background-repeat: no-repeat;
 }
+
+.hero-btn > button {
+  background-color: black !important;
+  padding: 40px;
+}
+
+.hero-btn > button:hover {
+  background-color: #472783 !important;
+}
+
 .round-left {
   border-radius: 5rem 0 0 5rem !important;
 }
