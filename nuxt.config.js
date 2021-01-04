@@ -52,13 +52,13 @@ export default {
 
 	publicRuntimeConfig: {
 		axios: {
-			browserBaseURL: process.env.BASE_URL,
+			browserBaseURL: process.env.HOST_URL,
 		}
 	},
 
 	privateRuntimeConfig: {
 		axios: {
-			baseURL: process.env.BASE_URL,
+			baseURL: process.env.HOST_URL,
 		}
 	},
 

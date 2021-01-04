@@ -71,7 +71,7 @@ export default {
   methods: {
     getBoostersList() {
       this.$axios
-        .get("getBoostersNames")
+        .get("api/getBoostersNames")
         .then((response) => {
           this.boosters = response.data;
           this.boostersLoading = false;

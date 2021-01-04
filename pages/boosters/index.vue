@@ -92,7 +92,7 @@ export default {
     ],
   }),
   async asyncData({ $axios }) {
-    const boosters = await $axios.$get("boosters");
+    const boosters = await $axios.$get("api/boosters");
     return { boosters };
   },
   data: () => ({

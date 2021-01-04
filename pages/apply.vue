@@ -94,7 +94,7 @@ export default {
           Object.assign(data, { [key]: val });
         }
         this.$axios
-          .post("apply", data)
+          .post("api/apply", data)
           .then((response) => {
             this.$notify(response.data.message, "success");
             this.reset();

@@ -12,6 +12,7 @@
 
 <script>
 import tiers from "~/assets/js/tiers";
+import services from "~/assets/js/services";
 export default {
   data: () => ({
     valid: false,
@@ -19,16 +20,20 @@ export default {
     client_secret: "",
     stripeToken: "",
     tiers: tiers,
+    services: services,
   }),
   methods: {
     sendOrder() {
       if (!this.valid) {
         return;
       }
-      // Gather current service, get slug from url (pure JS)
-      let service = document.location.pathname.replace("/", "");
       // Gather current tier and division
       let tier = _.find(this.tiers, ["id", this.$store.state.league.tier]);
+      // Gather current service, get slug from url (pure JS)
+      let service = _.find(this.services, [
+        "slug",
+        document.location.pathname.replace("/", ""),
+      ]).name;
       let division = _.find(tier.divisions, [
         "id",
         this.$store.state.league.division,
@@ -97,7 +102,7 @@ export default {
     },
     confirm(clientSecret, card) {
       (async () => {
-        const response = await fetch("/secret");
+        const response = await fetch("api/secret");
         const { client_secret: clientSecret } = await response.json();
         // Call stripe.confirmCardPayment() with the client secret.
         this.$stripe
