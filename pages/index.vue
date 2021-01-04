@@ -85,9 +85,6 @@
         </v-col>
       </v-row>
     </v-container>
-    <features />
-    <customer-voice />
-    <how-to-buy />
     <WhyUs />
   </v-layout>
 </template>
