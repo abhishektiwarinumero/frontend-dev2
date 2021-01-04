@@ -51,7 +51,7 @@ export default {
       let price = this.$store.getters["price/price"];
       // Gather discount code
       let discountCode = this.$store.state.checkout.discountCode;
-      // Gather in-game-nickname
+      // Gather in-game-nickname (summoner name)
       let nickname = this.$store.state.order.nickname;
       // Gather selected booster
       let booster = this.$store.state.order.booster;
