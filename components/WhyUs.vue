@@ -1,46 +1,50 @@
 <template>
   <div class="why-us">
-    <div class="section-name mt-12 mb-4 ">
-      <h1 class="text-h2 mt-4 " >Why Us ?</h1>
+    <div class="section-name mt-12 mb-4">
+      <h1 class="text-h2 mt-4">Why Us ?</h1>
     </div>
-    <v-container >
-      <v-row class="inner-container" >
-        <v-col 
-          sm="12" 
-          md='6' 
-          class="v-card-container" 
-          v-for="(priority, index) in priorities" :key="index"  >
-          <v-card align-self="center"   
-            :class=" !(index%3) ? 'bg-dark': 'bg-white' " >
-            <v-row v-if="!(index%2)">
-              <v-col sm='10' md='12'  >
-              <v-card-title class="title flex-center">
-                <h2>{{ priority.title }}</h2>
-              </v-card-title>
-            </v-col>
-              <v-col md='2' class="flex-center" >
-                <v-icon >{{ icons[index] }}</v-icon>
+    <v-container>
+      <v-row class="inner-container">
+        <v-col
+          sm="12"
+          md="6"
+          class="v-card-container"
+          v-for="(priority, index) in priorities"
+          :key="index"
+        >
+          <v-card
+            align-self="center"
+            :class="!(index % 3) ? 'bg-dark' : 'bg-white'"
+          >
+            <v-row v-if="!(index % 2)">
+              <v-col sm="10" md="12">
+                <v-card-title class="title flex-center">
+                  <h2>{{ priority.title }}</h2>
+                </v-card-title>
               </v-col>
-              <v-col sm='12' md='10' class=".p0" >
+              <v-col md="2" class="flex-center">
+                <v-icon>{{ icons[index] }}</v-icon>
+              </v-col>
+              <v-col sm="12" md="10" class=".p0">
                 <v-card-text class="p0">
-                <p class="desc" >{{ priority.description }}</p>
-              </v-card-text>
-              </v-col>     
+                  <p class="desc">{{ priority.description }}</p>
+                </v-card-text>
+              </v-col>
             </v-row>
-            <v-row v-if="(index%2)">
-              <v-col sm='10' md='12' >
-              <v-card-title class="title flex-center">
-                <h2>{{ priority.title }}</h2>
-              </v-card-title>
-            </v-col>
-              <v-col sm='12' md='10' class=".p0" >
-                <v-card-text class="p0">
-                <p class="desc" >{{ priority.description }}</p>
-              </v-card-text>
+            <v-row v-if="index % 2">
+              <v-col sm="10" md="12">
+                <v-card-title class="title flex-center">
+                  <h2>{{ priority.title }}</h2>
+                </v-card-title>
               </v-col>
-              <v-col md='2' class="flex-center" >
-                <v-icon >{{ icons[index] }}</v-icon>
-              </v-col>  
+              <v-col sm="12" md="10" class=".p0">
+                <v-card-text class="p0">
+                  <p class="desc">{{ priority.description }}</p>
+                </v-card-text>
+              </v-col>
+              <v-col md="2" class="flex-center">
+                <v-icon>{{ icons[index] }}</v-icon>
+              </v-col>
             </v-row>
           </v-card>
         </v-col>
@@ -78,50 +82,44 @@ export default {
 </script>
 
 <style scoped>
-.why-us{
-  font-family: Evogria !important;
-}
-.section-name{
+.section-name {
   display: flex;
   justify-content: center;
 }
 .text-h2 {
-  font-family: Evogria !important;
   font-size: 3.3em !important;
 }
-.container{
+.container {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.inner-container{
+.inner-container {
   margin: 0 -5em;
 }
-.v-card-container{
+.v-card-container {
   box-sizing: border-box;
   padding: 1em;
 }
-.v-card{
+.v-card {
   box-sizing: border-box;
   padding: 0 2em;
 }
-.title{
- font-family: Evogria !important;
- font-size: 1em !important;
- text-align: center;
+.title {
+  font-size: 1em !important;
+  text-align: center;
 }
 .desc {
- font-family: Evogria !important;
- font-size: .9em;
- line-height: 1.5em; 
+  font-size: 0.9em;
+  line-height: 1.5em;
 }
-.bg-white{
-  background: rgba(255, 255, 255, .2);
+.bg-white {
+  background: rgba(255, 255, 255, 0.2);
 }
-.bg-dark{
-  background: rgba(0, 0, 0, .6);
+.bg-dark {
+  background: rgba(0, 0, 0, 0.6);
 }
-.flex-center{
+.flex-center {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -129,13 +127,13 @@ export default {
 .ml0 {
   margin-left: 0;
 }
-.mr0{
+.mr0 {
   margin-right: 0;
 }
-.v-icon{
+.v-icon {
   font-size: 5.5em !important;
 }
-.p0{
+.p0 {
   padding: 0;
 }
 </style>

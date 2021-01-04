@@ -142,11 +142,9 @@ export default {
   margin-top: 12rem;
 }
 .text-h2 {
-  font-family: Evogria !important;
   font-size: 3.5em !important;
 }
 .feature {
-  font-family: Evogria !important;
   padding: 0 !important;
 }
 .bg-white {

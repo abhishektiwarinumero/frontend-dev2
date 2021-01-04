@@ -88,9 +88,7 @@ export default {
 		customVariables: ['@/assets/variables.scss'],
 		optionsPath: './vuetify.options.js',
 		defaultAssets: {
-			font: {
-				family: 'Evogria'
-			}
+			font: false
 		}
 	},
 
