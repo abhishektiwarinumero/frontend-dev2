@@ -77,6 +77,7 @@
       </v-row>
     </v-container>
     <WhyUs />
+    <how-it-works />
   </v-layout>
 </template>
 
