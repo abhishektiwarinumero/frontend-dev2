@@ -1,26 +1,49 @@
 <template>
   <div class="why-us">
-    <div class="section-name">
-      <h1>Why Us</h1>
+    <div class="section-name mt-12 mb-4 ">
+      <h1 class="text-h2 mt-4 " >Why Us ?</h1>
     </div>
-    <v-container class="container">
-      <v-row>
-        <v-card
-          class="card"
-          align-self="center"
-          v-for="(item, index) in priorities"
-          :key="index"
-        >
-          <v-col>
-            <v-icon size="100px" class="icons">{{ icons[index] }}</v-icon>
-            <v-card-title>
-              <h2>{{ item.title }}</h2>
-            </v-card-title>
-            <v-card-text class="headline">
-              <p>{{ item.description }}</p>
-            </v-card-text>
-          </v-col>
-        </v-card>
+    <v-container >
+      <v-row class="inner-container" >
+        <v-col 
+          sm="12" 
+          md='6' 
+          class="v-card-container" 
+          v-for="(priority, index) in priorities" :key="index"  >
+          <v-card align-self="center"   
+            :class=" !(index%3) ? 'bg-dark': 'bg-white' " >
+            <v-row v-if="!(index%2)">
+              <v-col sm='10' md='12'  >
+              <v-card-title class="title flex-center">
+                <h2>{{ priority.title }}</h2>
+              </v-card-title>
+            </v-col>
+              <v-col md='2' class="flex-center" >
+                <v-icon >{{ icons[index] }}</v-icon>
+              </v-col>
+              <v-col sm='12' md='10' class=".p0" >
+                <v-card-text class="p0">
+                <p class="desc" >{{ priority.description }}</p>
+              </v-card-text>
+              </v-col>     
+            </v-row>
+            <v-row v-if="(index%2)">
+              <v-col sm='10' md='12' >
+              <v-card-title class="title flex-center">
+                <h2>{{ priority.title }}</h2>
+              </v-card-title>
+            </v-col>
+              <v-col sm='12' md='10' class=".p0" >
+                <v-card-text class="p0">
+                <p class="desc" >{{ priority.description }}</p>
+              </v-card-text>
+              </v-col>
+              <v-col md='2' class="flex-center" >
+                <v-icon >{{ icons[index] }}</v-icon>
+              </v-col>  
+            </v-row>
+          </v-card>
+        </v-col>
       </v-row>
     </v-container>
   </div>
@@ -55,58 +78,64 @@ export default {
 </script>
 
 <style scoped>
-.container {
-  margin-top: 50px;
-  margin-bottom: 30px;
+.why-us{
+  font-family: Evogria !important;
 }
-.icons {
-  background: -webkit-linear-gradient(#673ab7, #9c27b0);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-.why-us {
-  background-color: #212224;
-  position: relative;
-  background-image: url("/img/backgrounds/priorities-bg.webp");
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}
-
-h1 {
-  margin: 0;
-}
-
-ul {
-  list-style-type: none;
-  background-color: #212224;
-}
-
-h2 {
-  color: #9c27b0;
-}
-
-p {
-  color: #999a9c;
-  font-size: 14px;
-}
-.section-name {
+.section-name{
   display: flex;
-  align-items: center;
   justify-content: center;
-  width: 200px;
-  height: 60px;
-  background: linear-gradient(#673ab7, #9c27b0);
-  z-index: 1;
-  position: absolute;
-  top: -30px;
 }
-
-.card {
-  margin-top: 20px;
-  margin-bottom: 20px;
-  opacity: 0.8;
+.text-h2 {
+  font-family: Evogria !important;
+  font-size: 3.3em !important;
+}
+.container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.inner-container{
+  margin: 0 -5em;
+}
+.v-card-container{
+  box-sizing: border-box;
+  padding: 1em;
+}
+.v-card{
+  box-sizing: border-box;
+  padding: 0 2em;
+}
+.title{
+ font-family: Evogria !important;
+ font-size: 1em !important;
+ text-align: center;
+}
+.desc {
+ font-family: Evogria !important;
+ font-size: .9em;
+ line-height: 1.5em; 
+}
+.bg-white{
+  background: rgba(255, 255, 255, .2);
+}
+.bg-dark{
+  background: rgba(0, 0, 0, .6);
+}
+.flex-center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.ml0 {
+  margin-left: 0;
+}
+.mr0{
+  margin-right: 0;
+}
+.v-icon{
+  font-size: 5.5em !important;
+}
+.p0{
+  padding: 0;
 }
 </style>
