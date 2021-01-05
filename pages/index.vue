@@ -16,6 +16,27 @@
       </v-btn-toggle>
     </v-row>
     <services />
+    <v-row justify="center" align="center" class="mt-16 mb-16">
+      <p class="text-h2 mt-16">Features</p>
+    </v-row>
+    <v-row v-for="(feature, index) in features" :key="index">
+      <v-col class="feature" offset="3">
+        <v-card :class="index % 2 ? 'bg-dark' : 'bg-white'" elevation="24">
+          <v-row>
+            <v-col md="2" class="icon-container" align-self="center">
+              <v-icon v-if="!(index % 2)">{{ feature.icon }}</v-icon>
+            </v-col>
+            <v-col md="8">
+              <p class="feature-title">{{ feature.title }}</p>
+              <p class="feature-desc">{{ feature.description }}</p>
+            </v-col>
+            <v-col md="2" class="icon-container" align-self="center">
+              <v-icon v-if="index % 2">{{ feature.icon }}</v-icon>
+            </v-col>
+          </v-row>
+        </v-card>
+      </v-col>
+    </v-row>
     <why-us />
     <how-it-works />
     <customers-voice />
