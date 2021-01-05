@@ -2,8 +2,8 @@
   <v-card class="boost-me-card">
     <v-container class="boost-me">
       <div class="align-center">
-        <v-icon size="50">mdi-currency-eur</v-icon>
-        <h2>{{ price }} (${{ priceUSD }})</h2>
+        <v-icon size="50">mdi-currency-usd</v-icon>
+        <h2>{{ price }} (€{{ priceEUR }})</h2>
       </div>
       <v-dialog v-model="dialog" width="940">
         <template v-slot:activator="{ on }">
@@ -22,22 +22,22 @@ export default {
   data: () => ({
     dialog: false,
     // Default exchange rate, to be changed by API call
-    exchangeRate: 1.1003,
+    exchangeRate: 0.8149295086,
   }),
   computed: {
     price() {
       return this.$store.getters["price/price"].toFixed(2);
     },
-    priceUSD() {
+    priceEUR() {
       return (this.price * this.exchangeRate).toFixed(2);
     },
   },
   methods: {
     async getExchangeRate() {
       const data = await this.$axios.$get(
-        "https://api.exchangeratesapi.io/latest?symbols=USD"
+        "https://api.exchangeratesapi.io/latest?base=USD"
       );
-      this.exchangeRate = data.rates.USD;
+      this.exchangeRate = data.rates.EUR;
     },
   },
   mounted() {

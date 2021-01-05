@@ -23,13 +23,6 @@
       <game-services :services="gameServices"></game-services>
       <v-row>
         <v-col md="8">
-          <!-- Order Details has a form, can't nest forms -->
-          <!-- If not logged in, login form would be a form -->
-          <!-- login form will be nested, and there isn't much we can do about that -->
-          <!-- Check if the dialog is outside the DOM element of the stepper -->
-          <!-- Dialog content is on a separate DOM tree so we can't merge that -->
-          <!-- We don't care whether they're in the same DOM tree or not -->
-          <!-- Because we grab the form data using refs -->
           <v-form ref="order">
             <select-current-league />
             <select-desired-league />
@@ -64,6 +57,9 @@ export default {
     gameServices() {
       return _.filter(this.services, ["game", this.game.name]);
     },
+  },
+  mounted() {
+    this.$store.commit("wins/changeNumberOfWins", 1);
   },
 };
 </script>
