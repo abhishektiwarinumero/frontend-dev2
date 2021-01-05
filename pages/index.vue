@@ -1,81 +1,21 @@
 <template>
   <v-layout column fill-height class="hero">
-    <v-container fluid>
-      <v-row align="center" justify="center" class="mt-16">
-        <img src="/img/logo/logo.png" alt="Logo" width="55%" class="mt-16" />
-      </v-row>
-      <v-row align="end" justify="center" class="mt-16 mb-16">
-        <v-btn-toggle
-          rounded
-          v-model="undefined"
-          background-color="transparent"
-          class="hero-btn"
-        >
-          <v-btn x-large class="text-h4">Get Boosted</v-btn>
-          <v-btn x-large class="text-h4 mr-2 ml-2">Get Coached</v-btn>
-          <v-btn x-large class="text-h4">Buy an account</v-btn>
-        </v-btn-toggle>
-      </v-row>
-      <v-row justify="center" align="center" class="mt-16 mb-16">
-        <p class="text-h2 mt-16">Our Services</p>
-      </v-row>
-      <!-- 5 games here -->
-      <v-row
-        justify="center"
-        align="center"
-        class="mt-16 mb-16"
-        dense
-        no-gutters
+    <v-row align="center" justify="center" class="mt-16">
+      <img src="/img/logo/logo.png" alt="Logo" width="55%" class="mt-16" />
+    </v-row>
+    <v-row align="end" justify="center" class="mt-16 mb-16">
+      <v-btn-toggle
+        rounded
+        v-model="undefined"
+        background-color="transparent"
+        class="hero-btn"
       >
-        <v-col class="lg5-custom">
-          <v-img src="/img/games/cards/lol_boost.png"></v-img>
-        </v-col>
-        <v-col class="lg5-custom">
-          <v-img src="/img/games/cards/valorant_boost.png"></v-img>
-        </v-col>
-        <v-col class="lg5-custom">
-          <v-img src="/img/games/cards/tft_boost.png"></v-img>
-        </v-col>
-        <v-col class="lg5-custom">
-          <v-img src="/img/games/cards/wildrift_boost.png"></v-img>
-        </v-col>
-        <v-col class="lg5-custom">
-          <v-img src="/img/games/cards/runeterra_boost.png"></v-img>
-        </v-col>
-      </v-row>
-      <v-row justify="center" align="center" class="mt-16 mb-16">
-        <v-col sm="4" md="4" lg="4">
-          <v-img src="/img/games/cards/unranked_smurf.png"></v-img>
-        </v-col>
-        <v-col sm="4" md="4" lg="4">
-          <v-img src="/img/games/cards/coaching.png"></v-img>
-        </v-col>
-        <v-col sm="4" md="4" lg="4">
-          <v-img src="/img/games/cards/account_market.png"></v-img>
-        </v-col>
-      </v-row>
-      <v-row justify="center" align="center" class="mt-16 mb-16">
-        <p class="text-h2 mt-16">Features</p>
-      </v-row>
-      <v-row v-for="(feature, index) in features" :key="index">
-        <v-col class="feature" offset="3">
-          <v-card :class="index % 2 ? 'bg-dark' : 'bg-white'" elevation="24">
-            <v-row>
-              <v-col md="2" class="icon-container" align-self="center">
-                <v-icon v-if="!(index % 2)">{{ feature.icon }}</v-icon>
-              </v-col>
-              <v-col md="8">
-                <p class="feature-title">{{ feature.title }}</p>
-                <p class="feature-desc">{{ feature.description }}</p>
-              </v-col>
-              <v-col md="2" class="icon-container" align-self="center">
-                <v-icon v-if="index % 2">{{ feature.icon }}</v-icon>
-              </v-col>
-            </v-row>
-          </v-card>
-        </v-col>
-      </v-row>
-    </v-container>
+        <v-btn x-large class="text-h4">Get Boosted</v-btn>
+        <v-btn x-large class="text-h4 mr-2 ml-2">Get Coached</v-btn>
+        <v-btn x-large class="text-h4">Buy an account</v-btn>
+      </v-btn-toggle>
+    </v-row>
+    <services />
     <WhyUs />
     <how-it-works />
   </v-layout>
