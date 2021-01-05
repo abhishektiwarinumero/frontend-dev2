@@ -40,7 +40,7 @@
         <v-col md="4"></v-col>
       </v-row>
     </v-container>
-    <how-to-buy />
+    <how-it-works />
   </div>
 </template>
 

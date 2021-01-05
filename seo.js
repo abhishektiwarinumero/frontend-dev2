@@ -28,7 +28,7 @@ export default {
 	},
 	],
 	script: [{
-		src: '//code.tidio.co/bytmjjusa3gkjkwwkmqjbag7x3lzanqk.js'
+		// src: '//code.tidio.co/bytmjjusa3gkjkwwkmqjbag7x3lzanqk.js'
 	}],
 	noscript: [{
 		innerHTML: 'This website requires JavaScript.'

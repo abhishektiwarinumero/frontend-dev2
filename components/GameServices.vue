@@ -7,7 +7,7 @@
       nuxt
       :to="service.slug"
     >
-      <span>{{ service.name }}</span>
+      {{ service.name }}
 
       <v-img
         max-height="150"
