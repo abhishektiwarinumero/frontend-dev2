@@ -7,13 +7,13 @@ export const state = () => ({
 
 export const mutations = {
 	changeNickname(state, payload) {
-		state.tier = payload;
+		state.nickname = payload;
 	},
 	changeBooster(state, payload) {
-		state.division = payload;
+		state.booster = payload;
 	},
 	changeComment(state, payload) {
-		state.server = payload;
+		state.comment = payload;
 	},
 	changeChatMode(state, payload) {
 		state.chatMode = payload;

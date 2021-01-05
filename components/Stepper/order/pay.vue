@@ -27,25 +27,40 @@ export default {
       if (!this.valid) {
         return;
       }
-      // Gather current tier and division
-      let tier = _.find(this.tiers, ["id", this.$store.state.league.tier]);
+
       // Gather current service, get slug from url (pure JS)
       let service = _.find(this.services, [
         "slug",
         document.location.pathname.replace("/", ""),
       ]).name;
-      let division = _.find(tier.divisions, [
+      // Gather current tier and division
+      let currentTier = _.find(this.tiers, [
+        "id",
+        this.$store.state.league.tier,
+      ]);
+      let desiredTier = _.find(this.tiers, [
+        "id",
+        this.$store.state.desired.tier,
+      ]);
+      let division = _.find(currentTier.divisions, [
         "id",
         this.$store.state.league.division,
       ]).name;
-      tier = tier.name;
+      let desiredDivision = _.find(desiredTier.divisions, [
+        "id",
+        this.$store.state.desired.division,
+      ]).name;
+      currentTier = currentTier.name;
+      desiredTier = desiredTier.name;
+      // Purchase here is "current (tier & division) to desired (tier & division)"
+      let purchase = `${currentTier} ${division} to ${desiredTier} ${desiredDivision}`;
       // Gather selected server
       let server = this.$store.state.league.server;
       // Gather number of wins
       let wins = this.$store.state.wins.wins;
       // Gather game mode (solo/duo)
-      let mode = this.$store.state.wins.mode;
-      // Gather extra features
+      this.$store.commit("checkout/addOption", this.$store.state.wins.mode);
+      // Gather extra options
       let options = this.$store.state.checkout.options;
       // Gather price
       let price = this.$store.getters["price/price"];
@@ -62,12 +77,13 @@ export default {
       // Get all data from store and post them to DB
       this.$axios
         .post("orders", {
+          purchase,
           service,
-          tier,
-          division,
+          //   currentTier,
+          //   division,
           server,
-          wins,
-          queue: mode === "Solo/Duo" ? "solo_duo" : "flex_5v5", // undocumented
+          //   wins,
+          //   queue: mode === "Solo/Duo" ? "solo_duo" : "flex_5v5", // undocumented
           options,
           price, // end of documented
           discountCode,

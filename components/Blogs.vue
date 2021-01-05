@@ -50,8 +50,8 @@ export default {
         .then((response) => {
           this.article = response.data;
         })
-        .catch(() => {
-          this.$notify("Something went wrong", "error");
+        .catch((response) => {
+          this.$notify("Something went wrong", "error", response.data.errors);
         });
     },
   },
