@@ -16,8 +16,9 @@
       </v-btn-toggle>
     </v-row>
     <services />
-    <WhyUs />
+    <why-us />
     <how-it-works />
+    <customers-voice />
   </v-layout>
 </template>
 
