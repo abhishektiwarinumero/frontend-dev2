@@ -1,18 +1,12 @@
 <template>
-  <v-app-bar app flat prominent color="#1e1e1e">
+  <v-app-bar app flat color="#1e1e1e" prominent height="88">
     <div id="particles-js"></div>
     <nuxt-link to="/">
-      <img src="/img/logo/nav.png" alt="Logo" width="300" />
+      <img src="/img/logo/nav.png" alt="Logo" height="88" />
     </nuxt-link>
 
-    <v-tabs centered class="ml-n9" color="primary" optional slider-size="5">
-      <v-tab
-        v-for="link in links"
-        :key="link.title"
-        nuxt
-        :to="link.url"
-        class="text-h4"
-      >
+    <v-tabs centered color="primary" optional slider-size="4">
+      <v-tab v-for="link in links" :key="link.title" nuxt :to="link.url">
         {{ link.title }}
       </v-tab>
     </v-tabs>

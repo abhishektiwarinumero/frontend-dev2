@@ -1,7 +1,7 @@
 <template>
   <v-app dark>
     <notification-component></notification-component>
-    <v-system-bar lights-out app>
+    <v-system-bar lights-out app height="20">
       <social-component></social-component>
       <v-spacer></v-spacer>
       <top-right-links></top-right-links>
@@ -13,7 +13,7 @@
         <slot />
       </v-container>
     </v-main>
-   <app-footer />
+    <app-footer />
   </v-app>
 </template>
 
