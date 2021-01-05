@@ -50,7 +50,7 @@ export default {
   }),
   computed: {
     url() {
-      return `https://${process.env.HOST_URL}/dashboard`;
+      return process.env.HOST_URL;
     },
   },
 };
