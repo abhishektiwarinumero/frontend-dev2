@@ -84,9 +84,9 @@ export default {
               errors.response.data.errors
             );
           });
-      } catch (error) {
+      } catch ({ response }) {
         // TODO: send error to sentry
-        this.$notify("Could not contact server", "error");
+        this.$notify("Could not contact server", "error", response.data.errors);
       }
     },
     requestPasswordReset() {
