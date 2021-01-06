@@ -73,7 +73,10 @@ export default {
       // Gather Comment
       let comment = this.$store.state.order.comment;
       // Gather (appear offline in chat)
-      let offline = this.$store.state.order.chatMode;
+      this.$store.commit(
+        "checkout/addOption",
+        this.$store.state.order.chatMode
+      );
       // Get all data from store and post them to DB
       this.$axios
         .post("orders", {

@@ -1,18 +1,18 @@
 <template>
   <v-layout column fill-height class="hero">
-    <v-row align="center" justify="center" class="mt-16">
-      <img src="/img/logo/logo.png" alt="Logo" width="55%" class="mt-16" />
+    <v-row align="center" justify="center" class="mt-5">
+      <img src="/img/logo/logo.png" alt="Logo" width="55%" class="mt-15" />
     </v-row>
-    <v-row align="end" justify="center" class="mt-16 mb-16">
+    <v-row align="end" justify="center" class="mt-7 mb-14">
       <v-btn-toggle
         rounded
         v-model="undefined"
         background-color="transparent"
         class="hero-btn"
       >
-        <v-btn x-large class="text-h4">Get Boosted</v-btn>
-        <v-btn x-large class="text-h4 mr-2 ml-2">Get Coached</v-btn>
-        <v-btn x-large class="text-h4">Buy an account</v-btn>
+        <v-btn x-large>Get Boosted</v-btn>
+        <v-btn x-large class="mr-1 ml-1">Get Coached</v-btn>
+        <v-btn x-large>Buy an account</v-btn>
       </v-btn-toggle>
     </v-row>
     <services />
@@ -78,9 +78,9 @@ export default {
 
 <style scoped>
 .hero {
-  background: url(/img/backgrounds/overlay_background.png);
-  background-position: top;
-  background-size: cover;
+  background: url(/img/backgrounds/bg.png);
+  background-position: center top;
+  background-size: 100% auto;
   background-repeat: no-repeat;
 }
 

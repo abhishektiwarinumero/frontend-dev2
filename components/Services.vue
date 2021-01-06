@@ -1,9 +1,7 @@
 <template>
   <section class="services">
     <div ref="servicesViewPort" class="servicesViewPort"></div>
-    <v-row class="section-title flex-center">
-      <h1>Our Services</h1>
-    </v-row>
+    <v-row class="section-title flex-center text-h4">Our Services</v-row>
     <div class="services-top">
       <div
         class="img-top-container"
@@ -77,14 +75,11 @@ export default {
 }
 section {
   position: relative;
-  font-family: Evogria !important;
-  height: 100vh;
   width: 100vw;
   box-sizing: border-box;
   padding: 0 1em;
 }
 .section-title {
-  font-size: 2.3em !important;
   height: 17%;
 }
 .services-top {
@@ -124,7 +119,6 @@ section {
   grid-gap: 2.5em;
   gap: 2.5em;
   box-sizing: border-box;
-  padding: 1em 3em 0em 3em;
 }
 .img-bottom-container {
   width: 100%;
