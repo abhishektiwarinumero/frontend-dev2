@@ -12,16 +12,16 @@
       >
         <img class="img-top" :src="`/img/games/cards/${service}`" />
       </div>
-    </div>
-    <div class="services-bottom">
-      <div
-        class="img-bottom-container"
-        v-for="(service, index) in services_bottom"
-        :key="index"
-        :style="{ transitionDelay: `${0.3 * services_top.length + 1}s` }"
-        :class="isVisible ? 'service-bottom-animate' : ''"
-      >
-        <img class="img-bottom" :src="`/img/games/cards/${service}`" />
+      <div class="services-bottom mt-10 mb-10">
+        <div
+          class="img-bottom-container"
+          v-for="(service, index) in services_bottom"
+          :key="index"
+          :style="{ transitionDelay: `${0.3 * services_top.length + 1}s` }"
+          :class="isVisible ? 'service-bottom-animate' : ''"
+        >
+          <img class="img-bottom" :src="`/img/games/cards/${service}`" />
+        </div>
       </div>
     </div>
   </section>

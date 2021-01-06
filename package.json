@@ -21,6 +21,6 @@
 		"@nuxtjs/vuetify": "^1.11.2",
 		"fibers": "^4.0.3",
 		"sass": "^1.30.0",
-		"sass-loader": "^10.1.0"
+		"sass-loader": "^7.1.0"
 	}
 }
