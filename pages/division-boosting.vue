@@ -19,19 +19,20 @@
         <games-slider />
       </v-row>
     </div>
+    <game-services :services="gameServices"></game-services>
     <v-container>
-      <game-services :services="gameServices"></game-services>
-      <v-row>
-        <v-col md="8">
-          <v-form ref="order">
+      <v-form ref="order">
+        <v-row>
+          <v-col cols="12" sm="6" md="7">
             <select-current-league />
             <select-desired-league />
+          </v-col>
+          <v-col cols="6" md="5">
             <checkout />
             <boost-me />
-          </v-form>
-        </v-col>
-        <v-col md="4"></v-col>
-      </v-row>
+          </v-col>
+        </v-row>
+      </v-form>
     </v-container>
     <how-it-works />
   </div>

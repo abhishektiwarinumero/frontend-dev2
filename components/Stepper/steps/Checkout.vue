@@ -9,56 +9,48 @@
     <v-card raised class="mb-4">
       <v-container class="container">
         <v-row>
-          <v-col class="left-col">
-            <div
-              class="align-center-to-left"
-              v-for="(checkbox, index) in checkboxes"
-              :key="index"
-            >
-              <v-tooltip top color="primary" max-width="350">
-                <template v-slot:activator="{ on, attrs }">
-                  <v-switch
-                    v-model="checkbox.checked"
-                    @change="checkOption(checkbox)"
-                  >
-                    <template v-slot:label>
-                      <div v-bind="attrs" v-on="on">
-                        <v-icon color="#673ab7" class="mr-1">
-                          {{ checkbox.icon }}
-                        </v-icon>
-                        <v-badge
-                          :color="checkbox.percentage ? 'primary' : 'green'"
-                          :content="
-                            checkbox.percentage
-                              ? `+${checkbox.percentage}%`
-                              : 'Free'
-                          "
-                          class="text-uppercase"
-                        >
-                          {{ checkbox.title }}
-                        </v-badge>
-                      </div>
-                    </template>
-                  </v-switch>
-                </template>
-                <span>
-                  {{ checkbox.tip }}
-                </span>
-              </v-tooltip>
-            </div>
-          </v-col>
-          <v-col class="right-col">
-            <h5>Approximate completion time: {{ eta }}</h5>
-            <v-col class="input" md="8">
-              <v-text-field
-                label="Discount Code"
-                v-model="discountCode"
-                outlined
-                clearable
-                dark
-                append-icon="mdi-check"
-              ></v-text-field>
-            </v-col>
+          <div v-for="(checkbox, index) in checkboxes" :key="index">
+            <v-tooltip top color="primary" max-width="350">
+              <template v-slot:activator="{ on, attrs }">
+                <v-switch
+                  v-model="checkbox.checked"
+                  @change="checkOption(checkbox)"
+                >
+                  <template v-slot:label>
+                    <div v-bind="attrs" v-on="on">
+                      <v-icon color="#673ab7" class="mr-1">
+                        {{ checkbox.icon }}
+                      </v-icon>
+                      <v-badge
+                        :color="checkbox.percentage ? 'primary' : 'green'"
+                        :content="
+                          checkbox.percentage
+                            ? `+${checkbox.percentage}%`
+                            : 'Free'
+                        "
+                        class="text-uppercase"
+                      >
+                        {{ checkbox.title }}
+                      </v-badge>
+                    </div>
+                  </template>
+                </v-switch>
+              </template>
+              <span>
+                {{ checkbox.tip }}
+              </span>
+            </v-tooltip>
+          </div>
+          <h5>Approximate completion time: {{ eta }}</h5>
+          <v-col class="input" md="8">
+            <v-text-field
+              label="Discount Code"
+              v-model="discountCode"
+              outlined
+              clearable
+              dark
+              append-icon="mdi-check"
+            ></v-text-field>
           </v-col>
         </v-row>
       </v-container>
@@ -169,12 +161,6 @@ h5 {
 
 h2 {
   margin: 0;
-}
-
-.right-col {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
 }
 
 .title {
