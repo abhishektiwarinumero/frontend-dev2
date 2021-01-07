@@ -2,7 +2,7 @@ export const state = () => ({
 	nickname: '',
 	booster: '',
 	comment: '',
-	chatMode: false,
+	offline: false,
 });
 
 export const mutations = {
@@ -15,7 +15,7 @@ export const mutations = {
 	changeComment(state, payload) {
 		state.comment = payload;
 	},
-	changeChatMode(state, payload) {
-		state.chatMode = payload;
+	setOffline(state, payload) {
+		state.offline = payload;
 	}
 }

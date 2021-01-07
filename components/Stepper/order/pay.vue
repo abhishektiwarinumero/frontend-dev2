@@ -73,22 +73,18 @@ export default {
       // Gather Comment
       let comment = this.$store.state.order.comment;
       // Gather (appear offline in chat)
-      this.$store.commit(
-        "checkout/addOption",
-        this.$store.state.order.chatMode
-      );
+      let offline = this.$store.state.order.offline;
+      if (offline) {
+        this.$store.commit("checkout/addOption", "offline");
+      }
       // Get all data from store and post them to DB
       this.$axios
         .post("orders", {
           purchase,
           service,
-          //   currentTier,
-          //   division,
           server,
-          //   wins,
-          //   queue: mode === "Solo/Duo" ? "solo_duo" : "flex_5v5", // undocumented
           options,
-          price, // end of documented
+          price,
           discountCode,
           nickname,
           booster_id: 0,
@@ -97,10 +93,6 @@ export default {
         })
         .then((response) => {
           this.$notify(response.data.message, "success");
-          // Login the user into the web session when they get a sanctum token
-          // So they wouldn't stumble upon the Laravel nova login page here
-          // Also, maybe return the id of the order from the API response
-          // And redirect the users to their newly created order directly
           setTimeout(() => {
             window.location = `${process.env.HOST_URL}/resources/orders/${response.data.order_id}`;
           }, 4000);

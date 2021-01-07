@@ -84,7 +84,7 @@ export default {
       this.$store.commit("order/changeNickname", this.nickname);
       this.$store.commit("order/changeBooster", this.booster);
       this.$store.commit("order/changeComment", this.comment);
-      this.$store.commit("order/changeChatMode", this.offline);
+      this.$store.commit("order/setOffline", this.offline);
       this.$emit("next");
     },
   },
