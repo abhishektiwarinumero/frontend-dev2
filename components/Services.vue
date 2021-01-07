@@ -1,16 +1,18 @@
 <template>
   <section class="services">
+    <v-container>
     <div ref="servicesViewPort" class="servicesViewPort"></div>
-    <v-row class="section-title flex-center text-h4">Our Services</v-row>
-    <div class="services-top">
-      <div
-        class="img-top-container"
-        v-for="(service, index) in services_top"
-        :key="index"
-        :style="{ transitionDelay: `${0.3 * (index + 1)}s` }"
-        :class="isVisible ? 'service-top-animate' : ''"
-      >
-        <img class="img-top" :src="`/img/games/cards/${service}`" />
+      <v-row class="section-title flex-center text-h4">Our Services</v-row>
+      <div class="services-top">
+        <div
+          class="img-top-container"
+          v-for="(service, index) in services_top"
+          :key="index"
+          :style="{ transitionDelay: `${0.3 * (index + 1)}s` }"
+          :class="isVisible ? 'service-top-animate' : ''"
+        >
+          <img class="img-top" :src="`/img/games/cards/${service}`" />
+        </div>
       </div>
       <div class="services-bottom mt-10 mb-10">
         <div
@@ -23,7 +25,7 @@
           <img class="img-bottom" :src="`/img/games/cards/${service}`" />
         </div>
       </div>
-    </div>
+    </v-container>
   </section>
 </template>
 
