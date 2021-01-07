@@ -1,8 +1,10 @@
 <template>
   <section class="services">
     <v-container>
-    <div ref="servicesViewPort" class="servicesViewPort"></div>
-      <v-row class="section-title flex-center text-h4">Our Services</v-row>
+      <div ref="servicesViewPort" class="servicesViewPort"></div>
+      <v-row class="section-title flex-center text-h4 mb-16 mt-8"
+        >Our Services</v-row
+      >
       <div class="services-top">
         <div
           class="img-top-container"
@@ -19,7 +21,7 @@
           class="img-bottom-container"
           v-for="(service, index) in services_bottom"
           :key="index"
-          :style="{ transitionDelay: `${0.3 * services_top.length + 1}s` }"
+          :style="{ transitionDelay: `${0.3 * (services_top.length + 1)}s` }"
           :class="isVisible ? 'service-bottom-animate' : ''"
         >
           <img class="img-bottom" :src="`/img/games/cards/${service}`" />
@@ -51,7 +53,7 @@ export default {
       const rect = element.getBoundingClientRect();
       return rect.top + rect.height > 0 && rect.top - window.innerHeight < 0;
     },
-    handleScroll() {
+    handleAnimations() {
       let isInViewport = this.isInViewport(this.$refs.servicesViewPort);
       if (isInViewport && !this.isVisible) {
         this.isVisible = true;
@@ -61,10 +63,15 @@ export default {
     },
   },
   beforeMount() {
-    window.addEventListener("scroll", this.handleScroll);
+    window.addEventListener("scroll", this.handleAnimations);
+    window.addEventListener("resize", this.handleAnimations);
+  },
+  mounted: function () {
+    this.handleAnimations();
   },
   beforeDestroy() {
-    window.removeEventListener("scroll", this.handleScroll);
+    window.removeEventListener("scroll", this.handleAnimations);
+    window.addEventListener("resize", this.handleAnimations);
   },
 };
 </script>
@@ -81,12 +88,8 @@ section {
   box-sizing: border-box;
   padding: 0 1em;
 }
-.section-title {
-  height: 17%;
-}
 .services-top {
   width: 100%;
-  height: 43%;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   box-sizing: border-box;
@@ -96,7 +99,7 @@ section {
   width: 100%;
   height: 100%;
   transition-duration: 0.3s;
-  transition-timing-function: ease;
+  transition-timing-function: cubic-bezier(0.895, 0.03, 0.685, 0.22);
   transform: scale(1.2) rotateY(90deg);
 }
 .img-top {
@@ -115,7 +118,6 @@ section {
 
 .services-bottom {
   width: 100%;
-  height: 40%;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 2.5em;
@@ -126,7 +128,7 @@ section {
   width: 100%;
   height: 100%;
   transition-duration: 0.3s;
-  transition-timing-function: ease;
+  transition-timing-function: cubic-bezier(0.895, 0.03, 0.685, 0.22);
   transform: rotateX(90deg);
 }
 .img-bottom {
@@ -144,9 +146,9 @@ section {
 }
 .servicesViewPort {
   position: absolute;
-  top: 40vh;
-  width: 100%;
-  height: 20vh;
-  z-index: 0;
+  top: 40%;
+  width: 100vw;
+  height: 20%;
+  z-index: 5;
 }
 </style>
