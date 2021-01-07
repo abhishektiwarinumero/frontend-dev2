@@ -44,24 +44,16 @@ export default {
     steps: 3,
     register: false,
   }),
-  computed: {
-    priceUSD() {
-      return (this.price * this.exchangeRate).toFixed(2);
-    },
-  },
   methods: {
-    closeDialog() {
-      this.currentStep = 1;
-      this.$emit("closeDialog");
-    },
     cancel() {
+      this.currentStep = this.$auth.loggedIn ? 2 : 1;
       this.$emit("closeDialog");
     },
     nextStep(n) {
       if (n === this.steps) {
         this.currentStep = 1;
       } else {
-        this.currentStep = n + 1;
+        this.currentStep++;
       }
     },
   },
