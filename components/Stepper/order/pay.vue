@@ -93,7 +93,6 @@ export default {
           nickname,
           booster_id: 0,
           comment,
-          offline,
           stripeToken: this.stripeToken,
         })
         .then((response) => {
