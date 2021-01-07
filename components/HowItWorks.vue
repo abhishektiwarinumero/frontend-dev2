@@ -1,5 +1,5 @@
 <template>
-  <section class="how-it-works flex-center">
+  <section class="flex-center">
     <v-card elevation="3">
       <v-card-title class="title flex-center">
         <h1>How KingBoosting Works ?</h1>
@@ -64,8 +64,7 @@ export default {
   align-items: center;
 }
 section {
-  font-family: Evogria !important;
-  height: 100vh;
+  /* height: 100vh; */
   width: 100vw;
   box-sizing: border-box;
   padding: 0 1em;
@@ -81,7 +80,6 @@ section {
   padding: 2em 0;
 }
 .title {
-  font-family: Evogria !important;
   font-size: 2.3em !important;
 }
 .steps {

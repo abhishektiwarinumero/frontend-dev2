@@ -7,41 +7,43 @@
       <h2 class="title-txt">Checkout</h2>
     </div>
     <v-card raised class="mb-4">
-      <v-container class="container">
+      <v-container>
         <v-row>
-          <div v-for="(checkbox, index) in checkboxes" :key="index">
-            <v-tooltip top color="primary" max-width="350">
-              <template v-slot:activator="{ on, attrs }">
-                <v-switch
-                  v-model="checkbox.checked"
-                  @change="checkOption(checkbox)"
-                >
-                  <template v-slot:label>
-                    <div v-bind="attrs" v-on="on">
-                      <v-icon color="#673ab7" class="mr-1">
-                        {{ checkbox.icon }}
-                      </v-icon>
-                      <v-badge
-                        :color="checkbox.percentage ? 'primary' : 'green'"
-                        :content="
-                          checkbox.percentage
-                            ? `+${checkbox.percentage}%`
-                            : 'Free'
-                        "
-                        class="text-uppercase"
-                      >
-                        {{ checkbox.title }}
-                      </v-badge>
-                    </div>
-                  </template>
-                </v-switch>
-              </template>
-              <span>
-                {{ checkbox.tip }}
-              </span>
-            </v-tooltip>
-          </div>
-          <h5>Approximate completion time: {{ eta }}</h5>
+          <v-col md="10">
+            <div v-for="(checkbox, index) in checkboxes" :key="index">
+              <v-tooltip top color="primary" max-width="350">
+                <template v-slot:activator="{ on, attrs }">
+                  <v-switch
+                    v-model="checkbox.checked"
+                    @change="checkOption(checkbox)"
+                  >
+                    <template v-slot:label>
+                      <div v-bind="attrs" v-on="on">
+                        <v-icon color="#673ab7" class="mr-1">
+                          {{ checkbox.icon }}
+                        </v-icon>
+                        <v-badge
+                          :color="checkbox.percentage ? 'primary' : 'green'"
+                          :content="
+                            checkbox.percentage
+                              ? `+${checkbox.percentage}%`
+                              : 'Free'
+                          "
+                          class="text-uppercase"
+                        >
+                          {{ checkbox.title }}
+                        </v-badge>
+                      </div>
+                    </template>
+                  </v-switch>
+                </template>
+                <span>
+                  {{ checkbox.tip }}
+                </span>
+              </v-tooltip>
+            </div>
+            <h5>Approximate completion time: {{ eta }}</h5>
+          </v-col>
           <v-col class="input" md="8">
             <v-text-field
               label="Discount Code"
@@ -136,12 +138,6 @@ export default {
 </script>
 
 <style scoped>
-.container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
 .align-center-to-left {
   display: flex;
   flex-direction: row;

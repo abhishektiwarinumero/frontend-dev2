@@ -2,7 +2,7 @@
   <div>
     <div class="title">
       <div class="title-id">
-        <h2>1</h2>
+        <h2>2</h2>
       </div>
       <h2 class="title-txt">Select Desired League</h2>
     </div>
@@ -14,7 +14,7 @@
               :src="division.image || tier.image"
               :alt="tier.name"
               loading="lazy"
-              width="200"
+              width="170"
             />
           </v-col>
           <v-col md="9" class="have-selectors">
@@ -157,5 +157,8 @@ export default {
 
 .v-input--selection-controls {
   margin-top: 0px;
+}
+.v-input--radio-group.v-input--radio-group--row .v-radio {
+  margin-right: 2px;
 }
 </style>

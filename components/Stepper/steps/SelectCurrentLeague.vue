@@ -14,7 +14,7 @@
               :src="division.image || tier.image"
               :alt="tier.name"
               loading="lazy"
-              width="200"
+              width="170"
             />
           </v-col>
           <v-col md="9" class="have-selectors">

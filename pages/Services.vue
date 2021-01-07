@@ -80,7 +80,6 @@ export default {
   background-position: top;
   background-size: cover;
   background-repeat: no-repeat;
-  font-family: Evogria !important;
 }
 .cards {
   display: grid;

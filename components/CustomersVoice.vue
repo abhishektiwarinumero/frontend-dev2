@@ -83,7 +83,6 @@ export default {
 }
 section {
   position: relative;
-  font-family: Evogria !important;
   height: 100vh;
   width: 100vw;
   box-sizing: border-box;
