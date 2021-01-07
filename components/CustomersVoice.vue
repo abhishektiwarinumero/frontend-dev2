@@ -83,8 +83,6 @@ export default {
 }
 section {
   position: relative;
-  height: 100vh;
-  width: 100vw;
   box-sizing: border-box;
   padding: 0 1em;
 }
