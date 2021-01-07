@@ -77,7 +77,7 @@ export default {
 }
 section {
   position: relative;
-  /* width: 100vw; */
+  width: 100vw;
   box-sizing: border-box;
   padding: 0 1em;
 }

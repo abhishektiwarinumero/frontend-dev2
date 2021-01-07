@@ -1,29 +1,31 @@
 <template>
   <v-footer>
-    <v-row class="main">
-      <v-col class="left" sm="12" md="6">
-        <v-row>
-          <img class="logo" src="/img/logo/logo.png" alt="Logo" />
-        </v-row>
-        <v-row>
-          <p class="disclaimer">
-            Disclaimer: King Boosting is not endorsed by Riot games and doesn't
-            reflect the views or opinions of Riot games or anyone officially
-            involved in production or maintaining of League of Legends and Riot
-            Games are trademark or registered trademark of Riot Games, Inc,
-            League of legends &copy; Riot Games, Inc.
-          </p>
-        </v-row>
-      </v-col>
-      <v-col class="right flex-center" sm="12" md="6">
-        <img class="cred-cards" src="/img/cred-cards.png" />
-      </v-col>
-    </v-row>
-    <v-row class="bottom mt-16 mb-16">
-      <ul class="navs">
-        <li v-for="(nav, index) in navs" :key="index">{{ nav.name }}</li>
-      </ul>
-    </v-row>
+    <v-container>
+      <v-row class="main">
+        <v-col class="left" sm="12" md="6">
+          <v-row>
+            <img class="logo" src="/img/logo/logo.png" alt="Logo" />
+          </v-row>
+          <v-row>
+            <p class="disclaimer">
+              Disclaimer: King Boosting is not endorsed by Riot games and doesn't
+              reflect the views or opinions of Riot games or anyone officially
+              involved in production or maintaining of League of Legends and Riot
+              Games are trademark or registered trademark of Riot Games, Inc,
+              League of legends &copy; Riot Games, Inc.
+            </p>
+          </v-row>
+        </v-col>
+        <v-col class="right flex-center" sm="12" md="6">
+          <img class="cred-cards" src="/img/cred-cards.png" />
+        </v-col>
+      </v-row>
+      <v-row class="bottom mt-16 mb-16">
+        <ul class="navs">
+          <li v-for="(nav, index) in navs" :key="index">{{ nav.name }}</li>
+        </ul>
+      </v-row>
+    </v-container>
   </v-footer>
 </template>
 
