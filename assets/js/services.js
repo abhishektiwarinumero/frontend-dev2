@@ -19,11 +19,11 @@ export default [
 		slug: "placement-boosting",
 		game: "LOL BOOSTING",
 	},
-	{
-		name: "Promotion Boosting",
-		slug: "promotion-boosting",
-		game: "LOL BOOSTING",
-	},
+	// {
+	// 	name: "Promotion Boosting",
+	// 	slug: "promotion-boosting",
+	// 	game: "LOL BOOSTING",
+	// },
 	{
 		name: "Champion Mastery",
 		slug: "champion-mastery",
