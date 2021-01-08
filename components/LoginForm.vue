@@ -78,6 +78,7 @@ export default {
             this.close();
           })
           .catch((errors) => {
+            this.$sentry.captureException(errors);
             this.$notify(
               errors.response.data.message,
               "error",
@@ -86,6 +87,7 @@ export default {
           });
       } catch ({ response }) {
         // TODO: send error to sentry
+        this.$sentry.captureException(error);
         this.$notify("Could not contact server", "error", response.data.errors);
       }
     },

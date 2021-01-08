@@ -41,8 +41,14 @@ export default {
 		// https://axios.nuxtjs.org/
 		'@nuxtjs/axios',
 		'@nuxtjs/auth-next',
+		"@nuxtjs/sentry",
 		'nuxt-stripe-module'
 	],
+
+	sentry: {
+		dsn: "https://f8d1200b27ae4ec0a627eefbdf4f5f21@o143524.ingest.sentry.io/5425202", // Enter your project's DSN here
+		config: {} // Additional config
+	},
 
 	axios: {
 		baseURL: process.env.HOST_URL, // Used as fallback if no runtime config is provided
