@@ -4,7 +4,7 @@
 			<div class="title-id">
 				<h2>1</h2>
 			</div>
-			<h2 class="title-txt">Select Your Current League</h2>
+			<h2 class="title-txt">{{ title }}</h2>
 		</div>
 		<v-card raised class="mb-4" :style="{ boxShadow: tier.box_shadow }">
 			<v-container>
@@ -73,6 +73,11 @@ export default {
 			type: Boolean,
 			required: false,
 			default: true,
+		},
+		title: {
+			type: String,
+			required: false,
+			default: "Select Your Current League",
 		},
 	},
 	data: () => ({

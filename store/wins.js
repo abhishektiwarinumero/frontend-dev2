@@ -1,5 +1,5 @@
 export const state = () => ({
-	wins: 4,
+	wins: 1,
 	mode: "Solo/Duo",
 })
 

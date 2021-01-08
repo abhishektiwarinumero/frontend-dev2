@@ -4,9 +4,8 @@
 			<v-row justify="center" align="center">
 				<v-col md="8" style="text-align: center">
 					<p class="text-overline">LOL ELO boost</p>
-					<p class="font-weight-bold text-h3">Tier &amp; Division League Boosting</p>
-					<br />Our league Boost service can help you reach your desired tier
-					and division in LoL.
+					<p class="font-weight-bold text-h3">Placement Matches Wins Boost</p>
+					<br />Buy a specific number of placement matches wins to get the highest possible starting MMR.
 				</v-col>
 				<games-slider />
 			</v-row>
@@ -16,8 +15,8 @@
 			<v-form ref="order">
 				<v-row>
 					<v-col cols="12" sm="6" md="7">
-						<select-current-league />
-						<select-desired-league />
+						<select-current-league :showPointsSelection="false" showServerSelection title="Preseason's league" />
+						<select-number-of-wins title="Select Your Number Of Games" />
 					</v-col>
 					<v-col cols="6" md="5">
 						<checkout :options="options" />
@@ -41,6 +40,14 @@ export default {
 		options: [
 			{
 				checked: false,
+				icon: "mdi-account-plus",
+				title: "Play with booster at",
+				percentage: 35,
+				tip:
+					"The assigned booster will play with you from an other account, so you can keep playing on your own while being boosted.",
+			},
+			{
+				checked: false,
 				icon: "mdi-account-remove",
 				title: "Appear offline on chat",
 				percentage: 0,
@@ -50,7 +57,7 @@ export default {
 			{
 				checked: false,
 				icon: "mdi-account-group",
-				title: "Specific champions",
+				title: "Specific champions/roles",
 				percentage: 0,
 				tip:
 					"You may determine what role(s) your booster will queue up for while playing on your account. For additional costs, you may also determine what champions he should play.",
@@ -58,7 +65,7 @@ export default {
 			{
 				checked: false,
 				icon: "mdi-flash",
-				title: "Priority order (2x speed) at",
+				title: "Priority order at",
 				percentage: 20,
 				tip:
 					"This option ensures that your order will be treated with a higher priority, thus resulting in a faster completion.",
@@ -70,15 +77,6 @@ export default {
 				percentage: 15,
 				tip:
 					"Your assigned booster will record/live stream all the games, depending on your requirements.",
-			},
-			{
-				checked: false,
-				icon: "mdi-plus",
-				title: "+1 Win in desired rank",
-				// This needs to be dynamic, based on the desired rank selected
-				percentage: 0,
-				tip:
-					"By selecting this option, you'll receive an additional net win once your desired rank was reached.",
 			},
 		],
 	}),
@@ -95,8 +93,7 @@ export default {
 		},
 	},
 	mounted() {
-		// So price doesn't get multiplied, because there are no wins in division boosting
-		this.$store.commit("wins/changeNumberOfWins", 1);
+		this.$store.commit("wins/changeNumberOfWins", 10);
 	},
 };
 </script>

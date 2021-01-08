@@ -1,12 +1,11 @@
 <template>
 	<div>
-		<div class="slider" fluid :style="{background: `url(/img/backgrounds/services/division-boosting-top-bg.png) top/cover`}">
+		<div class="slider" fluid :style="{background: `url(/img/backgrounds/services/champion-mastery-top-bg.png) top/cover`}">
 			<v-row justify="center" align="center">
 				<v-col md="8" style="text-align: center">
 					<p class="text-overline">LOL ELO boost</p>
-					<p class="font-weight-bold text-h3">Tier &amp; Division League Boosting</p>
-					<br />Our league Boost service can help you reach your desired tier
-					and division in LoL.
+					<p class="font-weight-bold text-h3">Win & Division Duo Queue Boosting</p>
+					<br />We provide a professional player to play duo queue and help you reach your ranked goals.
 				</v-col>
 				<games-slider />
 			</v-row>
@@ -41,44 +40,27 @@ export default {
 		options: [
 			{
 				checked: false,
-				icon: "mdi-account-remove",
-				title: "Appear offline on chat",
-				percentage: 0,
+				icon: "mdi-school",
+				title: "With coaching at",
+				percentage: 30,
 				tip:
-					"This option will make your account offline in the League Client chat, therefore your friends won't see when the booster is playing on your account",
-			},
-			{
-				checked: false,
-				icon: "mdi-account-group",
-				title: "Specific champions",
-				percentage: 0,
-				tip:
-					"You may determine what role(s) your booster will queue up for while playing on your account. For additional costs, you may also determine what champions he should play.",
+					"This option allows you to be in a voice call with our booster during and in between the games so he may give you tips and ideas for your improvement.",
 			},
 			{
 				checked: false,
 				icon: "mdi-flash",
-				title: "Priority order (2x speed) at",
+				title: "Priority order at",
 				percentage: 20,
 				tip:
 					"This option ensures that your order will be treated with a higher priority, thus resulting in a faster completion.",
 			},
 			{
 				checked: false,
-				icon: "mdi-video",
-				title: "With Streaming at",
-				percentage: 15,
+				icon: "mdi-finance",
+				title: "HIGH-MMR account at",
+				percentage: 20,
 				tip:
-					"Your assigned booster will record/live stream all the games, depending on your requirements.",
-			},
-			{
-				checked: false,
-				icon: "mdi-plus",
-				title: "+1 Win in desired rank",
-				// This needs to be dynamic, based on the desired rank selected
-				percentage: 0,
-				tip:
-					"By selecting this option, you'll receive an additional net win once your desired rank was reached.",
+					"Your assigned booster will play with you from a high MMR account.",
 			},
 		],
 	}),
