@@ -5,12 +5,12 @@
 			<v-row class="section-title flex-center text-h4 mb-16 mt-8">Our Services</v-row>
 			<div class="services-top">
 				<div class="img-top-container" v-for="(service, index) in services_top" :key="index" :style="{ transitionDelay: `${0.3 * (index + 1)}s` }" :class="isVisible ? 'service-top-animate' : ''">
-					<img class="img-top" :src="`/img/games/cards/${service}`" />
+					<img class="img-top" :src="service.image" />
 				</div>
 			</div>
 			<div class="services-bottom mt-10 mb-10">
 				<div class="img-bottom-container" v-for="(service, index) in services_bottom" :key="index" :style="{ transitionDelay: `${0.3 * (services_top.length + 1)}s` }" :class="isVisible ? 'service-bottom-animate' : ''">
-					<img class="img-bottom" :src="`/img/games/cards/${service}`" />
+					<img class="img-bottom" :src="`/img/games/${service}`" />
 				</div>
 			</div>
 		</v-container>
@@ -18,15 +18,10 @@
 </template>
 
 <script>
+import games from "~/assets/js/games";
 export default {
 	data: () => ({
-		services_top: [
-			"lol_boost.png",
-			"valorant_boost.png",
-			"tft_boost.png",
-			"wildrift_boost.png",
-			"runeterra_boost.png",
-		],
+		services_top: games,
 		services_bottom: [
 			"unranked_smurf.png",
 			"coaching.png",

@@ -99,4 +99,9 @@ export default [
 		slug: "normal-matches",
 		game: "Wild Rift Boosting",
 	},
+	{
+		name: "Division Boosting",
+		slug: "lor-division-boosting",
+		game: "RUNETERRA BOOSTING",
+	},
 ];

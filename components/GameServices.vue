@@ -1,10 +1,11 @@
 <template>
-	<v-bottom-navigation height="200" v-model="url" color="primary" grow>
-		<v-btn :value="service.slug" v-for="(service, index) in services" :key="index" nuxt :to="service.slug">
-			{{ service.name }}
-			<v-img max-height="150" max-width="150" :src="`/img/services/${service.slug}.png`"></v-img>
-		</v-btn>
-	</v-bottom-navigation>
+	<v-row class="services">
+		<v-tabs grow centered color="primary" slider-size="5">
+			<v-tab v-for="(service, index) in services" :key="index" class="service" nuxt :to="service.slug">
+				<img class="service-img" :src="`/img/services/${service.slug}.png`" />
+			</v-tab>
+		</v-tabs>
+	</v-row>
 </template>
 
 <script>
@@ -15,11 +16,22 @@ export default {
 			required: true,
 		},
 	},
-	data: () => ({
-		url: "",
-	}),
-	mounted() {
-		this.url = this.$route.name;
-	},
 };
 </script>
+
+<style scoped>
+.services {
+	margin: 1em -1.5em !important;
+}
+
+.service {
+	width: 10em;
+	padding: 0;
+	background: #222;
+	margin: 0 0.2em;
+}
+
+.service-img {
+	width: 100%;
+}
+</style>
