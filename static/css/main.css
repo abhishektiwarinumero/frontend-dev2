@@ -1,15 +1,26 @@
-@font-face {
-  font-family: Evogria;
-  font-weight: bold;
-  src: url('~static/fonts/evogria.otf') format('opentype'),
-       url('~static/fonts/evogria_italic.otf') format('opentype');
-}
-
 html {
 	background-color: black;
 	/* has to be scroll, not auto; */
 	-webkit-overflow-scrolling: touch;
 	scroll-behavior: smooth;
+}
+
+
+.v-application,
+.v-application .text-h1,
+.v-application .text-h2,
+.v-application .text-h3,
+.v-application .text-h4,
+.v-application .text-h5,
+.v-application .text-h6,
+.v-application .text-overline {
+	font-family: Evogria !important;
+	font-weight: normal;
+}
+
+* {
+	font-family: Evogria !important;
+	font-weight: normal;
 }
 
 .services-section {
@@ -55,10 +66,13 @@ html {
 	background: url(/img/backgrounds/active-game-bg.png) no-repeat bottom;
 }
 
-.v-toolbar__content, .v-toolbar__extension {
+.v-toolbar__content,
+.v-toolbar__extension {
 	padding: 0px;
 }
-.v-toolbar__content > .v-tabs, .v-toolbar__extension > .v-tabs {
+
+.v-toolbar__content>.v-tabs,
+.v-toolbar__extension>.v-tabs {
 	margin-top: 0px;
 }
 
@@ -70,9 +84,9 @@ html {
 /* vuetify lg max breakpoint: 1920 - 16 - 1 = 1903px */
 
 @media (min-width: 1264px) and (max-width: 1903px) {
-    .lg5-custom {
-        width: 20%;
-        max-width: 20%;
-        flex-basis: 20%;
-    }
+	.lg5-custom {
+		width: 20%;
+		max-width: 20%;
+		flex-basis: 20%;
+	}
 }
