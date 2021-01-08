@@ -90,3 +90,7 @@ html {
 		flex-basis: 20%;
 	}
 }
+
+.v-slider--horizontal .v-slider__track-container {
+	height: 8px;
+}

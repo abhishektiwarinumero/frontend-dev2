@@ -2,7 +2,6 @@ export const state = () => ({
 	price: 24.42,
 });
 
-
 export const getters = {
 	price(state, getters, rootState) {
 		let wins = rootState.wins.wins;
