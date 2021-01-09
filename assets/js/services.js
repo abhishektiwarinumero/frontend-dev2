@@ -6,7 +6,7 @@ export default [
 	},
 	{
 		name: "Ranked Win Boosting",
-		slug: "ranked-win-boosting",
+		slug: "ranked-wins-boosting",
 		game: "LOL BOOSTING",
 	},
 	{

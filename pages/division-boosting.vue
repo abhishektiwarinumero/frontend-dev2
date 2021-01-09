@@ -35,6 +35,7 @@
 import games from "~/assets/js/games";
 import services from "~/assets/js/services";
 export default {
+	transition: "slide-bottom",
 	data: () => ({
 		games: games,
 		// We need all services in order to grab the first one of each game

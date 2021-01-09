@@ -20,10 +20,17 @@ export default {
 	],
 
 	// Plugins to run before rendering page (https://nuxtjs.org/docs/2.x/configuration-glossary/configuration-plugins)
-	plugins: [
-		{ src: '~/plugins/axios' },
-		{ src: '~/plugins/particles', mode: 'client' },
-		{ src: '~/plugins/notify', mode: 'client' },
+	plugins: [{
+			src: '~/plugins/axios'
+		},
+		{
+			src: '~/plugins/particles',
+			mode: 'client'
+		},
+		{
+			src: '~/plugins/notify',
+			mode: 'client'
+		},
 	],
 
 	// Auto import components (https://nuxtjs.org/docs/2.x/configuration-glossary/configuration-components)
@@ -71,7 +78,9 @@ export default {
 	proxy: {
 		'/laravel': {
 			target: 'https://laravel-auth.nuxtjs.app',
-			pathRewrite: { '^/laravel': '/' }
+			pathRewrite: {
+				'^/laravel': '/'
+			}
 		}
 	},
 
@@ -94,9 +103,10 @@ export default {
 		treeShake: true,
 		customVariables: ['@/assets/variables.scss'],
 		optionsPath: './vuetify.options.js',
-		defaultAssets: {
-			font: false
-		}
+		defaultAssets: false
+		// {
+		// 	font: false
+		// }
 	},
 
 	// Build Configuration (https://nuxtjs.org/docs/2.x/configuration-glossary/configuration-build)
@@ -118,6 +128,12 @@ export default {
 		extend(config, ctx) {
 			if (ctx.isClient && ctx.isDev) {
 				config.devtool = 'source-map'
+			}
+		},
+
+		loaders: {
+			vue: {
+				prettify: false
 			}
 		}
 	}
