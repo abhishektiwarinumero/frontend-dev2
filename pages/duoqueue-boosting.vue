@@ -1,32 +1,34 @@
 <template>
-	<div>
-		<div class="slider" fluid :style="{background: `url(/img/backgrounds/services/division-boosting-top-bg.png) top/cover`}">
-			<v-row justify="center" align="center">
-				<v-col md="8" style="text-align: center">
-					<p class="text-overline">LOL ELO boost</p>
-					<p class="font-weight-bold text-h3">Win & Division Duo Queue Boosting</p>
-					<br />We provide a professional player to play duo queue and help you reach your ranked goals.
-				</v-col>
-				<games-slider />
-			</v-row>
-		</div>
-		<game-services :services="gameServices"></game-services>
+	<v-layout column full fill-height class="page">
 		<v-container>
-			<v-form ref="order">
-				<v-row>
-					<v-col cols="12" sm="6" md="7">
-						<select-current-league />
-						<select-desired-league />
-					</v-col>
-					<v-col cols="6" md="5">
-						<checkout :options="options" />
-						<boost-me />
-					</v-col>
+			<v-row class="flex-center">
+				<img src="/img/logo/logo.png" width="700" />
+			</v-row>
+			<games-slider />
+			<v-row class="flex-center mb-4">
+				<h1>Win & Division Duo Queue Boosting</h1>
+			</v-row>
+			<game-services :services="gameServices" />
+			<v-row class="flex-center">
+				<v-row class="order-form">
+					<v-form ref="order">
+						<v-row>
+							<v-col cols="12" sm="6" md="7">
+								<select-current-league />
+								<select-desired-league />
+							</v-col>
+							<v-col cols="6" md="5">
+								<checkout :options="options" />
+								<boost-me />
+							</v-col>
+						</v-row>
+					</v-form>
 				</v-row>
-			</v-form>
+			</v-row>
 		</v-container>
-		<how-it-works />
-	</div>
+		<why-us />
+		<customers-voice />
+	</v-layout>
 </template>
 
 <script>
@@ -36,6 +38,8 @@ export default {
 	transition: "slide-bottom",
 	data: () => ({
 		games: games,
+		// We need all services in order to grab the first one of each game
+		// Then we use that to define the link of the first service in a game
 		services: services,
 		options: [
 			{
@@ -82,3 +86,23 @@ export default {
 	},
 };
 </script>
+
+<style scoped>
+.page {
+	background: url(/img/backgrounds/order.png);
+	background-position: top;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+.flex-center {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.order-form {
+	padding: 10px;
+	background: #eeea;
+}
+</style>
