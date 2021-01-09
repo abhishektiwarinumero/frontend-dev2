@@ -2,14 +2,14 @@
 	<div>
 		<div class="title">
 			<div class="title-id">
-				<h2>2</h2>
+				<h2>{{ stepNumber }}</h2>
 			</div>
 			<h2 class="title-txt">{{ title }}</h2>
 		</div>
 		<v-card raised class="mb-4">
 			<v-container class="container">
 				<v-slider v-model="wins" thumb-label="always" min="1" max="10" height="130"></v-slider>
-				<v-radio-group class="radio-group" v-model="mode" dark mandatory row>
+				<v-radio-group class="radio-group" v-model="mode" dark mandatory row v-if="showMode">
 					<v-radio label="Solo/Duo" value="Solo/Duo"></v-radio>
 					<v-radio label="Flex 5v5" value="Flex"></v-radio>
 				</v-radio-group>
@@ -26,6 +26,16 @@ export default {
 			required: false,
 			default: "Select Your Number Of Wins",
 		},
+		showMode: {
+			type: Boolean,
+			required: false,
+			default: true,
+		},
+		stepNumber: {
+			type: Number,
+			required: false,
+			default: 2,
+		}
 	},
 	data: () => ({
 		mode: "Solo/Duo",
