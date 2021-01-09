@@ -103,10 +103,9 @@ export default {
 		treeShake: true,
 		customVariables: ['@/assets/variables.scss'],
 		optionsPath: './vuetify.options.js',
-		defaultAssets: false
-		// {
-		// 	font: false
-		// }
+		defaultAssets: {
+			font: false
+		}
 	},
 
 	// Build Configuration (https://nuxtjs.org/docs/2.x/configuration-glossary/configuration-build)

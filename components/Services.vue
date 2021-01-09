@@ -1,8 +1,11 @@
 <template>
 	<section class="services">
+		<v-img aspect-ratio="1.8" src="/img/indexAssets/services.png" class="bg" />
 		<v-container>
 			<div ref="servicesViewPort" class="servicesViewPort"></div>
-			<v-row class="section-title flex-center text-h4 mb-16 mt-8">Our Services</v-row>
+			<v-row class="section-title flex-center mb-10">
+				<h1>Our Services</h1>
+			</v-row>
 			<div class="services-top">
 				<div class="img-top-container" v-for="(service, index) in services_top" :key="index" :style="{ transitionDelay: `${0.3 * (index + 1)}s` }" :class="isVisible ? 'service-top-animate' : ''">
 					<img class="img-top" :src="service.image" />
@@ -19,6 +22,7 @@
 
 <script>
 import games from "~/assets/js/games";
+
 export default {
 	data: () => ({
 		services_top: games,
@@ -43,11 +47,9 @@ export default {
 			}
 		},
 	},
-	beforeMount() {
+	mounted() {
 		window.addEventListener("scroll", this.handleAnimations);
 		window.addEventListener("resize", this.handleAnimations);
-	},
-	mounted: function () {
 		this.handleAnimations();
 	},
 	beforeDestroy() {
@@ -65,16 +67,29 @@ export default {
 }
 section {
 	position: relative;
-	width: 100vw;
+	width: 100%;
 	box-sizing: border-box;
-	padding: 0 1em;
+	margin-top: -80px;
+}
+.bg {
+	position: absolute;
+	width: 100%;
+	filter: contrast(50%);
+	z-index: 1;
+}
+.container {
+	position: relative;
+	z-index: 3;
+}
+.section-title {
+	font-size: 24px;
+	margin-top: 80px;
 }
 .services-top {
 	width: 100%;
 	display: grid;
 	grid-template-columns: repeat(5, 1fr);
 	box-sizing: border-box;
-	padding: 0 1em;
 }
 .img-top-container {
 	width: 100%;
@@ -96,14 +111,14 @@ section {
 .services .service-top-animate {
 	transform: scale(1.2) rotateY(0deg);
 }
-
 .services-bottom {
 	width: 100%;
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
-	grid-gap: 2.5em;
-	gap: 2.5em;
+	grid-gap: 40px;
+	gap: 40px;
 	box-sizing: border-box;
+	padding: 0 32px;
 }
 .img-bottom-container {
 	width: 100%;
@@ -128,8 +143,19 @@ section {
 .servicesViewPort {
 	position: absolute;
 	top: 40%;
-	width: 100vw;
+	width: 100%;
 	height: 20%;
 	z-index: 5;
+}
+@media only screen and (max-width: 1600px) {
+	section {
+		margin-top: -160px;
+	}
+}
+@media only screen and (max-width: 1200px) {
+	.bg {
+		width: inherit;
+		height: 100%;
+	}
 }
 </style>

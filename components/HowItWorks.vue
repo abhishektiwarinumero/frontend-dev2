@@ -1,223 +1,247 @@
 <template>
-  <section class="flex-center">
-    <v-card elevation="3">
-      <v-card-title class="title flex-center">
-        <h1>How KingBoosting Works ?</h1>
-      </v-card-title>
-      <v-container>
-        <v-row>
-          <v-col class="steps" sm="12" md="7">
-            <v-row v-for="(step, index) in steps" :key="index">
-              <p class="step">{{ step }}</p>
-            </v-row>
-          </v-col>
-          <v-col sm="12" md="5">
-            <div class="image">
-              <div id="laptop" class="flex-center">
-                <div class="laptop-top">
-                  <div class="laptop-screen">
-                    <v-icon class="play">mdi-play-box-outline</v-icon>
-                    <v-icon class="list">mdi-format-list-text</v-icon>
-                    <v-icon class="cred">mdi-credit-card-outline</v-icon>
-                    <v-icon class="account">mdi-card-account-details</v-icon>
-                  </div>
-                </div>
-                <div class="laptop-bottom"></div>
-              </div>
-              <div id="tablet" class="flex-center">
-                <div class="tablet-screen">
-                  <v-icon class="cog-sm">mdi-cog</v-icon>
-                  <v-icon class="cog-lg-w">mdi-cog</v-icon>
-                  <v-icon class="cog-lg-p">mdi-cog</v-icon>
-                </div>
-                <div class="tablet-btn"></div>
-              </div>
-            </div>
-          </v-col>
-        </v-row>
-      </v-container>
-    </v-card>
-  </section>
+	<section class="flex-center">
+		<v-img src="/img/indexAssets/howItWorks.png" class="bg" />
+		<v-container>
+			<v-card elevation="3">
+				<v-card-title class="section-title flex-center">
+					<h1>How KingBoosting Works ?</h1>
+				</v-card-title>
+
+				<v-row>
+					<v-col class="steps" md="7">
+						<v-row v-for="(step, index) in steps" :key="index">
+							<p class="step">{{ step }}</p>
+						</v-row>
+					</v-col>
+					<v-col md="5">
+						<div class="image">
+							<div id="laptop" class="flex-center">
+								<div class="laptop-top">
+									<div class="laptop-screen">
+										<v-icon class="play">mdi-play-box-outline</v-icon>
+										<v-icon class="list">mdi-format-list-text</v-icon>
+										<v-icon class="cred">mdi-credit-card-outline</v-icon>
+										<v-icon class="account">mdi-card-account-details</v-icon>
+									</div>
+								</div>
+								<div class="laptop-bottom"></div>
+							</div>
+							<div id="tablet" class="flex-center">
+								<div class="tablet-screen">
+									<v-icon class="cog-sm">mdi-cog</v-icon>
+									<v-icon class="cog-lg-w">mdi-cog</v-icon>
+									<v-icon class="cog-lg-p">mdi-cog</v-icon>
+								</div>
+								<div class="tablet-btn"></div>
+							</div>
+						</div>
+					</v-col>
+				</v-row>
+			</v-card>
+		</v-container>
+	</section>
 </template>
 
 <script>
 export default {
-  data: () => ({
-    steps: [
-      "Select the game you wish to be boosted on.",
-      "The select the type of services you wish to purchase and your order details.",
-      "By clicking the 'Purchase' button, you will be redirected to choose payment gateway, you can either continue as a guest or as returning customer.",
-      "In the members area you can track your order, spectate, pause or chat live with your booster!",
-    ],
-    icons: [
-      { name: "phone_iphone", color: "#7854c5" },
-      { name: "settings", color: "#7854c5" },
-    ],
-  }),
+	data: () => ({
+		steps: [
+			"Select the game you wish to be boosted on.",
+			"The select the type of services you wish to purchase and your order details.",
+			"By clicking the 'Purchase' button, you will be redirected to choose payment gateway, you can either continue as a guest or as returning customer.",
+			"In the members area you can track your order, spectate, pause or chat live with your booster!",
+		],
+		icons: [
+			{ name: "phone_iphone", color: "#7854c5" },
+			{ name: "settings", color: "#7854c5" },
+		],
+	}),
 };
 </script>
 
 <style scoped>
 .flex-center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 section {
-  /* height: 100vh; */
-  width: 100vw;
-  box-sizing: border-box;
-  padding: 0 1em;
+	position: relative;
+	width: 100%;
+	box-sizing: border-box;
+	margin-bottom: 80px;
 }
-.v-card {
-  width: 100%;
-  background: rgba(59, 38, 89, 0.8);
-  box-sizing: border-box;
-  padding: 2em;
+.bg {
+	position: absolute;
+	width: 100%;
+	margin-top: -7%;
+	filter: contrast(50%);
+	z-index: 1;
+}
+img {
+	height: 100vh;
 }
 .container {
-  box-sizing: border-box;
-  padding: 2em 0;
+	position: relative;
+	z-index: 3;
 }
-.title {
-  font-size: 2.3em !important;
+.v-card {
+	width: 100%;
+	background: rgba(59, 38, 89, 0.6);
+	box-sizing: border-box;
+	padding: 32px;
+	margin-top: 32px;
+}
+.section-title {
+	font-size: 37px !important;
 }
 .steps {
-  border-left: 0.8em solid white;
-  box-sizing: border-box;
-  padding-left: 2.5em;
+	border-left: 13px solid white;
+	box-sizing: border-box;
+	padding-left: 40px;
 }
 .step {
-  font-size: 1.6em !important;
+	font-size: 26px !important;
 }
 
 .image {
-  position: relative;
-  width: 100%;
-  height: 100%;
+	position: relative;
+	width: 100%;
+	height: 100%;
 }
 #tablet {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 12em;
-  height: 17em;
-  background: #7854c5;
-  border-radius: 0.5em;
-  box-sizing: border-box;
-  padding: 1em;
-  padding-bottom: 3em;
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 192px;
+	height: 272px;
+	background: #7854c5;
+	border-radius: 8px;
+	box-sizing: border-box;
+	padding: 16px;
+	padding-bottom: 48px;
 }
 .tablet-screen {
-  width: 100%;
-  height: 100%;
-  background: #2d1d50;
+	width: 100%;
+	height: 100%;
+	background: #2d1d50;
 }
 .cog-sm {
-  position: absolute;
-  font-size: 3em;
-  top: 1.1em;
-  left: 1.1em;
-  animation: rotate-counter-clock 4s linear infinite;
+	position: absolute;
+	font-size: 52px;
+	top: 65px;
+	left: 45px;
+	animation: rotate-counter-clock 4s linear infinite;
 }
 .cog-lg-w {
-  position: absolute;
-  top: 1.4em;
-  left: 0.3em;
-  font-size: 5em;
-  animation: rotate-counter-clock 4s linear infinite;
+	position: absolute;
+	top: 120px;
+	left: 28px;
+	font-size: 80px;
+	animation: rotate-counter-clock 4s linear infinite;
 }
 .cog-lg-p {
-  position: absolute;
-  top: 1em;
-  right: 0.3em;
-  font-size: 5em;
-  color: #7854c5;
-  animation: rotate-clock 4s linear infinite;
+	position: absolute;
+	top: 80px;
+	right: 20px;
+	font-size: 80px;
+	color: #7854c5;
+	animation: rotate-clock 4s linear infinite;
 }
 
 @keyframes rotate-clock {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
 }
 @keyframes rotate-counter-clock {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(-360deg);
-  }
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(-360deg);
+	}
 }
 .tablet-btn {
-  position: absolute;
-  bottom: 1em;
-  background: #2d1d50;
-  width: 1.5em;
-  height: 1.5em;
-  border-radius: 3em;
+	position: absolute;
+	bottom: 16px;
+	background: #2d1d50;
+	width: 24px;
+	height: 24px;
+	border-radius: 48px;
 }
 #laptop {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 23em;
-  height: 15em;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 345px;
+	height: 240px;
 }
 .laptop-top {
-  position: absolute;
-  top: 0%;
-  background: #7854c5;
-  margin: auto;
-  width: 90%;
-  height: 96.5%;
-  border-radius: 0.5em;
-  box-sizing: border-box;
-  padding: 1em;
+	position: absolute;
+	top: 0%;
+	background: #7854c5;
+	margin: auto;
+	width: 90%;
+	height: 96.5%;
+	border-radius: 8px;
+	box-sizing: border-box;
+	padding: 16px;
 }
 .laptop-screen {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  background: #2d1d50;
+	position: relative;
+	width: 100%;
+	height: 100%;
+	background: #2d1d50;
 }
 .play {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  font-size: 7em;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	font-size: 112px;
 }
 .list {
-  position: absolute;
-  top: 0;
-  left: 0;
-  font-size: 9em;
+	position: absolute;
+	top: 0;
+	left: 0;
+	font-size: 144px;
 }
 .account {
-  position: absolute;
-  bottom: 0em;
-  left: 0.55em;
-  font-size: 8em;
-  color: #7854c5;
+	position: absolute;
+	bottom: 4px;
+	left: 48px;
+	font-size: 128px;
+	color: #7854c5;
 }
 .cred {
-  position: absolute;
-  top: 0;
-  right: 0;
-  font-size: 6em;
+	position: absolute;
+	top: 0;
+	right: 0;
+	font-size: 96px;
 }
 .laptop-bottom {
-  position: absolute;
-  bottom: 0;
-  background: #7854c5;
-  width: 100%;
-  height: 3.5%;
-  border-radius: 0.1em 0.1em 0.3em 0.3em;
+	position: absolute;
+	bottom: 0;
+	background: #7854c5;
+	width: 100%;
+	height: 3.5%;
+	border-radius: 1.6px 1.6px 0.48px 0.48px;
 }
 .icon {
-  color: #7854c5aa;
+	color: #7854c5aa;
+}
+@media only screen and (max-width: 1600px) {
+	section {
+		margin-top: -80px;
+	}
+}
+@media only screen and (max-width: 1200px) {
+	.bg {
+		width: inherit;
+		height: 100%;
+	}
 }
 </style>;
