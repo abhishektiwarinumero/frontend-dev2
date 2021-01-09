@@ -1,8 +1,6 @@
 <template>
 	<default-layout>
-		<div fluid :style="{
-        background: `url(/img/backgrounds/services/${this.$route.name}-top-bg.png) top/cover`,
-      }">
+		<div fluid :style="{ background: `url(/img/backgrounds/services/${this.$route.name}-top-bg.png) top/cover` }">
 			<v-row justify="center" align="center">
 				<v-col md="8" style="text-align: center">
 					<nuxt />
