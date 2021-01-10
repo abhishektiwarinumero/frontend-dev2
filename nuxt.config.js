@@ -111,7 +111,9 @@ export default {
 	// Build Configuration (https://nuxtjs.org/docs/2.x/configuration-glossary/configuration-build)
 	build: {
 		transpile: [/vuetify/],
-		extractCSS: true,
+		extractCSS: {
+			ignoreOrder: true
+		},
 		cssSourceMap: true,
 		plugins: [
 			// Expose lodash globally
