@@ -47,8 +47,6 @@ export default {
 	data: () => ({
 		mode: "Solo/Duo",
 		tiers: tiers,
-		selectedTierID: 4, // Gold
-		selectedDivisionID: 13, // Gold IV
 		selectedServerID: "EU-West",
 		servers: [
 			"North America",
@@ -64,6 +62,26 @@ export default {
 		],
 	}),
 	computed: {
+		selectedTierID: {
+			get() {
+				return this.$store.state.desired.tier;
+			},
+			set(id) {
+				this.$store.commit("desired/changeTier", id);
+				if (this.hasDivisions) {
+					this.selectedDivisionID = this.tier.divisions[3].id;
+				}
+			},
+		},
+		selectedDivisionID: {
+			get() {
+				return this.$store.state.desired.division;
+			},
+			set(id) {
+				this.$store.commit("desired/changeDivision", id);
+				this.$emit("divisionChanged");
+			},
+		},
 		tier() {
 			let index = this.$store.state.desired.tier;
 			return _.find(this.tiers, ["id", index]);
@@ -79,14 +97,6 @@ export default {
 		},
 		hasDivisions() {
 			return !_.isEmpty(this.tier.divisions);
-		},
-	},
-	watch: {
-		selectedTierID(id) {
-			this.$store.commit("desired/changeTier", id);
-			if (this.hasDivisions) {
-				this.selectedDivisionID = this.tier.divisions[3].id;
-			}
 		},
 	},
 };

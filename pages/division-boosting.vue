@@ -14,8 +14,8 @@
 					<v-form ref="order">
 						<v-row>
 							<v-col cols="12" sm="6" md="7">
-								<select-current-league />
-								<select-desired-league />
+								<select-current-league @divisionChanged="changePrice" />
+								<select-desired-league @divisionChanged="changePrice" />
 							</v-col>
 							<v-col cols="6" md="5">
 								<checkout :options="options" />
@@ -32,11 +32,13 @@
 </template>
 
 <script>
+import tiers from "~/assets/js/tiers";
 import games from "~/assets/js/games";
 import services from "~/assets/js/services";
 export default {
 	transition: "slide-bottom",
 	data: () => ({
+		tiers: tiers,
 		games: games,
 		// We need all services in order to grab the first one of each game
 		// Then we use that to define the link of the first service in a game
@@ -97,9 +99,38 @@ export default {
 			return _.filter(this.services, ["game", this.game.name]);
 		},
 	},
+	methods: {
+		changePrice() {
+			let allPrices = _.flatten(
+				_.map(this.tiers, function (tier) {
+					if (tier.divisions) {
+						return _.map(tier.divisions, (division) => [
+							division.id,
+							division.price,
+						]);
+					} else {
+						return tier.price;
+					}
+				})
+			);
+			let filteredPrices = _.filter(allPrices, (price) =>
+				_.range(
+					this.$store.state.desired.division,
+					this.$store.state.league.division
+				).includes(price[0])
+			);
+			// Sum up their prices using JS reduce
+			let total = filteredPrices.reduce((sum, price) => {
+				return sum + price[1];
+			}, 0);
+			// Load price of (get it from currently selected desired division)
+			this.$store.commit("price/changePrice", total);
+		},
+	},
 	mounted() {
 		// So price doesn't get multiplied, because there are no wins in division boosting
 		this.$store.commit("wins/changeNumberOfWins", 1);
+		this.changePrice();
 	},
 };
 </script>

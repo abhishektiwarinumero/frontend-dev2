@@ -1,12 +1,18 @@
 export const state = () => ({
-	price: 24.42,
+	basePrice: 0,
 });
+
+export const mutations = {
+	changePrice(state, payload) {
+		state.basePrice = payload;
+	}
+};
 
 export const getters = {
 	price(state, getters, rootState) {
 		let wins = rootState.wins.wins;
 		let percent = rootState.checkout.percent;
-		let price = state.price * wins;
+		let price = state.basePrice * wins;
 		price += (price * percent) / 100;
 		return price;
 	}

@@ -95,8 +95,6 @@ export default {
 			"21+",
 		],
 		tiers: tiers,
-		selectedTierID: 3, // Silver
-		selectedDivisionID: 12, // Silver I
 		selectedServerID: "EU-West",
 		servers: [
 			"North America",
@@ -112,6 +110,26 @@ export default {
 		],
 	}),
 	computed: {
+		selectedTierID: {
+			get() {
+				return this.$store.state.league.tier;
+			},
+			set(id) {
+				this.$store.commit("league/changeTier", id);
+				if (this.hasDivisions) {
+					this.selectedDivisionID = this.tier.divisions[3].id;
+				}
+			},
+		},
+		selectedDivisionID: {
+			get() {
+				return this.$store.state.league.division;
+			},
+			set(id) {
+				this.$store.commit("league/changeDivision", id);
+				this.$emit("divisionChanged");
+			},
+		},
 		tier() {
 			let index = this.$store.state.league.tier;
 			return _.find(this.tiers, ["id", index]);
@@ -127,14 +145,6 @@ export default {
 		},
 		hasDivisions() {
 			return !_.isEmpty(this.tier.divisions);
-		},
-	},
-	watch: {
-		selectedTierID(id) {
-			this.$store.commit("league/changeTier", id);
-			if (this.hasDivisions) {
-				this.selectedDivisionID = this.tier.divisions[3].id;
-			}
 		},
 	},
 };
