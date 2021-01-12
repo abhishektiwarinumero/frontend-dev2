@@ -14,7 +14,7 @@
 					<v-form ref="order">
 						<v-row>
 							<v-col cols="12" sm="6" md="7">
-								<select-current-league />
+								<select-current-rank />
 								<select-desired-league />
 							</v-col>
 							<v-col cols="6" md="5">
