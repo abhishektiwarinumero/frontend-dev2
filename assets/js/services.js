@@ -48,21 +48,25 @@ export default [
 		name: "Rank Boosting",
 		slug: "valorant-boosting",
 		game: "VALORANT BOOSTING",
+		icon: "sword-cross",
 	},
 	{
 		name: "Placement Matches",
 		slug: "placement-matches",
 		game: "VALORANT BOOSTING",
+		icon: "check-circle",
 	},
 	{
 		name: "Competitive Win Boosting",
 		slug: "competitive-win-boosting",
 		game: "VALORANT BOOSTING",
+		icon: "trophy",
 	},
 	{
 		name: "Unrated Matches",
 		slug: "unrated-matches",
 		game: "VALORANT BOOSTING",
+		icon: "bullseye-arrow",
 	},
 	{
 		name: "Division Boosting",
