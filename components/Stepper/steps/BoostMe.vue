@@ -2,8 +2,12 @@
 	<v-card class="boost-me-card">
 		<v-container class="boost-me">
 			<div class="align-center">
-				<v-icon size="50">mdi-currency-usd</v-icon>
-				<h2>{{ price }} (€{{ priceEUR }})</h2>
+				<v-icon size="30">mdi-currency-usd</v-icon>
+				<h2>
+					{{ price }} (
+					<v-icon size="30">mdi-currency-eur</v-icon>
+					{{ priceEUR }})
+				</h2>
 			</div>
 			<v-dialog v-model="dialog" width="940">
 				<template v-slot:activator="{ on }">
