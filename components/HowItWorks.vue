@@ -46,10 +46,9 @@
 export default {
 	data: () => ({
 		steps: [
-			"Select the game you wish to be boosted on.",
-			"The select the type of services you wish to purchase and your order details.",
-			"By clicking the 'Purchase' button, you will be redirected to choose payment gateway, you can either continue as a guest or as returning customer.",
-			"In the members area you can track your order, spectate, pause or chat live with your booster!",
+			"You select the game and details of your boost",
+			"Upon agreeing to the purchase, you will be redirected to your chosen payment gateway, you can fill this in as a guest or as a returning customer.",
+			"Your order gets placed, and is immediately visible in the member area, where you can track, spectate, pause or live chat with your booster!",
 		],
 		icons: [
 			{ name: "phone_iphone", color: "#7854c5" },

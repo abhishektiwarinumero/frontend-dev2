@@ -51,21 +51,27 @@ export default {
 		priorities: [
 			{
 				icon: "/nothing.png",
-				title: "+5 Years of Expertise in LOL boosting",
+				title: "Customizable Boosting experience",
 				description:
-					"KingBoosting has been operating in the lol elo boost market for more than five years. Throughout this time the company amassed an incredible amount of experience in elo boosting. We continue to gather experience to this day and continue to improve our lol boost services to stay ahead of the competition in all aspects of the services that we provide. Every new buyer and new order adds to this experience and helps our organization to grow and perform even better in the future. Staying customer oriented and being agile to the different changes in the lol elo boosting environment is a crucial factor for our success.",
+					"Kingboosting offers you a great degree of freedom with your boosts details, making sure you get your LoL elo boost exacly the way you want!",
 			},
 			{
 				icon: "/nothing.png",
-				title: "Challenger LOL ELO boosting team",
+				title: "24/7 available boosters",
 				description:
-					"The company is known for employing the top LoL boosters, who are playing at the highest levels of the game. The minimum requirement to boost at BoostRoyal, is reaching the challenger tier and high prior experience in lol boosting. By employing and managing the best lol boosting team available, we are able to provide the highest win-rates and top quality performances. To make this possible, we never stop manage our lol boosters, who have to go through a strict selection process. By having increased control over the lol elo booster team, it allows us to get the most performance out of our players and provide a seamless boosting experience for all of our users.",
+					"Here at Kingboosting we have a vast selection of boosters that are available in all regions. and in 9 different time zones. Our challenger players can boost in all regions and servers and upon purchase you will be connected with a challenger player available 24/7",
 			},
 			{
 				icon: "/nothing.png",
-				title: "Best & Highly Customizable ELO boosting experience",
+				title: "Best prices guaranteed & our refund policy",
 				description:
-					"We provide the widest range of lol elo boosting related services in the boosting industry. Our service portfolio is designed with the ultimate goal of providing maximum user satisfaction. We believe, that having a high number of services are required in the field of lol elo boosting as each LoL player has different goals in the game. To help in reaching these goals, BoostRoyal does not only offer a high selection of different lol elo boosting methods, such as solo queue, duoe queue or placement matches, but additional customizability features for each of these boost types. We offer add-on options, such as priority delivery or specific champions",
+					"At KingBoosting we offer the most reasonable prices for anyone who wishes to take a boosting order, and if you are not satisfied with your service, we offer a generous refund policy, making sure you never leave unsatisfied!",
+			},
+			{
+				icon: "",
+				title: "Challenger Lol elo boosters guaranteed",
+				description:
+					"Kingboosting's employees are verified challenger players in previous seasons, they have a wide range of champions that they capable of playing as well as being masters in every role. All hand picked and tested in every role!",
 			},
 		],
 		icons: [

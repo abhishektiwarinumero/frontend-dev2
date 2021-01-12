@@ -34,36 +34,37 @@ export default {
 				icon: "mdi-shield-account",
 				title: "VPN Protection",
 				description:
-					"To offer the safest lol elo boost on the market, KingBoosting provides VPN protection on every order as a standard. The VPN feature helps to manage the IP address of the booster while boosting on the buyer’s account so the lol boosting process can stay undetected by RIOT.",
+					"To offer the safest boosting service on the market, we here at KingBoosting make extensive use of VPN's to mask our IP's whenever a booster logs into the account of a customer, this helps prevent detecting logins from different locations, making sure that your account will be safe and sound after a satisfying boost order.",
 			},
 			{
 				icon: "mdi-incognito",
-				title: "Privacy & Appear Offline",
+				title: "Privacy",
 				description:
-					"We offer the appear offline feature for players who are looking to have a private boosting experience. This feature can be selected at checkout, and it assures 100% privacy, as the boosted LoL account shows as offline in the friend list while the lol boosting process lasts.",
+					'We at KingBoosting value the privacy of our customer and thus offer an "Appear offline" tool to make sure that whenever the booster is completing your order, he won\'t appear online during the LoL rank boost.',
 			},
 			{
 				icon: "mdi-timer",
 				title: "Finish in time guarantee",
 				description:
-					"KingBoosting is making sure that your lol elo boost is finished in time. Each submitted order is given a specific deadline and the booster’s goal is to meet this deadline in the fastest possible manner. The length of the boosting process depends on the details of the purchase, and the maximum time limit is indicated when selecting a lol boost.",
+					"KingBoosting provides strict deadlines for our boosters on all ELO/Rank boost orders, to make sure that whenever you place an order, it will always be done before the set deadline. The maximum deadline of an order can vary between details of the order and difficulty, length of time to complete will always be displayed at the end of a purchase.",
 			},
 			{
 				icon: "mdi-target-account",
-				title: "Order tracking",
+				title: "Boost tracking and status",
 				description:
-					"KingBoosting has a built-in order tracking system for each purchased lol elo boost in the member’s area. The system offers different methods of order following, including a chart of the live match history of the LoL account that is being boosted, and a spectate button to watch the booster’s performance.",
+					"Kingboosting offers a detailed order tracking system built into our website at the member's area for any rank elo boosts you might have taken. This system offers you a variety of data to use to see how your boost is going, from live charts of your match history and a spectate button to see how your booster is playing, all included in your order!",
 			},
 			{
 				icon: "mdi-hours-24",
-				title: "24/7 Live Customer Service & Support",
+				title: "24/7 live customer support",
 				description:
-					"Kingboosting's help center includes 24/7 live chat support and phone assistance, offering any help related to your ELO boost.",
+					"We at king boosting offer a 24/7 customer line for any complication you might have with a boost or account order, making sure that the customer always comes first.",
 			},
 			{
 				icon: "mdi-seal",
-				title: "Get to choose your champions & roles for free",
-				description: "",
+				title: "Choose your champions & Roles for FREE",
+				description:
+					"We here at KingBoosting allow our customers to make special requests within their boosts, varying from what champion pool the booster should play and in what role. Making sure that any order you make, is done with your specifications!",
 			},
 		],
 	}),
