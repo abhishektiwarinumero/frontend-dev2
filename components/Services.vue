@@ -100,11 +100,9 @@ section {
 }
 .img-top {
 	width: 100%;
-	filter: grayscale(100%);
 	transition-duration: 0.15s;
 }
 .img-top:hover {
-	filter: grayscale(0%);
 	transform: scale(1.05);
 	cursor: pointer;
 }
@@ -129,11 +127,9 @@ section {
 }
 .img-bottom {
 	width: 100%;
-	filter: grayscale(100%);
 	transition-duration: 0.15s;
 }
 .img-bottom:hover {
-	filter: grayscale(0%);
 	transform: scale(1.05);
 	cursor: pointer;
 }
