@@ -1,8 +1,7 @@
 <template>
 	<section class="services">
 		<v-img aspect-ratio="1.8" src="/img/indexAssets/services.png" class="bg" />
-		<v-container>
-			<div ref="servicesViewPort" class="servicesViewPort"></div>
+		<v-container ref="servicesViewPort">
 			<v-row class="section-title flex-center mb-10">
 				<h1>Our Services</h1>
 			</v-row>
