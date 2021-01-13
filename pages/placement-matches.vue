@@ -45,14 +45,6 @@ export default {
 		options: [
 			{
 				checked: false,
-				icon: "mdi-finance",
-				title: "Net wins at",
-				percentage: 40,
-				tip:
-					"The booster will play net wins, each lose is +1 win on the order.",
-			},
-			{
-				checked: false,
 				icon: "mdi-account-remove",
 				title: "Appear offline on chat",
 				percentage: 0,
@@ -62,16 +54,16 @@ export default {
 			{
 				checked: false,
 				icon: "mdi-account-group",
-				title: "Specific champions/roles",
+				title: "Specific agents",
 				percentage: 0,
 				tip:
-					"You may determine what role(s) your booster will queue up for while playing on your account. For additional costs, you may also determine what champions he should play.",
+					"You may determine what agents your assigned booster will be playing with, while boosting your account.",
 			},
 			{
 				checked: false,
 				icon: "mdi-account-plus",
 				title: "Play with booster at",
-				percentage: 40,
+				percentage: 50,
 				tip:
 					"The assigned booster will play with you from an other account, so you can keep playing on your own while being boosted.",
 			},
