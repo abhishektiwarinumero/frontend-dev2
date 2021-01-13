@@ -18,7 +18,7 @@
 								<v-select :items="tiers" label="Current tier" dense solo v-model="selectedTierID" item-text="name" item-value="id"></v-select>
 							</v-col>
 							<v-col v-if="hasDivisions">
-								<v-select :items="tier.divisions" label="Current division" dense solo v-model="selectedDivisionID" item-text="name" item-value="id"></v-select>
+								<v-select :items="tier.divisions" label="Current division" dense solo v-model="selectedDivisionID" item-text="name" item-value="id" prefix="Division"></v-select>
 							</v-col>
 							<!-- if no divisions, points become text field -->
 							<v-col v-else>
