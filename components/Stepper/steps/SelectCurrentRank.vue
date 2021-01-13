@@ -22,6 +22,11 @@
 								<v-select :items="rank.divisions" label="Current division" dense solo v-model="selectedDivisionID" item-text="name" item-value="id"></v-select>
 							</v-col>
 						</v-row>
+						<v-row v-if="showServerSelection">
+							<v-col>
+								<v-select :items="servers" label="Select your server" dense solo v-model="selectedServerID" item-text="region" item-value="id"></v-select>
+							</v-col>
+						</v-row>
 					</v-col>
 				</v-row>
 			</v-container>
@@ -31,9 +36,19 @@
 
 <script>
 import ranks from "~/assets/js/ranks";
+import servers from "~/assets/js/servers";
 export default {
+	props: {
+		showServerSelection: {
+			type: Boolean,
+			required: false,
+			default: false,
+		},
+	},
 	data: () => ({
 		ranks: ranks,
+		servers: servers,
+		selectedServerID: 2,
 	}),
 	computed: {
 		selectedrankID: {
