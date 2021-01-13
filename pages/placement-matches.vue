@@ -40,6 +40,7 @@ export default {
 		// We need all services in order to grab the first one of each game
 		// Then we use that to define the link of the first service in a game
 		services: services,
+		games: games,
 		options: [
 			{
 				checked: false,
@@ -85,7 +86,10 @@ export default {
 	}),
 	computed: {
 		gameServices() {
-			return _.filter(this.services, ["game", "VALORANT BOOSTING"]);
+			return _.filter(this.services, [
+				"game",
+				_.find(this.services, ["slug", this.$route.name]).game,
+			]);
 		},
 	},
 	mounted() {
