@@ -1,20 +1,18 @@
 <template>
 	<v-layout column fill-height>
-		<section>
-			<v-img src="/img/indexAssets/kingBoosting.png" class="bg" />
-			<v-container>
-				<v-row align="center" justify="center" class="logo">
-					<img src="/img/logo/logo.png" alt="Logo" width="55%" class="mt-15" />
-				</v-row>
-				<v-row align="end" justify="center" class="mt-7 mb-14">
-					<v-btn-toggle rounded v-model="undefined" background-color="transparent">
-						<v-btn class="hero-btn">Get Boosted</v-btn>
-						<v-btn class="hero-btn">Get Coached</v-btn>
-						<v-btn class="hero-btn">Buy an account</v-btn>
-					</v-btn-toggle>
-				</v-row>
-			</v-container>
-		</section>
+		<v-img src="/img/indexAssets/kingBoosting.png" class="bg" />
+		<v-container>
+			<v-row align="center" justify="center" class="logo">
+				<img src="/img/logo/logo.png" alt="Logo" width="55%" class="mt-15" />
+			</v-row>
+			<v-row align="end" justify="center" class="mt-7 mb-14">
+				<v-btn-toggle rounded v-model="undefined" background-color="transparent">
+					<v-btn class="hero-btn">Get Boosted</v-btn>
+					<v-btn class="hero-btn">Get Coached</v-btn>
+					<v-btn class="hero-btn">Buy an account</v-btn>
+				</v-btn-toggle>
+			</v-row>
+		</v-container>
 		<services />
 		<features />
 		<why-us />
@@ -25,12 +23,6 @@
 
 
 <style scoped>
-section {
-	position: relative;
-	width: 100%;
-	box-sizing: border-box;
-	padding-bottom: 80px;
-}
 .bg {
 	position: absolute;
 	width: 100%;
