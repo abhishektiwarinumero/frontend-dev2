@@ -19,11 +19,6 @@ export default [
 		slug: "placement-boosting",
 		game: "LOL BOOSTING",
 	},
-	// {
-	// 	name: "Promotion Boosting",
-	// 	slug: "promotion-boosting",
-	// 	game: "LOL BOOSTING",
-	// },
 	{
 		name: "Champion Mastery",
 		slug: "champion-mastery",
@@ -90,7 +85,7 @@ export default [
 	},
 	{
 		name: "Placement Matches",
-		slug: "placement-matches",
+		slug: "wild-rift-placement-matches",
 		game: "Wild Rift Boosting",
 	},
 	{
