@@ -2,10 +2,10 @@
 	<div>
 		<div class="title">
 			<div class="title-id">
-				<h2>1</h2>
+				<h2>2</h2>
 			</div>
-			<h2 class="title-txt">Current Rank</h2>
-			<h3 class="title-txt">Please select your Current Rank and Division</h3>
+			<h2 class="title-txt">Desired Rank</h2>
+			<h3 class="title-txt">Please select your Desired Rank and Division</h3>
 		</div>
 		<v-card raised class="mb-4" :style="{ boxShadow: rank.box_shadow }">
 			<v-container>
@@ -16,10 +16,15 @@
 					<v-col md="9" class="have-selectors">
 						<v-row>
 							<v-col>
-								<v-select :items="ranks" label="Current rank" dense solo v-model="selectedrankID" item-text="name" item-value="id"></v-select>
+								<v-select :items="ranks" label="Desired rank" dense solo v-model="selectedrankID" item-text="name" item-value="id"></v-select>
 							</v-col>
 							<v-col>
-								<v-select :items="rank.divisions" label="Current division" dense solo v-model="selectedDivisionID" item-text="name" item-value="id"></v-select>
+								<v-select :items="rank.divisions" label="Desired division" dense solo v-model="selectedDivisionID" item-text="name" item-value="id"></v-select>
+							</v-col>
+						</v-row>
+						<v-row>
+							<v-col>
+								<v-select :items="servers" label="Select your server" dense solo v-model="selectedServerID" item-text="region" item-value="id"></v-select>
 							</v-col>
 						</v-row>
 					</v-col>
@@ -31,30 +36,33 @@
 
 <script>
 import ranks from "~/assets/js/ranks";
+import servers from "~/assets/js/servers";
 export default {
 	data: () => ({
 		ranks: ranks,
+		servers: servers,
+		selectedServerID: 2,
 	}),
 	computed: {
 		selectedrankID: {
 			get() {
-				return this.$store.state.valorant.current.rank;
+				return this.$store.state.valorant.desired.rank;
 			},
 			set(id) {
-				this.$store.commit("valorant/current/changerank", id);
+				this.$store.commit("valorant/desired/changerank", id);
 				this.selectedDivisionID = this.rank.divisions[2].id;
 			},
 		},
 		selectedDivisionID: {
 			get() {
-				return this.$store.state.valorant.current.division;
+				return this.$store.state.valorant.desired.division;
 			},
 			set(id) {
-				this.$store.commit("valorant/current/changeDivision", id);
+				this.$store.commit("valorant/desired/changeDivision", id);
 			},
 		},
 		rank() {
-			let index = this.$store.state.valorant.current.rank;
+			let index = this.$store.state.valorant.desired.rank;
 			return _.find(this.ranks, ["id", index]);
 		},
 		division() {

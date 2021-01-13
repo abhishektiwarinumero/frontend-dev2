@@ -15,7 +15,7 @@
 						<v-row>
 							<v-col cols="12" sm="6" md="7">
 								<select-current-rank />
-								<select-desired-league />
+								<select-desired-rank />
 							</v-col>
 							<v-col cols="6" md="5">
 								<checkout :options="options" />
