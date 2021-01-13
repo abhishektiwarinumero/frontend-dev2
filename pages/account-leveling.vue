@@ -111,15 +111,11 @@ export default {
 		desiredLevel: 50,
 	}),
 	computed: {
-		game() {
-			// How do we get the game
-			// Router name is a service slug
-			// Get that service game
-			let service = _.find(this.services, ["slug", this.$route.name]);
-			return _.find(this.games, ["name", service.game]);
-		},
 		gameServices() {
-			return _.filter(this.services, ["game", this.game.name]);
+			return _.filter(this.services, [
+				"game",
+				_.find(this.services, ["slug", this.$route.name]).game,
+			]);
 		},
 	},
 	mounted() {
