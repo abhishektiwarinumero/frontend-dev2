@@ -80,7 +80,7 @@ export default [
 	},
 	{
 		name: "Placement Matches",
-		slug: "placement-matches",
+		slug: "tft-placement-matches",
 		game: "TFT Boosting",
 	},
 	{

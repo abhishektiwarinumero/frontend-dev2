@@ -129,7 +129,7 @@ export default {
 	},
 	mounted() {
 		// So price doesn't get multiplied, because there are no wins in division boosting
-		this.$store.commit("wins/changeNumberOfWins", 1);
+		this.$store.commit("slider/changeAmount", 1);
 		this.changePrice();
 	},
 };

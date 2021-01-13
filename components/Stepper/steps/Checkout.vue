@@ -49,7 +49,7 @@ export default {
 	}),
 	computed: {
 		eta() {
-			let wins = this.$store.state.wins.wins;
+			let wins = this.$store.state.slider.amount;
 			let days = parseInt(wins / 2);
 			return `${days} - ${days + 1} Days`;
 		},

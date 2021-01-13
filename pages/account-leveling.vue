@@ -123,7 +123,7 @@ export default {
 		},
 	},
 	mounted() {
-		this.$store.commit("wins/changeNumberOfWins", 4);
+		this.$store.commit("slider/changeAmount", 4);
 	},
 };
 </script>

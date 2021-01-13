@@ -15,7 +15,7 @@
 						<v-row>
 							<v-col cols="12" sm="6" md="7">
 								<select-current-league :showPointsSelection="false" showServerSelection title="Preseason's league" />
-								<select-number-of-wins title="Select Your Number Of Games" />
+								<slider title="Select Your Number Of Games" />
 							</v-col>
 							<v-col cols="6" md="5">
 								<checkout :options="options" />
@@ -97,7 +97,7 @@ export default {
 		},
 	},
 	mounted() {
-		this.$store.commit("wins/changeNumberOfWins", 10);
+		this.$store.commit("slider/changeAmount", 10);
 	},
 };
 </script>

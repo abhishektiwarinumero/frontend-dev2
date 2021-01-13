@@ -8,16 +8,14 @@
 			<v-row class="flex-center mb-4">
 				<h1>Placement Matches</h1>
 			</v-row>
-			<game-services :services="gameServices" />
+			<game-services :services="gameServices" icons />
 			<v-row class="flex-center">
 				<v-row class="order-form">
 					<v-form ref="order">
 						<v-row>
 							<v-col cols="12" sm="6" md="7">
 								<season-end-rank />
-							</v-col>
-							<v-col cols="12" sm="6" md="7">
-								<select-number-of-wins title="Select Your Number Of Games" :showMode="false" />
+								<slider title step :showMode="false" :max="3" />
 							</v-col>
 							<v-col cols="6" md="5">
 								<checkout :options="options" />
@@ -91,7 +89,7 @@ export default {
 		},
 	},
 	mounted() {
-		this.$store.commit("wins/changeNumberOfWins", 4);
+		this.$store.commit("slider/changeAmount", 3);
 	},
 };
 </script>

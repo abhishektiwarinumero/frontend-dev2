@@ -20,8 +20,8 @@
 									<v-select :items="tiers" v-model="tier"></v-select>
 									<v-select :items="servers" v-model="server" item-text="region" item-value="region"></v-select>
 								</v-card>
-								<select-number-of-wins title="Select Your Number Of Games" :showMode="false" />
-								<select-number-of-wins title="Select Your Number Of Boosters" :showMode="false" :stepNumber="3" />
+								<slider title="Select Your Number Of Games" :showMode="false" />
+								<slider title="Select Your Number Of Boosters" :showMode="false" :stepNumber="3" />
 							</v-col>
 							<v-col cols="6" md="5">
 								<checkout :options="[]" />
@@ -72,7 +72,7 @@ export default {
 		},
 	},
 	mounted() {
-		this.$store.commit("wins/changeNumberOfWins", 4);
+		this.$store.commit("slider/changeAmount", 4);
 	},
 };
 </script>

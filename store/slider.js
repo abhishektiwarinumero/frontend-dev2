@@ -1,13 +1,13 @@
 export const state = () => ({
-	wins: 1,
+	amount: 1,
 	mode: "Solo/Duo",
 })
 
 export const mutations = {
-	changeNumberOfWins(state, payload) {
-		state.wins = payload;
+	changeAmount(state, payload) {
+		state.amount = payload;
 	},
-	changeGameMode(state, mode) {
+	changeMode(state, mode) {
 		state.mode = mode;
 	},
 }

@@ -15,7 +15,7 @@
 						<v-row>
 							<v-col cols="12" sm="6" md="7">
 								<select-current-league :showPointsSelection="false" showServerSelection />
-								<select-number-of-wins />
+								<slider />
 							</v-col>
 							<v-col cols="6" md="5">
 								<checkout :options="options" />
@@ -105,7 +105,7 @@ export default {
 		},
 	},
 	mounted() {
-		this.$store.commit("wins/changeNumberOfWins", 4);
+		this.$store.commit("slider/changeAmount", 4);
 	},
 };
 </script>

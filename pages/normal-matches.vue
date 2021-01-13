@@ -14,7 +14,7 @@
 					<v-form ref="order">
 						<v-row>
 							<v-col cols="12" sm="6" md="7">
-								<select-number-of-wins title="Select Your Number Of Games" :showMode="false" />
+								<slider title="Select Your Number Of Games" :showMode="false" />
 							</v-col>
 							<v-col cols="6" md="5">
 								<checkout :options="options" />
@@ -105,7 +105,7 @@ export default {
 		},
 	},
 	mounted() {
-		this.$store.commit("wins/changeNumberOfWins", 4);
+		this.$store.commit("slider/changeAmount", 4);
 	},
 };
 </script>

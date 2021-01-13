@@ -1,14 +1,14 @@
 <template>
 	<div>
 		<div class="title">
-			<div class="title-id">
-				<h2>{{ stepNumber }}</h2>
+			<div class="title-id" v-show="step">
+				<h2>{{ step }}</h2>
 			</div>
 			<h2 class="title-txt">{{ title }}</h2>
 		</div>
 		<v-card raised class="mb-4">
 			<v-container class="container">
-				<v-slider v-model="wins" thumb-label="always" min="1" max="10" height="130"></v-slider>
+				<v-slider v-model="amount" thumb-label="always" min="1" :max="max" height="130"></v-slider>
 				<v-radio-group class="radio-group" v-model="mode" dark mandatory row v-if="showMode">
 					<v-radio label="Solo/Duo" value="Solo/Duo"></v-radio>
 					<v-radio label="Flex 5v5" value="Flex"></v-radio>
@@ -31,31 +31,33 @@ export default {
 			required: false,
 			default: true,
 		},
-		stepNumber: {
+		step: {
+			type: String,
+			required: false,
+			default: "2",
+		},
+		max: {
 			type: Number,
 			required: false,
-			default: 2,
-		}
+			default: 10,
+		},
 	},
 	data: () => ({
 		mode: "Solo/Duo",
 	}),
 	computed: {
-		tier() {
-			return this.$store.state.league.tier;
-		},
-		wins: {
+		amount: {
 			get() {
-				return this.$store.state.wins.wins;
+				return this.$store.state.slider.amount;
 			},
 			set(value) {
-				this.$store.commit("wins/changeNumberOfWins", value);
+				this.$store.commit("slider/changeAmount", value);
 			},
 		},
 	},
 	watch: {
 		mode(value) {
-			this.$store.commit("wins/changeGameMode", value);
+			this.$store.commit("slider/changeMode", value);
 		},
 	},
 };

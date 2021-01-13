@@ -10,7 +10,7 @@ export const mutations = {
 
 export const getters = {
 	price(state, getters, rootState) {
-		let wins = rootState.wins.wins;
+		let wins = rootState.slider.amount;
 		let percent = rootState.checkout.percent;
 		let price = state.basePrice * wins;
 		price += (price * percent) / 100;
