@@ -8,6 +8,11 @@
 		</div>
 		<v-card raised class="mb-4">
 			<v-container class="container">
+				<v-row>
+					<v-col>
+						<img :src="image" v-if="image" width="15%" />
+					</v-col>
+				</v-row>
 				<v-slider v-model="amount" thumb-label="always" min="1" :max="max" height="130"></v-slider>
 				<v-radio-group class="radio-group" v-model="mode" dark mandatory row v-if="showMode">
 					<v-radio label="Solo/Duo" value="Solo/Duo"></v-radio>
@@ -25,6 +30,11 @@ export default {
 			type: String,
 			required: false,
 			default: "Select Your Number Of Wins",
+		},
+		image: {
+			type: String,
+			required: false,
+			default: null,
 		},
 		showMode: {
 			type: Boolean,
