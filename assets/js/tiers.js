@@ -7,6 +7,18 @@ export default [{
 				image: "/img/divisions/iron/IV.webp",
 				price: 9,
 				name: "IV",
+				LP: -1.25,
+				MMR: {
+					21: 0,
+					19: 1.25,
+					17: 1.25,
+					15: 1.25,
+					13: 2.25,
+					11: 1.25,
+					9: 2.25,
+					6: 3.5,
+					1: 7.5
+				}
 			},
 			{
 				id: 2,
