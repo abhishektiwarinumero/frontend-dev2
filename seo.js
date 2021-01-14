@@ -19,7 +19,11 @@ export default {
 		{
 			name: "keywords",
 			content: "elo boost, lol elo boost, lol boost, lol elo boosting, elo boost lol, cheap elo boosting, elo boosting"
-		}
+		},
+		{
+			name: "author",
+			content: "Zidweb"
+		},
 	],
 	link: [{
 			rel: "icon",
