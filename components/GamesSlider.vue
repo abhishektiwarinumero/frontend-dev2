@@ -2,7 +2,7 @@
 	<v-row class="cards">
 		<v-col class="card" v-for="(game, index) in games" :key="index">
 			<div class="card-img-hider">
-				<nuxt-link class="card-img-container flex-center" :to="slug(game.name)" :class="{selectedGame: (index == currentGameIndex)}">
+				<nuxt-link class="card-img-container flex-center" :to="game.slug" :class="{selectedGame: (index == currentGameIndex)}">
 					<div class="card-img-bg"></div>
 					<img class="card-img" :src="game.image" />
 				</nuxt-link>
@@ -22,12 +22,6 @@ export default {
 		// Then we use that to define the link of the first service in a game
 		services: services,
 	}),
-	methods: {
-		slug(game) {
-			let filteredServices = _.filter(this.services, ["game", game]);
-			return _.first(filteredServices).slug;
-		},
-	},
 	mounted() {
 		// set initial value of currentGameIndex
 		// Should be index of current service's game in the games array
