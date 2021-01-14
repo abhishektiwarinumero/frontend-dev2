@@ -1,5 +1,5 @@
 export default function (to, from, savedPosition) {
-  	if (savedPosition) {
+	if (savedPosition) {
 		return savedPosition
 	} else {
 		return {
