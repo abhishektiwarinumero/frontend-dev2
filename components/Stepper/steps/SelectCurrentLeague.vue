@@ -37,7 +37,7 @@
 							<v-col>
 								<v-tooltip top color="primary" max-width="350">
 									<template v-slot:activator="{ on, attrs }">
-										<v-select v-bind="attrs" v-on="on" :items="currentWinsPerGame" dense solo v-model="LP"></v-select>
+										<v-select v-bind="attrs" v-on="on" :items="currentWinsPerGame" dense solo v-model="LP" suffix="LP"></v-select>
 									</template>
 									<span>
 										Please select the amount of LP you are expected to receive
