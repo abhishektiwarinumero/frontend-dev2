@@ -6,14 +6,14 @@
 				<h1>Our Services</h1>
 			</v-row>
 			<div class="services-top">
-				<div class="img-top-container" v-for="(service, index) in services_top" :key="index" :style="{ transitionDelay: `${0.3 * (index + 1)}s` }" :class="isVisible ? 'service-top-animate' : ''">
-					<img class="img-top" :src="service.image" />
-				</div>
+				<nuxt-link class="img-top-container" v-for="(service, index) in services_top" :key="index" :style="{ transitionDelay: `${0.3 * (index + 1)}s` }" :class="{'service-top-animate': isVisible}" :to="service.slug || '/'" :event="service.disabled ? '' : 'click'">
+					<img class="img-top" :class="{disabled: service.disabled}" :src="service.image" />
+				</nuxt-link>
 			</div>
 			<div class="services-bottom mt-10 mb-10">
-				<div class="img-bottom-container" v-for="(service, index) in services_bottom" :key="index" :style="{ transitionDelay: `${0.3 * (services_top.length + 1)}s` }" :class="isVisible ? 'service-bottom-animate' : ''">
-					<img class="img-bottom" :src="`/img/games/${service}`" />
-				</div>
+				<nuxt-link class="img-bottom-container" v-for="(service, index) in services_bottom" :key="index" :style="{ transitionDelay: `${0.3 * (services_top.length + 1)}s` }" :class="{'service-bottom-animate': isVisible}" :to="service.url || '/'" :event="!service.url ? '' : 'click'">
+					<img class="img-bottom" :class="{disabled: !service.url}" :src="`/img/games/${service.image}`" />
+				</nuxt-link>
 			</div>
 		</v-container>
 	</section>
@@ -26,9 +26,16 @@ export default {
 	data: () => ({
 		services_top: games,
 		services_bottom: [
-			"unranked_smurf.png",
-			"coaching.png",
-			"account_market.png",
+			{
+				image: "unranked_smurf.png",
+			},
+			{
+				image: "coaching.png",
+				url: "/coaching",
+			},
+			{
+				image: "account_market.png",
+			},
 		],
 		isVisible: false,
 	}),
@@ -39,7 +46,7 @@ export default {
 				rect.top + rect.height > 0 && rect.top - window.innerHeight < 0
 			);
 		},
-		handleAnimations() {
+		animate() {
 			let isInViewport = this.isInViewport(this.$refs.servicesViewPort);
 			if (isInViewport && !this.isVisible) {
 				this.isVisible = true;
@@ -47,13 +54,12 @@ export default {
 		},
 	},
 	mounted() {
-		window.addEventListener("scroll", this.handleAnimations);
-		window.addEventListener("resize", this.handleAnimations);
-		this.handleAnimations();
+		window.addEventListener("scroll", this.animate);
+		window.addEventListener("resize", this.animate);
 	},
 	beforeDestroy() {
-		window.removeEventListener("scroll", this.handleAnimations);
-		window.addEventListener("resize", this.handleAnimations);
+		window.removeEventListener("scroll", this.animate);
+		window.addEventListener("resize", this.animate);
 	},
 };
 </script>
@@ -142,6 +148,12 @@ section {
 	height: 20%;
 	z-index: 5;
 }
+
+.disabled:hover {
+	transform: none;
+	cursor: not-allowed;
+}
+
 @media only screen and (max-width: 1600px) {
 	section {
 		margin-top: -160px;
