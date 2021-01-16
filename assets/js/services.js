@@ -64,21 +64,6 @@ export default [
 		icon: "bullseye-arrow",
 	},
 	{
-		name: "Division Boosting",
-		slug: "tft-ranked-boost",
-		game: "TFT Boosting",
-	},
-	{
-		name: "Win Boosting",
-		slug: "win-boosting",
-		game: "TFT Boosting",
-	},
-	{
-		name: "Placement Matches",
-		slug: "tft-placement-matches",
-		game: "TFT Boosting",
-	},
-	{
 		name: "Rank Boosting",
 		slug: "rank-boosting",
 		game: "Wild Rift Boosting",
@@ -97,10 +82,5 @@ export default [
 		name: "Normal Matches",
 		slug: "normal-matches",
 		game: "Wild Rift Boosting",
-	},
-	{
-		name: "Division Boosting",
-		slug: "lor-division-boosting",
-		game: "RUNETERRA BOOSTING",
 	},
 ];
