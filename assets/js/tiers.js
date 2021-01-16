@@ -493,6 +493,52 @@ export default [{
 		box_shadow: "inset 60px 0 120px rgba(128,29,161,.2), 0 0 9px 0 rgba(0,0,0,.6)",
 		image: "/img/divisions/master.webp",
 		price: 352,
+		mmrs: [{
+				id: 1,
+				range: '21+',
+				price: 0,
+			},
+			{
+				id: 2,
+				range: '19-21',
+				price: 10,
+			},
+			{
+				id: 3,
+				range: '17-19',
+				price: 20,
+			},
+			{
+				id: 4,
+				range: '15-17',
+				price: 20,
+			},
+			{
+				id: 5,
+				range: '13-15',
+				price: 20,
+			},
+			{
+				id: 6,
+				range: '11-13',
+				price: 20,
+			},
+			{
+				id: 7,
+				range: '9-11',
+				price: 25,
+			},
+			{
+				id: 8,
+				range: '6-9',
+				price: 60,
+			},
+			{
+				id: 9,
+				range: '1-6',
+				price: 80,
+			}
+		],
 	},
 	{
 		id: 8,
@@ -500,6 +546,52 @@ export default [{
 		box_shadow: "inset 60px 0 120px rgba(161,29,29,.2), 0 0 9px 0 rgba(0,0,0,.6)",
 		image: "/img/divisions/grandmaster.webp",
 		price: 29.9,
+		mmrs: [{
+				id: 1,
+				range: '21+',
+				price: 0,
+			},
+			{
+				id: 2,
+				range: '19-21',
+				price: 10,
+			},
+			{
+				id: 3,
+				range: '17-19',
+				price: 20,
+			},
+			{
+				id: 4,
+				range: '15-17',
+				price: 20,
+			},
+			{
+				id: 5,
+				range: '13-15',
+				price: 20,
+			},
+			{
+				id: 6,
+				range: '11-13',
+				price: 20,
+			},
+			{
+				id: 7,
+				range: '9-11',
+				price: 25,
+			},
+			{
+				id: 8,
+				range: '6-9',
+				price: 60,
+			},
+			{
+				id: 9,
+				range: '1-6',
+				price: 80,
+			}
+		],
 	},
 	{
 		id: 9,
@@ -507,5 +599,51 @@ export default [{
 		box_shadow: "inset 60px 0 120px rgba(161,113,29,.2), 0 0 9px 0 rgba(0,0,0,.6)",
 		image: "/img/divisions/challenger.webp",
 		price: 32.9,
+		mmrs: [{
+				id: 1,
+				range: '21+',
+				price: 0,
+			},
+			{
+				id: 2,
+				range: '19-21',
+				price: 10,
+			},
+			{
+				id: 3,
+				range: '17-19',
+				price: 20,
+			},
+			{
+				id: 4,
+				range: '15-17',
+				price: 20,
+			},
+			{
+				id: 5,
+				range: '13-15',
+				price: 20,
+			},
+			{
+				id: 6,
+				range: '11-13',
+				price: 20,
+			},
+			{
+				id: 7,
+				range: '9-11',
+				price: 25,
+			},
+			{
+				id: 8,
+				range: '6-9',
+				price: 60,
+			},
+			{
+				id: 9,
+				range: '1-6',
+				price: 80,
+			}
+		],
 	},
 ];
