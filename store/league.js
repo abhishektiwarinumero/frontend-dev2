@@ -1,7 +1,10 @@
 export const state = () => ({
-	tier: 3,
-	division: 12,
+	tier: 3, // Silver
+	division: 12, // division I
+	mmr: 2, // 19-21
+	lp: "0-20",
 	server: "EU-West",
+	mark: "0 / 3 Mark Status",
 });
 
 export const mutations = {
@@ -11,7 +14,16 @@ export const mutations = {
 	changeDivision(state, payload) {
 		state.division = payload;
 	},
+	changeLP(state, payload) {
+		state.lp = payload;
+	},
+	changeMMR(state, payload) {
+		state.mmr = payload;
+	},
 	changeServer(state, payload) {
 		state.server = payload;
+	},
+	changeMark(state, payload) {
+		state.mark = payload;
 	}
 }

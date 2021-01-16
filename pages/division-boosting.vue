@@ -14,7 +14,7 @@
 					<v-form ref="order">
 						<v-row>
 							<v-col cols="12" sm="6" md="7">
-								<select-current-league @divisionChanged="changePrice" />
+								<select-current-league @divisionChanged="changePrice" @lpchanged="changePrice" @mmrchanged="changePrice" showPointsSelection />
 								<select-desired-league @divisionChanged="changePrice" />
 							</v-col>
 							<v-col cols="6" md="5">
@@ -33,13 +33,12 @@
 
 <script>
 import tiers from "~/assets/js/tiers";
-import games from "~/assets/js/games";
 import services from "~/assets/js/services";
+
 export default {
 	transition: "slide-bottom",
 	data: () => ({
 		tiers: tiers,
-		games: games,
 		// We need all services in order to grab the first one of each game
 		// Then we use that to define the link of the first service in a game
 		services: services,
@@ -98,7 +97,7 @@ export default {
 	methods: {
 		changePrice() {
 			let allPrices = _.flatten(
-				_.map(this.tiers, function (tier) {
+				_.map(this.tiers, (tier) => {
 					if (tier.divisions) {
 						return _.map(tier.divisions, (division) => [
 							division.id,
@@ -110,6 +109,7 @@ export default {
 				})
 			);
 			let filteredPrices = _.filter(allPrices, (price) =>
+				// This is a whereIn replacement
 				_.range(
 					this.$store.state.desired.division,
 					this.$store.state.league.division
@@ -119,8 +119,23 @@ export default {
 			let total = filteredPrices.reduce((sum, price) => {
 				return sum + price[1];
 			}, 0);
+			// Get the MMR from the VueX store
+			// We need to get its price from the currently selected division
+			let tier = _.find(this.tiers, [
+				"id",
+				this.$store.state.league.tier,
+			]);
+
+			let filtered_mmrs = _.filter(tier.mmrs, (mmr) =>
+				_.range(this.$store.state.league.mmr, 1).includes(mmr.id)
+			);
+
+			let mmr_total = filtered_mmrs.reduce((sum, mmr) => {
+				return sum + mmr.price;
+			}, 0);
+
 			// Load price of (get it from currently selected desired division)
-			this.$store.commit("price/changePrice", total);
+			this.$store.commit("price/changePrice", total + mmr_total);
 		},
 	},
 	mounted() {

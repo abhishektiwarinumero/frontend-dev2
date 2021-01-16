@@ -25,11 +25,14 @@
 								<v-text-field v-model="points" hide-details single-line type="number" />
 							</v-col>
 						</v-row>
+						<!-- LP & MMR -->
 						<v-row v-if="showPointsSelection">
 							<v-col v-if="hasDivisions">
+								<!-- LP -->
 								<v-tooltip top color="primary" max-width="350">
 									<template v-slot:activator="{ on, attrs }">
-										<v-select v-bind="attrs" v-on="on" v-model="currentAccountPointsModel" :items="currentAccountPoints" dense solo></v-select>
+										<!-- LP lowers the price -->
+										<v-select v-bind="attrs" v-on="on" v-model="lp" :items="lps" dense solo suffix="LP"></v-select>
 									</template>
 									<span>Your current League Points amount</span>
 								</v-tooltip>
@@ -37,13 +40,14 @@
 							<v-col>
 								<v-tooltip top color="primary" max-width="350">
 									<template v-slot:activator="{ on, attrs }">
-										<v-select v-bind="attrs" v-on="on" :items="currentWinsPerGame" dense solo v-model="LP" suffix="LP"></v-select>
+										<!-- MMR increases the price -->
+										<v-select v-bind="attrs" v-on="on" v-model="mmr" :items="tier.mmrs" item-text="range" item-value="id" dense solo suffix="MMR"></v-select>
 									</template>
 									<span>
 										Please select the amount of LP you are expected to receive
 										per win during the first couple of games of your order. We
 										offer a wide variety of options to ensure that you don't pay
-										more than, what is fair, but if you gain less lp in one of
+										more than, what is fair, but if you gain less LP in one of
 										your first games than you declared you'll be asked to pay
 										for the adjustment of your order later. Changes to your lp
 										gain during the order -either positive or negative will not
@@ -52,7 +56,8 @@
 								</v-tooltip>
 							</v-col>
 						</v-row>
-						<v-select v-if="showServerSelection" :items="servers" label="Select your server" dense solo v-model="selectedServerID" item-text="region" item-value="id"></v-select>
+						<v-select v-if="showServerSelection" :items="servers" label="Select your server" dense solo v-model="server"></v-select>
+						<v-select v-if="showMarksSelection" :items="marks" v-model="mark" dense solo></v-select>
 					</v-col>
 				</v-row>
 			</v-container>
@@ -62,6 +67,8 @@
 
 <script>
 import tiers from "~/assets/js/tiers";
+import servers from "~/assets/js/servers";
+
 export default {
 	props: {
 		showServerSelection: {
@@ -72,42 +79,34 @@ export default {
 		showPointsSelection: {
 			type: Boolean,
 			required: false,
-			default: true,
+			default: false,
 		},
 		title: {
 			type: String,
 			required: false,
 			default: "Select Your Current League",
 		},
+		showMarksSelection: {
+			type: Boolean,
+			required: false,
+			default: false,
+		},
+		tiers: {
+			type: Array,
+			required: false,
+			default: () => tiers,
+		},
 	},
 	data: () => ({
 		points: 0,
-		currentAccountPointsModel: "0-20",
-		LP: "19-20",
-		currentAccountPoints: ["0-20", "21-40", "41-60", "61-80", "81-100"],
-		currentWinsPerGame: [
-			"1-6",
-			"7-9",
-			"10-12",
-			"13-15",
-			"16-18",
-			"19-20",
-			"21+",
+		lps: ["0-20", "21-40", "41-60", "61-80", "80-100"],
+		marks: [
+			"0 / 3 Mark Status",
+			"1 / 3 Mark Status",
+			"2 / 3 Mark Status",
+			"3 / 3 Mark Status",
 		],
-		tiers: tiers,
-		selectedServerID: "EU-West",
-		servers: [
-			"North America",
-			"EU-West",
-			"EU-Nordic & East",
-			"Turkey",
-			"Russia",
-			"Brazil",
-			"Latin America North",
-			"Latin America South",
-			"Oceania",
-			"PBE",
-		],
+		servers: servers,
 	}),
 	computed: {
 		selectedTierID: {
@@ -128,6 +127,40 @@ export default {
 			set(id) {
 				this.$store.commit("league/changeDivision", id);
 				this.$emit("divisionChanged");
+			},
+		},
+		lp: {
+			get() {
+				return this.$store.state.league.lp;
+			},
+			set(lp) {
+				this.$store.commit("league/changeLP", lp);
+				this.$emit("lpchanged");
+			},
+		},
+		mmr: {
+			get() {
+				return this.$store.state.league.mmr;
+			},
+			set(mmr) {
+				this.$store.commit("league/changeMMR", mmr);
+				this.$emit("mmrchanged");
+			},
+		},
+		server: {
+			get() {
+				return this.$store.state.league.server;
+			},
+			set(server) {
+				this.$store.commit("league/changeServer", server);
+			},
+		},
+		mark: {
+			get() {
+				return this.$store.state.league.mark;
+			},
+			set(mark) {
+				this.$store.commit("league/changeMark", mark);
 			},
 		},
 		tier() {
