@@ -135,7 +135,10 @@ export default {
 			}, 0);
 
 			// Load price of (get it from currently selected desired division)
-			this.$store.commit("price/changePrice", total + mmr_total);
+			this.$store.commit(
+				"price/changePrice",
+				total + mmr_total - tier.lp
+			);
 		},
 	},
 	mounted() {
