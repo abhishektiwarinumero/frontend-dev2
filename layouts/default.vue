@@ -17,6 +17,12 @@
 	</v-app>
 </template>
 
+<script>
+export default {
+	name: "Default",
+};
+</script>
+
 <style scoped>
 .container {
 	padding: 0px;
