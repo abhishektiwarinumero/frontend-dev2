@@ -1,32 +1,34 @@
 <template>
 	<default-layout>
-		<div fluid :style="{ background: `url(/img/backgrounds/services/${this.$route.name}-top-bg.png) top/cover` }">
-			<v-row justify="center" align="center">
-				<v-col md="8" style="text-align: center">
-					<nuxt />
-				</v-col>
+		<v-layout column full fill-height class="page">
+			<v-container>
+				<v-row class="flex-center">
+					<img src="/img/logo/logo.png" width="700" />
+				</v-row>
 				<games-slider />
-			</v-row>
-		</div>
-		<v-container>
-			<game-services :services="gameServices"></game-services>
-			<v-row>
-				<v-col md="8">
-					<Stepper />
-				</v-col>
-				<v-col md="4"></v-col>
-			</v-row>
-		</v-container>
-		<how-to-buy />
+				<game-services :services="gameServices" />
+				<v-row class="flex-center">
+					<v-row class="order-form">
+						<v-form ref="order">
+							<Nuxt :nuxt-child-key="key" />
+						</v-form>
+					</v-row>
+				</v-row>
+			</v-container>
+			<why-us />
+			<customers-voice />
+		</v-layout>
 	</default-layout>
 </template>
 
 <script>
+import tiers from "~/assets/js/tiers";
 import games from "~/assets/js/games";
 import services from "~/assets/js/services";
 import DefaultLayout from "~/layouts/default.vue";
+
 export default {
-	transition: "slide-bottom",
+	transition: "home",
 	components: {
 		DefaultLayout,
 	},
@@ -35,16 +37,45 @@ export default {
 		services: services,
 	}),
 	computed: {
-		game() {
-			// How do we get the game
-			// Router name is a service slug
-			// Get that service game
-			let service = _.find(this.services, ["slug", this.$route.name]);
-			return _.find(this.games, ["name", service.game]);
-		},
 		gameServices() {
-			return _.filter(this.services, ["game", this.game.name]);
+			return _.filter(this.services, [
+				"game",
+				_.find(this.services, ["slug", this.$route.name]).game,
+			]);
+		},
+		key() {
+			this.$route.fullPath;
 		},
 	},
 };
 </script>
+
+<style scoped>
+.page {
+	background: url(/img/backgrounds/order.png);
+	background-position: top;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+.flex-center {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.home-enter-active,
+.home-leave-active {
+	transition: opacity 0.5s;
+}
+
+.order-form {
+	padding: 10px;
+	background: #eeea;
+}
+
+.home-enter,
+.home-leave-active {
+	opacity: 0;
+}
+</style>

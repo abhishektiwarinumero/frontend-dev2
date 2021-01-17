@@ -1,34 +1,14 @@
 <template>
-	<v-layout column full fill-height class="page">
-		<v-container>
-			<v-row class="flex-center">
-				<img src="/img/logo/logo.png" width="700" />
-			</v-row>
-			<games-slider />
-			<v-row class="flex-center mb-4">
-				<h1>Tier &amp; Division League Boosting</h1>
-			</v-row>
-			<game-services :services="gameServices" />
-			<v-row class="flex-center">
-				<v-row class="order-form">
-					<v-form ref="order">
-						<v-row>
-							<v-col cols="12" sm="6" md="7">
-								<select-current-league @divisionChanged="changePrice" @lpchanged="changePrice" @mmrchanged="changePrice" showPointsSelection />
-								<select-desired-league @divisionChanged="changePrice" />
-							</v-col>
-							<v-col cols="6" md="5">
-								<checkout :options="options" />
-								<boost-me />
-							</v-col>
-						</v-row>
-					</v-form>
-				</v-row>
-			</v-row>
-		</v-container>
-		<why-us />
-		<customers-voice />
-	</v-layout>
+	<v-row>
+		<v-col cols="12" sm="6" md="7">
+			<select-current-league @divisionChanged="changePrice" @lpchanged="changePrice" @mmrchanged="changePrice" showPointsSelection />
+			<select-desired-league @divisionChanged="changePrice" />
+		</v-col>
+		<v-col cols="6" md="5">
+			<checkout :options="options" />
+			<boost-me />
+		</v-col>
+	</v-row>
 </template>
 
 <script>
@@ -36,7 +16,7 @@ import tiers from "~/assets/js/tiers";
 import services from "~/assets/js/services";
 
 export default {
-	transition: "slide-bottom",
+	layout: "game",
 	data: () => ({
 		tiers: tiers,
 		// We need all services in order to grab the first one of each game
@@ -148,23 +128,3 @@ export default {
 	},
 };
 </script>
-
-<style scoped>
-.page {
-	background: url(/img/backgrounds/order.png);
-	background-position: top;
-	background-size: cover;
-	background-repeat: no-repeat;
-}
-
-.flex-center {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-
-.order-form {
-	padding: 10px;
-	background: #eeea;
-}
-</style>
