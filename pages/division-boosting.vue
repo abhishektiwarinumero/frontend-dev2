@@ -16,7 +16,7 @@ import tiers from "~/assets/js/tiers";
 import services from "~/assets/js/services";
 
 export default {
-	layout: "game",
+	layout: "order",
 	data: () => ({
 		tiers: tiers,
 		// We need all services in order to grab the first one of each game
