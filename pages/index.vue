@@ -13,7 +13,7 @@
 				</v-btn-toggle>
 			</v-row>
 		</v-container>
-		<services />
+		<games />
 		<features />
 		<why-us />
 		<how-it-works />
