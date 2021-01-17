@@ -13,15 +13,11 @@
 
 <script>
 import tiers from "~/assets/js/tiers";
-import services from "~/assets/js/services";
 
 export default {
 	layout: "order",
 	data: () => ({
 		tiers: tiers,
-		// We need all services in order to grab the first one of each game
-		// Then we use that to define the link of the first service in a game
-		services: services,
 		options: [
 			{
 				checked: false,
@@ -66,14 +62,6 @@ export default {
 			},
 		],
 	}),
-	computed: {
-		gameServices() {
-			return _.filter(this.services, [
-				"game",
-				_.find(this.services, ["slug", this.$route.name]).game,
-			]);
-		},
-	},
 	methods: {
 		changePrice() {
 			let allPrices = _.flatten(

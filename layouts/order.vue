@@ -22,8 +22,6 @@
 </template>
 
 <script>
-import tiers from "~/assets/js/tiers";
-import games from "~/assets/js/games";
 import services from "~/assets/js/services";
 import DefaultLayout from "~/layouts/default.vue";
 
@@ -33,7 +31,8 @@ export default {
 		DefaultLayout,
 	},
 	data: () => ({
-		games: games,
+		// We need all services in order to grab the first one of each game
+		// Then we use that to define the link of the first service in a game
 		services: services,
 	}),
 	computed: {
