@@ -8,7 +8,26 @@
 		<v-tabs centered color="primary" optional slider-size="4">
 			<v-tab v-for="link in links" :key="link.title" nuxt :to="link.url">{{ link.title }}</v-tab>
 		</v-tabs>
-		<members-area></members-area>
+		<div style="height: inherit; border-bottom: white solid 5px">
+			<v-btn depressed tile color="primary" :href="url" block x-large class="mr-0" style="height: 100%" v-if="this.$auth.loggedIn">Members Area</v-btn>
+			<v-dialog max-width="800px" v-model="dialog" v-else>
+				<template v-slot:activator="{ on }">
+					<v-btn depressed tile color="primary" v-on="on" block x-large class="mr-0" style="height: 100%">Members Area</v-btn>
+				</template>
+				<v-card class="px-5" color="#303030">
+					<v-container>
+						<v-row>
+							<v-col cols="7">
+								<LoginForm @close="dialog = false" redirect></LoginForm>
+							</v-col>
+							<v-col cols="5">
+								<SocialLogin></SocialLogin>
+							</v-col>
+						</v-row>
+					</v-container>
+				</v-card>
+			</v-dialog>
+		</div>
 	</v-app-bar>
 </template>
 
@@ -21,7 +40,13 @@ export default {
 			{ title: "Account Market", url: "lol-accounts" },
 			{ title: "More", url: "" },
 		],
+		dialog: false,
 	}),
+	computed: {
+		url() {
+			return process.env.HOST_URL;
+		},
+	},
 };
 </script>
 
@@ -29,6 +54,11 @@ export default {
 .header_logo {
 	padding-top: 30px;
 }
+
+.v-btn:hover:before {
+	content: none;
+}
+
 #particles-js canvas {
 	display: block;
 	transform: scale(1);
