@@ -2,7 +2,7 @@
 	<v-row class="services">
 		<v-tabs grow centered color="primary" slider-size="5">
 			<v-tab v-for="(service, index) in services" :key="index" class="service" nuxt :to="service.slug">
-				<img class="service-img" :src="`/img/services/${service.slug}.png`" v-if="!icons" />
+				<v-img class="service-img" :src="`/img/services/${service.slug}.png`" v-if="!icons" />
 				<div v-else>
 					{{ service.name }}
 					<v-icon>{{ `mdi-${service.icon}` }}</v-icon>

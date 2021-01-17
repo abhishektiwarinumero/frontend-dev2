@@ -4,7 +4,7 @@
 			<h1>Page not found</h1>
 		</v-row>
 		<v-row align="center" justify="center">
-			<img src="/img/404.svg" alt="404" />
+			<v-img src="/img/404.svg" alt="404" />
 		</v-row>
 		<v-row align="start" justify="center" class="mb-16">
 			<v-btn color="primary" elevation="2" outlined x-large nuxt to="/">Home page</v-btn>

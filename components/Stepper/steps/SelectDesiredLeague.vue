@@ -10,7 +10,7 @@
 			<v-container>
 				<v-row align="center" justify="center">
 					<v-col md="3">
-						<img :src="division.image || tier.image" :alt="tier.name" loading="lazy" width="170" />
+						<v-img :src="division.image || tier.image" :alt="tier.name" loading="lazy" width="170" />
 					</v-col>
 					<v-col md="9" class="have-selectors">
 						<v-container>

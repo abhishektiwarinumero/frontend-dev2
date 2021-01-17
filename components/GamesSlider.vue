@@ -2,7 +2,7 @@
 	<v-row>
 		<v-col class="card" v-for="(game, index) in games" :key="index" :class="{selectedGame: (index == currentGameIndex), disabled: game.disabled}">
 			<nuxt-link :to="game.slug || '/'" :event="game.disabled ? '' : 'click'" :class="{disabled: game.disabled}">
-				<img :src="game.image" width="100%" />
+				<v-img :src="game.image" max-width="213" />
 			</nuxt-link>
 		</v-col>
 	</v-row>

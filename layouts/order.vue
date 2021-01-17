@@ -3,7 +3,7 @@
 		<v-layout column full fill-height class="page">
 			<v-container>
 				<v-row class="flex-center">
-					<img src="/img/logo/logo.png" width="700" />
+					<v-img src="/img/logo/logo.png" max-width="700" />
 				</v-row>
 				<games-slider />
 				<game-services :services="gameServices" />

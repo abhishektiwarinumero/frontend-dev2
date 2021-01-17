@@ -5,7 +5,7 @@
 				<h1>Page not found</h1>
 			</v-row>
 			<v-row align="center" justify="center">
-				<img src="/img/404.svg" alt="404" />
+				<v-img src="/img/404.svg" alt="404" />
 			</v-row>
 		</div>
 		<v-row v-else>

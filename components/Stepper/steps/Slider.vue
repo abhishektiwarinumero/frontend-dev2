@@ -10,7 +10,7 @@
 			<v-container class="container">
 				<v-row>
 					<v-col>
-						<img :src="image" v-if="image" width="15%" />
+						<v-img :src="image" v-if="image" width="15%" />
 					</v-col>
 				</v-row>
 				<v-slider v-model="amount" thumb-label="always" min="1" :max="max" height="130"></v-slider>

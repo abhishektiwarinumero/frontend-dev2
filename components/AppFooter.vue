@@ -4,7 +4,7 @@
 			<v-row class="main">
 				<v-col class="left" sm="12" md="6">
 					<v-row>
-						<img class="logo" src="/img/logo/logo.png" alt="Logo" />
+						<v-img class="logo" src="/img/logo/logo.png" alt="Logo" />
 					</v-row>
 					<v-row>
 						<p class="disclaimer">
@@ -17,7 +17,7 @@
 					</v-row>
 				</v-col>
 				<v-col class="right flex-center" sm="12" md="6">
-					<img class="cred-cards" src="/img/cred-cards.png" />
+					<v-img class="cred-cards" src="/img/cred-cards.png" />
 				</v-col>
 			</v-row>
 			<v-row class="bottom mt-16 mb-16">
