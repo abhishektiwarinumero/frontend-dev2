@@ -16,7 +16,7 @@ export default [{
 	{
 		name: "Wild Rift Boosting",
 		image: "/img/games/wild-rift-boosting.png",
-		slug: "rank-boosting",
+		slug: "wild-rift-boosting",
 	},
 	{
 		name: "RUNETERRA BOOSTING",

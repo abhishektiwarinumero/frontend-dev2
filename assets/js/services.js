@@ -64,23 +64,27 @@ export default [
 		icon: "bullseye-arrow",
 	},
 	{
+		name: "Ranked Win Boosting",
+		slug: "wild-rift-boosting",
+		game: "Wild Rift Boosting",
+		icon: "sword-cross",
+	},
+	{
 		name: "Rank Boosting",
 		slug: "rank-boosting",
 		game: "Wild Rift Boosting",
+		icon: "check-circle",
 	},
 	{
 		name: "Placement Matches",
 		slug: "wild-rift-placement-matches",
 		game: "Wild Rift Boosting",
-	},
-	{
-		name: "Ranked Win Boosting",
-		slug: "wild-rift-boosting",
-		game: "Wild Rift Boosting",
+		icon: "trophy",
 	},
 	{
 		name: "Normal Matches",
 		slug: "normal-matches",
 		game: "Wild Rift Boosting",
+		icon: "bullseye-arrow",
 	},
 ];
