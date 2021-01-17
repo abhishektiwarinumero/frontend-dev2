@@ -24,7 +24,7 @@
 							</v-row>
 							<v-row>
 								<v-col>
-									<v-select :items="servers" label="Select your server" dense solo v-model="selectedServerID" item-text="region" item-value="id"></v-select>
+									<v-select :items="servers" v-model="server" label="Select your server" dense solo></v-select>
 								</v-col>
 								<v-col>
 									<v-radio-group class="radio-group" v-model="mode" dark mandatory row>
@@ -43,23 +43,14 @@
 
 <script>
 import tiers from "~/assets/js/tiers";
+import servers from "~/assets/js/servers";
+
 export default {
 	data: () => ({
 		mode: "Solo/Duo",
 		tiers: tiers,
 		selectedServerID: "EU-West",
-		servers: [
-			"North America",
-			"EU-West",
-			"EU-Nordic & East",
-			"Turkey",
-			"Russia",
-			"Brazil",
-			"Latin America North",
-			"Latin America South",
-			"Oceania",
-			"PBE",
-		],
+		servers: servers,
 	}),
 	computed: {
 		selectedTierID: {
@@ -97,6 +88,14 @@ export default {
 		},
 		hasDivisions() {
 			return !_.isEmpty(this.tier.divisions);
+		},
+		server: {
+			get() {
+				return this.$store.state.desired.server;
+			},
+			set(server) {
+				this.$store.commit("desired/changeServer", server);
+			},
 		},
 	},
 };

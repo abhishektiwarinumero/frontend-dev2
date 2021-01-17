@@ -1,6 +1,7 @@
 export const state = () => ({
 	rank: 3,
 	division: 8,
+	server: "EU-West",
 });
 
 export const mutations = {
@@ -9,5 +10,8 @@ export const mutations = {
 	},
 	changeDivision(state, payload) {
 		state.division = payload;
+	},
+	changeServer(state, payload) {
+		state.server = payload;
 	},
 }

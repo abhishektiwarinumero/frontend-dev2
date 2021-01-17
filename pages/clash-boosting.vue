@@ -18,7 +18,7 @@
 									<v-card-title>{{ label }} Current Tier</v-card-title>
 									<v-card-subtitle>Please select your Current Tier</v-card-subtitle>
 									<v-select :items="tiers" v-model="tier"></v-select>
-									<v-select :items="servers" v-model="server" item-text="region" item-value="region"></v-select>
+									<v-select :items="servers" v-model="server"></v-select>
 								</v-card>
 								<slider title="Select Your Number Of Games" :showMode="false" />
 								<slider title="Select Your Number Of Boosters" :showMode="false" :stepNumber="3" />
@@ -51,10 +51,7 @@ export default {
 		tier: "Tier III",
 		tiers: ["Tier I", "Tier II", "Tier III", "Tier IV"],
 		servers: servers,
-		server: {
-			id: 2,
-			region: "EU-West",
-		},
+		server: "EU-West",
 	}),
 	computed: {
 		label() {

@@ -24,7 +24,7 @@
 						</v-row>
 						<v-row>
 							<v-col>
-								<v-select :items="servers" label="Select your server" dense solo v-model="selectedServerID" item-text="region" item-value="id"></v-select>
+								<v-select :items="servers" v-model="server" label="Select your server" dense solo></v-select>
 							</v-col>
 						</v-row>
 					</v-col>
@@ -37,11 +37,11 @@
 <script>
 import ranks from "~/assets/js/ranks";
 import servers from "~/assets/js/servers";
+
 export default {
 	data: () => ({
 		ranks: ranks,
 		servers: servers,
-		selectedServerID: 2,
 	}),
 	computed: {
 		selectedrankID: {
@@ -66,6 +66,18 @@ export default {
 				this.$store.commit(
 					"valorant/placement_matches/current/changeDivision",
 					id
+				);
+			},
+		},
+		server: {
+			get() {
+				return this.$store.state.valorant.placement_matches.current
+					.server;
+			},
+			set(server) {
+				this.$store.commit(
+					"valorant/placement_matches/current/changeServer",
+					server
 				);
 			},
 		},

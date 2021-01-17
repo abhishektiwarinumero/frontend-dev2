@@ -34,6 +34,7 @@
 <script>
 import games from "~/assets/js/games";
 import services from "~/assets/js/services";
+
 export default {
 	transition: "slide-bottom",
 	data: () => ({

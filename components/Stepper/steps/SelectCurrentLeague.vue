@@ -56,7 +56,7 @@
 								</v-tooltip>
 							</v-col>
 						</v-row>
-						<v-select v-if="showServerSelection" :items="servers" label="Select your server" dense solo v-model="server"></v-select>
+						<v-select v-if="showServerSelection" :items="servers" v-model="server" label="Select your server" dense solo></v-select>
 						<v-select v-if="showMarksSelection" :items="marks" v-model="mark" dense solo></v-select>
 					</v-col>
 				</v-row>
