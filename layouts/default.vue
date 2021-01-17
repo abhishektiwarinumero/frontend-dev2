@@ -9,7 +9,7 @@
 		<app-bar-component></app-bar-component>
 		<v-main>
 			<v-container fluid>
-				<nuxt v-if="!$slots.default" />
+				<Nuxt v-if="!$slots.default" />
 				<slot />
 			</v-container>
 		</v-main>
