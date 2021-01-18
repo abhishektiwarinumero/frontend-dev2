@@ -108,11 +108,99 @@ export default {
 				total + mmr_total - tier.lp
 			);
 		},
+		sendOrder(token) {
+			// Gather current tier and division
+			let currentTier = _.find(this.tiers, [
+				"id",
+				this.$store.state.league.tier,
+			]);
+			let division = _.find(currentTier.divisions, [
+				"id",
+				this.$store.state.league.division,
+			]).name;
+			// Gather desired tier and division
+			let desiredTier = _.find(this.tiers, [
+				"id",
+				this.$store.state.desired.tier,
+			]);
+			let desiredDivision = _.find(desiredTier.divisions, [
+				"id",
+				this.$store.state.desired.division,
+			]).name;
+			let mmr = _.find(currentTier.mmrs, [
+				"id",
+				this.$store.state.league.mmr,
+			]);
+			// Hydrate the tiers names
+			currentTier = currentTier.name;
+			desiredTier = desiredTier.name;
+			// Gather LP
+			this.$store.commit(
+				"checkout/addOption",
+				// We shouldn't send the value of the LP, but the rank name and suffix it with LP
+				this.$store.state.league.lp + " LP"
+			);
+			// Gather MMR
+
+			this.$store.commit(
+				"checkout/addOption",
+				// Same thing goes for MMR as stated above
+				`+${mmr.range} LP`
+			);
+			// Construct the purchase string
+			// Purchase here is "current (tier & division) to desired (tier & division)"
+			let purchase = `${currentTier} ${division} to ${desiredTier} ${desiredDivision}`;
+			// Gather selected server
+			let server = this.$store.state.league.server;
+			// Gather game mode (solo/duo)
+			this.$store.commit(
+				"checkout/addOption",
+				this.$store.state.desired.mode
+			);
+			// Gather extra options
+			let options = this.$store.state.checkout.options;
+			// Gather price
+			let price = this.$store.getters["price/price"];
+			// Gather discount code
+			let discountCode = this.$store.state.checkout.discountCode;
+			// Gather in-game-nickname (summoner name)
+			let nickname = this.$store.state.order.nickname;
+			// Gather selected booster
+			let booster = this.$store.state.order.booster;
+			// Gather Comment
+			let comment = this.$store.state.order.comment;
+			// Get all data from store and post them to DB
+			this.$axios
+				.post("orders", {
+					purchase,
+					service: "Division Boosting",
+					server,
+					options,
+					price,
+					discountCode,
+					nickname,
+					booster,
+					comment,
+					token,
+				})
+				.then((response) => {
+					this.$notify(response.data.message, "success");
+					setTimeout(() => {
+						window.location = `${process.env.HOST_URL}/resources/orders/${response.data.order_id}`;
+					}, 4000);
+					// Actually just close the dialog, semantics ¯\_(ツ)_/¯
+					this.cancel();
+				})
+				.catch((errors) => {
+					this.$notify(errors.response.data.error, "error");
+				});
+		},
 	},
 	mounted() {
 		// So price doesn't get multiplied, because there are no wins in division boosting
 		this.$store.commit("slider/changeAmount", 1);
 		this.changePrice();
+		this.$root.$on("sendOrder", (token) => this.sendOrder(token));
 	},
 };
 </script>

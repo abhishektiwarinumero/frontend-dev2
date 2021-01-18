@@ -26,76 +26,8 @@ export default {
 			if (!this.valid) {
 				return;
 			}
-
-			// Gather current service, get slug from url (Using router)
-			let service = _.find(this.services, ["slug", this.$route.name])
-				.name;
-			// Gather current tier and division
-			let currentTier = _.find(this.tiers, [
-				"id",
-				this.$store.state.league.tier,
-			]);
-			let division = _.find(currentTier.divisions, [
-				"id",
-				this.$store.state.league.division,
-			]).name;
-			// Gather desired tier and division
-			let desiredTier = _.find(this.tiers, [
-				"id",
-				this.$store.state.desired.tier,
-			]);
-			let desiredDivision = _.find(desiredTier.divisions, [
-				"id",
-				this.$store.state.desired.division,
-			]).name;
-			currentTier = currentTier.name;
-			desiredTier = desiredTier.name;
-			// Purchase here is "current (tier & division) to desired (tier & division)"
-			let purchase = `${currentTier} ${division} to ${desiredTier} ${desiredDivision}`;
-			// Gather selected server
-			let server = this.$store.state.league.server;
-			// Gather game mode (solo/duo)
-			this.$store.commit(
-				"checkout/addOption",
-				this.$store.state.desired.mode
-			);
-			// Gather extra options
-			let options = this.$store.state.checkout.options;
-			// Gather price
-			let price = this.$store.getters["price/price"];
-			// Gather discount code
-			let discountCode = this.$store.state.checkout.discountCode;
-			// Gather in-game-nickname (summoner name)
-			let nickname = this.$store.state.order.nickname;
-			// Gather selected booster
-			let booster = this.$store.state.order.booster;
-			// Gather Comment
-			let comment = this.$store.state.order.comment;
-			// Get all data from store and post them to DB
-			this.$axios
-				.post("orders", {
-					purchase,
-					service,
-					server,
-					options,
-					price,
-					discountCode,
-					nickname,
-					booster,
-					comment,
-					stripeToken: this.stripeToken,
-				})
-				.then((response) => {
-					this.$notify(response.data.message, "success");
-					setTimeout(() => {
-						window.location = `${process.env.HOST_URL}/resources/orders/${response.data.order_id}`;
-					}, 4000);
-					// Actually just close the dialog, semantics ¯\_(ツ)_/¯
-					this.cancel();
-				})
-				.catch((errors) => {
-					this.$notify(errors.response.data.error, "error");
-				});
+			// We need to emit the event with a payload containing the stripe payment token
+			this.$root.$emit("sendOrder", this.stripeToken);
 		},
 		cancel() {
 			this.$emit("cancel");

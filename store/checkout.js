@@ -10,6 +10,7 @@ export const mutations = {
 		state.discountCode = payload;
 	},
 	addOption(state, payload) {
+		// Remove the " at" from the option if applicable
 		state.options.push(payload);
 	},
 	removeOption(state, payload) {
