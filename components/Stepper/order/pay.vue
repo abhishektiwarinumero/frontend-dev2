@@ -71,11 +71,6 @@ export default {
 			let booster = this.$store.state.order.booster;
 			// Gather Comment
 			let comment = this.$store.state.order.comment;
-			// Gather (appear offline in chat)
-			let offline = this.$store.state.order.offline;
-			if (offline) {
-				this.$store.commit("checkout/addOption", "offline");
-			}
 			// Get all data from store and post them to DB
 			this.$axios
 				.post("orders", {
