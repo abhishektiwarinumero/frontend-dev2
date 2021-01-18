@@ -83,7 +83,7 @@ export default [
 	},
 	{
 		name: "Normal Matches",
-		slug: "normal-matches",
+		slug: "wildrift-normal-matches",
 		game: "Wild Rift Boosting",
 		icon: "bullseye-arrow",
 	},
