@@ -7,12 +7,12 @@
 			</v-row>
 			<div class="services-top" v-intersect.once="onIntersect">
 				<nuxt-link class="img-top-container" v-for="(service, index) in services_top" :key="index" :style="{ transitionDelay: `${0.3 * (index + 1)}s` }" :class="{'service-top-animate': isIntersecting}" :to="service.slug || '/'" :event="service.disabled ? '' : 'click'">
-					<v-img class="img-top" :class="{disabled: service.disabled}" :src="service.image" max-width="232" />
+					<img class="img-top" :class="{disabled: service.disabled}" :src="service.image" />
 				</nuxt-link>
 			</div>
 			<div class="services-bottom mt-10 mb-10">
 				<nuxt-link class="img-bottom-container" v-for="(service, index) in services_bottom" :key="index" :style="{ transitionDelay: `${0.3 * (services_top.length + 1)}s` }" :class="{'service-bottom-animate': isIntersecting}" :to="service.url || '/'" :event="!service.url ? '' : 'click'">
-					<v-img class="img-bottom" :class="{disabled: !service.url}" :src="`/img/games/${service.image}`" max-width="330" />
+					<img class="img-bottom" :class="{disabled: !service.url}" :src="`/img/games/${service.image}`" />
 				</nuxt-link>
 			</div>
 		</v-container>
