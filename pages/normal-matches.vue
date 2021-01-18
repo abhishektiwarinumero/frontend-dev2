@@ -1,46 +1,19 @@
 <template>
-	<v-layout column full fill-height class="page">
-		<v-container>
-			<v-row class="flex-center">
-				<v-img src="/img/logo/logo.png" width="700" />
-			</v-row>
-			<games-slider />
-			<v-row class="flex-center mb-4">
-				<h1>Normal Matches</h1>
-			</v-row>
-			<game-services :services="gameServices" />
-			<v-row class="flex-center">
-				<v-row class="order-form">
-					<v-form ref="order">
-						<v-row>
-							<v-col cols="12" sm="6" md="7">
-								<slider title="Select Your Number Of Games" :showMode="false" />
-							</v-col>
-							<v-col cols="6" md="5">
-								<checkout :options="options" />
-								<boost-me />
-							</v-col>
-						</v-row>
-					</v-form>
-				</v-row>
-			</v-row>
-		</v-container>
-		<why-us />
-		<customers-voice />
-	</v-layout>
+	<v-row>
+		<v-col cols="12" sm="6" md="7">
+			<slider title="Select Your Number Of Games" :showMode="false" />
+		</v-col>
+		<v-col cols="6" md="5">
+			<checkout :options="options" />
+			<boost-me />
+		</v-col>
+	</v-row>
 </template>
 
 <script>
-import games from "~/assets/js/games";
-import servers from "~/assets/js/servers";
-import services from "~/assets/js/services";
 export default {
-	transition: "slide-bottom",
+	layout: "order",
 	data: () => ({
-		games: games,
-		// We need all services in order to grab the first one of each game
-		// Then we use that to define the link of the first service in a game
-		services: services,
 		options: [
 			{
 				checked: false,
@@ -92,36 +65,8 @@ export default {
 			},
 		],
 	}),
-	computed: {
-		gameServices() {
-			return _.filter(this.services, [
-				"game",
-				_.find(this.services, ["slug", this.$route.name]).game,
-			]);
-		},
-	},
 	mounted() {
 		this.$store.commit("slider/changeAmount", 4);
 	},
 };
 </script>
-
-<style scoped>
-.page {
-	background: url(/img/backgrounds/order.png);
-	background-position: top;
-	background-size: cover;
-	background-repeat: no-repeat;
-}
-
-.flex-center {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-
-.order-form {
-	padding: 10px;
-	background: #eeea;
-}
-</style>
