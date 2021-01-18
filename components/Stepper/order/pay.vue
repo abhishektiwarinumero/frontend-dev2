@@ -35,14 +35,15 @@ export default {
 				"id",
 				this.$store.state.league.tier,
 			]);
-			let desiredTier = _.find(this.tiers, [
-				"id",
-				this.$store.state.desired.tier,
-			]);
 			let division = _.find(currentTier.divisions, [
 				"id",
 				this.$store.state.league.division,
 			]).name;
+			// Gather desired tier and division
+			let desiredTier = _.find(this.tiers, [
+				"id",
+				this.$store.state.desired.tier,
+			]);
 			let desiredDivision = _.find(desiredTier.divisions, [
 				"id",
 				this.$store.state.desired.division,
