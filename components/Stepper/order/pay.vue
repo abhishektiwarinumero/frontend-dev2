@@ -81,7 +81,7 @@ export default {
 					price,
 					discountCode,
 					nickname,
-					booster_id: 0,
+					booster,
 					comment,
 					stripeToken: this.stripeToken,
 				})
