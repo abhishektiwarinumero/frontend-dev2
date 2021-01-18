@@ -11,6 +11,7 @@
 <script>
 import tiers from "~/assets/js/tiers";
 import services from "~/assets/js/services";
+
 export default {
 	data: () => ({
 		valid: false,
