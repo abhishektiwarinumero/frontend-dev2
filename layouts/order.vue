@@ -7,12 +7,12 @@
 				</v-row>
 				<games-slider />
 				<game-services :services="gameServices" />
-				<v-row class="flex-center">
-					<v-row class="order-form">
+				<v-row class="flex-center order-form">
+					<v-col>
 						<v-form ref="order">
 							<Nuxt :nuxt-child-key="key" />
 						</v-form>
-					</v-row>
+					</v-col>
 				</v-row>
 			</v-container>
 			<why-us />
