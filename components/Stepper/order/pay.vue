@@ -54,8 +54,6 @@ export default {
 			let purchase = `${currentTier} ${division} to ${desiredTier} ${desiredDivision}`;
 			// Gather selected server
 			let server = this.$store.state.league.server;
-			// Gather number of wins
-			let wins = this.$store.state.wins.wins;
 			// Gather game mode (solo/duo)
 			this.$store.commit(
 				"checkout/addOption",
