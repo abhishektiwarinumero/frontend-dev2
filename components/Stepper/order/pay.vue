@@ -27,11 +27,9 @@ export default {
 				return;
 			}
 
-			// Gather current service, get slug from url (pure JS)
-			let service = _.find(this.services, [
-				"slug",
-				document.location.pathname.replace("/", ""),
-			]).name;
+			// Gather current service, get slug from url (Using router)
+			let service = _.find(this.services, ["slug", this.$route.name])
+				.name;
 			// Gather current tier and division
 			let currentTier = _.find(this.tiers, [
 				"id",
