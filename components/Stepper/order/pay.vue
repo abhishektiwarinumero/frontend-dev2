@@ -57,7 +57,7 @@ export default {
 			// Gather game mode (solo/duo)
 			this.$store.commit(
 				"checkout/addOption",
-				this.$store.state.wins.mode
+				this.$store.state.desired.mode
 			);
 			// Gather extra options
 			let options = this.$store.state.checkout.options;
