@@ -19,11 +19,6 @@
 				</v-row>
 				<v-row>
 					<v-col cols="12" md="6">
-						<v-checkbox label="Appear Offline on Chat" prepend-icon="mdi-account" v-model="offline"></v-checkbox>
-					</v-col>
-				</v-row>
-				<v-row>
-					<v-col cols="12" md="6">
 						<v-icon>mdi-information-outline</v-icon>
 						<span>Further information will be requested after payment</span>
 					</v-col>
@@ -47,7 +42,6 @@ export default {
 			(v) => !!v || "Nickname is required",
 			(v) => v.length >= 3 || "Please insert a valid nickname",
 		],
-		offline: false,
 	}),
 	methods: {
 		getBoostersList() {
@@ -65,7 +59,6 @@ export default {
 			this.$store.commit("order/changeNickname", this.nickname);
 			this.$store.commit("order/changeBooster", this.booster);
 			this.$store.commit("order/changeComment", this.comment);
-			this.$store.commit("order/setOffline", this.offline);
 			this.$emit("next");
 		},
 	},
