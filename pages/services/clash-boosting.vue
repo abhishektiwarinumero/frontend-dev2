@@ -1,7 +1,7 @@
 <template>
 	<v-row>
 		<v-col cols="12" sm="6" md="7">
-			<v-card>
+			<v-card raised class="mb-4 pa-4">
 				<v-card-title>{{ label }} Current Tier</v-card-title>
 				<v-card-subtitle>Please select your Current Tier</v-card-subtitle>
 				<v-select :items="tiers" v-model="tier"></v-select>
