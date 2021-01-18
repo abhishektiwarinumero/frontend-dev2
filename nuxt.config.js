@@ -108,6 +108,17 @@ export default {
 		}
 	},
 
+	router: {
+		extendRoutes(nuxtRoutes) {
+			nuxtRoutes.map(route => {
+				route.path = route.path.replace('/services', '');
+				route.name = route.name.replace('services-', '');
+
+				return route;
+			});
+		},
+	},
+
 	// Build Configuration (https://nuxtjs.org/docs/2.x/configuration-glossary/configuration-build)
 	build: {
 		transpile: [/vuetify/],
