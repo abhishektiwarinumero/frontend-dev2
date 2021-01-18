@@ -47,7 +47,6 @@ import servers from "~/assets/js/servers";
 
 export default {
 	data: () => ({
-		mode: "Solo/Duo",
 		tiers: tiers,
 		selectedServerID: "EU-West",
 		servers: servers,
@@ -95,6 +94,14 @@ export default {
 			},
 			set(server) {
 				this.$store.commit("desired/changeServer", server);
+			},
+		},
+		mode: {
+			get() {
+				return this.$store.state.desired.mode;
+			},
+			set(mode) {
+				this.$store.commit("desired/changeMode", mode);
 			},
 		},
 	},

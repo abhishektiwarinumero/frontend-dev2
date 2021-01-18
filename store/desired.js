@@ -2,6 +2,7 @@ export const state = () => ({
 	tier: 4,
 	division: 13,
 	server: "EU-West",
+	mode: "Solo/Duo",
 });
 
 export const mutations = {
@@ -13,5 +14,8 @@ export const mutations = {
 	},
 	changeServer(state, payload) {
 		state.server = payload;
+	},
+	changeMode(state, payload) {
+		state.mode = payload;
 	}
 }
