@@ -11,7 +11,9 @@ export const mutations = {
 	},
 	addOption(state, payload) {
 		// Remove the " at" from the option if applicable
-		state.options.push(payload);
+		if (state.options.indexOf(payload) === -1) {
+			state.options.push(payload);
+		}
 	},
 	removeOption(state, payload) {
 		state.options = _.remove(state.options, (option) => option != payload);

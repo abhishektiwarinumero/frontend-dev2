@@ -141,7 +141,6 @@ export default {
 				this.$store.state.league.lp + " LP"
 			);
 			// Gather MMR
-
 			this.$store.commit(
 				"checkout/addOption",
 				// Same thing goes for MMR as stated above
