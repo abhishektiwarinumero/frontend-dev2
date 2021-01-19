@@ -27,7 +27,7 @@
 									<v-select :items="servers" v-model="server" label="Select your server" dense solo></v-select>
 								</v-col>
 								<v-col>
-									<v-radio-group class="radio-group" v-model="mode" dark mandatory row>
+									<v-radio-group class="radio-group" v-model="queue" dark mandatory row>
 										<v-radio label="Solo/Duo" value="Solo/Duo"></v-radio>
 										<v-radio label="Flex 5v5" value="Flex"></v-radio>
 									</v-radio-group>
@@ -96,12 +96,12 @@ export default {
 				this.$store.commit("desired/changeServer", server);
 			},
 		},
-		mode: {
+		queue: {
 			get() {
-				return this.$store.state.desired.mode;
+				return this.$store.state.desired.queue;
 			},
-			set(mode) {
-				this.$store.commit("desired/changeMode", mode);
+			set(queue) {
+				this.$store.commit("desired/changeQueue", queue);
 			},
 		},
 	},

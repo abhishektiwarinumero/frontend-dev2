@@ -14,7 +14,7 @@
 					</v-col>
 				</v-row>
 				<v-slider v-model="amount" thumb-label="always" min="1" :max="max" height="130"></v-slider>
-				<v-radio-group class="radio-group" v-model="mode" dark mandatory row v-if="showMode">
+				<v-radio-group class="radio-group" v-model="queue" dark mandatory row v-if="showQueue">
 					<v-radio label="Solo/Duo" value="Solo/Duo"></v-radio>
 					<v-radio label="Flex 5v5" value="Flex"></v-radio>
 				</v-radio-group>
@@ -36,7 +36,7 @@ export default {
 			required: false,
 			default: null,
 		},
-		showMode: {
+		showQueue: {
 			type: Boolean,
 			required: false,
 			default: true,
@@ -53,7 +53,7 @@ export default {
 		},
 	},
 	data: () => ({
-		mode: "Solo/Duo",
+		queue: "Solo/Duo",
 	}),
 	computed: {
 		amount: {
@@ -66,8 +66,8 @@ export default {
 		},
 	},
 	watch: {
-		mode(value) {
-			this.$store.commit("slider/changeMode", value);
+		queue(value) {
+			this.$store.commit("slider/changeQueue", value);
 		},
 	},
 };

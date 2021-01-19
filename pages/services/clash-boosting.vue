@@ -7,8 +7,8 @@
 				<v-select :items="tiers" v-model="tier"></v-select>
 				<v-select :items="servers" v-model="server"></v-select>
 			</v-card>
-			<slider title="Select Your Number Of Games" :showMode="false" />
-			<slider title="Select Your Number Of Boosters" :showMode="false" :stepNumber="3" />
+			<slider title="Select Your Number Of Games" :showQueue="false" />
+			<slider title="Select Your Number Of Boosters" :showQueue="false" :stepNumber="3" />
 		</v-col>
 		<v-col cols="6" md="5">
 			<checkout :options="[]" />

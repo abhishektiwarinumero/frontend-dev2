@@ -151,10 +151,10 @@ export default {
 			let purchase = `${currentTier} ${division} to ${desiredTier} ${desiredDivision}`;
 			// Gather selected server
 			let server = this.$store.state.league.server;
-			// Gather game mode (solo/duo)
+			// Gather game queue (solo/duo)
 			this.$store.commit(
 				"checkout/addOption",
-				this.$store.state.desired.mode
+				this.$store.state.desired.queue
 			);
 			// Gather extra options
 			let options = this.$store.state.checkout.options;

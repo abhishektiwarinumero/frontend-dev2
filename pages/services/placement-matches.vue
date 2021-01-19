@@ -2,7 +2,7 @@
 	<v-row>
 		<v-col cols="12" sm="6" md="7">
 			<season-end-rank />
-			<slider title step :showMode="false" :max="3" />
+			<slider title step :showQueue="false" :max="3" />
 		</v-col>
 		<v-col cols="6" md="5">
 			<checkout :options="options" />
