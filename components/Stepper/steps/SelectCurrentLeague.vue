@@ -22,7 +22,7 @@
 							</v-col>
 							<!-- if no divisions, points become text field -->
 							<v-col v-else>
-								<v-text-field v-model="points" hide-details single-line type="number" />
+								<v-text-field v-model="points" hide-details single-line type="number" suffix="LP" />
 							</v-col>
 						</v-row>
 						<!-- LP & MMR -->

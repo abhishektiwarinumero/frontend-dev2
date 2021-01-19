@@ -15,7 +15,7 @@ export default [
 		game: "LOL BOOSTING",
 	},
 	{
-		name: "Placement Boosting",
+		name: "Placement Matches Boosting",
 		slug: "placement-boosting",
 		game: "LOL BOOSTING",
 	},
@@ -47,7 +47,7 @@ export default [
 	},
 	{
 		name: "Placement Matches",
-		slug: "placement-matches",
+		slug: "valorant-placement-boosting",
 		game: "VALORANT BOOSTING",
 		icon: "check-circle",
 	},
@@ -76,8 +76,8 @@ export default [
 		icon: "check-circle",
 	},
 	{
-		name: "Placement Matches",
-		slug: "wild-rift-placement-matches",
+		name: "Wildrift Placement Matches",
+		slug: "wildrift-placement-boosting",
 		game: "Wild Rift Boosting",
 		icon: "trophy",
 	},
