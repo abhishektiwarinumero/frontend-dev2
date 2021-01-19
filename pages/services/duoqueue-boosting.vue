@@ -42,9 +42,5 @@ export default {
 			},
 		],
 	}),
-	mounted() {
-		// So price doesn't get multiplied, because there are no wins in duoqueue boosting
-		this.$store.commit("slider/changeAmount", 1);
-	},
 };
 </script>

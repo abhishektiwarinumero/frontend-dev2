@@ -92,8 +92,6 @@ export default {
 		},
 	},
 	mounted() {
-		// So price doesn't get multiplied, because there are no wins in division boosting
-		this.$store.commit("slider/changeAmount", 1);
 		// Set Silver Division 1 as the default current
 		this.$store.commit("league/changeDivision", 11);
 		this.$store.commit("desired/changeDivision", 16);
