@@ -37,7 +37,7 @@
 							<v-select v-model="currentTier" :items="[0,1,2,3,4,5,6]"></v-select>
 						</v-col>
 						<v-col>
-							<v-select v-model="desiredTier" :items="[1,2,3,4,5,6,7]"></v-select>
+							<v-select v-model="desiredTier" :items="tiers" item-value="level" item-text="level"></v-select>
 						</v-col>
 						<v-col v-if="currentTier >= 5">
 							<v-select v-model="token" :items="[1,2,3,4,5]"></v-select>
@@ -64,6 +64,40 @@ export default {
 		currentTier: 5,
 		desiredTier: 7,
 		token: 5,
+		tiers: [
+			{
+				level: 0,
+				price: 0,
+			},
+			{
+				level: 1,
+				price: 2.8,
+			},
+			{
+				level: 2,
+				price: 5.2,
+			},
+			{
+				level: 3,
+				price: 10,
+			},
+			{
+				level: 4,
+				price: 15.5,
+			},
+			{
+				level: 5,
+				price: 20.35,
+			},
+			{
+				level: 6,
+				price: 15,
+			},
+			{
+				level: 7,
+				price: 14,
+			},
+		],
 		options: [
 			{
 				checked: false,
@@ -91,5 +125,75 @@ export default {
 			},
 		],
 	}),
+	watch: {
+		currentTier() {
+			this.changePrice();
+		},
+		desiredTier() {
+			this.changePrice();
+		},
+	},
+	methods: {
+		changePrice() {
+			let filteredTiers = _.filter(this.tiers, (tier) =>
+				// This is a whereIn replacement
+				_.range(this.desiredTier, this.currentTier).includes(tier.level)
+			);
+			// Sum up their prices using JS reduce
+			let total = filteredTiers.reduce((sum, tier) => {
+				return sum + tier.price;
+			}, 0);
+			// Load price of (get it from currently selected desired division)
+			this.$store.commit("price/changePrice", total);
+		},
+		sendOrder(token) {
+			// Construct the purchase string
+			// Purchase here is "current (tier & division) to desired (tier & division)"
+			let purchase = `${this.currentTier} to ${this.desiredTier}`;
+			// Gather selected server
+			let server = this.$store.state.league.server;
+			// Gather extra options
+			let options = this.$store.state.checkout.options;
+			// Gather price
+			let price = this.$store.getters["price/price"];
+			// Gather discount code
+			let discountCode = this.$store.state.checkout.discountCode;
+			// Gather in-game-nickname (summoner name)
+			let nickname = this.$store.state.order.nickname;
+			// Gather selected booster
+			let booster = this.$store.state.order.booster;
+			// Gather Comment
+			let comment = this.$store.state.order.comment;
+			// Get all data from store and post them to DB
+			this.$axios
+				.post("orders", {
+					purchase,
+					service: "Champion Mastery",
+					server,
+					options,
+					price,
+					discountCode,
+					nickname,
+					booster,
+					comment,
+					token,
+				})
+				.then((response) => {
+					this.$notify(response.data.message, "success");
+					setTimeout(() => {
+						window.location = `${process.env.HOST_URL}/resources/orders/${response.data.order_id}`;
+					}, 4000);
+					// Actually just close the dialog, semantics ¯\_(ツ)_/¯
+					this.cancel();
+				})
+				.catch((errors) => {
+					this.$notify(errors.response.data.error, "error");
+				});
+		},
+	},
+	mounted() {
+		this.changePrice();
+		this.$root.$on("sendOrder", (token) => this.sendOrder(token));
+	},
 };
 </script>

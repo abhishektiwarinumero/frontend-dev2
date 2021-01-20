@@ -7,8 +7,8 @@
 			</v-row>
 			<v-row align="end" justify="center" class="mt-7 mb-14">
 				<v-btn-toggle rounded v-model="undefined" background-color="transparent">
-					<v-btn class="hero-btn">Get Boosted</v-btn>
-					<v-btn class="hero-btn">Get Coached</v-btn>
+					<v-btn class="hero-btn" to="/division-boosting">Get Boosted</v-btn>
+					<v-btn class="hero-btn" to="/coaching">Get Coached</v-btn>
 					<v-btn class="hero-btn">Buy an account</v-btn>
 				</v-btn-toggle>
 			</v-row>
