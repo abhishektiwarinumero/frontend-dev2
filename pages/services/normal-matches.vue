@@ -67,6 +67,7 @@ export default {
 	}),
 	mounted() {
 		this.$store.commit("slider/changeAmount", 15);
+		this.$store.commit("price/changePrice", 2.84);
 	},
 };
 </script>
