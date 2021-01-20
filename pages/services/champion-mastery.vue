@@ -25,7 +25,7 @@
 								<v-img :src="`/img/tiers/${desiredTier}.png`"></v-img>
 							</v-avatar>
 						</v-col>
-						<v-col>
+						<v-col v-if="currentTier >= 5">
 							<span v-text="token" class="text-h1 purple--text"></span>
 						</v-col>
 					</v-row>
@@ -39,7 +39,7 @@
 						<v-col>
 							<v-select v-model="desiredTier" :items="[1,2,3,4,5,6,7]"></v-select>
 						</v-col>
-						<v-col>
+						<v-col v-if="currentTier >= 5">
 							<v-select v-model="token" :items="[1,2,3,4,5]"></v-select>
 						</v-col>
 					</v-row>
