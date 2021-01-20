@@ -40,7 +40,7 @@
 							<v-select v-model="desiredTier" :items="tiers" item-value="level" item-text="level"></v-select>
 						</v-col>
 						<v-col v-if="currentTier >= 5">
-							<v-select v-model="token" :items="[1,2,3,4,5]"></v-select>
+							<v-select v-model="token" :items="tokens"></v-select>
 						</v-col>
 					</v-row>
 				</v-container>
@@ -64,6 +64,7 @@ export default {
 		currentTier: 5,
 		desiredTier: 7,
 		token: 5,
+		maxTokens: 5,
 		tiers: [
 			{
 				level: 0,
@@ -125,15 +126,43 @@ export default {
 			},
 		],
 	}),
+	computed: {
+		tokens() {
+			// + 1 because lodash range behaves that way
+			if (this.currentTier == 5 && this.desiredTier == 7) {
+				return _.range(4, 6);
+			}
+			return _.range(this.startingRange, this.maxTokens + 1);
+		},
+	},
 	watch: {
 		currentTier() {
+			this.changeMaxTokensRemainingAvailable();
 			this.changePrice();
 		},
 		desiredTier() {
+			this.changeMaxTokensRemainingAvailable();
+			this.changePrice();
+		},
+		token() {
 			this.changePrice();
 		},
 	},
 	methods: {
+		changeMaxTokensRemainingAvailable() {
+			if (this.currentTier == 5 && this.desiredTier == 6) {
+				this.maxTokens = 2;
+				this.token = 2;
+			} else if (this.currentTier == 6 && this.desiredTier == 7) {
+				this.maxTokens = 3;
+				this.token = 3;
+			} else if (this.currentTier == 5 && this.desiredTier == 7) {
+				// We need to change the tokens array to only include either 4 or 5
+				this.token = 5;
+			} else {
+				this.token = 1;
+			}
+		},
 		changePrice() {
 			let filteredTiers = _.filter(this.tiers, (tier) =>
 				// This is a whereIn replacement
@@ -143,15 +172,20 @@ export default {
 			let total = filteredTiers.reduce((sum, tier) => {
 				return sum + tier.price;
 			}, 0);
+			if (this.currentTier == 5 && this.desiredTier == 7) {
+				total = 10;
+			}
 			// Load price of (get it from currently selected desired division)
-			this.$store.commit("price/changePrice", total);
+			this.$store.commit("price/changePrice", total * this.token);
 		},
 		sendOrder(token) {
 			// Construct the purchase string
 			// Purchase here is "current (tier & division) to desired (tier & division)"
-			let purchase = `${this.currentTier} to ${this.desiredTier}`;
+			let purchase = `Tier ${this.currentTier} to Tier ${this.desiredTier}`;
 			// Gather selected server
 			let server = this.$store.state.league.server;
+			// Push the selected champion to the order's checkout options
+			this.$store.commit("checkout/addOption", this.champion);
 			// Gather extra options
 			let options = this.$store.state.checkout.options;
 			// Gather price
@@ -168,7 +202,7 @@ export default {
 			this.$axios
 				.post("orders", {
 					purchase,
-					service: "Champion Mastery",
+					service: "Champion Mastery Boosting",
 					server,
 					options,
 					price,
