@@ -63,5 +63,11 @@ html {
 }
 
 .v-slider--horizontal .v-slider__track-container {
-	height: 8px;
+	height: 18px !important;
+}
+
+.v-slider__thumb {
+	height: 26px !important;
+	width: 32px !important;
+	background-color: #FFFFFF !important;
 }
