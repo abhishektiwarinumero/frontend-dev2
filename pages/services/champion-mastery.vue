@@ -12,7 +12,7 @@
 					<v-row justify="center" align="center">
 						<v-col>
 							<v-avatar size="128">
-								<v-img :src="`/img/champions/${champion}.png`"></v-img>
+								<v-img :src="`https://ddragon.leagueoflegends.com/cdn/8.18.2/img/champion/${champion}.png`"></v-img>
 							</v-avatar>
 						</v-col>
 						<v-col>
