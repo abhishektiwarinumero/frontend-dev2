@@ -16,7 +16,7 @@
 				</v-row>
 			</v-container>
 		</div>
-		<customer-voice />
+		<customers-voice />
 		<v-container>
 			<v-row>
 				<v-col md="4">
