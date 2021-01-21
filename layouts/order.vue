@@ -83,7 +83,6 @@ export default {
 
 .order-form {
 	padding: 10px;
-	background: #eeea;
 }
 
 .home-enter,
