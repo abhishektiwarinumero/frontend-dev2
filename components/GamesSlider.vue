@@ -21,12 +21,16 @@ export default {
 		services: services,
 	}),
 	mounted() {
-		// set initial value of currentGameIndex
-		// Should be index of current service's game in the games array
-		let service = _.find(this.services, ["slug", this.$route.name]);
-		let gameName = service.game;
-		let gameIndex = _.findIndex(this.games, ["name", gameName]);
-		this.currentGameIndex = gameIndex;
+		this.$root.$on("routeChanged", () => {
+			// set initial value of currentGameIndex
+			// Should be index of current service's game in the games array
+			let service = _.find(this.services, ["slug", this.$route.name]);
+			if (service) {
+				let gameName = service.game;
+				let gameIndex = _.findIndex(this.games, ["name", gameName]);
+				this.currentGameIndex = gameIndex;
+			}
+		});
 	},
 };
 </script>
