@@ -1,6 +1,6 @@
 <template>
 	<v-row>
-		<v-col class="card" v-for="(game, index) in games" :key="index" :class="{selectedGame: (index == currentGameIndex), disabled: game.disabled}">
+		<v-col class="card" v-for="(game, index) in games" :key="index" :class="{selectedGame: (game.name == currentGame), disabled: game.disabled}">
 			<nuxt-link :to="game.slug || '/'" :event="game.disabled ? '' : 'click'" :class="{disabled: game.disabled}">
 				<img :src="game.image" width="100%" />
 			</nuxt-link>
@@ -14,23 +14,16 @@ import services from "~/assets/js/services";
 
 export default {
 	data: () => ({
-		currentGameIndex: 0,
 		games: games,
 		// We need all services in order to grab the first one of each game
 		// Then we use that to define the link of the first service in a game
 		services: services,
 	}),
-	mounted() {
-		this.$root.$on("routeChanged", () => {
-			// set initial value of currentGameIndex
-			// Should be index of current service's game in the games array
+	computed: {
+		currentGame() {
 			let service = _.find(this.services, ["slug", this.$route.name]);
-			if (service) {
-				let gameName = service.game;
-				let gameIndex = _.findIndex(this.games, ["name", gameName]);
-				this.currentGameIndex = gameIndex;
-			}
-		});
+			return service.game;
+		},
 	},
 };
 </script>
