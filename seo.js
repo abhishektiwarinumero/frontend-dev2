@@ -14,7 +14,7 @@ export default {
 		{
 			hid: "description",
 			name: "description",
-			content: "Premium LoL & Valorant Boosting, Coaching, and Account Selling, all at an Affordable Price! Safe, fast, effortless delivery to ALL Regions! Don't wait, RANK UP NOW!"
+			content: "Premium LoL &amp; Valorant Boosting, Coaching, and Account Selling, all at an Affordable Price! Safe, fast, effortless delivery to ALL Regions! Don't wait, RANK UP NOW!"
 		},
 		{
 			name: "keywords",
