@@ -26,6 +26,14 @@ import services from "~/assets/js/services";
 import DefaultLayout from "~/layouts/default.vue";
 
 export default {
+	head: () => ({
+		link: [
+			{
+				rel: "stylesheet",
+				href: "/css/order.css",
+			},
+		],
+	}),
 	name: "Order",
 	transition: "home",
 	components: {
