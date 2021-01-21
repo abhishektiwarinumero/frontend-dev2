@@ -47,7 +47,7 @@
 			</v-card>
 		</v-col>
 		<v-col cols="6" md="5">
-			<checkout :options="options" />
+			<checkout :options="options" :showTitle="false" />
 			<boost-me />
 		</v-col>
 	</v-row>

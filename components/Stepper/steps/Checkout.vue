@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<div class="title">
+		<div class="title" v-if="showTitle">
 			<div class="title-id">
 				<h2>3</h2>
 			</div>
@@ -42,6 +42,11 @@ export default {
 		options: {
 			type: Array,
 			required: true,
+		},
+		showTitle: {
+			type: Boolean,
+			required: false,
+			default: true,
 		},
 	},
 	data: () => ({
