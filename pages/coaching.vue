@@ -65,7 +65,7 @@
 
 <style scoped>
 .coaching {
-	background-image: url("/img/backgrounds/coachingTop.png");
+	background-image: url("/img/backgrounds/coaching.png");
 	background-position: top;
 	background-size: cover;
 	min-height: 440px;
