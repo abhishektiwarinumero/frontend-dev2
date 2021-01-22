@@ -28,7 +28,7 @@ export default [{
 		box_shadow: "inset 60px 0 120px rgba(89,60,28,.2), 0 0 9px 0 rgba(0,0,0,.6)",
 		divisions: [{
 				id: 4,
-				image: "/img/divisions/valorant/bronezeiii.png",
+				image: "/img/divisions/valorant/bronzeiii.png",
 				price: 12.6,
 				name: "III",
 			},
