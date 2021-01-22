@@ -4,9 +4,9 @@ export default [{
 		box_shadow: "inset 60px 0 120px rgba(152,129,108,.2), 0 0 9px 0 rgba(0,0,0,.6)",
 		divisions: [{
 				id: 1,
-				image: "/img/divisions/valorant/ironiii.png",
+				image: "/img/divisions/valorant/ironi.png",
 				price: 9.7,
-				name: "III",
+				name: "I",
 			},
 			{
 				id: 2,
@@ -16,9 +16,9 @@ export default [{
 			},
 			{
 				id: 3,
-				image: "/img/divisions/valorant/ironi.png",
+				image: "/img/divisions/valorant/ironiii.png",
 				price: 9.7,
-				name: "I",
+				name: "III",
 			},
 		],
 	},
@@ -26,11 +26,12 @@ export default [{
 		id: 2,
 		name: "Bronze",
 		box_shadow: "inset 60px 0 120px rgba(89,60,28,.2), 0 0 9px 0 rgba(0,0,0,.6)",
-		divisions: [{
+		divisions: [
+			{
 				id: 4,
-				image: "/img/divisions/valorant/bronzeiii.png",
-				price: 12.6,
-				name: "III",
+				image: "/img/divisions/valorant/bronzei.png",
+				price: 11.6,
+				name: "I",
 			},
 			{
 				id: 5,
@@ -40,9 +41,9 @@ export default [{
 			},
 			{
 				id: 6,
-				image: "/img/divisions/valorant/bronzei.png",
-				price: 11.6,
-				name: "I",
+				image: "/img/divisions/valorant/bronzeiii.png",
+				price: 12.6,
+				name: "III",
 			},
 		],
 	},
@@ -50,11 +51,12 @@ export default [{
 		id: 3,
 		name: "Silver",
 		box_shadow: "inset 60px 0 120px rgba(119,134,131,.2), 0 0 9px 0 rgba(0,0,0,.6)",
-		divisions: [{
+		divisions: [
+			{
 				id: 7,
-				image: "/img/divisions/valorant/silveriii.png",
-				price: 14.6,
-				name: "III",
+				image: "/img/divisions/valorant/silveri.png",
+				price: 13.6,
+				name: "I",
 			},
 			{
 				id: 8,
@@ -64,9 +66,9 @@ export default [{
 			},
 			{
 				id: 9,
-				image: "/img/divisions/valorant/silveri.png",
-				price: 13.6,
-				name: "I",
+				image: "/img/divisions/valorant/silveriii.png",
+				price: 14.6,
+				name: "III",
 			},
 		],
 	},
@@ -74,11 +76,12 @@ export default [{
 		id: 4,
 		name: "Gold",
 		box_shadow: "inset 60px 0 120px rgba(228,189,62,.2), 0 0 9px 0 rgba(0,0,0,.6)",
-		divisions: [{
+		divisions: [
+			{
 				id: 10,
-				image: "/img/divisions/valorant/goldiii.png",
-				price: 19.6,
-				name: "III",
+				image: "/img/divisions/valorant/goldi.png",
+				price: 17.6,
+				name: "I",
 			},
 			{
 				id: 11,
@@ -88,9 +91,9 @@ export default [{
 			},
 			{
 				id: 12,
-				image: "/img/divisions/valorant/goldi.png",
-				price: 17.6,
-				name: "I",
+				image: "/img/divisions/valorant/goldiii.png",
+				price: 19.6,
+				name: "III",
 			},
 		],
 	},
@@ -98,11 +101,12 @@ export default [{
 		id: 5,
 		name: "Platinum",
 		box_shadow: "inset 60px 0 120px rgba(57,123,135,.2), 0 0 9px 0 rgba(0,0,0,.6)",
-		divisions: [{
+		divisions: [
+			{
 				id: 13,
-				image: "/img/divisions/valorant/platinumiii.png",
-				price: 30,
-				name: "III",
+				image: "/img/divisions/valorant/platinumi.png",
+				price: 27.4,
+				name: "I",
 			},
 			{
 				id: 14,
@@ -112,9 +116,9 @@ export default [{
 			},
 			{
 				id: 15,
-				image: "/img/divisions/valorant/platinumi.png",
-				price: 27.4,
-				name: "I",
+				image: "/img/divisions/valorant/platinumiii.png",
+				price: 30,
+				name: "III",
 			},
 		],
 	},
@@ -122,11 +126,12 @@ export default [{
 		id: 6,
 		name: "Diamond",
 		box_shadow: "inset 60px 0 120px rgba(48,113,222,.2), 0 0 9px 0 rgba(0,0,0,.6)",
-		divisions: [{
+		divisions: [
+			{
 				id: 16,
-				image: "/img/divisions/valorant/diamondiii.png",
-				price: 36,
-				name: "III",
+				image: "/img/divisions/valorant/diamondi.png",
+				price: 32,
+				name: "I",
 			},
 			{
 				id: 17,
@@ -136,9 +141,9 @@ export default [{
 			},
 			{
 				id: 18,
-				image: "/img/divisions/valorant/diamondi.png",
-				price: 32,
-				name: "I",
+				image: "/img/divisions/valorant/diamondiii.png",
+				price: 36,
+				name: "III",
 			},
 		],
 	},
