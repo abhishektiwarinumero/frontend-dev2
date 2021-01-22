@@ -5,6 +5,7 @@
 				<h2>1</h2>
 			</div>
 			<h2 class="title-txt">{{ title }}</h2>
+			<h3 class="title-txt" v-if="description">{{ description }}</h3>
 		</div>
 		<v-card raised class="mb-4" :style="{ boxShadow: tier.box_shadow }">
 			<v-container>
@@ -85,6 +86,11 @@ export default {
 			type: String,
 			required: false,
 			default: "Select Your Current League",
+		},
+		description: {
+			type: String,
+			required: false,
+			default: null,
 		},
 		showMarksSelection: {
 			type: Boolean,
