@@ -85,8 +85,6 @@ export default {
 			}, 0);
 			// Get the LP from the VueX store
 			let lp = this.$store.state.league.lp;
-			// We need to get its price from the currently selected division
-			console.log(`current LP in the store is ${lp}`);
 			// Load price of (get it from currently selected desired division)
 			this.$store.commit("price/changePrice", total);
 		},
