@@ -147,5 +147,6 @@ export default [{
 		name: "Immortal",
 		box_shadow: "inset 60px 0 120px rgba(161,29,29,.3), 0 0 9px 0 rgba(0,0,0,.7)",
 		price: 60,
+		image: "/img/divisions/valorant/immortal.png",
 	},
 ];
