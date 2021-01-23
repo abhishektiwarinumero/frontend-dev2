@@ -1,8 +1,8 @@
 <template>
 	<v-row>
 		<v-col cols="12" sm="6" md="7">
-			<select-current-league @divisionChanged="changePrice" @lpchanged="changePrice" @mmrchanged="changePrice" showPointsSelection />
-			<select-desired-league @divisionChanged="changePrice" />
+			<current title="Current League" description="Please select your Current Rank and Division" @divisionChanged="changePrice" @lpchanged="changePrice" @mmrchanged="changePrice" showPointsSelection :tiers="tiers" />
+			<desired @divisionChanged="changePrice" />
 		</v-col>
 		<v-col cols="6" md="5">
 			<checkout :options="options" />
@@ -63,7 +63,7 @@ export default {
 				// This is a whereIn replacement
 				_.range(
 					this.$store.state.desired.division,
-					this.$store.state.league.division
+					this.$store.state.current.division
 				).includes(price[0])
 			);
 			// Sum up their prices using JS reduce
@@ -72,13 +72,10 @@ export default {
 			}, 0);
 			// Get the MMR from the VueX store
 			// We need to get its price from the currently selected division
-			let tier = _.find(this.tiers, [
-				"id",
-				this.$store.state.league.tier,
-			]);
+			let tier = this.$store.state.current.tier;
 
 			let filtered_mmrs = _.filter(tier.mmrs, (mmr) =>
-				_.range(this.$store.state.league.mmr, 1).includes(mmr.id)
+				_.range(this.$store.state.current.mmr.id, 1).includes(mmr.id)
 			);
 
 			let mmr_total = filtered_mmrs.reduce((sum, mmr) => {
@@ -95,76 +92,43 @@ export default {
 		},
 		sendOrder(token) {
 			// Gather current tier and division
-			let currentTier = _.find(this.tiers, [
-				"id",
-				this.$store.state.league.tier,
-			]);
-			let division = _.find(currentTier.divisions, [
-				"id",
-				this.$store.state.league.division,
-			]).name;
+			let currentTier = this.$store.state.current.tier;
+			let currentDivision = this.$store.state.current.division;
 			// Gather desired tier and division
-			let desiredTier = _.find(this.tiers, [
-				"id",
-				this.$store.state.desired.tier,
-			]);
-			let desiredDivision = _.find(desiredTier.divisions, [
-				"id",
-				this.$store.state.desired.division,
-			]).name;
-			let mmr = _.find(currentTier.mmrs, [
-				"id",
-				this.$store.state.league.mmr,
-			]);
-			// Hydrate the tiers names
-			currentTier = currentTier.name;
-			desiredTier = desiredTier.name;
+			let desiredTier = this.$store.state.desired.tier;
+			let desiredDivision = this.$store.state.desired.division;
 			// Gather LP
 			this.$store.commit(
 				"checkout/addOption",
 				// We shouldn't send the value of the LP, but the rank name and suffix it with LP
-				this.$store.state.league.lp + " LP"
+				this.$store.state.current.lp + " LP"
 			);
 			// Gather MMR
 			this.$store.commit(
 				"checkout/addOption",
 				// Same thing goes for MMR as stated above
-				`+${mmr.range} LP`
+				`+${this.$store.state.current.mmr.range} LP`
 			);
 			// Construct the purchase string
 			// Purchase here is "current (tier & division) to desired (tier & division)"
-			let purchase = `${currentTier} ${division} to ${desiredTier} ${desiredDivision}`;
-			// Gather selected server
-			let server = this.$store.state.league.server;
+			let purchase = `${currentTier.name} ${currentDivision.name} to ${desiredTier.name} ${desiredDivision.name}`;
 			// Gather game queue (solo/duo)
 			this.$store.commit(
 				"checkout/addOption",
 				this.$store.state.desired.queue
 			);
-			// Gather extra options
-			let options = this.$store.state.checkout.options;
-			// Gather price
-			let price = this.$store.getters["price/price"];
-			// Gather discount code
-			let discountCode = this.$store.state.checkout.discountCode;
-			// Gather in-game-nickname (summoner name)
-			let nickname = this.$store.state.order.nickname;
-			// Gather selected booster
-			let booster = this.$store.state.order.booster;
-			// Gather Comment
-			let comment = this.$store.state.order.comment;
 			// Get all data from store and post them to DB
 			this.$axios
 				.post("orders", {
 					purchase,
 					service: "DuoQueue Division Boosting",
-					server,
-					options,
-					price,
-					discountCode,
-					nickname,
-					booster,
-					comment,
+					server: this.$store.state.current.server,
+					options: this.$store.state.checkout.options,
+					price: this.$store.getters["price/price"],
+					discountCode: this.$store.state.checkout.discountCode,
+					nickname: this.$store.state.order.nickname,
+					booster: this.$store.state.order.booster,
+					comment: this.$store.state.order.comment,
 					token,
 				})
 				.then((response) => {
@@ -181,6 +145,7 @@ export default {
 		},
 	},
 	mounted() {
+		this.$store.commit("current/changeLP", "0-20");
 		this.changePrice();
 		this.$root.$on("sendOrder", (token) => this.sendOrder(token));
 	},
