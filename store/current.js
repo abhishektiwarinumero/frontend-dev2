@@ -1,6 +1,6 @@
 export const state = () => ({
-	tier: 3, // Silver
-	division: 12, // division I
+	tier: {},
+	division: {},
 	mmr: 2, // 19-21
 	lp: "0-20",
 	server: "EU-West",

@@ -1,6 +1,6 @@
 export const state = () => ({
-	tier: 4,
-	division: 13,
+	tier: {},
+	division: {},
 	server: "EU-West",
 	queue: "Solo/Duo",
 });

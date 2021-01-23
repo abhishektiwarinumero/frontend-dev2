@@ -11,34 +11,34 @@
 			<v-container>
 				<v-row align="center" justify="center">
 					<v-col md="3">
-						<v-img :src="division.image || tier.image" :alt="tier.name" loading="lazy" width="170" />
+						<v-img :src="image" :alt="tier.name" loading="lazy" width="170" />
 					</v-col>
 					<v-col md="9" class="have-selectors">
 						<v-row>
 							<v-col>
-								<v-select :items="tiers" label="Current tier" dense solo v-model="selectedTierID" item-text="name" item-value="id"></v-select>
+								<v-select :items="tiers" label="Current tier" dense solo v-model="tier" item-text="name" item-value="id" return-object></v-select>
 							</v-col>
-							<v-col v-if="hasDivisions">
-								<v-select :items="tier.divisions" label="Current division" dense solo v-model="selectedDivisionID" item-text="name" item-value="id" prefix="Division"></v-select>
+							<v-col v-if="tier.divisions">
+								<v-select :items="tier.divisions" label="Current division" dense solo v-model="division" item-text="name" item-value="id" prefix="Division" return-object></v-select>
 							</v-col>
 							<!-- if no divisions, points become text field -->
 							<v-col v-else>
-								<v-text-field v-model="points" hide-details single-line type="number" suffix="LP" />
+								<v-text-field v-model="points" hide-details single-line type="number" :suffix="suffix" />
 							</v-col>
 						</v-row>
 						<!-- LP & MMR -->
 						<v-row v-if="showPointsSelection">
-							<v-col v-if="hasDivisions">
+							<v-col v-if="tier.divisions">
 								<!-- LP -->
 								<v-tooltip top color="primary" max-width="350">
 									<template v-slot:activator="{ on, attrs }">
 										<!-- LP lowers the price -->
-										<v-select v-bind="attrs" v-on="on" v-model="lp" :items="lps" dense solo suffix="LP"></v-select>
+										<v-select v-bind="attrs" v-on="on" v-model="lp" :items="lps" dense solo :suffix="lpSuffix"></v-select>
 									</template>
-									<span>Your current League Points amount</span>
+									<span>{{ lpTooltip }}</span>
 								</v-tooltip>
 							</v-col>
-							<v-col>
+							<v-col v-if="showMMRSelection">
 								<v-tooltip top color="primary" max-width="350">
 									<template v-slot:activator="{ on, attrs }">
 										<!-- MMR increases the price -->
@@ -72,6 +72,16 @@ import servers from "~/assets/js/servers";
 
 export default {
 	props: {
+		title: {
+			type: String,
+			required: false,
+			default: "Select Your Current current",
+		},
+		description: {
+			type: String,
+			required: false,
+			default: null,
+		},
 		showServerSelection: {
 			type: Boolean,
 			required: false,
@@ -82,15 +92,10 @@ export default {
 			required: false,
 			default: false,
 		},
-		title: {
-			type: String,
+		showMMRSelection: {
+			type: Boolean,
 			required: false,
-			default: "Select Your Current League",
-		},
-		description: {
-			type: String,
-			required: false,
-			default: null,
+			default: true,
 		},
 		showMarksSelection: {
 			type: Boolean,
@@ -102,10 +107,27 @@ export default {
 			required: false,
 			default: () => tiers,
 		},
+		suffix: {
+			type: String,
+			required: false,
+			default: "LP",
+		},
+		lpTooltip: {
+			type: String,
+			required: false,
+			default: "Your current current Points amount",
+		},
+		lpSuffix: {
+			type: String,
+			required: false,
+			default: null,
+		},
 	},
 	data: () => ({
+		tier: {},
+		division: { image: null },
 		points: 0,
-		lps: ["0-20", "21-40", "41-60", "61-80", "80-100"],
+		lps: ["0-20", "21-40", "41-60", "61-80", "81-100"],
 		marks: [
 			"0 / 3 Mark Status",
 			"1 / 3 Mark Status",
@@ -115,76 +137,64 @@ export default {
 		servers: servers,
 	}),
 	computed: {
-		selectedTierID: {
-			get() {
-				return this.$store.state.league.tier;
-			},
-			set(id) {
-				this.$store.commit("league/changeTier", id);
-				if (this.hasDivisions) {
-					this.selectedDivisionID = this.tier.divisions[3].id;
-				}
-			},
-		},
-		selectedDivisionID: {
-			get() {
-				return this.$store.state.league.division;
-			},
-			set(id) {
-				this.$store.commit("league/changeDivision", id);
-				this.$emit("divisionChanged");
-			},
-		},
 		lp: {
 			get() {
-				return this.$store.state.league.lp;
+				return this.$store.state.current.lp;
 			},
 			set(lp) {
-				this.$store.commit("league/changeLP", lp);
+				this.$store.commit("current/changeLP", lp);
 				this.$emit("lpchanged");
 			},
 		},
 		mmr: {
 			get() {
-				return this.$store.state.league.mmr;
+				return this.$store.state.current.mmr;
 			},
 			set(mmr) {
-				this.$store.commit("league/changeMMR", mmr);
+				this.$store.commit("current/changeMMR", mmr);
 				this.$emit("mmrchanged");
 			},
 		},
 		server: {
 			get() {
-				return this.$store.state.league.server;
+				return this.$store.state.current.server;
 			},
 			set(server) {
-				this.$store.commit("league/changeServer", server);
+				this.$store.commit("current/changeServer", server);
 			},
 		},
 		mark: {
 			get() {
-				return this.$store.state.league.mark;
+				return this.$store.state.current.mark;
 			},
 			set(mark) {
-				this.$store.commit("league/changeMark", mark);
+				this.$store.commit("current/changeMark", mark);
 			},
 		},
-		tier() {
-			let index = this.$store.state.league.tier;
-			return _.find(this.tiers, ["id", index]);
-		},
-		division() {
-			if (this.hasDivisions) {
-				return _.find(this.tier.divisions, [
-					"id",
-					this.selectedDivisionID,
-				]);
+		image() {
+			if (this.tier.divisions) {
+				return this.division.image;
 			}
-			return { image: null };
+			return this.tier.image;
 		},
-		hasDivisions() {
-			return !_.isEmpty(this.tier.divisions);
+	},
+	watch: {
+		tier(tier) {
+			this.$store.commit("current/changeTier", tier);
+			if (this.tier.divisions) {
+				this.division = _.find(this.tier.divisions, ["name", "III"]);
+			} else {
+				this.$emit("divisionChanged");
+			}
 		},
+		division(division) {
+			this.$store.commit("current/changeDivision", division);
+			this.$emit("divisionChanged");
+		},
+	},
+	created() {
+		this.tier = _.find(this.tiers, ["name", "Silver"]);
+		this.division = _.find(this.tier.divisions, ["name", "III"]);
 	},
 };
 </script>
