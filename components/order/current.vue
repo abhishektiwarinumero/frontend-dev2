@@ -180,7 +180,7 @@ export default {
 		tier(tier) {
 			this.$store.commit("current/changeTier", tier);
 			if (this.tier.divisions) {
-				this.division = _.find(this.tier.divisions, ["name", "III"]);
+				this.division = _.find(this.tier.divisions, ["name", "I"]);
 			} else {
 				this.$emit("divisionChanged");
 			}
