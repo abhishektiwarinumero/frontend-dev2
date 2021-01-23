@@ -78,9 +78,10 @@ export default {
 				_.range(this.$store.state.current.mmr.id, 1).includes(mmr.id)
 			);
 
-			let mmr_total = filtered_mmrs.reduce((sum, mmr) => {
-				return sum + mmr.price;
-			}, 0);
+			let mmr_total = filtered_mmrs.reduce(
+				(sum, mmr) => sum + mmr.price,
+				0
+			);
 
 			total = total * 1.5;
 
