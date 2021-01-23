@@ -192,7 +192,6 @@ export default {
 	},
 	created() {
 		this.tier = _.find(this.tiers, ["name", "Silver"]);
-		this.division = _.find(this.tier.divisions, ["name", "III"]);
 		this.mmr = _.find(this.tier.mmrs, ["range", "19-21"]);
 	},
 };
