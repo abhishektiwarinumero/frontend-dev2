@@ -67,7 +67,6 @@
 </template>
 
 <script>
-import tiers from "~/assets/js/tiers";
 import servers from "~/assets/js/servers";
 
 export default {
@@ -104,8 +103,7 @@ export default {
 		},
 		tiers: {
 			type: Array,
-			required: false,
-			default: () => tiers,
+			required: true,
 		},
 		suffix: {
 			type: String,
