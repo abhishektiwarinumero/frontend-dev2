@@ -42,7 +42,7 @@
 								<v-tooltip top color="primary" max-width="350">
 									<template v-slot:activator="{ on, attrs }">
 										<!-- MMR increases the price -->
-										<v-select v-bind="attrs" v-on="on" v-model="mmr" :items="tier.mmrs" item-text="range" item-value="id" dense solo suffix="MMR"></v-select>
+										<v-select v-bind="attrs" v-on="on" v-model="mmr" :items="tier.mmrs" item-text="range" item-value="id" dense solo suffix="MMR" return-object></v-select>
 									</template>
 									<span>
 										Please select the amount of LP you are expected to receive
@@ -193,6 +193,7 @@ export default {
 	created() {
 		this.tier = _.find(this.tiers, ["name", "Silver"]);
 		this.division = _.find(this.tier.divisions, ["name", "III"]);
+		this.mmr = _.find(this.tier.mmrs, ["range", "19-21"]);
 	},
 };
 </script>
