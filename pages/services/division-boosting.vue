@@ -1,8 +1,8 @@
 <template>
 	<v-row>
 		<v-col cols="12" sm="6" md="7">
-			<select-current-league @divisionChanged="changePrice" @lpchanged="changePrice" @mmrchanged="changePrice" showPointsSelection />
-			<select-desired-league @divisionChanged="changePrice" />
+			<current title="Current League" description="Please select your Current Rank and Division" :tiers="tiers" suffix="Current LP" showPointsSelection lpSuffix="LP" lpTooltip="Your current Rank Rating amount." @divisionChanged="changePrice" @lpchanged="changePrice" @mmrchanged="changePrice" />
+			<desired title="Desired League" description="Please select your Desired Rank and Division" :tiers="tiers" @divisionChanged="changePrice" />
 		</v-col>
 		<v-col cols="6" md="5">
 			<checkout :options="options" />
@@ -67,35 +67,40 @@ export default {
 			let allPrices = _.flatten(
 				_.map(this.tiers, (tier) => {
 					if (tier.divisions) {
-						return _.map(tier.divisions, (division) => [
-							division.id,
-							division.price,
-						]);
+						return _.map(tier.divisions, (division) => {
+							return { id: division.id, price: division.price };
+						});
 					} else {
 						return tier.price;
 					}
 				})
 			);
+			let fromId;
+			let currentTier = this.$store.state.current.tier;
+			if (currentTier.divisions) {
+				fromId = this.$store.state.current.division.id;
+			} else {
+				fromId = currentTier.id;
+			}
+			let toId;
+			let desiredTier = this.$store.state.desired.tier;
+			if (desiredTier.divisions) {
+				toId = this.$store.state.desired.division.id;
+			} else {
+				toId = desiredTier.id;
+			}
 			let filteredPrices = _.filter(allPrices, (price) =>
 				// This is a whereIn replacement
-				_.range(
-					this.$store.state.desired.division,
-					this.$store.state.league.division
-				).includes(price[0])
+				_.range(fromId + 1, toId + 1).includes(price.id)
 			);
 			// Sum up their prices using JS reduce
 			let total = filteredPrices.reduce((sum, price) => {
-				return sum + price[1];
+				return sum + price.price;
 			}, 0);
 			// Get the MMR from the VueX store
 			// We need to get its price from the currently selected division
-			let tier = _.find(this.tiers, [
-				"id",
-				this.$store.state.league.tier,
-			]);
-
-			let filtered_mmrs = _.filter(tier.mmrs, (mmr) =>
-				_.range(this.$store.state.league.mmr, 1).includes(mmr.id)
+			let filtered_mmrs = _.filter(currentTier.mmrs, (mmr) =>
+				_.range(this.$store.state.current.mmr, 1).includes(mmr.id)
 			);
 
 			let mmr_total = filtered_mmrs.reduce((sum, mmr) => {
@@ -105,40 +110,22 @@ export default {
 			// Load price of (get it from currently selected desired division)
 			this.$store.commit(
 				"price/changePrice",
-				total + mmr_total - tier.lp
+				total + mmr_total - currentTier.lp
 			);
 		},
 		sendOrder(token) {
 			// Gather current tier and division
-			let currentTier = _.find(this.tiers, [
-				"id",
-				this.$store.state.league.tier,
-			]);
-			let division = _.find(currentTier.divisions, [
-				"id",
-				this.$store.state.league.division,
-			]).name;
+			let currentTier = this.$store.state.current.tier;
+			let currentDivision = this.$store.state.current.division;
 			// Gather desired tier and division
-			let desiredTier = _.find(this.tiers, [
-				"id",
-				this.$store.state.desired.tier,
-			]);
-			let desiredDivision = _.find(desiredTier.divisions, [
-				"id",
-				this.$store.state.desired.division,
-			]).name;
-			let mmr = _.find(currentTier.mmrs, [
-				"id",
-				this.$store.state.league.mmr,
-			]);
-			// Hydrate the tiers names
-			currentTier = currentTier.name;
-			desiredTier = desiredTier.name;
+			let desiredTier = this.$store.state.desired.tier;
+			let desiredDivision = this.$store.state.desired.division;
+			let mmr = this.$store.state.current.mmr;
 			// Gather LP
 			this.$store.commit(
 				"checkout/addOption",
 				// We shouldn't send the value of the LP, but the rank name and suffix it with LP
-				this.$store.state.league.lp + " LP"
+				this.$store.state.current.lp + " LP"
 			);
 			// Gather MMR
 			this.$store.commit(
@@ -148,38 +135,24 @@ export default {
 			);
 			// Construct the purchase string
 			// Purchase here is "current (tier & division) to desired (tier & division)"
-			let purchase = `${currentTier} ${division} to ${desiredTier} ${desiredDivision}`;
-			// Gather selected server
-			let server = this.$store.state.league.server;
+			let purchase = `${currentTier.name} ${currentDivision.name} to ${desiredTier.name} ${desiredDivision.name}`;
 			// Gather game queue (solo/duo)
 			this.$store.commit(
 				"checkout/addOption",
 				this.$store.state.desired.queue
 			);
-			// Gather extra options
-			let options = this.$store.state.checkout.options;
-			// Gather price
-			let price = this.$store.getters["price/price"];
-			// Gather discount code
-			let discountCode = this.$store.state.checkout.discountCode;
-			// Gather in-game-nickname (summoner name)
-			let nickname = this.$store.state.order.nickname;
-			// Gather selected booster
-			let booster = this.$store.state.order.booster;
-			// Gather Comment
-			let comment = this.$store.state.order.comment;
 			// Get all data from store and post them to DB
 			this.$axios
 				.post("orders", {
 					purchase,
 					service: "Division Boosting",
-					server,
-					options,
-					price,
-					discountCode,
-					nickname,
-					booster,
-					comment,
+					server: this.$store.state.desired.server,
+					options: this.$store.state.checkout.options,
+					price: this.$store.getters["price/price"],
+					discountCode: this.$store.state.checkout.discountCode,
+					nickname: this.$store.state.order.nickname,
+					booster: this.$store.state.order.booster,
+					comment: this.$store.state.order.comment,
 					token,
 				})
 				.then((response) => {
