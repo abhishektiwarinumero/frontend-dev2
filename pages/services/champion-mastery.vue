@@ -55,6 +55,8 @@
 
 <script>
 import champions from "~/assets/js/champions";
+import tiers from "~/assets/js/champion-mastery/tiers";
+import options from "~/assets/js/champion-mastery/options";
 
 export default {
 	layout: "order",
@@ -65,66 +67,8 @@ export default {
 		desiredTier: 7,
 		token: 5,
 		maxTokens: 5,
-		tiers: [
-			{
-				level: 0,
-				price: 0,
-			},
-			{
-				level: 1,
-				price: 2.8,
-			},
-			{
-				level: 2,
-				price: 5.2,
-			},
-			{
-				level: 3,
-				price: 10,
-			},
-			{
-				level: 4,
-				price: 15.5,
-			},
-			{
-				level: 5,
-				price: 20.35,
-			},
-			{
-				level: 6,
-				price: 15,
-			},
-			{
-				level: 7,
-				price: 14,
-			},
-		],
-		options: [
-			{
-				checked: false,
-				icon: "mdi-account-remove",
-				title: "Appear offline on chat",
-				percentage: 0,
-				tip:
-					"This option will make your account offline in the League Client chat, therefore your friends won't see when the booster is playing on your account",
-			},
-			{
-				checked: false,
-				icon: "mdi-flash",
-				title: "Priority order at",
-				percentage: 20,
-				tip:
-					"This option ensures that your order will be treated with a higher priority, thus resulting in a faster completion.",
-			},
-			{
-				checked: false,
-				icon: "mdi-video",
-				title: "With Streaming at",
-				percentage: 15,
-				tip:
-					"Your assigned booster will record/live stream all the games, depending on your requirements.",
-			},
-		],
+		tiers: tiers,
+		options: options,
 	}),
 	computed: {
 		tokens() {
@@ -182,34 +126,20 @@ export default {
 			// Construct the purchase string
 			// Purchase here is "current (tier & division) to desired (tier & division)"
 			let purchase = `Tier ${this.currentTier} to Tier ${this.desiredTier}`;
-			// Gather selected server
-			let server = this.$store.state.league.server;
 			// Push the selected champion to the order's checkout options
 			this.$store.commit("checkout/addOption", this.champion);
-			// Gather extra options
-			let options = this.$store.state.checkout.options;
-			// Gather price
-			let price = this.$store.getters["price/price"];
-			// Gather discount code
-			let discountCode = this.$store.state.checkout.discountCode;
-			// Gather in-game-nickname (summoner name)
-			let nickname = this.$store.state.order.nickname;
-			// Gather selected booster
-			let booster = this.$store.state.order.booster;
-			// Gather Comment
-			let comment = this.$store.state.order.comment;
 			// Get all data from store and post them to DB
 			this.$axios
 				.post("orders", {
 					purchase,
 					service: "Champion Mastery Boosting",
-					server,
-					options,
-					price,
-					discountCode,
-					nickname,
-					booster,
-					comment,
+					server: this.$store.state.league.server,
+					options: this.$store.state.checkout.options,
+					price: this.$store.getters["price/price"],
+					discountCode: this.$store.state.checkout.discountCode,
+					nickname: this.$store.state.order.nickname,
+					booster: this.$store.state.order.booster,
+					comment: this.$store.state.order.comment,
 					token,
 				})
 				.then((response) => {
