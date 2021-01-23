@@ -1,7 +1,7 @@
 <template>
 	<v-row>
 		<v-col cols="12" sm="6" md="7">
-			<select-current-league showServerSelection title="Preseason's league" :tiers="tiers" />
+			<current title="Preseason's league" description="Please select your Preseason Rank and Divisions" showServerSelection :tiers="tiers" />
 			<slider title="Select Your Number Of Games" />
 		</v-col>
 		<v-col cols="6" md="5">
@@ -63,13 +63,10 @@ export default {
 	}),
 	computed: {
 		tier() {
-			return _.find(this.tiers, ["id", this.$store.state.league.tier]);
+			return this.$store.state.current.tier;
 		},
 		division() {
-			return _.find(this.tier.divisions, [
-				"id",
-				this.$store.state.league.division,
-			]);
+			return this.$store.state.current.division;
 		},
 	},
 	methods: {
@@ -77,8 +74,6 @@ export default {
 			this.$store.commit("price/changePrice", this.division.price);
 		},
 		sendOrder(token) {
-			// Gather selected server
-			let server = this.$store.state.league.server;
 			// Get selected number of games
 			let games = this.$store.state.slider.amount;
 			// Gather game queue (solo/duo)
@@ -86,33 +81,21 @@ export default {
 				"checkout/addOption",
 				this.$store.state.slider.queue
 			);
-			// Gather extra options
-			let options = this.$store.state.checkout.options;
-			// Gather discount code
-			let discountCode = this.$store.state.checkout.discountCode;
-			// Gather price
-			let price = this.$store.getters["price/price"];
 			// Construct the purchase string
 			// Purchase here is "2 games in Gold IV"
 			let purchase = `${games} games in ${this.tier.name} ${this.division.name}`;
-			// Gather in-game-nickname (summoner name)
-			let nickname = this.$store.state.order.nickname;
-			// Gather selected booster
-			let booster = this.$store.state.order.booster;
-			// Gather Comment
-			let comment = this.$store.state.order.comment;
 			// Get all data from store and post them to DB
 			this.$axios
 				.post("orders", {
 					purchase,
 					service: "Ranked Win boosting",
-					server,
-					options,
-					price,
-					discountCode,
-					nickname,
-					booster,
-					comment,
+					server: this.$store.state.current.server,
+					options: this.$store.state.checkout.options,
+					price: this.$store.getters["price/price"],
+					discountCode: this.$store.state.checkout.discountCode,
+					nickname: this.$store.state.order.nickname,
+					booster: this.$store.state.order.booster,
+					comment: this.$store.state.order.comment,
 					token,
 				})
 				.then((response) => {
