@@ -1,7 +1,7 @@
 <template>
 	<v-row>
 		<v-col cols="12" sm="6" md="7">
-			<current title="Current League" description="Please select your Current Rank and Division" :tiers="tiers" suffix="Current LP" showPointsSelection lpSuffix="LP" lpTooltip="Your current Rank Rating amount." @divisionChanged="changePrice" @lpchanged="changePrice" @mmrchanged="changePrice" />
+			<current title="Current League" description="Please select your Current Rank and Division" :tiers="tiers" suffix="Current LP" showPointsSelection lpTooltip="Your current Rank Rating amount." @divisionChanged="changePrice" @lpchanged="changePrice" @mmrchanged="changePrice" />
 			<desired title="Desired League" description="Please select your Desired Rank and Division" :tiers="tiers" @divisionChanged="changePrice" />
 		</v-col>
 		<v-col cols="6" md="5">
@@ -100,7 +100,7 @@ export default {
 			// Get the MMR from the VueX store
 			// We need to get its price from the currently selected division
 			let filtered_mmrs = _.filter(currentTier.mmrs, (mmr) =>
-				_.range(this.$store.state.current.mmr, 1).includes(mmr.id)
+				_.range(this.$store.state.current.mmr.id, 1).includes(mmr.id)
 			);
 
 			let mmr_total = filtered_mmrs.reduce((sum, mmr) => {
