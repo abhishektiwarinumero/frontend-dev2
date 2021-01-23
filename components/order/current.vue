@@ -73,8 +73,7 @@ export default {
 	props: {
 		title: {
 			type: String,
-			required: false,
-			default: "Select Your Current current",
+			required: true,
 		},
 		description: {
 			type: String,
