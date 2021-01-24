@@ -82,7 +82,7 @@ export default {
 				if (this.tier.divisions) {
 					this.$store.commit(
 						"desired/changeDivision",
-						_.find(this.tier.divisions, ["name", "IV"])
+						_.find(this.tier.divisions, ["name", "III"])
 					);
 				}
 				this.$emit("divisionChanged");
