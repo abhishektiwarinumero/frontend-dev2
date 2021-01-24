@@ -1,7 +1,7 @@
 <template>
 	<v-row>
 		<v-col cols="12" sm="6" md="7">
-			<current title="Current League" description="Please select your Current Rank and Division" @divisionChanged="changePrice" @lpchanged="changePrice" @mmrchanged="changePrice" showPointsSelection :tiers="tiers" />
+			<current title="Current League" description="Please select your Current Rank and Division" mmrs @divisionChanged="changePrice" @lpchanged="changePrice" @mmrchanged="changePrice" showPointsSelection :tiers="tiers" />
 			<desired @divisionChanged="changePrice" />
 		</v-col>
 		<v-col cols="6" md="5">

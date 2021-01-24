@@ -38,7 +38,7 @@
 									<span>{{ lpTooltip }}</span>
 								</v-tooltip>
 							</v-col>
-							<v-col v-if="showMMRSelection">
+							<v-col v-if="mmrs">
 								<v-tooltip top color="primary" max-width="350">
 									<template v-slot:activator="{ on, attrs }">
 										<!-- MMR increases the price -->
@@ -90,10 +90,11 @@ export default {
 			required: false,
 			default: false,
 		},
-		showMMRSelection: {
+		// Determine whether or not to show MMR selection
+		mmrs: {
 			type: Boolean,
 			required: false,
-			default: true,
+			default: false,
 		},
 		showMarksSelection: {
 			type: Boolean,

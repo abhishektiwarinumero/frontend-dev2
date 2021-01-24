@@ -1,7 +1,7 @@
 <template>
 	<v-row>
 		<v-col cols="12" sm="6" md="7">
-			<current title="Current Rank" description="Please select your Current Rank and Division" :tiers="ranks" suffix="Current RR" showPointsSelection :showMMRSelection="false" lpTooltip="Your current Rank Rating amount." @divisionChanged="changePrice" @lpchanged="changePrice" />
+			<current title="Current Rank" description="Please select your Current Rank and Division" :tiers="ranks" suffix="Current RR" showPointsSelection lpTooltip="Your current Rank Rating amount." @divisionChanged="changePrice" @lpchanged="changePrice" />
 			<desired title="Desired Rank" description="Please select your Desired Rank and Division" :tiers="ranks" @divisionChanged="changePrice" :showQueue="false" />
 		</v-col>
 		<v-col cols="6" md="5">
