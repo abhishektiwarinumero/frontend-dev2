@@ -1,8 +1,8 @@
 <template>
 	<v-row>
 		<v-col cols="12" sm="6" md="7">
-			<select-current-league @divisionChanged="changePrice" @lpchanged="changePrice" @mmrchanged="changePrice" marks :tiers="tiers" />
-			<select-desired-league @divisionChanged="changePrice" />
+			<current @divisionChanged="changePrice" @lpchanged="changePrice" @mmrchanged="changePrice" marks :tiers="tiers" />
+			<desired @divisionChanged="changePrice" />
 		</v-col>
 		<v-col cols="6" md="5">
 			<checkout :options="options" />

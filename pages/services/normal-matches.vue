@@ -69,5 +69,8 @@ export default {
 		this.$store.commit("slider/changeAmount", 15);
 		this.$store.commit("price/changePrice", 2.84);
 	},
+	beforeDestroy() {
+		this.$store.commit("slider/changeAmount", 1);
+	},
 };
 </script>

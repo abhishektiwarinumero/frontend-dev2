@@ -71,5 +71,8 @@ export default {
 		this.$store.commit("slider/changeAmount", 5);
 		this.$store.commit("valorant/current/changeDivision", 9);
 	},
+	beforeDestroy() {
+		this.$store.commit("slider/changeAmount", 1);
+	},
 };
 </script>

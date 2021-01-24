@@ -61,5 +61,8 @@ export default {
 	mounted() {
 		this.$store.commit("slider/changeAmount", 3);
 	},
+	beforeDestroy() {
+		this.$store.commit("slider/changeAmount", 1);
+	},
 };
 </script>

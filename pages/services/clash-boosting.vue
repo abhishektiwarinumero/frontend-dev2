@@ -65,9 +65,10 @@ export default {
 		this.tier = _.find(this.tiers, ["label", "Tier III"]);
 	},
 	mounted() {
-		setTimeout(() => {
-			this.$store.commit("slider/changeAmount", 4);
-		}, 300);
+		this.$store.commit("slider/changeAmount", 4);
+	},
+	beforeDestroy() {
+		this.$store.commit("slider/changeAmount", 1);
 	},
 };
 </script>

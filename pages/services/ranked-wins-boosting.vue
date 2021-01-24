@@ -120,11 +120,12 @@ export default {
 		},
 	},
 	mounted() {
-		setTimeout(() => {
-			this.$store.commit("slider/changeAmount", 4);
-			this.changePrice();
-			this.$root.$on("sendOrder", (token) => this.sendOrder(token));
-		}, 300);
+		this.$store.commit("slider/changeAmount", 4);
+		this.changePrice();
+		this.$root.$on("sendOrder", (token) => this.sendOrder(token));
+	},
+	beforeDestroy() {
+		this.$store.commit("slider/changeAmount", 1);
 	},
 };
 </script>
