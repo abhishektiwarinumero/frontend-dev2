@@ -1,7 +1,3 @@
-// LP lowers the price
-// MMR increases the price
-// MMR price is currently dependent on how the selected range but LP price isn't
-
 export default [{
 		id: 1,
 		name: "Iron",
