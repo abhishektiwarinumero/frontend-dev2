@@ -9,17 +9,12 @@
 </template>
 
 <script>
-import tiers from "~/assets/js/tiers";
-import services from "~/assets/js/services";
-
 export default {
 	data: () => ({
 		valid: false,
 		// Declared in instance but not referenced during render, just outsourcing scope
 		client_secret: "",
 		stripeToken: "",
-		tiers: tiers,
-		services: services,
 	}),
 	methods: {
 		sendOrder() {
