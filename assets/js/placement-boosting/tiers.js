@@ -1,9 +1,12 @@
-// LP lowers the price
-// MMR increases the price
-// MMR price is currently dependent on how the selected range but LP price isn't
-
 export default [{
 		id: 1,
+		name: "Unranked",
+		box_shadow: "inset 60px 0 120px rgba(161,113,29,.2), 0 0 9px 0 rgba(0,0,0,.6)",
+		image: "/img/divisions/unranked.png",
+		price: 2.85,
+	},
+	{
+		id: 2,
 		name: "Iron",
 		box_shadow: "inset 60px 0 120px rgba(152,129,108,.2), 0 0 9px 0 rgba(0,0,0,.6)",
 		divisions: [{
@@ -33,7 +36,7 @@ export default [{
 		],
 	},
 	{
-		id: 2,
+		id: 3,
 		name: "Bronze",
 		box_shadow: "inset 60px 0 120px rgba(89,60,28,.2), 0 0 9px 0 rgba(0,0,0,.6)",
 		divisions: [{
@@ -63,7 +66,7 @@ export default [{
 		],
 	},
 	{
-		id: 3,
+		id: 4,
 		name: "Silver",
 		box_shadow: "inset 60px 0 120px rgba(119,134,131,.2), 0 0 9px 0 rgba(0,0,0,.6)",
 		divisions: [{
@@ -93,7 +96,7 @@ export default [{
 		],
 	},
 	{
-		id: 4,
+		id: 5,
 		name: "Gold",
 		box_shadow: "inset 60px 0 120px rgba(228,189,62,.2), 0 0 9px 0 rgba(0,0,0,.6)",
 		divisions: [{
@@ -123,7 +126,7 @@ export default [{
 		],
 	},
 	{
-		id: 5,
+		id: 6,
 		name: "Platinum",
 		box_shadow: "inset 60px 0 120px rgba(57,123,135,.2), 0 0 9px 0 rgba(0,0,0,.6)",
 		divisions: [{
@@ -153,7 +156,7 @@ export default [{
 		],
 	},
 	{
-		id: 6,
+		id: 7,
 		name: "Diamond",
 		box_shadow: "inset 60px 0 120px rgba(48,113,222,.2), 0 0 9px 0 rgba(0,0,0,.6)",
 		divisions: [{
@@ -183,31 +186,10 @@ export default [{
 		],
 	},
 	{
-		id: 7,
-		name: "Master",
+		id: 8,
+		name: "Master+",
 		box_shadow: "inset 60px 0 120px rgba(128,29,161,.2), 0 0 9px 0 rgba(0,0,0,.6)",
 		image: "/img/divisions/master.webp",
 		price: 9.85,
-	},
-	{
-		id: 8,
-		name: "Grandmaster",
-		box_shadow: "inset 60px 0 120px rgba(161,29,29,.2), 0 0 9px 0 rgba(0,0,0,.6)",
-		image: "/img/divisions/grandmaster.webp",
-		price: 9.85,
-	},
-	{
-		id: 9,
-		name: "Challenger",
-		box_shadow: "inset 60px 0 120px rgba(161,113,29,.2), 0 0 9px 0 rgba(0,0,0,.6)",
-		image: "/img/divisions/challenger.webp",
-		price: 9.85,
-	},
-	{
-		id: 10,
-		name: "Unranked",
-		box_shadow: "inset 60px 0 120px rgba(161,113,29,.2), 0 0 9px 0 rgba(0,0,0,.6)",
-		image: "/img/divisions/unranked.png",
-		price: 2.85,
 	},
 ];
