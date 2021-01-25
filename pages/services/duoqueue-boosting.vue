@@ -2,7 +2,7 @@
 	<v-row>
 		<v-col cols="12" sm="6" md="7">
 			<current title="Current League" description="Please select your Current Rank and Division" mmrs @divisionChanged="changePrice" @lpchanged="changePrice" @mmrchanged="changePrice" showPointsSelection :tiers="tiers" />
-			<desired @divisionChanged="changePrice" />
+			<desired @divisionChanged="changePrice" :tiers="tiers" />
 		</v-col>
 		<v-col cols="6" md="5">
 			<checkout :options="options" />
@@ -12,38 +12,14 @@
 </template>
 
 <script>
-import tiers from "~/assets/js/tiers";
+import tiers from "~/assets/js/duoqueue-boosting/tiers";
+import options from "~/assets/js/duoqueue-boosting/options";
 
 export default {
 	layout: "order",
 	data: () => ({
 		tiers: tiers,
-		options: [
-			{
-				checked: false,
-				icon: "mdi-school",
-				title: "With coaching at",
-				percentage: 30,
-				tip:
-					"This option allows you to be in a voice call with our booster during and in between the games so he may give you tips and ideas for your improvement.",
-			},
-			{
-				checked: false,
-				icon: "mdi-flash",
-				title: "Priority order at",
-				percentage: 20,
-				tip:
-					"This option ensures that your order will be treated with a higher priority, thus resulting in a faster completion.",
-			},
-			{
-				checked: false,
-				icon: "mdi-finance",
-				title: "HIGH-MMR account at",
-				percentage: 20,
-				tip:
-					"Your assigned booster will play with you from a high MMR account.",
-			},
-		],
+		options: options,
 	}),
 	methods: {
 		changePrice() {
