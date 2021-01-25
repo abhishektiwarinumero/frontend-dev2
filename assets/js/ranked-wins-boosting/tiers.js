@@ -173,7 +173,7 @@ export default [{
 			{
 				id: 24,
 				image: "/img/divisions/diamond/I.webp",
-				price: 22.4,
+				price: 25.4,
 				name: "I",
 			},
 		],
