@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import tiers from "~/assets/js/duoqueue-boosting/tiers";
+import tiers from "~/assets/js/division-boosting/tiers";
 import options from "~/assets/js/duoqueue-boosting/options";
 
 export default {
