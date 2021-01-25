@@ -466,7 +466,6 @@ export default [{
 		box_shadow: "inset 60px 0 120px rgba(128,29,161,.2), 0 0 9px 0 rgba(0,0,0,.6)",
 		image: "/img/divisions/master.webp",
 		price: 352,
-		lp: 10,
 		mmrs: [{
 				id: 1,
 				range: '21+',
@@ -520,7 +519,6 @@ export default [{
 		box_shadow: "inset 60px 0 120px rgba(161,29,29,.2), 0 0 9px 0 rgba(0,0,0,.6)",
 		image: "/img/divisions/grandmaster.webp",
 		price: 29.9,
-		lp: 10,
 		mmrs: [{
 				id: 1,
 				range: '21+',
@@ -574,7 +572,6 @@ export default [{
 		box_shadow: "inset 60px 0 120px rgba(161,113,29,.2), 0 0 9px 0 rgba(0,0,0,.6)",
 		image: "/img/divisions/challenger.webp",
 		price: 32.9,
-		lp: 10,
 		mmrs: [{
 				id: 1,
 				range: '21+',

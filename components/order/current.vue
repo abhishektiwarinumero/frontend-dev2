@@ -21,9 +21,9 @@
 							<v-col v-if="tier.divisions">
 								<v-select :items="tier.divisions" label="Current division" dense solo v-model="division" item-text="name" item-value="id" prefix="Division" return-object></v-select>
 							</v-col>
-							<!-- if no divisions, points become text field -->
+							<!-- if no divisions, lp becomes a text field -->
 							<v-col v-else>
-								<v-text-field v-model="points" hide-details single-line type="number" :suffix="suffix" />
+								<v-text-field v-model="lp" hide-details single-line type="number" :suffix="suffix" />
 							</v-col>
 						</v-row>
 						<!-- LP & MMR -->
@@ -124,7 +124,6 @@ export default {
 	data: () => ({
 		tier: {},
 		division: { image: null },
-		points: 0,
 		lps: ["0-20", "21-40", "41-60", "61-80", "81-100"],
 		marks: [
 			"0 / 3 Mark Status",
@@ -182,7 +181,11 @@ export default {
 			if (this.tier.divisions) {
 				this.division = _.find(this.tier.divisions, ["name", "I"]);
 			} else {
+				// Emit as if the division has changed, actually the tier did but has no divisions
+				// This is just to trigger the changePrice function in the service page component
 				this.$emit("divisionChanged");
+				// Also change LP to 0 to be parsed in the text number type field
+				this.lp = 0;
 			}
 		},
 		division(division) {

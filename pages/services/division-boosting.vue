@@ -67,11 +67,12 @@ export default {
 				0
 			);
 
+			if (currentTier.lp) {
+				total = total - currentTier.lp;
+			}
+
 			// Load price of (get it from currently selected desired division)
-			this.$store.commit(
-				"price/changePrice",
-				total + mmr_total - currentTier.lp
-			);
+			this.$store.commit("price/changePrice", total + mmr_total);
 		},
 		sendOrder(token) {
 			// Gather current tier and division
