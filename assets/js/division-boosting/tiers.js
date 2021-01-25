@@ -310,7 +310,7 @@ export default [{
 		id: 5,
 		name: "Platinum",
 		box_shadow: "inset 60px 0 120px rgba(57,123,135,.2), 0 0 9px 0 rgba(0,0,0,.6)",
-		lp: 3.5,
+		lp: 3.75,
 		mmrs: [{
 				id: 1,
 				range: '21+',
@@ -387,7 +387,7 @@ export default [{
 		id: 6,
 		name: "Diamond",
 		box_shadow: "inset 60px 0 120px rgba(48,113,222,.2), 0 0 9px 0 rgba(0,0,0,.6)",
-		lp: 10,
+		lp: 8.75,
 		mmrs: [{
 				id: 1,
 				range: '21+',
@@ -518,7 +518,7 @@ export default [{
 		name: "Grandmaster",
 		box_shadow: "inset 60px 0 120px rgba(161,29,29,.2), 0 0 9px 0 rgba(0,0,0,.6)",
 		image: "/img/divisions/grandmaster.webp",
-		price: 29.9,
+		price: 250,
 		mmrs: [{
 				id: 1,
 				range: '21+',
@@ -571,7 +571,7 @@ export default [{
 		name: "Challenger",
 		box_shadow: "inset 60px 0 120px rgba(161,113,29,.2), 0 0 9px 0 rgba(0,0,0,.6)",
 		image: "/img/divisions/challenger.webp",
-		price: 32.9,
+		price: 500,
 		mmrs: [{
 				id: 1,
 				range: '21+',
