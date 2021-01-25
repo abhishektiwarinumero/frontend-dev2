@@ -31,7 +31,8 @@ export default {
 	},
 	methods: {
 		changePrice() {
-			this.$store.commit("price/changePrice", this.division.price);
+			let lp = (parseInt(this.$store.state.current.lp) / 50) * 3;
+			this.$store.commit("price/changePrice", this.division.price + lp);
 		},
 		sendOrder(token) {
 			// Get selected number of wins
@@ -73,6 +74,7 @@ export default {
 	},
 	mounted() {
 		this.$store.commit("slider/changeAmount", 4);
+		this.$store.commit("current/changeLP", 0);
 		this.changePrice();
 		this.$root.$on("sendOrder", (token) => this.sendOrder(token));
 	},
