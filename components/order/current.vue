@@ -136,6 +136,7 @@ export default {
 				return this.$store.state.current.tier;
 			},
 			set(tier) {
+				this.mmr = _.find(tier.mmrs, ["range", "15-17"]);
 				// If the new tier is higher than the one in the desired league, change the one in the desired league to be one step higher
 				// First let's get the id of the tier in the desired league
 				let desired_tier_id = this.$store.state.desired.tier.id;
@@ -162,7 +163,7 @@ export default {
 				this.$store.commit("current/changeTier", tier);
 				if (this.tier.divisions) {
 					this.division = _.find(this.tier.divisions, ["name", "I"]);
-					this.lp = _.first(this.tier.lps);
+					this.lp = _.find(this.tier.lps, ["label", "21-40"]);
 				} else {
 					// Emit as if the division has changed, actually the tier did but has no divisions
 					// This is just to trigger the changePrice function in the service page component
@@ -223,9 +224,8 @@ export default {
 		},
 	},
 	created() {
-		this.tier = _.find(this.tiers, ["name", "Silver"]);
+		this.tier = _.find(this.tiers, ["name", "Bronze"]);
 		this.lp = _.find(this.tier.lps, ["label", "21-40"]);
-		this.mmr = _.find(this.tier.mmrs, ["range", "19-21"]);
 	},
 };
 </script>

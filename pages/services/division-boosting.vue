@@ -45,12 +45,14 @@ export default {
 		changePrice() {
 			// Flatten and merge all divisions by id and price
 			// Add the Master+ tier price as the last one
-			let allPrices = _.flatten(
+			let all_divisions_prices = _.flatten(
 				_.map(this.tiers, (tier) => {
 					if (tier.divisions) {
 						return _.map(tier.divisions, (division) => ({
 							id: division.id,
 							price: division.price,
+							mmr: _.find(tier.mmrs, ["range", this.mmr.range])
+								.price,
 						}));
 					} else {
 						return { id: 25, price: tier.price };
@@ -69,20 +71,19 @@ export default {
 			} else {
 				toId = 25;
 			}
-			let filteredPrices = _.filter(allPrices, (price) =>
-				// This is a whereIn replacement
-				this.$range(fromId, toId).includes(price.id)
+			let divisions_in_between = _.filter(
+				all_divisions_prices,
+				(division) =>
+					// This is a whereIn replacement
+					this.$range(fromId, toId).includes(division.id)
 			);
 			// Sum up their prices using JS reduce
-			let total = filteredPrices.reduce((sum, price) => {
-				return sum + price.price;
+			let total = divisions_in_between.reduce((sum, division) => {
+				return sum + division.price + division.mmr;
 			}, 0);
 
 			// Load price of (get it from currently selected desired division)
-			this.$store.commit(
-				"price/changePrice",
-				total + this.mmr.price - this.lp.price
-			);
+			this.$store.commit("price/changePrice", total - this.lp.price);
 		},
 		sendOrder(token) {
 			// Gather LP
@@ -133,7 +134,6 @@ export default {
 		},
 	},
 	mounted() {
-		this.changePrice();
 		this.$root.$on("sendOrder", (token) => this.sendOrder(token));
 	},
 };
