@@ -615,7 +615,7 @@ export default [{
 		name: "Master+",
 		box_shadow: "inset 60px 0 120px rgba(128,29,161,.2), 0 0 9px 0 rgba(0,0,0,.6)",
 		image: "/img/divisions/master.webp",
-		price: 352,
+		price: 220,
 		mmrs: [{
 				id: 1,
 				range: '21+',
