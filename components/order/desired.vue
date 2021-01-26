@@ -76,6 +76,25 @@ export default {
 				return this.$store.state.desired.tier;
 			},
 			set(tier) {
+				// If the new tier is lower than the one in the current league, change the one in the current league to be one step lower
+				// First let's get the id of the tier in the current league
+				let current_tier_id = this.$store.state.current.tier.id;
+				// Let's now get the id of the desired tier
+				let desired_tier_id = tier.id;
+				if (desired_tier_id < current_tier_id) {
+					// Get the tier that is one step lower than desired_tier_id
+					let lower_tier = _.find(this.tiers, [
+						"id",
+						desired_tier_id - 1,
+					]);
+					// Commit it to the VueX store
+					this.$store.commit("current/changeTier", lower_tier);
+					// Commit its first division to the store as well
+					this.$store.commit(
+						"current/changeDivision",
+						_.first(lower_tier.divisions)
+					);
+				}
 				this.$store.commit("desired/changeTier", tier);
 				if (this.tier.divisions) {
 					this.$store.commit(

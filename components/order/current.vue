@@ -122,8 +122,6 @@ export default {
 		},
 	},
 	data: () => ({
-		tier: {},
-		division: { image: null },
 		marks: [
 			"0 / 3 Mark Status",
 			"1 / 3 Mark Status",
@@ -133,6 +131,51 @@ export default {
 		servers: servers,
 	}),
 	computed: {
+		tier: {
+			get() {
+				return this.$store.state.current.tier;
+			},
+			set(tier) {
+				// If the new tier is higher than the one in the desired league, change the one in the desired league to be one step higher
+				// First let's get the id of the tier in the desired league
+				let desired_tier_id = this.$store.state.desired.tier.id;
+				// Let's now get the id of the current tier
+				let current_tier_id = tier.id;
+				if (current_tier_id > desired_tier_id) {
+					// Get the tier that is one step higher than currentTier
+					let higher_tier = _.find(this.tiers, [
+						"id",
+						current_tier_id + 1,
+					]);
+					// Commit it to the VueX store
+					this.$store.commit("desired/changeTier", higher_tier);
+					// Commit its first division to the store as well
+					this.$store.commit(
+						"desired/changeDivision",
+						_.first(higher_tier.divisions)
+					);
+				}
+				this.$store.commit("current/changeTier", tier);
+				if (this.tier.divisions) {
+					this.division = _.find(this.tier.divisions, ["name", "I"]);
+				} else {
+					// Emit as if the division has changed, actually the tier did but has no divisions
+					// This is just to trigger the changePrice function in the service page component
+					this.$emit("divisionChanged");
+					// Also change LP to 0 to be parsed in the text number type field
+					this.lp = 0;
+				}
+			},
+		},
+		division: {
+			get() {
+				return this.$store.state.current.division;
+			},
+			set(division) {
+				this.$store.commit("current/changeDivision", division);
+				this.$emit("divisionChanged");
+			},
+		},
 		lp: {
 			get() {
 				return this.$store.state.current.lp;
@@ -172,24 +215,6 @@ export default {
 				return this.division.image;
 			}
 			return this.tier.image;
-		},
-	},
-	watch: {
-		tier(tier) {
-			this.$store.commit("current/changeTier", tier);
-			if (this.tier.divisions) {
-				this.division = _.find(this.tier.divisions, ["name", "I"]);
-			} else {
-				// Emit as if the division has changed, actually the tier did but has no divisions
-				// This is just to trigger the changePrice function in the service page component
-				this.$emit("divisionChanged");
-				// Also change LP to 0 to be parsed in the text number type field
-				this.lp = 0;
-			}
-		},
-		division(division) {
-			this.$store.commit("current/changeDivision", division);
-			this.$emit("divisionChanged");
 		},
 	},
 	created() {
