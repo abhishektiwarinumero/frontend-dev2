@@ -81,9 +81,10 @@ export default {
 			let total = divisions_in_between.reduce((sum, division) => {
 				return sum + division.price + division.mmr;
 			}, 0);
-
-			// Load price of (get it from currently selected desired division)
-			this.$store.commit("price/changePrice", total - this.lp.price);
+			if (this.lp) {
+				// Load price of (get it from currently selected desired division)
+				this.$store.commit("price/changePrice", total - this.lp.price);
+			}
 		},
 		sendOrder(token) {
 			// Gather LP
