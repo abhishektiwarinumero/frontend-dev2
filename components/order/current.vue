@@ -142,18 +142,22 @@ export default {
 				// Let's now get the id of the current tier
 				let current_tier_id = tier.id;
 				if (current_tier_id > desired_tier_id) {
-					// Get the tier that is one step higher than currentTier
+					// Get the tier that is one step higher than currentTier, unless current is last
+					let higher_tier_id =
+						current_tier_id == 7 ? 7 : current_tier_id + 1;
 					let higher_tier = _.find(this.tiers, [
 						"id",
-						current_tier_id + 1,
+						higher_tier_id,
 					]);
 					// Commit it to the VueX store
 					this.$store.commit("desired/changeTier", higher_tier);
-					// Commit its first division to the store as well
-					this.$store.commit(
-						"desired/changeDivision",
-						_.first(higher_tier.divisions)
-					);
+					// Commit its first division to the store as well if applicable
+					if (higher_tier.divisions) {
+						this.$store.commit(
+							"desired/changeDivision",
+							_.first(higher_tier.divisions)
+						);
+					}
 				}
 				this.$store.commit("current/changeTier", tier);
 				if (this.tier.divisions) {

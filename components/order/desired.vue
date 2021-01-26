@@ -83,10 +83,9 @@ export default {
 				let desired_tier_id = tier.id;
 				if (desired_tier_id < current_tier_id) {
 					// Get the tier that is one step lower than desired_tier_id
-					let lower_tier = _.find(this.tiers, [
-						"id",
-						desired_tier_id - 1,
-					]);
+					let lower_tier_id =
+						desired_tier_id === 1 ? 1 : desired_tier_id - 1;
+					let lower_tier = _.find(this.tiers, ["id", lower_tier_id]);
 					// Commit it to the VueX store
 					this.$store.commit("current/changeTier", lower_tier);
 					// Commit its first division to the store as well
