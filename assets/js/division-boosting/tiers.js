@@ -122,7 +122,7 @@ export default [{
 			{
 				id: 4,
 				range: '15-17',
-				price: 3.75,
+				price: 4.75,
 			},
 			{
 				id: 5,
@@ -142,12 +142,12 @@ export default [{
 			{
 				id: 8,
 				range: '6-9',
-				price: 13,
+				price: 14.5,
 			},
 			{
 				id: 9,
 				range: '1-6',
-				price: 20.5,
+				price: 21.5,
 			}
 		],
 		lps: [{
@@ -474,12 +474,12 @@ export default [{
 			{
 				id: 8,
 				range: '6-9',
-				price: 108.5,
+				price: 108,
 			},
 			{
 				id: 9,
 				range: '1-6',
-				price: 158.5,
+				price: 158,
 			}
 		],
 		divisions: [{
@@ -615,7 +615,7 @@ export default [{
 		name: "Master+",
 		box_shadow: "inset 60px 0 120px rgba(128,29,161,.2), 0 0 9px 0 rgba(0,0,0,.6)",
 		image: "/img/divisions/master.webp",
-		price: 192,
+		price: 352,
 		mmrs: [{
 				id: 1,
 				range: '21+',
@@ -629,37 +629,37 @@ export default [{
 			{
 				id: 3,
 				range: '17-19',
-				price: 30,
+				price: 20,
 			},
 			{
 				id: 4,
 				range: '15-17',
-				price: 50,
+				price: 20,
 			},
 			{
 				id: 5,
 				range: '13-15',
-				price: 70,
+				price: 20,
 			},
 			{
 				id: 6,
 				range: '11-13',
-				price: 90,
+				price: 20,
 			},
 			{
 				id: 7,
 				range: '9-11',
-				price: 115,
+				price: 25,
 			},
 			{
 				id: 8,
 				range: '6-9',
-				price: 175,
+				price: 60,
 			},
 			{
 				id: 9,
 				range: '1-6',
-				price: 255,
+				price: 80,
 			}
 		],
 	},
