@@ -1,12 +1,12 @@
 <template>
 	<v-row class="services">
-		<v-tabs grow centered color="primary" slider-size="5">
+		<v-tabs grow centered color="primary" slider-size="8" height="100%">
 			<v-tab v-for="(service, index) in services" :key="index" class="service" nuxt :to="service.slug">
 				<div v-if="service.icon">
 					{{ service.name }}
 					<v-icon>{{ `mdi-${service.icon}` }}</v-icon>
 				</div>
-				<v-img class="service-img" :src="`/img/services/${service.slug}.png`" v-else />
+				<img class="service-img" :src="`/img/services/${service.slug}.png`" v-else />
 			</v-tab>
 		</v-tabs>
 	</v-row>
