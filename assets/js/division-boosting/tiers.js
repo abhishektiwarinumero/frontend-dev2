@@ -15,37 +15,37 @@ export default [{
 			{
 				id: 3,
 				range: '17-19',
-				price: 1.25,
+				price: 2.5,
 			},
 			{
 				id: 4,
 				range: '15-17',
-				price: 1.25,
+				price: 3.75,
 			},
 			{
 				id: 5,
 				range: '13-15',
-				price: 2.25,
+				price: 6,
 			},
 			{
 				id: 6,
 				range: '11-13',
-				price: 1.25,
+				price: 7.25,
 			},
 			{
 				id: 7,
 				range: '9-11',
-				price: 2.25,
+				price: 9.5,
 			},
 			{
 				id: 8,
 				range: '6-9',
-				price: 3.5,
+				price: 13,
 			},
 			{
 				id: 9,
 				range: '1-6',
-				price: 7.5,
+				price: 20.5,
 			}
 		],
 		lps: [{
@@ -117,37 +117,37 @@ export default [{
 			{
 				id: 3,
 				range: '17-19',
-				price: 1.25,
+				price: 2.5,
 			},
 			{
 				id: 4,
 				range: '15-17',
-				price: 2.25,
+				price: 3.75,
 			},
 			{
 				id: 5,
 				range: '13-15',
-				price: 1.25,
+				price: 6,
 			},
 			{
 				id: 6,
 				range: '11-13',
-				price: 2.25,
+				price: 7.25,
 			},
 			{
 				id: 7,
 				range: '9-11',
-				price: 2.25,
+				price: 9.5,
 			},
 			{
 				id: 8,
 				range: '6-9',
-				price: 5,
+				price: 13,
 			},
 			{
 				id: 9,
 				range: '1-6',
-				price: 7,
+				price: 20.5,
 			}
 		],
 		lps: [{
@@ -219,37 +219,37 @@ export default [{
 			{
 				id: 3,
 				range: '17-19',
-				price: 2.25,
+				price: 3.5,
 			},
 			{
 				id: 4,
 				range: '15-17',
-				price: 2.25,
+				price: 5.75,
 			},
 			{
 				id: 5,
 				range: '13-15',
-				price: 2.25,
+				price: 8,
 			},
 			{
 				id: 6,
 				range: '11-13',
-				price: 2.25,
+				price: 10.25,
 			},
 			{
 				id: 7,
 				range: '9-11',
-				price: 3.5,
+				price: 13.75,
 			},
 			{
 				id: 8,
 				range: '6-9',
-				price: 5,
+				price: 18.75,
 			},
 			{
 				id: 9,
 				range: '1-6',
-				price: 10,
+				price: 28.75,
 			}
 		],
 		lps: [{
@@ -321,37 +321,37 @@ export default [{
 			{
 				id: 3,
 				range: '17-19',
-				price: 3.5,
+				price: 4.75,
 			},
 			{
 				id: 4,
 				range: '15-17',
-				price: 3.5,
+				price: 8.25,
 			},
 			{
 				id: 5,
 				range: '13-15',
-				price: 3.5,
+				price: 11.75,
 			},
 			{
 				id: 6,
 				range: '11-13',
-				price: 3.5,
+				price: 15.25,
 			},
 			{
 				id: 7,
 				range: '9-11',
-				price: 5,
+				price: 20.25,
 			},
 			{
 				id: 8,
 				range: '6-9',
-				price: 5,
+				price: 25.25,
 			},
 			{
 				id: 9,
 				range: '1-6',
-				price: 10,
+				price: 35.25,
 			}
 		],
 		lps: [{
@@ -449,37 +449,37 @@ export default [{
 			{
 				id: 3,
 				range: '17-19',
-				price: 7.5,
+				price: 11,
 			},
 			{
 				id: 4,
 				range: '15-17',
-				price: 10,
+				price: 21,
 			},
 			{
 				id: 5,
 				range: '13-15',
-				price: 12.5,
+				price: 33.5,
 			},
 			{
 				id: 6,
 				range: '11-13',
-				price: 15,
+				price: 48.5,
 			},
 			{
 				id: 7,
 				range: '9-11',
-				price: 25,
+				price: 73.5,
 			},
 			{
 				id: 8,
 				range: '6-9',
-				price: 35,
+				price: 108.5,
 			},
 			{
 				id: 9,
 				range: '1-6',
-				price: 50,
+				price: 158.5,
 			}
 		],
 		divisions: [{
@@ -551,37 +551,37 @@ export default [{
 			{
 				id: 3,
 				range: '17-19',
-				price: 20,
+				price: 30,
 			},
 			{
 				id: 4,
 				range: '15-17',
-				price: 20,
+				price: 50,
 			},
 			{
 				id: 5,
 				range: '13-15',
-				price: 20,
+				price: 70,
 			},
 			{
 				id: 6,
 				range: '11-13',
-				price: 20,
+				price: 90,
 			},
 			{
 				id: 7,
 				range: '9-11',
-				price: 25,
+				price: 115,
 			},
 			{
 				id: 8,
 				range: '6-9',
-				price: 60,
+				price: 175,
 			},
 			{
 				id: 9,
 				range: '1-6',
-				price: 80,
+				price: 255,
 			}
 		],
 		divisions: [{
@@ -615,7 +615,7 @@ export default [{
 		name: "Master+",
 		box_shadow: "inset 60px 0 120px rgba(128,29,161,.2), 0 0 9px 0 rgba(0,0,0,.6)",
 		image: "/img/divisions/master.webp",
-		price: 352,
+		price: 192,
 		mmrs: [{
 				id: 1,
 				range: '21+',
@@ -629,37 +629,37 @@ export default [{
 			{
 				id: 3,
 				range: '17-19',
-				price: 20,
+				price: 30,
 			},
 			{
 				id: 4,
 				range: '15-17',
-				price: 20,
+				price: 50,
 			},
 			{
 				id: 5,
 				range: '13-15',
-				price: 20,
+				price: 70,
 			},
 			{
 				id: 6,
 				range: '11-13',
-				price: 20,
+				price: 90,
 			},
 			{
 				id: 7,
 				range: '9-11',
-				price: 25,
+				price: 115,
 			},
 			{
 				id: 8,
 				range: '6-9',
-				price: 60,
+				price: 175,
 			},
 			{
 				id: 9,
 				range: '1-6',
-				price: 80,
+				price: 255,
 			}
 		],
 	},

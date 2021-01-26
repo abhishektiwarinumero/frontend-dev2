@@ -21,32 +21,53 @@ export default {
 		tiers: tiers,
 		options: options,
 	}),
+	computed: {
+		currentTier() {
+			return this.$store.state.current.tier;
+		},
+		currentDivision() {
+			return this.$store.state.current.division;
+		},
+		desiredTier() {
+			return this.$store.state.desired.tier;
+		},
+		desiredDivision() {
+			return this.$store.state.desired.division;
+		},
+		mmr() {
+			return this.$store.state.current.mmr;
+		},
+		lp() {
+			return this.$store.state.current.lp;
+		},
+	},
 	methods: {
 		changePrice() {
+			// Flatten and merge all divisions by id and price
+			// Add the Master+ tier price as the last one
 			let allPrices = _.flatten(
 				_.map(this.tiers, (tier) => {
 					if (tier.divisions) {
-						return _.map(tier.divisions, (division) => {
-							return { id: division.id, price: division.price };
-						});
+						return _.map(tier.divisions, (division) => ({
+							id: division.id,
+							price: division.price,
+						}));
 					} else {
-						return tier.price;
+						return { id: 25, price: tier.price };
 					}
 				})
 			);
 			let fromId;
-			let currentTier = this.$store.state.current.tier;
-			if (currentTier.divisions) {
-				fromId = this.$store.state.current.division.id;
+			if (this.currentTier.divisions) {
+				fromId = this.currentDivision.id;
 			} else {
-				fromId = currentTier.id;
+				fromId = 25;
 			}
 			let toId;
-			let desiredTier = this.$store.state.desired.tier;
-			if (desiredTier.divisions) {
-				toId = this.$store.state.desired.division.id;
+			if (this.desiredTier.divisions) {
+				toId = this.desiredDivision.id;
 			} else {
-				toId = desiredTier.id;
+				toId = 25;
 			}
 			let filteredPrices = _.filter(allPrices, (price) =>
 				// This is a whereIn replacement
@@ -56,48 +77,29 @@ export default {
 			let total = filteredPrices.reduce((sum, price) => {
 				return sum + price.price;
 			}, 0);
-			// Get the MMR from the VueX store
-			// We need to get its price from the currently selected division
-			let filtered_mmrs = _.filter(currentTier.mmrs, (mmr) =>
-				_.range(this.$store.state.current.mmr.id, 1).includes(mmr.id)
-			);
-
-			let mmr_total = filtered_mmrs.reduce(
-				(sum, mmr) => sum + mmr.price,
-				0
-			);
-
-			let lp_total = this.$store.state.current.lp.price;
 
 			// Load price of (get it from currently selected desired division)
 			this.$store.commit(
 				"price/changePrice",
-				total + mmr_total - lp_total
+				total + this.mmr.price - this.lp.price
 			);
 		},
 		sendOrder(token) {
-			// Gather current tier and division
-			let currentTier = this.$store.state.current.tier;
-			let currentDivision = this.$store.state.current.division;
-			// Gather desired tier and division
-			let desiredTier = this.$store.state.desired.tier;
-			let desiredDivision = this.$store.state.desired.division;
-			let mmr = this.$store.state.current.mmr;
 			// Gather LP
 			this.$store.commit(
 				"checkout/addOption",
 				// We shouldn't send the value of the LP, but the rank name and suffix it with LP
-				this.$store.state.current.lp.label + " LP"
+				this.lp.label + " LP"
 			);
 			// Gather MMR
 			this.$store.commit(
 				"checkout/addOption",
 				// Same thing goes for MMR as stated above
-				`+${mmr.range} LP`
+				`+${this.mmr.range} LP`
 			);
 			// Construct the purchase string
 			// Purchase here is "current (tier & division) to desired (tier & division)"
-			let purchase = `${currentTier.name} ${currentDivision.name} to ${desiredTier.name} ${desiredDivision.name}`;
+			let purchase = `${this.currentTier.name} ${this.currentDivision.name} to ${this.desiredTier.name} ${this.desiredDivision.name}`;
 			// Gather game queue (solo/duo)
 			this.$store.commit(
 				"checkout/addOption",
