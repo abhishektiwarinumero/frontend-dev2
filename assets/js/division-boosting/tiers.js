@@ -616,6 +616,32 @@ export default [{
 		box_shadow: "inset 60px 0 120px rgba(128,29,161,.2), 0 0 9px 0 rgba(0,0,0,.6)",
 		image: "/img/divisions/master.webp",
 		price: 220,
+		lps: [{
+				id: 1,
+				label: "0-20",
+				price: 0,
+			},
+			{
+				id: 2,
+				label: "21-40",
+				price: 15,
+			},
+			{
+				id: 3,
+				label: "41-60",
+				price: 30,
+			},
+			{
+				id: 4,
+				label: "61-80",
+				price: 45,
+			},
+			{
+				id: 5,
+				label: "81-100",
+				price: 60,
+			},
+		],
 		mmrs: [{
 				id: 1,
 				range: '21+',
