@@ -33,7 +33,7 @@
 								<v-tooltip top color="primary" max-width="350">
 									<template v-slot:activator="{ on, attrs }">
 										<!-- LP lowers the price -->
-										<v-select v-bind="attrs" v-on="on" v-model="lp" :items="lps" dense solo :suffix="lpSuffix"></v-select>
+										<v-select v-bind="attrs" v-on="on" v-model="lp" :items="tier.lps" dense solo :suffix="lpSuffix" item-text="label" item-value="id" return-object></v-select>
 									</template>
 									<span>{{ lpTooltip }}</span>
 								</v-tooltip>
@@ -124,7 +124,6 @@ export default {
 	data: () => ({
 		tier: {},
 		division: { image: null },
-		lps: ["0-20", "21-40", "41-60", "61-80", "81-100"],
 		marks: [
 			"0 / 3 Mark Status",
 			"1 / 3 Mark Status",
@@ -195,6 +194,7 @@ export default {
 	},
 	created() {
 		this.tier = _.find(this.tiers, ["name", "Silver"]);
+		this.lp = _.find(this.tier.lps, ["label", "21-40"]);
 		this.mmr = _.find(this.tier.mmrs, ["range", "19-21"]);
 	},
 };

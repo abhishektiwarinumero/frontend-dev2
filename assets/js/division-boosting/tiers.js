@@ -48,7 +48,32 @@ export default [{
 				price: 7.5,
 			}
 		],
-		lp: 1.25,
+		lps: [{
+				id: 1,
+				label: "0-20",
+				price: 0,
+			},
+			{
+				id: 2,
+				label: "21-40",
+				price: 1.25,
+			},
+			{
+				id: 3,
+				label: "41-60",
+				price: 2.5,
+			},
+			{
+				id: 4,
+				label: "61-80",
+				price: 3.75,
+			},
+			{
+				id: 5,
+				label: "81-100",
+				price: 5,
+			},
+		],
 		divisions: [{
 				id: 1,
 				image: "/img/divisions/iron/IV.webp",
@@ -125,7 +150,32 @@ export default [{
 				price: 7,
 			}
 		],
-		lp: 1.25,
+		lps: [{
+				id: 1,
+				label: "0-20",
+				price: 0,
+			},
+			{
+				id: 2,
+				label: "21-40",
+				price: 1.25,
+			},
+			{
+				id: 3,
+				label: "41-60",
+				price: 2.5,
+			},
+			{
+				id: 4,
+				label: "61-80",
+				price: 3.75,
+			},
+			{
+				id: 5,
+				label: "81-100",
+				price: 5,
+			},
+		],
 		divisions: [{
 				id: 5,
 				image: "/img/divisions/bronze/IV.png",
@@ -202,7 +252,32 @@ export default [{
 				price: 10,
 			}
 		],
-		lp: 1.25,
+		lps: [{
+				id: 1,
+				label: "0-20",
+				price: 0,
+			},
+			{
+				id: 2,
+				label: "21-40",
+				price: 1.25,
+			},
+			{
+				id: 3,
+				label: "41-60",
+				price: 2.5,
+			},
+			{
+				id: 4,
+				label: "61-80",
+				price: 3.75,
+			},
+			{
+				id: 5,
+				label: "81-100",
+				price: 5,
+			},
+		],
 		divisions: [{
 				id: 9,
 				image: "/img/divisions/silver/IV.webp",
@@ -279,7 +354,32 @@ export default [{
 				price: 10,
 			}
 		],
-		lp: 2.25,
+		lps: [{
+				id: 1,
+				label: "0-20",
+				price: 0,
+			},
+			{
+				id: 2,
+				label: "21-40",
+				price: 2.25,
+			},
+			{
+				id: 3,
+				label: "41-60",
+				price: 4.5,
+			},
+			{
+				id: 4,
+				label: "61-80",
+				price: 6.75,
+			},
+			{
+				id: 5,
+				label: "81-100",
+				price: 9,
+			},
+		],
 		divisions: [{
 				id: 13,
 				image: "/img/divisions/gold/IV.webp",
@@ -310,7 +410,32 @@ export default [{
 		id: 5,
 		name: "Platinum",
 		box_shadow: "inset 60px 0 120px rgba(57,123,135,.2), 0 0 9px 0 rgba(0,0,0,.6)",
-		lp: 3.75,
+		lps: [{
+				id: 1,
+				label: "0-20",
+				price: 0,
+			},
+			{
+				id: 2,
+				label: "21-40",
+				price: 3.75,
+			},
+			{
+				id: 3,
+				label: "41-60",
+				price: 7.5,
+			},
+			{
+				id: 4,
+				label: "61-80",
+				price: 11.25,
+			},
+			{
+				id: 5,
+				label: "81-100",
+				price: 15,
+			},
+		],
 		mmrs: [{
 				id: 1,
 				range: '21+',
@@ -387,7 +512,32 @@ export default [{
 		id: 6,
 		name: "Diamond",
 		box_shadow: "inset 60px 0 120px rgba(48,113,222,.2), 0 0 9px 0 rgba(0,0,0,.6)",
-		lp: 8.75,
+		lps: [{
+				id: 1,
+				label: "0-20",
+				price: 0,
+			},
+			{
+				id: 2,
+				label: "21-40",
+				price: 8.75,
+			},
+			{
+				id: 3,
+				label: "41-60",
+				price: 17.5,
+			},
+			{
+				id: 4,
+				label: "61-80",
+				price: 26.25,
+			},
+			{
+				id: 5,
+				label: "81-100",
+				price: 35,
+			},
+		],
 		mmrs: [{
 				id: 1,
 				range: '21+',
@@ -462,116 +612,10 @@ export default [{
 	},
 	{
 		id: 7,
-		name: "Master",
+		name: "Master+",
 		box_shadow: "inset 60px 0 120px rgba(128,29,161,.2), 0 0 9px 0 rgba(0,0,0,.6)",
 		image: "/img/divisions/master.webp",
 		price: 352,
-		mmrs: [{
-				id: 1,
-				range: '21+',
-				price: 0,
-			},
-			{
-				id: 2,
-				range: '19-21',
-				price: 10,
-			},
-			{
-				id: 3,
-				range: '17-19',
-				price: 20,
-			},
-			{
-				id: 4,
-				range: '15-17',
-				price: 20,
-			},
-			{
-				id: 5,
-				range: '13-15',
-				price: 20,
-			},
-			{
-				id: 6,
-				range: '11-13',
-				price: 20,
-			},
-			{
-				id: 7,
-				range: '9-11',
-				price: 25,
-			},
-			{
-				id: 8,
-				range: '6-9',
-				price: 60,
-			},
-			{
-				id: 9,
-				range: '1-6',
-				price: 80,
-			}
-		],
-	},
-	{
-		id: 8,
-		name: "Grandmaster",
-		box_shadow: "inset 60px 0 120px rgba(161,29,29,.2), 0 0 9px 0 rgba(0,0,0,.6)",
-		image: "/img/divisions/grandmaster.webp",
-		price: 250,
-		mmrs: [{
-				id: 1,
-				range: '21+',
-				price: 0,
-			},
-			{
-				id: 2,
-				range: '19-21',
-				price: 10,
-			},
-			{
-				id: 3,
-				range: '17-19',
-				price: 20,
-			},
-			{
-				id: 4,
-				range: '15-17',
-				price: 20,
-			},
-			{
-				id: 5,
-				range: '13-15',
-				price: 20,
-			},
-			{
-				id: 6,
-				range: '11-13',
-				price: 20,
-			},
-			{
-				id: 7,
-				range: '9-11',
-				price: 25,
-			},
-			{
-				id: 8,
-				range: '6-9',
-				price: 60,
-			},
-			{
-				id: 9,
-				range: '1-6',
-				price: 80,
-			}
-		],
-	},
-	{
-		id: 9,
-		name: "Challenger",
-		box_shadow: "inset 60px 0 120px rgba(161,113,29,.2), 0 0 9px 0 rgba(0,0,0,.6)",
-		image: "/img/divisions/challenger.webp",
-		price: 500,
 		mmrs: [{
 				id: 1,
 				range: '21+',

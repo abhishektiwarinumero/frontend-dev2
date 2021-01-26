@@ -122,7 +122,6 @@ export default {
 		},
 	},
 	mounted() {
-		this.$store.commit("current/changeLP", "0-20");
 		this.changePrice();
 		this.$root.$on("sendOrder", (token) => this.sendOrder(token));
 	},

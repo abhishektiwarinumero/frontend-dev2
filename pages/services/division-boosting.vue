@@ -67,12 +67,13 @@ export default {
 				0
 			);
 
-			if (currentTier.lp) {
-				total = total - currentTier.lp;
-			}
+			let lp_total = this.$store.state.current.lp.price;
 
 			// Load price of (get it from currently selected desired division)
-			this.$store.commit("price/changePrice", total + mmr_total);
+			this.$store.commit(
+				"price/changePrice",
+				total + mmr_total - lp_total
+			);
 		},
 		sendOrder(token) {
 			// Gather current tier and division
@@ -86,7 +87,7 @@ export default {
 			this.$store.commit(
 				"checkout/addOption",
 				// We shouldn't send the value of the LP, but the rank name and suffix it with LP
-				this.$store.state.current.lp + " LP"
+				this.$store.state.current.lp.label + " LP"
 			);
 			// Gather MMR
 			this.$store.commit(
