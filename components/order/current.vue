@@ -162,6 +162,7 @@ export default {
 				this.$store.commit("current/changeTier", tier);
 				if (this.tier.divisions) {
 					this.division = _.find(this.tier.divisions, ["name", "I"]);
+					this.lp = _.first(this.tier.lps);
 				} else {
 					// Emit as if the division has changed, actually the tier did but has no divisions
 					// This is just to trigger the changePrice function in the service page component
