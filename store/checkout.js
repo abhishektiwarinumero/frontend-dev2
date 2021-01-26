@@ -32,8 +32,8 @@ export const mutations = {
 
 export const getters = {
 	eta(state, getters, rootState) {
-		let x = rootState.league.tier;
-		let y = rootState.wins.wins;
+		let x = rootState.current.tier.id;
+		let y = rootState.slider.amount;
 		let f = 0;
 		let s = 0;
 		if (x == 7 && y == 1) {
