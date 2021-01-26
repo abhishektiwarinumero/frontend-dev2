@@ -71,7 +71,7 @@ export default {
 			}
 			let filteredPrices = _.filter(allPrices, (price) =>
 				// This is a whereIn replacement
-				_.range(fromId + 1, toId + 1).includes(price.id)
+				this.$range(fromId, toId).includes(price.id)
 			);
 			// Sum up their prices using JS reduce
 			let total = filteredPrices.reduce((sum, price) => {

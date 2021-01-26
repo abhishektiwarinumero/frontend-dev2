@@ -31,6 +31,9 @@ export default {
 			src: '~/plugins/notify',
 			mode: 'client'
 		},
+		{
+			src: '~/plugins/globals.js',
+		}
 	],
 
 	// Auto import components (https://nuxtjs.org/docs/2.x/configuration-glossary/configuration-components)
