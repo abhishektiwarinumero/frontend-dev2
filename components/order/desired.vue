@@ -22,6 +22,9 @@
 								<v-col v-if="tier.divisions">
 									<v-select :items="tier.divisions" label="Desired division" dense solo v-model="division" item-text="name" item-value="id" return-object></v-select>
 								</v-col>
+								<v-col v-else>
+									<v-text-field v-model="lp" hide-details single-line type="number" suffix="Desired LP" />
+								</v-col>
 							</v-row>
 							<v-row>
 								<v-col>
@@ -111,6 +114,15 @@ export default {
 			set(division) {
 				this.$store.commit("desired/changeDivision", division);
 				this.$emit("divisionChanged");
+			},
+		},
+		lp: {
+			get() {
+				return this.$store.state.desired.lp;
+			},
+			set(lp) {
+				this.$store.commit("desired/changeLP", lp);
+				this.$emit("lpchanged");
 			},
 		},
 		server: {
