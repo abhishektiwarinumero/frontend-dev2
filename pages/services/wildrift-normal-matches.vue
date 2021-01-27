@@ -17,6 +17,7 @@ export default {
 	layout: "order",
 	data: () => ({
 		options: options,
+		service: "Wild Rift Normal Matches",
 	}),
 	mounted() {
 		this.$store.commit("slider/changeAmount", 4);

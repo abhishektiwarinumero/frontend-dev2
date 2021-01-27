@@ -43,7 +43,7 @@ export default {
 			this.$axios
 				.post("orders", {
 					purchase,
-					service: "Valorant Placement Matches",
+					service: "Wild Rift Placement Matches",
 					server: this.$store.state.current.server,
 					options: this.$store.state.checkout.options,
 					price: this.$store.getters["price/price"],
