@@ -4,6 +4,7 @@ export const state = () => ({
 	lp: 0, // Only for Master+
 	server: "EU-West",
 	queue: "Solo/Duo",
+	platform: 'Android',
 });
 
 export const mutations = {
@@ -18,5 +19,8 @@ export const mutations = {
 	},
 	changeQueue(state, payload) {
 		state.queue = payload;
+	},
+	changePlatform(state, payload) {
+		state.platform = payload;
 	}
 }

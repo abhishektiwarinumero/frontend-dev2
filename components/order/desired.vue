@@ -27,6 +27,9 @@
 								</v-col>
 							</v-row>
 							<v-row>
+								<v-col v-if="mobile">
+									<v-select :items="platforms" v-model="platform" label="Select your system" dense solo></v-select>
+								</v-col>
 								<v-col>
 									<v-select :items="servers" v-model="server" label="Select your server" dense solo></v-select>
 								</v-col>
@@ -69,9 +72,15 @@ export default {
 			required: false,
 			default: true,
 		},
+		mobile: {
+			type: Boolean,
+			required: false,
+			defaut: false,
+		},
 	},
 	data: () => ({
 		servers: servers,
+		platforms: ["Android", "iOS"],
 	}),
 	computed: {
 		tier: {
@@ -146,6 +155,14 @@ export default {
 				return this.division.image;
 			}
 			return this.tier.image;
+		},
+		platform: {
+			get() {
+				return this.$store.state.desired.platform;
+			},
+			set(platform) {
+				this.$store.commit("desired/changePlatform", platform);
+			},
 		},
 	},
 	created() {
