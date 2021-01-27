@@ -1,6 +1,6 @@
 <template>
 	<v-row class="services">
-		<v-tabs grow centered color="primary" slider-size="8" height="100%">
+		<v-tabs grow centered color="primary" slider-size="8" :height="height">
 			<v-tab v-for="(service, index) in services" :key="index" class="service" nuxt :to="service.slug">
 				<div v-if="service.icon">
 					{{ service.name }}
@@ -19,10 +19,10 @@ export default {
 			type: Array,
 			required: true,
 		},
-		icons: {
-			type: Boolean,
-			required: false,
-			default: false,
+	},
+	computed: {
+		height() {
+			return _.first(this.services).icon ? "" : "100%";
 		},
 	},
 };
