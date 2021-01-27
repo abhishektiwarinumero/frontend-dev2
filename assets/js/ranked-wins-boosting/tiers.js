@@ -180,23 +180,9 @@ export default [{
 	},
 	{
 		id: 7,
-		name: "Master",
+		name: "Master+",
 		box_shadow: "inset 60px 0 120px rgba(128,29,161,.2), 0 0 9px 0 rgba(0,0,0,.6)",
 		image: "/img/divisions/master.webp",
-		price: 40,
-	},
-	{
-		id: 8,
-		name: "Grandmaster",
-		box_shadow: "inset 60px 0 120px rgba(161,29,29,.2), 0 0 9px 0 rgba(0,0,0,.6)",
-		image: "/img/divisions/grandmaster.webp",
-		price: 40,
-	},
-	{
-		id: 9,
-		name: "Challenger",
-		box_shadow: "inset 60px 0 120px rgba(161,113,29,.2), 0 0 9px 0 rgba(0,0,0,.6)",
-		image: "/img/divisions/challenger.webp",
 		price: 40,
 	},
 ];
