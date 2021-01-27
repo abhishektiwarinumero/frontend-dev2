@@ -21,6 +21,32 @@ export default [{
 				name: "III",
 			},
 		],
+		lps: [{
+				id: 1,
+				label: "0-20",
+				price: 0,
+			},
+			{
+				id: 2,
+				label: "21-40",
+				price: 1.25,
+			},
+			{
+				id: 3,
+				label: "41-60",
+				price: 2.5,
+			},
+			{
+				id: 4,
+				label: "61-80",
+				price: 3.75,
+			},
+			{
+				id: 5,
+				label: "81-100",
+				price: 5,
+			},
+		],
 	},
 	{
 		id: 2,
@@ -44,6 +70,32 @@ export default [{
 				image: "/img/divisions/valorant/bronzeiii.png",
 				price: 12.6,
 				name: "III",
+			},
+		],
+		lps: [{
+				id: 1,
+				label: "0-20",
+				price: 0,
+			},
+			{
+				id: 2,
+				label: "21-40",
+				price: 1.25,
+			},
+			{
+				id: 3,
+				label: "41-60",
+				price: 2.5,
+			},
+			{
+				id: 4,
+				label: "61-80",
+				price: 3.75,
+			},
+			{
+				id: 5,
+				label: "81-100",
+				price: 5,
 			},
 		],
 	},
@@ -71,6 +123,32 @@ export default [{
 				name: "III",
 			},
 		],
+		lps: [{
+				id: 1,
+				label: "0-20",
+				price: 0,
+			},
+			{
+				id: 2,
+				label: "21-40",
+				price: 1.25,
+			},
+			{
+				id: 3,
+				label: "41-60",
+				price: 2.5,
+			},
+			{
+				id: 4,
+				label: "61-80",
+				price: 3.75,
+			},
+			{
+				id: 5,
+				label: "81-100",
+				price: 5,
+			},
+		],
 	},
 	{
 		id: 4,
@@ -94,6 +172,32 @@ export default [{
 				image: "/img/divisions/valorant/goldiii.png",
 				price: 19.6,
 				name: "III",
+			},
+		],
+		lps: [{
+				id: 1,
+				label: "0-20",
+				price: 0,
+			},
+			{
+				id: 2,
+				label: "21-40",
+				price: 1.25,
+			},
+			{
+				id: 3,
+				label: "41-60",
+				price: 2.5,
+			},
+			{
+				id: 4,
+				label: "61-80",
+				price: 3.75,
+			},
+			{
+				id: 5,
+				label: "81-100",
+				price: 5,
 			},
 		],
 	},
@@ -121,6 +225,32 @@ export default [{
 				name: "III",
 			},
 		],
+		lps: [{
+				id: 1,
+				label: "0-20",
+				price: 0,
+			},
+			{
+				id: 2,
+				label: "21-40",
+				price: 1.25,
+			},
+			{
+				id: 3,
+				label: "41-60",
+				price: 2.5,
+			},
+			{
+				id: 4,
+				label: "61-80",
+				price: 3.75,
+			},
+			{
+				id: 5,
+				label: "81-100",
+				price: 5,
+			},
+		],
 	},
 	{
 		id: 6,
@@ -146,6 +276,32 @@ export default [{
 				name: "III",
 			},
 		],
+		lps: [{
+				id: 1,
+				label: "0-20",
+				price: 0,
+			},
+			{
+				id: 2,
+				label: "21-40",
+				price: 1.25,
+			},
+			{
+				id: 3,
+				label: "41-60",
+				price: 2.5,
+			},
+			{
+				id: 4,
+				label: "61-80",
+				price: 3.75,
+			},
+			{
+				id: 5,
+				label: "81-100",
+				price: 5,
+			},
+		],
 	},
 	{
 		id: 7,
@@ -153,5 +309,31 @@ export default [{
 		box_shadow: "inset 60px 0 120px rgba(161,29,29,.3), 0 0 9px 0 rgba(0,0,0,.7)",
 		price: 60,
 		image: "/img/divisions/valorant/immortal.png",
+		lps: [{
+				id: 1,
+				label: "0-20",
+				price: 0,
+			},
+			{
+				id: 2,
+				label: "21-40",
+				price: 1.25,
+			},
+			{
+				id: 3,
+				label: "41-60",
+				price: 2.5,
+			},
+			{
+				id: 4,
+				label: "61-80",
+				price: 3.75,
+			},
+			{
+				id: 5,
+				label: "81-100",
+				price: 5,
+			},
+		],
 	},
 ];
