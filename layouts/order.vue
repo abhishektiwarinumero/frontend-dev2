@@ -60,7 +60,7 @@ export default {
 
 <style scoped>
 .page {
-	background: url(/img/backgrounds/order.png);
+	background: url(/img/backgrounds/order.jpg);
 	background-position: top;
 	background-size: cover;
 	background-repeat: no-repeat;
