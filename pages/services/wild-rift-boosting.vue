@@ -82,7 +82,7 @@ export default {
 			this.$axios
 				.post("orders", {
 					purchase,
-					service: "Division Boosting",
+					service: "Wild Rift Division Boosting",
 					server: this.$store.state.desired.server,
 					options: this.$store.state.checkout.options,
 					price: this.$store.getters["price/price"],
