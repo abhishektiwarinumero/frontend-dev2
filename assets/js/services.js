@@ -70,14 +70,14 @@ export default [
 		icon: "sword-cross",
 	},
 	{
-		name: "Rank Boosting",
-		slug: "rank-boosting",
+		name: "Placement Matches",
+		slug: "wildrift-placement-boosting",
 		game: "Wild Rift Boosting",
 		icon: "check-circle",
 	},
 	{
-		name: "Wildrift Placement Matches",
-		slug: "wildrift-placement-boosting",
+		name: "Ranked Win Boosting",
+		slug: "wildrift-ranked-wins-boosting",
 		game: "Wild Rift Boosting",
 		icon: "trophy",
 	},
