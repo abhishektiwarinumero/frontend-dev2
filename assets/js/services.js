@@ -64,8 +64,8 @@ export default [
 		icon: "bullseye-arrow",
 	},
 	{
-		name: "Ranked Win Boosting",
-		slug: "wild-rift-boosting",
+		name: "Rank Boosting",
+		slug: "wildrift-rank-boosting",
 		game: "Wild Rift Boosting",
 		icon: "sword-cross",
 	},

@@ -16,15 +16,11 @@ export default [{
 	{
 		name: "Wild Rift Boosting",
 		image: "/img/games/wild-rift-boosting.png",
-		slug: "wild-rift-boosting",
+		slug: "wildrift-rank-boosting",
 	},
 	{
 		name: "RUNETERRA BOOSTING",
 		image: "/img/games/lor-boosting.png",
 		disabled: true,
 	},
-	// {
-	// 	name: "COACHING",
-	// 	image: "/img/games/coaching.png",
-	// },
 ];
