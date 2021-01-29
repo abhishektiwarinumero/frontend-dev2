@@ -22,7 +22,9 @@
 			</v-row>
 			<v-row class="bottom mt-16 mb-16">
 				<ul class="navs">
-					<li v-for="(nav, index) in navs" :key="index">{{ nav.name }}</li>
+					<li v-for="(nav, index) in navs" :key="index">
+						<nuxt-link :to="nav.path">{{ nav.name }}</nuxt-link>
+					</li>
 				</ul>
 			</v-row>
 		</v-container>
@@ -33,13 +35,11 @@
 export default {
 	data: () => ({
 		navs: [
-			{ name: "FAQ", path: "" },
-			{ name: "Jobs", path: "" },
-			{ name: "Reviews", path: "" },
-			{ name: "Term and Conditions", path: "" },
-			{ name: "privacy", path: "" },
-			{ name: "Policy", path: "" },
-			{ name: "Contact", path: "" },
+			{ name: "Jobs", path: "/apply" },
+			{ name: "Contact Us", path: "/contact" },
+			{ name: "About Us", path: "/about" },
+			{ name: "Term and Conditions", path: "/terms-of-use" },
+			{ name: "Privacy Policy", path: "/privacy" },
 		],
 	}),
 };
@@ -54,7 +54,6 @@ export default {
 .v-footer {
 	background: rgb(0, 0, 0);
 	background: linear-gradient(0deg, #181818 0%, #181818 80%, #18181800 100%);
-	margin-top: -80px;
 	box-sizing: border-box;
 	padding-top: 80px;
 	position: relative;
