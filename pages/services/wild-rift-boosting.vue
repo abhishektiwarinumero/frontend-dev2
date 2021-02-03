@@ -94,9 +94,14 @@ export default {
 				})
 				.then((response) => {
 					this.$notify(response.data.message, "success");
-					setTimeout(() => {
+					this.$alert({
+						title: "Order Confirmed!",
+						text: response.data.message,
+						icon: "success",
+						button: "Take me to my order",
+					}).then((value) => {
 						window.location = `${process.env.HOST_URL}/resources/orders/${response.data.order_id}`;
-					}, 4000);
+					});
 					// Actually just close the dialog, semantics ¯\_(ツ)_/¯
 					this.cancel();
 				})

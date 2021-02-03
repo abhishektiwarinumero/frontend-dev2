@@ -32,6 +32,10 @@ export default {
 			mode: 'client'
 		},
 		{
+			src: '~/plugins/swal',
+			mode: 'client'
+		},
+		{
 			src: '~/plugins/globals.js',
 		}
 	],
