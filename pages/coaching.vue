@@ -11,7 +11,7 @@
 						</p>
 					</v-col>
 					<v-col cols="2">
-						<v-btn color="primary" depressed x-large>Discover Coaches</v-btn>
+						<v-btn color="primary" depressed x-large to="/boosters">Discover Coaches</v-btn>
 					</v-col>
 				</v-row>
 			</v-container>
