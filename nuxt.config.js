@@ -1,5 +1,5 @@
-import webpack from "webpack";
 import seo from "./seo";
+import webpack from "webpack";
 
 export default {
 	vue: {
