@@ -11,6 +11,11 @@
 					<v-col class="d-flex" cols="12" sm="6">
 						<v-select :items="boosters" label="Your Booster" :loading="boostersLoading" v-model="booster"></v-select>
 					</v-col>
+					<!-- Select Champion -->
+					<!-- Only if client has checked specific champions in checkout -->
+					<v-col class="d-flex" cols="12" sm="6" v-if="specificChampion">
+						<v-select :items="champions" label="Your Champion" v-model="champion" item-text="name" item-value="name"></v-select>
+					</v-col>
 				</v-row>
 				<v-row>
 					<v-col cols="12" md="6">
@@ -30,12 +35,16 @@
 </template>
 
 <script>
+import champions from "~/assets/js/champions";
+
 export default {
 	data: () => ({
 		valid: false,
 		boosters: [],
 		boostersLoading: true,
 		booster: "",
+		champions: champions,
+		champion: "Aatrox",
 		comment: "",
 		nickname: "",
 		nicknameRules: [
@@ -43,6 +52,13 @@ export default {
 			(v) => v.length >= 3 || "Please insert a valid nickname",
 		],
 	}),
+	computed: {
+		specificChampion() {
+			return this.$store.state.checkout.options.includes(
+				"Specific champions/roles"
+			);
+		},
+	},
 	methods: {
 		getBoostersList() {
 			this.$axios

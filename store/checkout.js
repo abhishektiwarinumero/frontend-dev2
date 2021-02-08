@@ -10,10 +10,11 @@ export const mutations = {
 		state.discountCode = payload;
 	},
 	addOption(state, payload) {
-		// Remove the " at" from the option if applicable
+		// Only add option if not already there
 		if (state.options.indexOf(payload) === -1) {
 			state.options.push(payload);
 		}
+		// TODO: Remove the " at" from the option if applicable
 	},
 	removeOption(state, payload) {
 		state.options = _.remove(state.options, (option) => option != payload);

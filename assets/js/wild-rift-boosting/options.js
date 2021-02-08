@@ -8,7 +8,7 @@ export default [{
 	{
 		checked: false,
 		icon: "mdi-account-group",
-		title: "Specific champions",
+		title: "Specific champions/roles",
 		percentage: 0,
 		tip: "You may determine what role(s) your booster will queue up for while playing on your account. For additional costs, you may also determine what champions he should play.",
 	},
