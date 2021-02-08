@@ -1,7 +1,7 @@
 <template>
 	<v-row>
 		<v-col cols="12" sm="6" md="7">
-			<current title="Season End Rank" description="Please select your Season End Rank and Division" :tiers="ranks" showServerSelection @divisionChanged="changePrice" />
+			<Current title="Season End Rank" description="Please select your Season End Rank and Division" :tiers="ranks" showServerSelection @divisionChanged="changePrice" />
 			<slider title step :showQueue="false" :max="3" />
 		</v-col>
 		<v-col cols="6" md="5">

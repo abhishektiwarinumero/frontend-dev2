@@ -1,8 +1,8 @@
 <template>
 	<v-row>
 		<v-col cols="12" sm="6" md="7">
-			<current title="Current League" description="Please select your Current Rank and Division" @divisionChanged="changePrice" marks :tiers="tiers" showMarksSelection />
-			<desired @divisionChanged="changePrice" :tiers="tiers" mobile :showQueue="false" />
+			<Current title="Current League" description="Please select your Current Rank and Division" @divisionChanged="changePrice" marks :tiers="tiers" showMarksSelection />
+			<Desired @divisionChanged="changePrice" :tiers="tiers" mobile :showQueue="false" />
 		</v-col>
 		<v-col cols="6" md="5">
 			<checkout :options="options" />

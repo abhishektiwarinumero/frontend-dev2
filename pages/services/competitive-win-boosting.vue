@@ -1,7 +1,7 @@
 <template>
 	<v-row>
 		<v-col cols="12" sm="6" md="7">
-			<current title="Current Rank" description="Please select your Current Rank and Division" showServerSelection :tiers="ranks" />
+			<Current title="Current Rank" description="Please select your Current Rank and Division" showServerSelection :tiers="ranks" />
 			<slider title step :showQueue="false" />
 		</v-col>
 		<v-col cols="6" md="5">

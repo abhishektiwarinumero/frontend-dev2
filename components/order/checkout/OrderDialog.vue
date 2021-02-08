@@ -21,7 +21,7 @@
 				<register v-if="register" @next="nextStep(1)" @cancel="cancel" />
 			</v-stepper-content>
 			<order-details @next="nextStep(2)" />
-			<pay @cancel="cancel" />
+			<Pay @cancel="cancel" />
 		</v-stepper-items>
 	</v-stepper>
 </template>

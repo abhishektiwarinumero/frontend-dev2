@@ -1,7 +1,7 @@
 <template>
 	<v-row>
 		<v-col cols="12" sm="6" md="7">
-			<current title="Preseason's league" description="Please select your Preseason Rank and Divisions" showServerSelection :tiers="tiers" />
+			<Current title="Preseason's league" description="Please select your Preseason Rank and Divisions" showServerSelection :tiers="tiers" />
 			<slider title="Select Your Number Of Games" />
 		</v-col>
 		<v-col cols="6" md="5">
