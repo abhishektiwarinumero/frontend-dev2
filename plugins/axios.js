@@ -2,7 +2,7 @@ import https from 'https';
 
 export default function ({
 	$axios,
-	redirect
+	redirect,
 }, inject) {
 	const agent = new https.Agent({
 		rejectUnauthorized: false
@@ -12,7 +12,7 @@ export default function ({
 	});
 	$axios.onError((error) => {
 		if (error.response.status === 404) {
-			redirect('/404/')
+			redirect('/404/');
 		}
-	})
+	});
 }
