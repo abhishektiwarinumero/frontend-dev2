@@ -63,3 +63,9 @@ export default {
 	},
 };
 </script>
+
+<style scoped>
+.theme--dark.v-stepper {
+	background-color: black;
+}
+</style>
