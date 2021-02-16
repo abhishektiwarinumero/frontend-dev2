@@ -9,7 +9,7 @@
 					</v-col>
 					<!-- Select Booster -->
 					<v-col class="d-flex" cols="12" sm="6">
-						<v-select :items="boosters" label="Your Booster" :loading="boostersLoading" v-model="booster"></v-select>
+						<v-autocomplete :items="boosters" label="Your Booster" :loading="boostersLoading" v-model="booster"></v-autocomplete>
 					</v-col>
 					<!-- Select Champion -->
 					<!-- Only if client has checked specific champions in checkout -->
