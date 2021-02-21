@@ -67,7 +67,8 @@ export default {
 	axios: {
 		baseURL: process.env.HOST_URL, // Used as fallback if no runtime config is provided
 		proxy: true,
-		credentials: true
+		credentials: true,
+		https: process.env.HTTPS
 	},
 
 	publicRuntimeConfig: {
