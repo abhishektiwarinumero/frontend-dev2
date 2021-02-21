@@ -94,8 +94,7 @@ export default {
 
 	auth: {
 		strategies: {
-			'laravelSanctum': {
-				provider: 'laravel/sanctum',
+			local: {
 				endpoints: {
 					// (optional) If set, we send a get request to this endpoint before login
 					csrf: {
@@ -111,7 +110,8 @@ export default {
 					},
 					user: {
 						url: 'https://dashboard.eloboost.app/api/user',
-						method: 'get'
+						method: 'get',
+						propertyName: false
 					}
 				},
 			},
