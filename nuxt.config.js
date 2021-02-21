@@ -1,12 +1,14 @@
 import seo from "./config/seo";
 import auth from "./config/auth";
 import build from "./config/build";
+import router from "./config/router";
 import plugins from "./config/plugins";
 
 export default {
 	vue: {
 		config: {
 			productionTip: false,
+			devtools: true
 		}
 	},
 	// Global page headers (https://nuxtjs.org/docs/2.x/features/meta-tags-seo)
@@ -44,8 +46,7 @@ export default {
 	],
 
 	sentry: {
-		dsn: "https://f8d1200b27ae4ec0a627eefbdf4f5f21@o143524.ingest.sentry.io/5425202", // Enter your project's DSN here
-		config: {} // Additional config
+		dsn: process.env.SENTRY_DSN,
 	},
 
 	publicRuntimeConfig: {
@@ -62,8 +63,7 @@ export default {
 
 	axios: {
 		proxy: true,
-		credentials: true,
-		https: true
+		credentials: true
 	},
 
 	proxy: {
@@ -91,16 +91,7 @@ export default {
 		}
 	},
 
-	router: {
-		extendRoutes(nuxtRoutes) {
-			nuxtRoutes.map(route => {
-				route.path = route.path.replace('/services', '');
-				route.name = route.name.replace('services-', '');
-
-				return route;
-			});
-		},
-	},
+	router: router,
 
 	// Build Configuration (https://nuxtjs.org/docs/2.x/configuration-glossary/configuration-build)
 	build: build,
