@@ -97,24 +97,24 @@ export default {
 			'laravelSanctum': {
 				provider: 'laravel/sanctum',
 				url: process.env.HOST_URL,
-			},
-			endpoints: {
-				// (optional) If set, we send a get request to this endpoint before login
-				csrf: {
-					url: 'https://dashboard.eloboost.app/sanctum/csrf-cookie'
+				endpoints: {
+					// (optional) If set, we send a get request to this endpoint before login
+					csrf: {
+						url: 'https://dashboard.eloboost.app/sanctum/csrf-cookie'
+					},
+					login: {
+						url: 'https://dashboard.eloboost.app/login',
+						method: 'post'
+					},
+					logout: {
+						url: 'https://dashboard.eloboost.app/logout',
+						method: 'post'
+					},
+					user: {
+						url: 'https://dashboard.eloboost.app/api/user',
+						method: 'get'
+					}
 				},
-				login: {
-					url: 'https://dashboard.eloboost.app/login',
-					method: 'post'
-				},
-				logout: {
-					url: 'https://dashboard.eloboost.app/logout',
-					method: 'post'
-				},
-				user: {
-					url: 'https://dashboard.eloboost.app/api/user',
-					method: 'get'
-				}
 			},
 		},
 		redirect: false

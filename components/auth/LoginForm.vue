@@ -46,11 +46,11 @@ export default {
 	methods: {
 		async login() {
 			try {
-				let response = await this.$auth
+				await this.$auth
 					.loginWith("laravelSanctum", {
 						data: this.credentials,
 					})
-					.then((response) => {
+					.then(() => {
 						this.$notify("Logged In", "success");
 						if (this.redirect) {
 							setTimeout(() => {
