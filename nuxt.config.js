@@ -1,5 +1,7 @@
-import seo from "./seo";
-import webpack from "webpack";
+import seo from "./config/seo";
+import auth from "./config/auth";
+import build from "./config/plugins";
+import plugins from "./config/plugins";
 
 export default {
 	vue: {
@@ -20,25 +22,7 @@ export default {
 	],
 
 	// Plugins to run before rendering page (https://nuxtjs.org/docs/2.x/configuration-glossary/configuration-plugins)
-	plugins: [{
-			src: '~/plugins/axios'
-		},
-		{
-			src: '~/plugins/particles',
-			mode: 'client'
-		},
-		{
-			src: '~/plugins/notify',
-			mode: 'client'
-		},
-		{
-			src: '~/plugins/swal',
-			mode: 'client'
-		},
-		{
-			src: '~/plugins/globals.js',
-		}
-	],
+	plugins: plugins,
 
 	// Auto import components (https://nuxtjs.org/docs/2.x/configuration-glossary/configuration-components)
 	components: true,
@@ -64,6 +48,18 @@ export default {
 		config: {} // Additional config
 	},
 
+	publicRuntimeConfig: {
+		axios: {
+			browserBaseURL: process.env.HOST_URL,
+		}
+	},
+
+	privateRuntimeConfig: {
+		axios: {
+			baseURL: process.env.HOST_URL,
+		}
+	},
+
 	axios: {
 		proxy: true,
 		credentials: true,
@@ -79,34 +75,7 @@ export default {
 		}
 	},
 
-	auth: {
-		strategies: {
-			'laravelSanctum': {
-				provider: 'laravel/sanctum',
-				url: 'https://dashboard.eloboost.app',
-				endpoints: {
-					// (optional) If set, we send a get request to this endpoint before login
-					csrf: {
-						url: '/sanctum/csrf-cookie'
-					},
-					login: {
-						url: '/login',
-						method: 'post'
-					},
-					logout: {
-						url: '/logout',
-						method: 'post'
-					},
-					user: {
-						url: '/api/user',
-						method: 'get',
-						propertyName: false
-					}
-				},
-			},
-		},
-		redirect: false
-	},
+	auth: auth,
 
 	stripe: {
 		publishableKey: process.env.STRIPE_KEY,
@@ -134,33 +103,5 @@ export default {
 	},
 
 	// Build Configuration (https://nuxtjs.org/docs/2.x/configuration-glossary/configuration-build)
-	build: {
-		transpile: [/vuetify/],
-		extractCSS: {
-			ignoreOrder: true
-		},
-		cssSourceMap: true,
-		plugins: [
-			// Expose lodash globally
-			new webpack.ProvidePlugin({
-				// global modules
-				_: "lodash"
-			})
-		],
-
-		/*
-		 ** You can extend webpack config here
-		 */
-		extend(config, ctx) {
-			if (ctx.isClient && ctx.isDev) {
-				config.devtool = 'source-map'
-			}
-		},
-
-		loaders: {
-			vue: {
-				prettify: false
-			}
-		}
-	}
+	build: build,
 }
