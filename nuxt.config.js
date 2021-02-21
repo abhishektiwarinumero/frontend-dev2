@@ -96,7 +96,6 @@ export default {
 		strategies: {
 			'laravelSanctum': {
 				provider: 'laravel/sanctum',
-				url: process.env.HOST_URL,
 				endpoints: {
 					// (optional) If set, we send a get request to this endpoint before login
 					csrf: {
