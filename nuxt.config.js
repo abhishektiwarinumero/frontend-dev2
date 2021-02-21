@@ -94,22 +94,24 @@ export default {
 
 	auth: {
 		strategies: {
-			local: {
+			'laravelSanctum': {
+				provider: 'laravel/sanctum',
+				url: 'https://dashboard.eloboost.app',
 				endpoints: {
 					// (optional) If set, we send a get request to this endpoint before login
 					csrf: {
-						url: 'https://dashboard.eloboost.app/sanctum/csrf-cookie'
+						url: '/sanctum/csrf-cookie'
 					},
 					login: {
-						url: 'https://dashboard.eloboost.app/login',
+						url: '/login',
 						method: 'post'
 					},
 					logout: {
-						url: 'https://dashboard.eloboost.app/logout',
+						url: '/logout',
 						method: 'post'
 					},
 					user: {
-						url: 'https://dashboard.eloboost.app/api/user',
+						url: '/api/user',
 						method: 'get',
 						propertyName: false
 					}
