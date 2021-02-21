@@ -1,6 +1,6 @@
 import seo from "./config/seo";
 import auth from "./config/auth";
-import build from "./config/plugins";
+import build from "./config/build";
 import plugins from "./config/plugins";
 
 export default {
