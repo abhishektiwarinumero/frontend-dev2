@@ -14,10 +14,10 @@ export default [{
 		mode: 'client'
 	},
 	{
-		src: '~/plugins/globals.js',
+		src: '~/plugins/globalss',
 	},
 	{
-		src: '~/plugins/vuex-persist',
+		src: '~/plugins/vuex',
 		ssr: false
 	}
 ]
