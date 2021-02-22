@@ -62,6 +62,7 @@ export default {
 			},
 			set(value) {
 				this.$store.commit("slider/changeAmount", value);
+				this.$emit("amountChange");
 			},
 		},
 	},
