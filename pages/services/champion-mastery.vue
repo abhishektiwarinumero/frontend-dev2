@@ -168,5 +168,8 @@ export default {
 		this.changePrice();
 		this.$root.$on("sendOrder", (token) => this.sendOrder(token));
 	},
+	beforeDestroy() {
+		this.$root.$off("sendOrder");
+	},
 };
 </script>

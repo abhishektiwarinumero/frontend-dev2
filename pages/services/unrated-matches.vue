@@ -52,7 +52,6 @@ export default {
 					token,
 				})
 				.then((response) => {
-					console.log("passed");
 					this.$notify(response.data.message, "success");
 					this.$alert({
 						title: "Order Confirmed!",
@@ -60,7 +59,7 @@ export default {
 						icon: "success",
 						button: "Take me to my order",
 					}).then(() => {
-						// window.location = `${process.env.HOST_URL}/resources/orders/${response.data.order_id}`;
+						window.location = `${process.env.HOST_URL}/resources/orders/${response.data.order_id}`;
 					});
 					// Actually just close the dialog, semantics ¯\_(ツ)_/¯
 					this.cancel();
@@ -83,6 +82,7 @@ export default {
 	beforeDestroy() {
 		// So price doesn't get multiplied, because there might be no wins in other services
 		this.$store.commit("slider/changeAmount", 1);
+		this.$root.$off("sendOrder");
 	},
 };
 </script>

@@ -87,6 +87,7 @@ export default {
 	},
 	beforeDestroy() {
 		this.$store.commit("slider/changeAmount", 1);
+		this.$root.$off("sendOrder");
 	},
 };
 </script>
