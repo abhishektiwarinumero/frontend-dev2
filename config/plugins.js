@@ -14,7 +14,7 @@ export default [{
 		mode: 'client'
 	},
 	{
-		src: '~/plugins/globalss',
+		src: '~/plugins/globals',
 	},
 	{
 		src: '~/plugins/vuex',
