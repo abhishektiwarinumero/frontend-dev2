@@ -15,9 +15,5 @@ export default [{
 	},
 	{
 		src: '~/plugins/globals',
-	},
-	{
-		src: '~/plugins/vuex',
-		ssr: false
 	}
 ]
