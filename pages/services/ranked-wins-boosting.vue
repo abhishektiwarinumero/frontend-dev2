@@ -73,7 +73,11 @@ export default {
 					this.cancel();
 				})
 				.catch((errors) => {
-					this.$notify(errors.response.data.error, "error");
+					this.$notify(
+						errors.response.data.message,
+						"error",
+						errors.response.data.errors
+					);
 				});
 		},
 	},

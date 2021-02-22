@@ -42,6 +42,7 @@ export default {
 				.post("orders", {
 					purchase,
 					service: "Valorant Unrated Matches",
+					server: "EU-West",
 					options: this.$store.state.checkout.options,
 					price: this.$store.getters["price/price"],
 					discountCode: this.$store.state.checkout.discountCode,
@@ -51,7 +52,7 @@ export default {
 					token,
 				})
 				.then((response) => {
-					console.log(response);
+					console.log("passed");
 					this.$notify(response.data.message, "success");
 					this.$alert({
 						title: "Order Confirmed!",
@@ -65,8 +66,11 @@ export default {
 					this.cancel();
 				})
 				.catch((errors) => {
-					console.log(errors.response);
-					this.$notify(errors.response.data.error, "error");
+					this.$notify(
+						errors.response.data.message,
+						"error",
+						errors.response.data.errors
+					);
 				});
 		},
 	},

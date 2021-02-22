@@ -65,14 +65,18 @@ export default {
 						text: response.data.message,
 						icon: "success",
 						button: "Take me to my order",
-					}).then((value) => {
+					}).then(() => {
 						window.location = `${process.env.HOST_URL}/resources/orders/${response.data.order_id}`;
 					});
 					// Actually just close the dialog, semantics ¯\_(ツ)_/¯
 					this.cancel();
 				})
 				.catch((errors) => {
-					this.$notify(errors.response.data.error, "error");
+					this.$notify(
+						errors.response.data.message,
+						"error",
+						errors.response.data.errors
+					);
 				});
 		},
 	},
