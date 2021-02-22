@@ -69,7 +69,7 @@ export default {
 					});
 			} catch ({ response }) {
 				// TODO: send error to sentry
-				this.$sentry.captureException(error);
+				this.$sentry.captureException(response);
 				this.$notify(
 					"Could not contact server",
 					"error",
@@ -91,7 +91,7 @@ export default {
 				// Send the email via axios to request password reset
 				this.$axios
 					.post("/password/email", { email: this.email })
-					.then((response) => {
+					.then(() => {
 						this.$notify(
 							"We have sent you an email to reset your password",
 							"success"

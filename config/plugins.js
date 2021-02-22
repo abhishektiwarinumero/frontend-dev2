@@ -15,5 +15,9 @@ export default [{
 	},
 	{
 		src: '~/plugins/globals.js',
+	},
+	{
+		src: '~/plugins/vuex-persist',
+		ssr: false
 	}
 ]
