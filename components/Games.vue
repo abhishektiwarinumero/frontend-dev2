@@ -72,7 +72,7 @@ section {
 
 .container {
 	position: relative;
-	z-index: 3;
+	z-index: 0;
 }
 
 .section-title {

@@ -59,6 +59,7 @@ export default {
 				this.$axios
 					.post("api/apply", data)
 					.then((response) => {
+						console.log(response);
 						this.$notify(response.data.message, "success");
 						this.reset();
 					})
