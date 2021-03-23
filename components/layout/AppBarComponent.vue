@@ -19,10 +19,9 @@
             </template>
             <ul class="top-box">
                 <li><nuxt-link to="/privacy"> Privicy Policy </nuxt-link></li>
-                <li><nuxt-link to="/terms-of-use"> Terms </nuxt-link></li>
+                <li><nuxt-link to="/terms-of-use"> Terms & Condition </nuxt-link></li>
 					      <li><nuxt-link to="/apply"> Jobs </nuxt-link></li>
                     <li><nuxt-link to="/contact"> Contact </nuxt-link></li>
-                    <!-- <li>{{$auth.user.name}}<li> -->
                   </ul>
 
              
@@ -64,8 +63,7 @@
             x-large
             class="mr-0"
             style="height: 100%"
-            >Members Area</v-btn
-          >
+            >Members Area</v-btn >
         </template>
         <v-card class="px-5" color="#303030">
           <v-container>
@@ -113,7 +111,7 @@ export default {
     },
     loggedIn() {
       return this.$auth.loggedIn;
-      console.log($auth.loggedIn);
+     
     },
   },
   mounted() {
@@ -124,12 +122,12 @@ export default {
       this.register = false;
     });
     if(this.isloginuser){
-      this.isloginuser = JSON.parse(localStorage.getItem("checklogin")) ;
-     console.log(this.isloginuser);
+    this.isloginuser = JSON.parse(localStorage.getItem("checklogin")) ;
+    
     }
     else{
    localStorage.removeItem("checklogin");
-     console.log(this.isloginuser);
+   console.log(this.isloginuser);
     }
    
    
@@ -178,11 +176,11 @@ li {
 }
 .profile-btn{
   margin-top: 20px !important;
-  margin-right: 50px !important;
-   width: 145px !important;
-    height: 50px !important;
-    background-color: #ff9f1a !important;
-    border-radius: 30%;
+    margin-right: 50px !important;
+    width: 150px !important;
+    height: 40px !important;
+    background-color: #FF9155 !important;
+    border-radius: 90px;
 
 }
 

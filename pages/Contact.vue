@@ -48,6 +48,7 @@
 						<v-select v-model="category" name="Category" label="Category" :rules="[(v) => !!v || 'Category is required']" :items="categories"></v-select>
 						<v-text-field name="name" label="Name" :rules="nameRules"></v-text-field>
 						<v-text-field name="email" label="E-mail address" :rules="[(v) => /.+@.+\..+/.test(v) || 'E-mail must be valid']"></v-text-field>
+						<v-text-field name="subject" label="Subject" :rules="subjectRules"></v-text-field>
 						<v-textarea outlined name="message" placeholder="Your Message"></v-textarea>
 						<v-btn :disabled="!valid" color="primary" class="mr-4" @click="submit">Send Message</v-btn>
 					</v-form>
@@ -73,6 +74,10 @@ export default {
 			(v) =>
 				(v && v.length <= 10) || "Name must be less than 10 characters",
 		],
+		subjectRules: [
+			(v) =>
+				(v && v.length >= 5) || "Subject  must be greater than 5 characters.",
+		],
 	}),
 	watch: {
 		category(value) {
@@ -90,8 +95,10 @@ export default {
 				for (let [key, val] of formData.entries()) {
 					Object.assign(data, { [key]: val });
 				}
+				//console.log(data);
+				 // this.$axios.post('http://localhost:8000/api/contact', data)
 				this.$axios
-					.post("api/contact", data)
+				 	.post("api/contact", data)
 					.then((response) => {
 						this.$notify(response.data.message, "success");
 						this.$refs.form.reset();

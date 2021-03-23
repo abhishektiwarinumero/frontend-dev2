@@ -55,9 +55,7 @@ export default {
 						
 						this.$notify("Logged In", "success");
 						if (this.redirect) {
-							
-							
-						localStorage.setItem("checklogin", JSON.stringify("userloginsuccessfully"));
+						 localStorage.setItem("checklogin", JSON.stringify("userloginsuccessfully"));
 						
 							setTimeout(() => {
 								 window.location = process.env.HOST_URL;
