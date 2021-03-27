@@ -15,7 +15,7 @@
 		"@nuxtjs/sentry": "^4.5.0",
 		"core-js": "^3.8.2",
 		"nuxt": "^2.14.12",
-		"nuxt-stripe-module": "^3.0.1",
+		"nuxt-stripe-module": "^3.1.7",
 		"particles.js": "^2.0.0",
 		"sweetalert": "^2.1.2"
 	},
