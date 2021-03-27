@@ -28,7 +28,12 @@
 							<p class="pl-12 pr-12">{{ rating.description }}</p>
 						</v-card-text>
 						<v-card-actions class="v-card-actions">
-							<v-rating></v-rating>
+							<!-- <v-rating></v-rating> -->
+							<img width="20px" src="../static/img/star.png"/>
+							<img width="20px" src="../static/img/star.png"/>
+							<img width="20px" src="../static/img/star.png"/>
+							<img width="20px" src="../static/img/star.png"/>
+							<img width="20px" src="../static/img/star.png"/>
 							<span class="mr-4">{{ rating.date }}</span>
 						</v-card-actions>
 					</v-card>
@@ -38,7 +43,7 @@
 	</section>
 </template>
 
-<script>
+<script> 
 export default {
 	data: () => ({
 		ratings: [

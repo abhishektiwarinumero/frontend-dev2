@@ -56,9 +56,11 @@ export default {
 				for (let [key, val] of formData.entries()) {
 					Object.assign(data, { [key]: val });
 				}
-				this.$axios
-					.post("api/apply", data)
+				//this.$axios
+					//.post("api/apply", data) 
+					 this.$axios.post('http://localhost:8000/api/apply', data)
 					.then((response) => {
+						console.log(response);
 						this.$notify(response.data.message, "success");
 						this.reset();
 					})

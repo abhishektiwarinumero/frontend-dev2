@@ -20,7 +20,8 @@
 				<v-btn @click="logout">Logout</v-btn>
 			</span>
 		</v-system-bar>
-		<app-bar-component></app-bar-component>
+		 <AppBarComponent></AppBarComponent>
+	    	
 		<v-main>
 			<v-container fluid>
 				<Nuxt v-if="!$slots.default" />
@@ -33,6 +34,7 @@
 
 <script>
 export default {
+
 	name: "Default",
 	data: () => ({
 		socials: [

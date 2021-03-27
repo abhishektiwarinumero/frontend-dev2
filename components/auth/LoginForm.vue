@@ -46,15 +46,19 @@ export default {
 	methods: {
 		async login() {
 			try {
-				await this.$auth
+				 await this.$auth
 					.loginWith("laravelSanctum", {
 						data: this.credentials,
+						
 					})
 					.then(() => {
+						
 						this.$notify("Logged In", "success");
 						if (this.redirect) {
+						 localStorage.setItem("checklogin", JSON.stringify("userloginsuccessfully"));
+						
 							setTimeout(() => {
-								window.location = process.env.HOST_URL;
+								 window.location = process.env.HOST_URL;
 							}, 2000);
 						}
 						this.close();
